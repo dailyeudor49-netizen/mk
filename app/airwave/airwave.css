@@ -1408,6 +1408,15 @@ img {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
     }
+
+    /* Form container meno padding su mobile */
+    #ordina {
+        padding: 3rem 0.75rem !important;
+    }
+
+    #ordina > div > div:last-child {
+        padding: 1.5rem 1rem !important;
+    }
 }
 
 /* Why Choose Slider Container - Mobile Optimization */

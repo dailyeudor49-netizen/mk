@@ -3,6 +3,31 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './airwave.css';
 
+// Hook per animazioni scroll
+function useScrollAnimation() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, isVisible };
+}
+
 export default function LandingPage() {
   // --- Main Product Slider State ---
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -168,6 +193,14 @@ export default function LandingPage() {
     }
   };
 
+  // --- Scroll Animations per sezione "Perché funziona" ---
+  const whyItem1 = useScrollAnimation();
+  const whyItem2 = useScrollAnimation();
+  const whyItem3 = useScrollAnimation();
+
+  // --- Scroll Animations per sezione "Specifiche Tecniche" ---
+  const techSpecsSection = useScrollAnimation();
+
   return (
     <>
 
@@ -191,12 +224,12 @@ export default function LandingPage() {
               <div className="slider-container">
                 <div className="slider-images" id="mainSlider" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
                   {[
+                    "/images/condizionatore/specifiche.webp",
                     "/images/condizionatore/caldo-freddo.webp",
                     "/images/condizionatore/installazione.webp",
                     "/images/condizionatore/riscaldamento.webp",
                     "/images/condizionatore/risparmio.webp",
-                    "/images/condizionatore/silenzioso.webp",
-                    "/images/condizionatore/specifiche.webp"
+                    "/images/condizionatore/silenzioso.webp"
                   ].map((src, index) => (
                     <div className="slider-image" key={index}>
                       <img src={src} alt={`Slide ${index + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -209,12 +242,12 @@ export default function LandingPage() {
             {/* Thumbnails */}
             <div className="thumbnails">
               {[
+                 "/images/condizionatore/specifiche.webp",
                  "/images/condizionatore/caldo-freddo.webp",
                  "/images/condizionatore/installazione.webp",
                  "/images/condizionatore/riscaldamento.webp",
                  "/images/condizionatore/risparmio.webp",
-                 "/images/condizionatore/silenzioso.webp",
-                 "/images/condizionatore/specifiche.webp"
+                 "/images/condizionatore/silenzioso.webp"
               ].map((src, index) => (
                 <div 
                   key={index} 
@@ -354,7 +387,7 @@ export default function LandingPage() {
               <div className="info-box">
                 <span className="icon">⚡</span>
                 <div className="info-box-content">
-                  <p>Solo 0,80€ al giorno</p>
+                  <p>Solo 0,40€ al giorno</p>
                   <span>Uso medio 4-5 ore in modalità Eco</span>
                 </div>
               </div>
@@ -384,14 +417,33 @@ export default function LandingPage() {
             <div className="timeline-line" style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: '3px', background: 'linear-gradient(to bottom, #FFB800, #FF8C00)', transform: 'translateX(-50%)' }}></div>
 
             {/* Item 1 */}
-            <div className="timeline-item timeline-item-left" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '2rem', alignItems: 'center', marginBottom: '3rem', position: 'relative' }}>
-              <div className="timeline-content timeline-content-left" style={{ textAlign: 'right' }}>
+            <div ref={whyItem1.ref} className="timeline-item timeline-item-left" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '2rem', alignItems: 'center', marginBottom: '3rem', position: 'relative' }}>
+              <div className="timeline-content timeline-content-left" style={{
+                textAlign: 'right',
+                opacity: whyItem1.isVisible ? 1 : 0,
+                transform: whyItem1.isVisible ? 'translateX(0)' : 'translateX(-50px)',
+                transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+              }}>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#CC6600', marginBottom: '0.5rem' }}>Tecnologia ThermoPanel</h3>
                 <p style={{ fontSize: '0.9375rem', color: '#995200', lineHeight: 1.6 }}>
                   Niente <strong style={{ color: '#663300' }}>motore esterno</strong>, niente permessi. Ricicla e purifica l'aria eliminando CO2 e impurità.
                 </p>
               </div>
-              <div className="timeline-circle" style={{ borderRadius: '50%', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', boxShadow: '0 4px 16px rgba(255, 140, 0, 0.4)', zIndex: 1, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '120px', height: '120px' }}>
+              <div className="timeline-circle" style={{
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #FFB800, #FF8C00)',
+                boxShadow: '0 4px 16px rgba(255, 140, 0, 0.4)',
+                zIndex: 1,
+                flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '120px',
+                height: '120px',
+                opacity: whyItem1.isVisible ? 1 : 0,
+                transform: whyItem1.isVisible ? 'translateY(0)' : 'translateY(50px)',
+                transition: 'opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s'
+              }}>
                 <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4 12C4 7.58172 7.58172 4 12 4C14.5264 4 16.7792 5.17108 18.2454 7" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M20 12C20 16.4183 16.4183 20 12 20C9.47362 20 7.22075 18.8289 5.75463 17" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -403,14 +455,33 @@ export default function LandingPage() {
             </div>
 
             {/* Item 2 */}
-            <div className="timeline-item timeline-item-right" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '2rem', alignItems: 'center', marginBottom: '3rem', position: 'relative' }}>
+            <div ref={whyItem2.ref} className="timeline-item timeline-item-right" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '2rem', alignItems: 'center', marginBottom: '3rem', position: 'relative' }}>
               <div className="timeline-spacer"></div>
-              <div className="timeline-circle" style={{ borderRadius: '50%', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', boxShadow: '0 4px 16px rgba(255, 140, 0, 0.4)', zIndex: 1, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '120px', height: '120px' }}>
+              <div className="timeline-circle" style={{
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #FFB800, #FF8C00)',
+                boxShadow: '0 4px 16px rgba(255, 140, 0, 0.4)',
+                zIndex: 1,
+                flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '120px',
+                height: '120px',
+                opacity: whyItem2.isVisible ? 1 : 0,
+                transform: whyItem2.isVisible ? 'translateY(0)' : 'translateY(50px)',
+                transition: 'opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s'
+              }}>
                 <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <div className="timeline-content timeline-content-right" style={{ textAlign: 'left' }}>
+              <div className="timeline-content timeline-content-right" style={{
+                textAlign: 'left',
+                opacity: whyItem2.isVisible ? 1 : 0,
+                transform: whyItem2.isVisible ? 'translateX(0)' : 'translateX(50px)',
+                transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+              }}>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#CC6600', marginBottom: '0.5rem' }}>Risparmio Energetico Reale</h3>
                 <p style={{ fontSize: '0.9375rem', color: '#995200', lineHeight: 1.6 }}>
                   <strong style={{ color: '#663300' }}>Termostato intelligente</strong> che regola la temperatura. <strong style={{ color: '#663300' }}>Risparmio fino al 60%</strong> in bolletta.
@@ -419,14 +490,33 @@ export default function LandingPage() {
             </div>
 
             {/* Item 3 */}
-            <div className="timeline-item timeline-item-left timeline-item-last" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '2rem', alignItems: 'center', position: 'relative' }}>
-              <div className="timeline-content timeline-content-left" style={{ textAlign: 'right' }}>
+            <div ref={whyItem3.ref} className="timeline-item timeline-item-left timeline-item-last" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '2rem', alignItems: 'center', position: 'relative' }}>
+              <div className="timeline-content timeline-content-left" style={{
+                textAlign: 'right',
+                opacity: whyItem3.isVisible ? 1 : 0,
+                transform: whyItem3.isVisible ? 'translateX(0)' : 'translateX(-50px)',
+                transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+              }}>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#CC6600', marginBottom: '0.5rem' }}>3 Funzioni in Un Solo Dispositivo</h3>
                 <p style={{ fontSize: '0.9375rem', color: '#995200', lineHeight: 1.6 }}>
                   <strong style={{ color: '#663300' }}>Riscalda</strong> d'inverno, <strong style={{ color: '#663300' }}>raffredda</strong> d'estate e <strong style={{ color: '#663300' }}>deumidifica</strong>. Comfort perfetto tutto l'anno.
                 </p>
               </div>
-              <div className="timeline-circle" style={{ borderRadius: '50%', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', boxShadow: '0 4px 16px rgba(255, 140, 0, 0.4)', zIndex: 1, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '120px', height: '120px' }}>
+              <div className="timeline-circle" style={{
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #FFB800, #FF8C00)',
+                boxShadow: '0 4px 16px rgba(255, 140, 0, 0.4)',
+                zIndex: 1,
+                flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '120px',
+                height: '120px',
+                opacity: whyItem3.isVisible ? 1 : 0,
+                transform: whyItem3.isVisible ? 'translateY(0)' : 'translateY(50px)',
+                transition: 'opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s'
+              }}>
                 <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g transform="rotate(0 12 12)">
                     <path d="M12 5L12 11M12 5L10 7M12 5L14 7" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -624,17 +714,29 @@ export default function LandingPage() {
       </section>
 
       {/* Technical Specs Section */}
-      <section style={{ background: 'white', padding: '4rem 1rem' }}>
+      <section ref={techSpecsSection.ref} style={{ background: 'white', padding: '4rem 1rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textAlign: 'center', marginBottom: '2.5rem', color: '#111827' }}>
-            Specifiche Tecniche <span style={{ color: '#FF8C00' }}>Air Wave Smart™</span>
+            Specifiche Tecniche 
           </h2>
 
           <div className="tech-specs-container">
             {/* Desktop */}
             <div className="tech-specs-desktop" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
                <div className="tech-specs-row-3">
-                    <div style={{ background: '#F5F5F5', border: '2px solid transparent', backgroundClip: 'padding-box', borderRadius: '12px', padding: '1.5rem', textAlign: 'center', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', position: 'relative' }}>
+                    <div style={{
+                      background: '#F5F5F5',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box',
+                      borderRadius: '12px',
+                      padding: '1.5rem',
+                      textAlign: 'center',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                      position: 'relative',
+                      opacity: techSpecsSection.isVisible ? 1 : 0,
+                      transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                      transition: 'opacity 0.6s ease-out, transform 0.6s ease-out'
+                    }}>
                         <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                         <div style={{ marginBottom: '0.5rem', display: 'flex', justifyContent: 'center' }}>
                           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -646,7 +748,19 @@ export default function LandingPage() {
                         <div style={{ fontSize: '1.75rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.25rem' }}>60 m²</div>
                         <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Copertura massima</div>
                     </div>
-                    <div style={{ background: '#F5F5F5', border: '2px solid transparent', backgroundClip: 'padding-box', borderRadius: '12px', padding: '1.5rem', textAlign: 'center', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', position: 'relative' }}>
+                    <div style={{
+                      background: '#F5F5F5',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box',
+                      borderRadius: '12px',
+                      padding: '1.5rem',
+                      textAlign: 'center',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                      position: 'relative',
+                      opacity: techSpecsSection.isVisible ? 1 : 0,
+                      transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                      transition: 'opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s'
+                    }}>
                         <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                         <div style={{ marginBottom: '0.5rem', display: 'flex', justifyContent: 'center' }}>
                           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -656,7 +770,19 @@ export default function LandingPage() {
                         <div style={{ fontSize: '1.75rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.25rem' }}>12.000</div>
                         <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>BTU potenza</div>
                     </div>
-                    <div style={{ background: '#F5F5F5', border: '2px solid transparent', backgroundClip: 'padding-box', borderRadius: '12px', padding: '1.5rem', textAlign: 'center', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', position: 'relative' }}>
+                    <div style={{
+                      background: '#F5F5F5',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box',
+                      borderRadius: '12px',
+                      padding: '1.5rem',
+                      textAlign: 'center',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                      position: 'relative',
+                      opacity: techSpecsSection.isVisible ? 1 : 0,
+                      transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                      transition: 'opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s'
+                    }}>
                         <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                         <div style={{ marginBottom: '0.5rem', display: 'flex', justifyContent: 'center', gap: '4px' }}>
                           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -672,7 +798,18 @@ export default function LandingPage() {
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1rem' }}>
-                    <div style={{ background: '#F5F5F5', border: '2px solid transparent', backgroundClip: 'padding-box', borderRadius: '12px', padding: '1.5rem', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', position: 'relative' }}>
+                    <div style={{
+                      background: '#F5F5F5',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box',
+                      borderRadius: '12px',
+                      padding: '1.5rem',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                      position: 'relative',
+                      opacity: techSpecsSection.isVisible ? 1 : 0,
+                      transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                      transition: 'opacity 0.6s ease-out 0.6s, transform 0.6s ease-out 0.6s'
+                    }}>
                         <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#FFB800" strokeWidth="2">
@@ -684,7 +821,22 @@ export default function LandingPage() {
                             <strong>Fino al 60% di bollette più basse</strong> rispetto agli altri condizionatori e impianti a gas grazie alla tecnologia ThermoPanel e alla classe energetica A+++.
                         </p>
                     </div>
-                    <div style={{ background: '#F5F5F5', border: '2px solid transparent', backgroundClip: 'padding-box', borderRadius: '12px', padding: '1.5rem', textAlign: 'center', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative' }}>
+                    <div style={{
+                      background: '#F5F5F5',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box',
+                      borderRadius: '12px',
+                      padding: '1.5rem',
+                      textAlign: 'center',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      position: 'relative',
+                      opacity: techSpecsSection.isVisible ? 1 : 0,
+                      transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                      transition: 'opacity 0.6s ease-out 0.8s, transform 0.6s ease-out 0.8s'
+                    }}>
                         <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                         <div style={{ marginBottom: '0.5rem', display: 'flex', justifyContent: 'center' }}>
                           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -696,10 +848,21 @@ export default function LandingPage() {
                     </div>
                 </div>
 
-                <div className="tech-cost-box" style={{ background: '#F5F5F5', borderRadius: '12px', padding: '1.5rem', border: '2px solid transparent', backgroundClip: 'padding-box', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', position: 'relative' }}>
+                <div className="tech-cost-box" style={{
+                  background: '#F5F5F5',
+                  borderRadius: '12px',
+                  padding: '1.5rem',
+                  border: '2px solid transparent',
+                  backgroundClip: 'padding-box',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                  position: 'relative',
+                  opacity: techSpecsSection.isVisible ? 1 : 0,
+                  transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: 'opacity 0.6s ease-out 1s, transform 0.6s ease-out 1s'
+                }}>
                     <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
-                        <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF8C00' }}>€0,80 al giorno</div>
+                        <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF8C00' }}>€0,40 al giorno</div>
                         <div style={{ height: '30px', width: '1px', background: '#cccccc' }}></div>
                         <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Con uso medio di 4-5 ore in modalità Eco</div>
                     </div>
@@ -710,7 +873,19 @@ export default function LandingPage() {
             <div className="tech-specs-mobile" style={{ display: 'none', gridTemplateColumns: '1fr', gap: '1rem' }}>
                 {/* Prima riga: 2 box affiancati */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
-                    <div style={{ background: '#F5F5F5', border: '2px solid transparent', backgroundClip: 'padding-box', borderRadius: '12px', padding: '1rem', textAlign: 'center', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', position: 'relative' }}>
+                    <div style={{
+                      background: '#F5F5F5',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box',
+                      borderRadius: '12px',
+                      padding: '1rem',
+                      textAlign: 'center',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                      position: 'relative',
+                      opacity: techSpecsSection.isVisible ? 1 : 0,
+                      transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                      transition: 'opacity 0.6s ease-out, transform 0.6s ease-out'
+                    }}>
                         <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                         <div style={{ marginBottom: '0.25rem', display: 'flex', justifyContent: 'center' }}>
                           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -722,7 +897,19 @@ export default function LandingPage() {
                         <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.125rem' }}>60 m²</div>
                         <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Copertura massima</div>
                     </div>
-                    <div style={{ background: '#F5F5F5', border: '2px solid transparent', backgroundClip: 'padding-box', borderRadius: '12px', padding: '1rem', textAlign: 'center', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', position: 'relative' }}>
+                    <div style={{
+                      background: '#F5F5F5',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box',
+                      borderRadius: '12px',
+                      padding: '1rem',
+                      textAlign: 'center',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                      position: 'relative',
+                      opacity: techSpecsSection.isVisible ? 1 : 0,
+                      transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                      transition: 'opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s'
+                    }}>
                         <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                         <div style={{ marginBottom: '0.25rem', display: 'flex', justifyContent: 'center' }}>
                           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -736,7 +923,19 @@ export default function LandingPage() {
 
                 {/* Seconda riga: 2 box affiancati */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
-                    <div style={{ background: '#F5F5F5', border: '2px solid transparent', backgroundClip: 'padding-box', borderRadius: '12px', padding: '1rem', textAlign: 'center', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', position: 'relative' }}>
+                    <div style={{
+                      background: '#F5F5F5',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box',
+                      borderRadius: '12px',
+                      padding: '1rem',
+                      textAlign: 'center',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                      position: 'relative',
+                      opacity: techSpecsSection.isVisible ? 1 : 0,
+                      transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                      transition: 'opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s'
+                    }}>
                         <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                         <div style={{ marginBottom: '0.25rem', display: 'flex', justifyContent: 'center', gap: '4px' }}>
                           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -749,7 +948,19 @@ export default function LandingPage() {
                         <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.125rem' }}>16-32°C</div>
                         <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Range temperatura</div>
                     </div>
-                    <div style={{ background: '#F5F5F5', border: '2px solid transparent', backgroundClip: 'padding-box', borderRadius: '12px', padding: '1rem', textAlign: 'center', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', position: 'relative' }}>
+                    <div style={{
+                      background: '#F5F5F5',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box',
+                      borderRadius: '12px',
+                      padding: '1rem',
+                      textAlign: 'center',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                      position: 'relative',
+                      opacity: techSpecsSection.isVisible ? 1 : 0,
+                      transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                      transition: 'opacity 0.6s ease-out 0.6s, transform 0.6s ease-out 0.6s'
+                    }}>
                         <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                         <div style={{ marginBottom: '0.25rem', display: 'flex', justifyContent: 'center' }}>
                           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -762,7 +973,18 @@ export default function LandingPage() {
                 </div>
 
                 {/* Terza riga: Box largo risparmio energetico + costo */}
-                <div style={{ background: '#F5F5F5', border: '2px solid transparent', backgroundClip: 'padding-box', borderRadius: '12px', padding: '1.25rem', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)', position: 'relative' }}>
+                <div style={{
+                  background: '#F5F5F5',
+                  border: '2px solid transparent',
+                  backgroundClip: 'padding-box',
+                  borderRadius: '12px',
+                  padding: '1.25rem',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                  position: 'relative',
+                  opacity: techSpecsSection.isVisible ? 1 : 0,
+                  transform: techSpecsSection.isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: 'opacity 0.6s ease-out 0.8s, transform 0.6s ease-out 0.8s'
+                }}>
                     <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#FFB800" strokeWidth="2">
@@ -774,7 +996,7 @@ export default function LandingPage() {
                         <strong>Fino al 60% di bollette più basse</strong> rispetto agli altri condizionatori e impianti a gas grazie alla tecnologia ThermoPanel e alla classe energetica A+++.
                     </p>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid #e5e7eb' }}>
-                        <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#FF8C00' }}>€0,80 al giorno</div>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#FF8C00' }}>€0,40 al giorno</div>
                         <div style={{ height: '20px', width: '1px', background: '#cccccc' }}></div>
                         <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Uso medio 4-5 ore in modalità Eco</div>
                     </div>
@@ -792,7 +1014,7 @@ export default function LandingPage() {
       <section style={{ background: 'white', padding: '4rem 1rem' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textAlign: 'center', marginBottom: '2.5rem', color: '#111827' }}>
-            Cosa Include <span style={{ color: '#FF8C00' }}>Air Wave Smart™</span>
+            Cosa Include <span style={{ color: '#FF8C00' }}>la nostra Offerta</span>
           </h2>
 
           <div style={{ background: 'linear-gradient(135deg, #FFF4E6, #FFE8CC)', borderRadius: '16px', padding: '2rem', border: '1px solid #FFDAA3' }}>
@@ -933,8 +1155,8 @@ export default function LandingPage() {
               <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', alignItems: 'center' }}>
                 <img src="/images/condizionatore/specifiche.webp" alt="Prod" style={{ width: '80px', height: '80px', borderRadius: '12px', objectFit: 'cover' }} />
                 <div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 700 }}>Air Wave Smart™ Kit</div>
-                  <div style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Include Telecomando + App</div>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 700 }}>Air Wave Smart™ + Kit</div>
+                  <div style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Include App per Smartphone</div>
                 </div>
               </div>
               <ul style={{ color: '#cbd5e1', listStyle: 'none', padding: 0, margin: 0 }}>

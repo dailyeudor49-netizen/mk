@@ -40,12 +40,14 @@ export default function ThankYouPage() {
       // Track conversion
       script.onload = () => {
         if (window.gtag) {
+          const transactionId = sessionStorage.getItem('orderCode') || Math.floor(100000 + Math.random() * 900000).toString();
           window.gtag('event', 'conversion', {
             'send_to': 'AW-17746789099/Qc-RCO-plcQbEOuFqo5C',
             'value': 69.99,
-            'currency': 'EUR'
+            'currency': 'EUR',
+            'transaction_id': transactionId
           });
-          console.log('✅ Google Ads conversion tracked');
+          console.log('✅ Google Ads conversion tracked, transaction_id:', transactionId);
         }
       };
     }

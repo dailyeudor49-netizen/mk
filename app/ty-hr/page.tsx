@@ -23,13 +23,9 @@ export default function ThankYouPage() {
     }
 
     // Google Ads Conversion Tracking
-    if (typeof window !== 'undefined') {
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () {
-        window.dataLayer!.push(arguments);
-      };
-      window.gtag('js', new Date());
-      window.gtag('config', 'AW-17746789099');
+    const alreadyTracked = sessionStorage.getItem('conversionTracked');
+    if (typeof window !== 'undefined' && !alreadyTracked) {
+      const transactionId = sessionStorage.getItem('orderCode') || newCode;
 
       // Load gtag script
       const script = document.createElement('script');
@@ -37,18 +33,19 @@ export default function ThankYouPage() {
       script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17746789099';
       document.head.appendChild(script);
 
-      // Track conversion
       script.onload = () => {
-        if (window.gtag) {
-          const transactionId = sessionStorage.getItem('orderCode') || Math.floor(100000 + Math.random() * 900000).toString();
-          window.gtag('event', 'conversion', {
-            'send_to': 'AW-17746789099/Qc-RCO-plcQbEOuFqo5C',
-            'value': 69.99,
-            'currency': 'EUR',
-            'transaction_id': transactionId
-          });
-          console.log('✅ Google Ads conversion tracked, transaction_id:', transactionId);
-        }
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer!.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-17746789099');
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17746789099/Qc-RCO-plcQbEOuFqo5C',
+          'value': 69.99,
+          'currency': 'EUR',
+          'transaction_id': transactionId
+        });
+        sessionStorage.setItem('conversionTracked', 'true');
+        console.log('✅ Google Ads conversion tracked, transaction_id:', transactionId);
       };
     }
   }, []);

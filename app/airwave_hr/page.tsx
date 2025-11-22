@@ -29,6 +29,18 @@ function useScrollAnimation() {
 }
 
 export default function LandingPage() {
+  // Force light mode for this page
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty('--background', '#ffffff');
+    root.style.setProperty('--foreground', '#171717');
+
+    return () => {
+      root.style.removeProperty('--background');
+      root.style.removeProperty('--foreground');
+    };
+  }, []);
+
   // --- Main Product Slider State ---
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 6;

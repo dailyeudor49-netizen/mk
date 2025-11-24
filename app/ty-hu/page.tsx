@@ -40,7 +40,7 @@ export default function ThankYouPage() {
         window.gtag('config', 'AW-17746711524');
         window.gtag('event', 'conversion', {
           'send_to': 'AW-17746711524/0Dz1CM30ksQbEOSnpY5C',
-          'value': 27999,
+          'value': 1.0,
           'currency': 'HUF',
           'transaction_id': transactionId
         });

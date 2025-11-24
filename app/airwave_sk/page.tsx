@@ -220,8 +220,8 @@ export default function LandingPage() {
       const params = new URLSearchParams();
       params.append('uid', '01981ccf-4474-7c39-97eb-9407221996c2');
       params.append('key', '26335c124acad98417ad58');
-      params.append('offer', '69');
-      params.append('lp', '69');
+      params.append('offer', '67');
+      params.append('lp', '67');
       params.append('name', orderData.name.trim());
       params.append('tel', orderData.phone.trim());
       params.append('street-address', orderData.address.trim());
@@ -234,7 +234,7 @@ export default function LandingPage() {
 
       // UTM params
       const urlParams = new URLSearchParams(window.location.search);
-      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'subid', 'subid2', 'subid3', 'subid4', 'pubid'].forEach(param => {
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'subid', 'subid2', 'subid3', 'subid4', 'subid5', 'pubid'].forEach(param => {
         const value = urlParams.get(param);
         if (value) params.append(param, value);
       });
@@ -246,13 +246,13 @@ export default function LandingPage() {
       });
 
       if (response.ok) {
-        window.location.href = '/ty-hu';
+        window.location.href = '/ty-sk';
       } else {
-        alert('Hiba a rendelés küldésekor. Kérjük, próbálja újra.');
+        alert('Chyba pri odoslaní objednávky. Skúste to prosím znova.');
         setIsSubmitting(false);
       }
     } catch {
-      alert('Hiba a rendelés küldésekor. Kérjük, próbálja újra.');
+      alert('Chyba pri odoslaní objednávky. Skúste to prosím znova.');
       setIsSubmitting(false);
     }
   };
@@ -276,7 +276,7 @@ export default function LandingPage() {
   return (
     <>
       {/* Click Pixel */}
-      <img src="https://offers.supertrendaffiliateprogram.com/forms/api/ck/?o=69&uid=01981ccf-4474-7c39-97eb-9407221996c2&lp=69" style={{width:'1px',height:'1px',display:'none'}} alt="" />
+      <img src="https://offers.supertrendaffiliateprogram.com/forms/api/ck/?o=67&uid=01981ccf-4474-7c39-97eb-9407221996c2&lp=67" style={{width:'1px',height:'1px',display:'none'}} alt="" />
 
       {/* Product Section */}
       <section className="product-section" id="productSection" ref={productSectionRef}>
@@ -355,8 +355,8 @@ export default function LandingPage() {
 
             {/* Header */}
             <div className="product-header">
-              <h1 className="product-title">3 az 1-ben klímaberendezés Air Wave Smart™ - Fűt, Hűt és Párátlanít</h1>
-              <p className="product-subtitle">Fűt, Hűt és Párátlanít • ThermoPanel technológia CO2 eltávolítással • Külső egység nélkül • 12.000 BTU • Ultra csendes</p>
+              <h1 className="product-title">Klimatizačná jednotka 3 v 1 Air Wave Smart™ - Kúri, Chladí a Odvlhčuje</h1>
+              <p className="product-subtitle">Kúri, Chladí a Odvlhčuje • ThermoPanel technológia s elimináciou CO2 • Bez vonkajšej jednotky • 12.000 BTU • Ultra tiché</p>
             </div>
 
             {/* Rating */}
@@ -369,14 +369,14 @@ export default function LandingPage() {
               <div className="stars">
                 <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
               </div>
-              <span className="rating-text">4.8 (247 értékelés)</span>
+              <span className="rating-text">4.8 (247 recenzií)</span>
             </div>
 
             {/* Price */}
             <div className="product-price">
               <div className="price-row">
-                <span className="price-current">27.999 Ft</span>
-                <span className="price-original">69.997 Ft</span>
+                <span className="price-current">69,99 €</span>
+                <span className="price-original">174,99 €</span>
                 <span className="price-save">-60%</span>
               </div>
             </div>
@@ -385,10 +385,10 @@ export default function LandingPage() {
             <div className="product-cta">
               <button className="btn-add-to-cart btn-add-to-cart-mobile" onClick={scrollToForm}>
                 <span style={{ display: 'block', fontWeight: 700 }} className="btn-text-main">
-                  Rendelj Most
+                  Objednať teraz
                 </span>
                 <span style={{ display: 'block', fontWeight: 400 }} className="btn-text-sub">
-                  Utánvéttel - Ingyenes szállítás
+                  Platba na dobierku - Doprava zadarmo
                 </span>
               </button>
               <hr style={{ border: 'none', borderTop: '1px solid #e5e7eb', margin: '1.5rem 0' }} />
@@ -396,23 +396,23 @@ export default function LandingPage() {
 
             {/* Description */}
             <div className="product-description">
-              <h3>Fő jellemzők</h3>
+              <h3>Hlavné charakteristiky</h3>
               <ul>
-                <li><span className="icon">✓</span><span><strong>12.000 BTU teljesítmény</strong> – Fűt, hűt és párátlanít akár 60 m²-es helyiségeket</span></li>
-                <li><span className="icon">✓</span><span><strong>3 funkció 1-ben</strong> – Fűtés télen, hűtés nyáron és párátlanítás</span></li>
-                <li><span className="icon">✓</span><span><strong>Precíz hőmérséklet-szabályozás 16-32°C</strong> – Digitális termosztát a maximális komfortért</span></li>
-                <li><span className="icon">✓</span><span><strong>A+++ energiaosztály</strong> – 60%-ot takarít meg a hagyományos rendszerekhez képest</span></li>
-                <li><span className="icon">✓</span><span><strong>ThermoPanel technológia külső egység nélkül</strong> – Újrahasznosítja a belső levegőt, eltávolítja a CO2-t, külső motor nélkül</span></li>
-                <li><span className="icon">✓</span><span><strong>Okostelefon vezérlés</strong> – iOS és Android alkalmazás, kapcsolja be a fűtést bárhonnan</span></li>
-                <li><span className="icon">✓</span><span><strong>Páratartalom szabályozás</strong> – Csökkenti az ízületi gyulladást és a penészedést, egészséges környezet</span></li>
-                <li><span className="icon">✓</span><span><strong>Egyszerű telepítés</strong> – Falra vagy padlóra szerelhető, szakember nem szükséges</span></li>
-                <li><span className="icon">✓</span><span><strong>Ultra csendes működés</strong> – Tökéletes a hálószobába is</span></li>
+                <li><span className="icon">✓</span><span><strong>12.000 BTU výkon</strong> – Kúri, chladí a odvlhčuje miestnosti do 60 m²</span></li>
+                <li><span className="icon">✓</span><span><strong>3 funkcie v 1</strong> – Kúrenie v zime, chladenie v lete a odvlhčovanie</span></li>
+                <li><span className="icon">✓</span><span><strong>Presná kontrola teploty 16-32°C</strong> – Digitálny termostat pre maximálne pohodlie</span></li>
+                <li><span className="icon">✓</span><span><strong>Energetická trieda A+++</strong> – Ušetríte 60% na účte v porovnaní s tradičnými systémami</span></li>
+                <li><span className="icon">✓</span><span><strong>ThermoPanel technológia bez vonkajšej jednotky</strong> – Recykluje vnútorný vzduch eliminujúci CO2, bez vonkajšieho motora</span></li>
+                <li><span className="icon">✓</span><span><strong>Ovládanie cez smartphone</strong> – Aplikácia pre iOS a Android, zapnite kúrenie kdekoľvek</span></li>
+                <li><span className="icon">✓</span><span><strong>Kontrola vlhkosti</strong> – Znižuje artritídu a plesne, zdravé prostredie</span></li>
+                <li><span className="icon">✓</span><span><strong>Jednoduchá inštalácia</strong> – Montáž na stenu alebo podlahu, nie je potrebný technik</span></li>
+                <li><span className="icon">✓</span><span><strong>Ultra tichá prevádzka</strong> – Perfektné aj do spálne</span></li>
               </ul>
             </div>
 
             {/* Trust Section */}
             <div className="trust-section">
-              <h3 className="trust-title">Garanciák és szolgáltatások</h3>
+              <h3 className="trust-title">Záruky a služby</h3>
               <div className="trust-items">
                 <div className="trust-item">
                   <div className="trust-icon">
@@ -421,8 +421,8 @@ export default function LandingPage() {
                     </svg>
                   </div>
                   <div className="trust-content">
-                    <h4>INGYENES szállítás 48 órán belül</h4>
-                    <p>Gyors kézbesítés expressz futárszolgálattal és nyomon követéssel. Szállítási költség nélkül.</p>
+                    <h4>ZADARMO doprava do 48 hodín</h4>
+                    <p>Rýchla doprava expresnou kuriérskou službou so sledovaním. Bez nákladov na dopravu.</p>
                   </div>
                 </div>
                 <div className="trust-item">
@@ -432,8 +432,8 @@ export default function LandingPage() {
                     </svg>
                   </div>
                   <div className="trust-content">
-                    <h4>Utánvétes fizetés</h4>
-                    <p>Nincs előzetes fizetés. Csak akkor fizet, amikor átveszi a terméket közvetlenül a futártól</p>
+                    <h4>Platba na dobierku</h4>
+                    <p>Bez platby vopred. Platíte až pri prevzatí produktu priamo kuriérovi</p>
                   </div>
                 </div>
                 <div className="trust-item">
@@ -443,8 +443,8 @@ export default function LandingPage() {
                     </svg>
                   </div>
                   <div className="trust-content">
-                    <h4>Ingyenes visszaküldés 30 napon belül</h4>
-                    <p>Nem elégedett? 30 napon belül visszaküldheti a terméket teljes visszatérítésért</p>
+                    <h4>Bezplatný návrat do 30 dní</h4>
+                    <p>Nie ste spokojní? Môžete vrátiť produkt do 30 dní pre plný návrat peňazí</p>
                   </div>
                 </div>
                 <div className="trust-item">
@@ -454,8 +454,8 @@ export default function LandingPage() {
                     </svg>
                   </div>
                   <div className="trust-content">
-                    <h4>2 év garancia</h4>
-                    <p>Teljes körű védelem a gyári hibákra 24 hónapig</p>
+                    <h4>Záruka 2 roky</h4>
+                    <p>Úplné krytie výrobných chýb na 24 mesiacov</p>
                   </div>
                 </div>
               </div>
@@ -466,15 +466,15 @@ export default function LandingPage() {
               <div className="info-box">
                 <span className="icon">⚡</span>
                 <div className="info-box-content">
-                  <p>már 130 Ft/nap-tól</p>
-                  <span>Átlagos használat 4-5 óra Eco módban</span>
+                  <p>Len 0,40€ denne</p>
+                  <span>Priemerné použitie 4-5 hodín v Eco režime</span>
                 </div>
               </div>
               <div className="info-box green">
                 <span className="icon">🏠</span>
                 <div className="info-box-content">
-                  <p>Nem szükséges engedély</p>
-                  <span>Telepítés épületi korlátozások nélkül</span>
+                  <p>Nie je potrebné povolenie</p>
+                  <span>Inštalácia bez obmedzení budovy</span>
                 </div>
               </div>
             </div>
@@ -486,10 +486,10 @@ export default function LandingPage() {
       <section id="whyItWorks" style={{ background: 'white', padding: '4rem 1rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textAlign: 'center', marginBottom: '0.375rem', color: '#111827' }}>
-            Miért működik az <span style={{ color: '#FFB800' }}>Air Wave Smart™</span>
+            Prečo <span style={{ color: '#FFB800' }}>Air Wave Smart™</span> funguje
           </h2>
           <p style={{ textAlign: 'center', color: '#6b7280', maxWidth: '600px', margin: '0 auto 1.5rem', fontSize: '0.8125rem', lineHeight: 1.4 }}>
-            Technológia, amely pénzt takarít meg, tökéletes kényelemmel egész évben
+            Technológia, ktorá vám šetrí peniaze s dokonalým pohodlím po celý rok
           </p>
 
           <div className="timeline-container" style={{ position: 'relative', maxWidth: '800px', margin: '0 auto', padding: '2rem 0' }}>
@@ -505,7 +505,7 @@ export default function LandingPage() {
               }}>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#CC6600', marginBottom: '0.5rem' }}>ThermoPanel technológia</h3>
                 <p style={{ fontSize: '0.9375rem', color: '#995200', lineHeight: 1.6 }}>
-                  <strong style={{ color: '#663300' }}>Külső motor nélkül</strong>, engedélyek nélkül. Újrahasznosítja és megtisztítja a levegőt, eltávolítva a CO2-t és a szennyeződéseket.
+                  Bez <strong style={{ color: '#663300' }}>vonkajšieho motora</strong>, bez povolení. Recykluje a čistí vzduch eliminujúci CO2 a nečistoty.
                 </p>
               </div>
               <div className="timeline-circle" style={{
@@ -561,9 +561,9 @@ export default function LandingPage() {
                 transform: whyItem2.isVisible ? 'translateX(0)' : 'translateX(50px)',
                 transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
               }}>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#CC6600', marginBottom: '0.5rem' }}>Valódi energiamegtakarítás</h3>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#CC6600', marginBottom: '0.5rem' }}>Skutočná úspora energie</h3>
                 <p style={{ fontSize: '0.9375rem', color: '#995200', lineHeight: 1.6 }}>
-                  <strong style={{ color: '#663300' }}>Okos termosztát</strong>, amely szabályozza a hőmérsékletet. <strong style={{ color: '#663300' }}>Akár 60% megtakarítás</strong> a számlán.
+                  <strong style={{ color: '#663300' }}>Inteligentný termostat</strong> ktorý reguluje teplotu. <strong style={{ color: '#663300' }}>Úspora až 60%</strong> na účte.
                 </p>
               </div>
             </div>
@@ -576,9 +576,9 @@ export default function LandingPage() {
                 transform: whyItem3.isVisible ? 'translateX(0)' : 'translateX(-50px)',
                 transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
               }}>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#CC6600', marginBottom: '0.5rem' }}>3 funkció egy készülékben</h3>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#CC6600', marginBottom: '0.5rem' }}>3 funkcie v jednom zariadení</h3>
                 <p style={{ fontSize: '0.9375rem', color: '#995200', lineHeight: 1.6 }}>
-                  <strong style={{ color: '#663300' }}>Fűt</strong> télen, <strong style={{ color: '#663300' }}>hűt</strong> nyáron és <strong style={{ color: '#663300' }}>párátlanít</strong>. Tökéletes kényelem egész évben.
+                  <strong style={{ color: '#663300' }}>Kúri</strong> v zime, <strong style={{ color: '#663300' }}>chladí</strong> v lete a <strong style={{ color: '#663300' }}>odvlhčuje</strong>. Dokonalé pohodlie po celý rok.
                 </p>
               </div>
               <div className="timeline-circle" style={{
@@ -618,10 +618,10 @@ export default function LandingPage() {
       <section style={{ background: 'white', padding: '4rem 1rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textAlign: 'center', marginBottom: '1rem', color: '#111827' }}>
-            Miért válassza az <span style={{ color: '#FF8C00' }}>Air Wave Smart™</span>-ot
+            Prečo si vybrať <span style={{ color: '#FF8C00' }}>Air Wave Smart™</span>
           </h2>
           <p style={{ textAlign: 'center', color: '#6b7280', maxWidth: '800px', margin: '0 auto 3rem', fontSize: '1rem' }}>
-            Fűtse otthonát hatékonyan, a hagyományos klímaberendezések problémái nélkül
+            Vykúrte svoj dom efektívne bez problémov tradičných klimatizácií
           </p>
 
           {/* Slider Container */}
@@ -645,11 +645,11 @@ export default function LandingPage() {
                 <div className="why-choose-slide">
                     <div className="why-choose-slide-content">
                         <div className="why-choose-slide-text">
-                            <h3>Erőteljes és hatékony fűtés</h3>
-                            <p>ThermoPanel technológia, amely <strong>gyorsan felmelegíti</strong> otthonát külső motor nélkül. <strong>Állandó hőmérséklet</strong>, veszteségek nélkül, <strong>garantált megtakarítás</strong> a számlán.</p>
+                            <h3>Silné a efektívne kúrenie</h3>
+                            <p>ThermoPanel technológia ktorá <strong>rýchlo vykúri</strong> váš dom bez vonkajšieho motora. <strong>Konštantné teplo</strong>, bez strát, <strong>garantovaná úspora</strong> na účte.</p>
                         </div>
                         <div className="why-choose-slide-image">
-                            <img src="/images/condizionatore/riscaldamento.webp" alt="Fűtés" />
+                            <img src="/images/condizionatore/riscaldamento.webp" alt="Grijanje" />
                         </div>
                     </div>
                 </div>
@@ -658,11 +658,11 @@ export default function LandingPage() {
                 <div className="why-choose-slide">
                     <div className="why-choose-slide-content">
                         <div className="why-choose-slide-text">
-                            <h3>Telepítéssel és anélkül</h3>
-                            <p><strong>Egyszerű szerelés</strong> falra vagy padlóra. <strong>Nem szükséges szakember</strong>, <strong>plug and play</strong>. Kezdje el használni néhány perc alatt.</p>
+                            <h3>S inštaláciou aj bez nej</h3>
+                            <p><strong>Jednoduchá montáž</strong> na stenu alebo podlahu. <strong>Nie je potrebný technik</strong>, <strong>plug and play</strong>. Začnite používať za niekoľko minút.</p>
                         </div>
                         <div className="why-choose-slide-image">
-                            <img src="/images/condizionatore/installazione.webp" alt="Telepítés" />
+                            <img src="/images/condizionatore/installazione.webp" alt="Instalacija" />
                         </div>
                     </div>
                 </div>
@@ -671,11 +671,11 @@ export default function LandingPage() {
                 <div className="why-choose-slide">
                     <div className="why-choose-slide-content">
                         <div className="why-choose-slide-text">
-                            <h3>Hűt nyáron, fűt télen</h3>
-                            <p><strong>3 funkció 1-ben</strong>: erőteljes fűtés télre, hűtés nyárra, párátlanítás egész évben. <strong>Nem szükséges épületi engedély</strong>.</p>
+                            <h3>Chladí v lete, kúri v zime</h3>
+                            <p><strong>3 funkcie v 1</strong>: silné kúrenie pre zimu, chladenie pre leto, odvlhčovanie po celý rok. <strong>Nie je potrebné povolenie</strong> budovy.</p>
                         </div>
                         <div className="why-choose-slide-image">
-                            <img src="/images/condizionatore/caldo-freddo.webp" alt="3 az 1-ben" />
+                            <img src="/images/condizionatore/caldo-freddo.webp" alt="3 u 1" />
                         </div>
                     </div>
                 </div>
@@ -684,11 +684,11 @@ export default function LandingPage() {
                 <div className="why-choose-slide">
                     <div className="why-choose-slide-content">
                         <div className="why-choose-slide-text">
-                            <h3>Akár 60% megtakarítás a számlán</h3>
-                            <p><strong>A+++ hatékonyság</strong> és okos termosztát: csak annyit fogyaszt, amennyire szüksége van. <strong>Nincs pazarlás</strong>, <strong>maximális megtakarítás</strong> a gázrendszerekhez képest.</p>
+                            <h3>Úspora až 60% na účte</h3>
+                            <p><strong>Efektívnosť A+++</strong> a inteligentný termostat: spotrebujete len to, čo potrebujete. <strong>Bez plytvanie</strong>, <strong>maximálna úspora</strong> v porovnaní s plynovými systémami.</p>
                         </div>
                         <div className="why-choose-slide-image">
-                            <img src="/images/condizionatore/risparmio.webp" alt="Megtakarítás" />
+                            <img src="/images/condizionatore/risparmio.webp" alt="Ušteda" />
                         </div>
                     </div>
                 </div>
@@ -697,11 +697,11 @@ export default function LandingPage() {
                 <div className="why-choose-slide">
                     <div className="why-choose-slide-content">
                         <div className="why-choose-slide-text">
-                            <h3>Ultra csendes: aludjon nyugodtan</h3>
-                            <p>Tökéletes a <strong>hálószobába</strong>. <strong>Rendkívül csendes</strong> működés, zajos külső motor nélkül. Élvezze a <strong>maximális kényelmet</strong> zavaró zajok nélkül.</p>
+                            <h3>Ultra tiché: spite pokojne</h3>
+                            <p>Perfektné pre <strong>spálňu</strong>. <strong>Mimoriadne tichá</strong> prevádzka, bez hlučného vonkajšieho motora. Užívajte si <strong>maximálne pohodlie</strong> bez rušenia.</p>
                         </div>
                         <div className="why-choose-slide-image">
-                            <img src="/images/condizionatore/silenzioso.webp" alt="Csendes" />
+                            <img src="/images/condizionatore/silenzioso.webp" alt="Tih" />
                         </div>
                     </div>
                 </div>
@@ -796,7 +796,7 @@ export default function LandingPage() {
       <section ref={techSpecsSection.ref} style={{ background: 'white', padding: '4rem 1rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textAlign: 'center', marginBottom: '2.5rem', color: '#111827' }}>
-            Műszaki specifikációk
+            Technické špecifikácie
           </h2>
 
           <div className="tech-specs-container">
@@ -825,7 +825,7 @@ export default function LandingPage() {
                           </svg>
                         </div>
                         <div style={{ fontSize: '1.75rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.25rem' }}>60 m²</div>
-                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Maximális lefedettség</div>
+                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Maximálne pokrytie</div>
                     </div>
                     <div style={{
                       background: '#F5F5F5',
@@ -847,7 +847,7 @@ export default function LandingPage() {
                           </svg>
                         </div>
                         <div style={{ fontSize: '1.75rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.25rem' }}>12.000</div>
-                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>BTU teljesítmény</div>
+                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>BTU výkon</div>
                     </div>
                     <div style={{
                       background: '#F5F5F5',
@@ -872,7 +872,7 @@ export default function LandingPage() {
                           </svg>
                         </div>
                         <div style={{ fontSize: '1.75rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.25rem' }}>16-32°C</div>
-                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Hőmérséklet-tartomány</div>
+                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Rozsah teploty</div>
                     </div>
                 </div>
 
@@ -894,10 +894,10 @@ export default function LandingPage() {
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#FFB800" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            <h3 style={{ fontSize: '1.125rem', fontWeight: 600, color: '#FF8C00' }}>Energiamegtakarítás</h3>
+                            <h3 style={{ fontSize: '1.125rem', fontWeight: 600, color: '#FF8C00' }}>Úspora energie</h3>
                         </div>
                         <p style={{ color: '#555555', fontSize: '0.9375rem', lineHeight: 1.6 }}>
-                            <strong>Akár 60%-kal alacsonyabb számlák</strong> más klímaberendezésekhez és gázrendszerekhez képest a ThermoPanel technológiának és az A+++ energiaosztálynak köszönhetően.
+                            <strong>Až o 60% nižšie účty</strong> v porovnaní s inými klimatizáciami a plynovými systémami vďaka ThermoPanel technológii a energetickej triede A+++.
                         </p>
                     </div>
                     <div style={{
@@ -923,7 +923,7 @@ export default function LandingPage() {
                           </svg>
                         </div>
                         <div style={{ fontSize: '1.75rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.25rem' }}>A+++</div>
-                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Energiaosztály</div>
+                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Energetická trieda</div>
                     </div>
                 </div>
 
@@ -941,9 +941,9 @@ export default function LandingPage() {
                 }}>
                     <div style={{ position: 'absolute', inset: 0, borderRadius: '12px', padding: '2px', background: 'linear-gradient(135deg, #FFB800, #FF8C00)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', pointerEvents: 'none' }}></div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
-                        <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF8C00' }}>130 Ft/nap-tól</div>
+                        <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF8C00' }}>€0,40 denne</div>
                         <div style={{ height: '30px', width: '1px', background: '#cccccc' }}></div>
-                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Átlagos használat 4-5 óra Eco módban</div>
+                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Priemerné použitie 4-5 hodín v Eco režime</div>
                     </div>
                 </div>
             </div>
@@ -974,7 +974,7 @@ export default function LandingPage() {
                           </svg>
                         </div>
                         <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.125rem' }}>60 m²</div>
-                        <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Maximális lefedettség</div>
+                        <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Maximálne pokrytie</div>
                     </div>
                     <div style={{
                       background: '#F5F5F5',
@@ -996,7 +996,7 @@ export default function LandingPage() {
                           </svg>
                         </div>
                         <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.125rem' }}>12.000</div>
-                        <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>BTU teljesítmény</div>
+                        <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>BTU výkon</div>
                     </div>
                 </div>
 
@@ -1025,7 +1025,7 @@ export default function LandingPage() {
                           </svg>
                         </div>
                         <div style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF8C00', marginBottom: '0.125rem' }}>16-32°C</div>
-                        <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Hőmérséklet-tartomány</div>
+                        <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Rozsah teploty</div>
                     </div>
                     <div style={{
                       background: '#F5F5F5',
@@ -1069,21 +1069,21 @@ export default function LandingPage() {
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#FFB800" strokeWidth="2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#FF8C00', margin: 0 }}>Energiamegtakarítás</h3>
+                        <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#FF8C00', margin: 0 }}>Úspora energie</h3>
                     </div>
                     <p style={{ color: '#555555', fontSize: '0.875rem', lineHeight: 1.6, marginBottom: '0.75rem' }}>
-                        <strong>Akár 60%-kal alacsonyabb számlák</strong> más klímaberendezésekhez és gázrendszerekhez képest a ThermoPanel technológiának és az A+++ energiaosztálynak köszönhetően.
+                        <strong>Až o 60% nižšie účty</strong> v porovnaní s inými klimatizáciami a plynovými systémami vďaka ThermoPanel technológii a energetickej triede A+++.
                     </p>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid #e5e7eb' }}>
-                        <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#FF8C00' }}>130 Ft/nap-tól</div>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#FF8C00' }}>€0,40 denne</div>
                         <div style={{ height: '20px', width: '1px', background: '#cccccc' }}></div>
-                        <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Átlagos használat 4-5 óra Eco módban</div>
+                        <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Priemerné použitie 4-5 hodín v Eco režime</div>
                     </div>
                 </div>
             </div>
 
             <div className="tech-specs-image" style={{ background: 'linear-gradient(135deg, #FFF8F0, #FFE8CC)', border: '2px solid #FFD966', borderRadius: '16px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '400px' }}>
-              <img src="/images/condizionatore/specifiche.webp" alt="Tehničke specifikacije" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              <img src="/images/condizionatore/specifiche.webp" alt="Technické špecifikácie" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
           </div>
         </div>
@@ -1093,20 +1093,20 @@ export default function LandingPage() {
       <section style={{ background: 'white', padding: '4rem 1rem' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textAlign: 'center', marginBottom: '2.5rem', color: '#111827' }}>
-            Mit tartalmaz <span style={{ color: '#FF8C00' }}>ajánlatunk</span>
+            Čo obsahuje <span style={{ color: '#FF8C00' }}>naša ponuka</span>
           </h2>
 
           <div style={{ background: 'linear-gradient(135deg, #FFF4E6, #FFE8CC)', borderRadius: '16px', padding: '2rem', border: '1px solid #FFDAA3' }}>
             <div className="include-grid">
-              <img src="/images/condizionatore/include.webp" alt="Mit tartalmaz" className="include-img" />
+              <img src="/images/condizionatore/include.webp" alt="Čo obsahuje" className="include-img" />
               <div className="include-list">
                  {[
-                    "1× Air Wave Smart™ klímaberendezés 12.000 BTU",
-                    "1× Távirányító elemekkel",
-                    "1× Fali szerelési készlet",
-                    "2× Csere HEPA szűrő (2 éves készlet)",
-                    "Felhasználói kézikönyv + 2 év garancia",
-                    "Ingyenes hozzáférés az alkalmazáshoz (iOS és Android)"
+                    "1× klimatizačná jednotka Air Wave Smart™ 12.000 BTU",
+                    "1× Diaľkové ovládanie s batériami",
+                    "1× Komplet pre montáž na stenu",
+                    "2× Náhradné HEPA filtre (zásoba na 2 roky)",
+                    "Používateľská príručka + Záruka 2 roky",
+                    "Bezplatný prístup k aplikácii (iOS a Android)"
                  ].map((item, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                         <div style={{ color: '#CC7A00', fontSize: '1.25rem' }}>✓</div>
@@ -1119,7 +1119,7 @@ export default function LandingPage() {
 
           <div style={{ marginTop: '2rem', textAlign: 'center' }}>
             <button onClick={scrollToForm} style={{ background: '#16a34a', color: 'white', padding: '1rem 2.5rem', border: 'none', borderRadius: '12px', fontSize: '1.125rem', fontWeight: 600, cursor: 'pointer', textTransform: 'uppercase', letterSpacing: '0.5px', boxShadow: '0 4px 12px rgba(22,163,74,0.3)', transition: 'all 0.3s' }}>
-              Rendelj most - 27.999 Ft
+              Objednať teraz - €69,99
             </button>
           </div>
         </div>
@@ -1129,23 +1129,23 @@ export default function LandingPage() {
       <section id="reviewsSection" style={{ background: 'linear-gradient(to bottom, #ffffff 0%, #FFFCF5 10%, #FFFCF5 90%, #ffffff 100%)', padding: '4rem 1rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textAlign: 'center', marginBottom: '2.5rem', color: '#111827' }}>
-            Ellenőrzött értékelések
+            Overené recenzie
           </h2>
 
           <div style={{ position: 'relative', maxWidth: '900px', margin: '0 auto 2rem' }}>
             <div id="reviewsSlider" style={{ overflow: 'hidden', borderRadius: '12px' }}>
               <div id="reviewsTrack" style={{ display: 'flex', transition: 'transform 0.5s ease', transform: `translateX(-${currentReview * 100}%)` }}>
                 {[
-                    { t: 'Végre valóban megtakarítok', d: 'Körülbelül 2 hónapja használom, és azt kell mondanom, hogy a számla jelentősen csökkent... korábban a régi klímával sokat fogyasztottam, most sokkal kevesebbet. Jól fűt és kiválóan működik', a: 'Márk R.', stars: 5 },
-                    { t: 'Gyorsan megérkezett!', d: 'Hétfőn rendeltem, szerdán megérkezett, a futár is kedves volt. Kiváló termék, egyedül szereltem fel a falra, senkit sem kellett hívnom... jól működik és azonnal felmelegíti a szobát', a: 'István T.', stars: 5 },
-                    { t: 'Tökéletes a hálószobába', d: 'Feltettem a szobába és szinte nem csinál zajt, alig hallani... az előzővel nem tudtam aludni, ez viszont kiváló. Ráadásul keveset fogyaszt', a: 'Petra M.', stars: 5 },
-                    { t: 'Egyelőre jó', d: 'Nagyon elégedett vagyok, gyorsan felmelegít és a ház meleg marad. Nem tudom, hogyan voltam korábban a radiátorokkal, amelyeknek órákig tartott... ez teljesen más. 4 csillagot adok, hogy lássam, hogyan megy', a: 'Anna P.', stars: 4 },
-                    { t: 'Könnyű felszerelni', d: 'A fiammal fél óra alatt felszereltük, csavarokkal és mindennel jön, csak rögzítsd és azonnal működik. Nem kell szakember és ezt a pénzt is megtakarítod. Top', a: 'Róbert S.', stars: 5 },
-                    { t: 'Szuper gyors szállítás', d: '2 nap alatt megérkezett, jól csomagolva. A futár még segített is felvinni, mert a harmadik emeleten lakom lift nélkül! Kiváló termék, remekül fűt és keveset fogyaszt a régihez képest', a: 'Franciska B.', stars: 5 },
-                    { t: 'Kiváló ár-érték arány', d: 'Az árához képest tényleg jó. Fűt és hűt, én főleg télen használom és a hőmérséklet mindig olyan marad, amilyennek szeretném. Nem megyek vissza', a: 'Lukács D.', stars: 5 },
-                    { t: 'A ház mindig meleg', d: 'Vettem a nappaliba, ami körülbelül 50 m² és mindent felmelegít. Még akkor is, ha kint hideg van, 10 perc alatt a ház meleg... sokkal kevesebbet fogyaszt a réginél és a számlán látszik', a: 'Mária G.', stars: 5 },
-                    { t: 'Gyors szállítás és kiváló termék', d: 'Kedden rendeltem, csütörtökön megkaptam, pontos futár. A termék kiváló, fűt és hűt, egész évben használom. Nagyon csendes és egyszerű használni, még nekem is, aki nem vagyok ügyes', a: 'András C.', stars: 5 },
-                    { t: 'Tényleg elégedett vagyok', d: 'Féltem online rendelni, de minden tökéletesen megérkezett néhány nap alatt. Kiválóan működik és nagyon keveset fogyaszt a régi klímámhoz képest... a számla drasztikusan csökkent. Rendkívül elégedett', a: 'Éva K.', stars: 5 }
+                    { t: 'Konečne skutočne šetrím', d: 'Používam ho približne 2 mesiace a musím povedať, že účet výrazne klesol.. predtým som so starou klimatizáciou spotreboval veľa, teraz oveľa menej. Dobre kúri a výborne funguje', a: 'Marko R.', stars: 5 },
+                    { t: 'Prišlo rýchlo!', d: 'Objednané v pondelok a prišlo v stredu, kuriér tiež príjemný. Výborný produkt, namontoval som ho na stenu sám bez volania kohokoľvek.. dobre funguje a hneď vyhreje miestnosť', a: 'Ivan T.', stars: 5 },
+                    { t: 'Perfektné do spálne', d: 'Dal som ho do izby a takmer nerobí hluk, sotva počuť... s tým predchádzajúcim som nemohol spať, a toto je výborné. Tiež málo spotrebuje', a: 'Petra M.', stars: 5 },
+                    { t: 'Zatiaľ je to dobré', d: 'Veľmi spokojná, rýchlo kúri a dom zostáva teplý. Neviem ako som predtým s radiátormi ktorým trvalo hodiny...toto je úplne iná vec. Nechávam 4 hviezdičky aby som videla ako to ide', a: 'Ana P.', stars: 4 },
+                    { t: 'Ľahké na montáž', d: 'Syn a ja sme ho namontovali za pol hodiny, prichádza so skrutkami a všetkým, len ho pripevníte a hneď funguje. Nie je potrebný technik a ušetríte aj tie peniaze. Top', a: 'Robert S.', stars: 5 },
+                    { t: 'Super rýchla doprava', d: 'Prišlo za 2 dni, dobre zabalené. Kuriér mi dokonca pomohol to vyniesť hore lebo bývam na treťom poschodí bez výťahu! Výborný produkt, výborne kúri a spotrebuje málo v porovnaní so starým', a: 'Franka B.', stars: 5 },
+                    { t: 'Výborný pomer ceny a kvality', d: 'Za cenu čo stojí je naozaj dobrý. Kúri a chladí, ja ho používam hlavne v zime a teplota vždy zostáva taká akú chcem. Už sa nevraciam späť', a: 'Luka D.', stars: 5 },
+                    { t: 'Dom vždy teplý', d: 'Vzal som ho do obývacej izby ktorá je veľká okolo 50 m² a vyhreje všetko. Aj keď je vonku zima, za 10 minút je dom teplý.. spotrebuje oveľa menej ako starý a účet je vidieť', a: 'Marija G.', stars: 5 },
+                    { t: 'Rýchla doprava a výborný produkt', d: 'Objednané v utorok a prijaté vo štvrtok, kuriér presný. Produkt je výborný, kúri a chladí, používam ho celý rok. Veľmi tiché a jednoduché na použitie aj pre mňa ktorý nie som zručný', a: 'Ante C.', stars: 5 },
+                    { t: 'Naozaj spokojná', d: 'Bála som sa objednať online ale všetko prišlo perfektne za niekoľko dní. Funguje výborne a spotrebuje veľmi málo v porovnaní s mojou starou klimatizáciou.. účet drasticky klesol. Veľmi spokojná', a: 'Ivana L.', stars: 5 }
                 ].map((review, i) => (
                     <div key={i} className="review-slide" style={{ minWidth: '100%', background: 'linear-gradient(135deg, #FFFEFA, #FFF9F0)', padding: '1.5rem', boxShadow: '0 2px 8px rgba(255, 184, 0, 0.1)', border: '1px solid #FFE5D3', borderRadius: '12px' }}>
                         <div style={{ display: 'flex', gap: '0.25rem', marginBottom: '0.75rem', color: '#fbbf24', fontSize: '1rem' }}>
@@ -1184,13 +1184,13 @@ export default function LandingPage() {
 
           <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
             <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>
-              Az összes értékelést elolvashatja a hivatalos <strong style={{ color: '#FFB800' }}>Feedaty</strong> oldalon.
+              Všetky recenzie môžete prečítať na oficiálnej stránke <strong style={{ color: '#FFB800' }}>Feedaty</strong>.
             </p>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
             <button onClick={() => setIsModalOpen(true)} style={{ background: 'white', color: '#FFB800', padding: '0.875rem 2rem', border: '2px solid #FFB800', borderRadius: '10px', fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.3s' }}>
-              Értékelés írása
+              Zanechajte recenziu
             </button>
           </div>
         </div>
@@ -1205,12 +1205,12 @@ export default function LandingPage() {
                     <div style={{ width: '60px', height: '60px', background: '#fef3c7', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem', fontSize: '2rem' }}>
                         ⚠️
                     </div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>Csak ellenőrzött vásárlások</h3>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>Iba overené nákupy</h3>
                     <p style={{ color: '#6b7280', fontSize: '0.9375rem', lineHeight: 1.6 }}>
-                        A hamis értékelések megelőzése érdekében csak azok a vásárlók írhatnak értékelést, akik megvásárolták ezt a terméket.
+                        Pre zabránenie falošných recenzií môžu zanechať recenziu iba zákazníci, ktorí si tento produkt kúpili.
                     </p>
                     <button onClick={() => setIsModalOpen(false)} style={{ marginTop: '1.5rem', background: '#16a34a', color: 'white', padding: '0.75rem 2rem', border: 'none', borderRadius: '10px', fontSize: '1rem', fontWeight: 600, cursor: 'pointer' }}>
-                        Értem
+                        Rozumiem
                     </button>
                 </div>
             </div>
@@ -1227,33 +1227,33 @@ export default function LandingPage() {
 
           {/* Left: Product Summary */}
           <div>
-            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '1rem' }}>Korlátozott készlet</h2>
-            <p style={{ fontSize: '1rem', color: '#94a3b8', marginBottom: '2rem' }}>Használja ki a Black Friday ajánlatot, mielőtt elfogy</p>
+            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '1rem' }}>Obmedzené zásoby</h2>
+            <p style={{ fontSize: '1rem', color: '#94a3b8', marginBottom: '2rem' }}>Využite Black Friday ponuku skôr ako sa minie</p>
 
             <div style={{ background: 'rgba(255,255,255,0.05)', padding: '2rem', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.1)' }}>
               <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', alignItems: 'center' }}>
                 <img src="/images/condizionatore/specifiche.webp" alt="Prod" style={{ width: '80px', height: '80px', borderRadius: '12px', objectFit: 'cover' }} />
                 <div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 700 }}>Air Wave Smart™ + Készlet</div>
-                  <div style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Okostelefon alkalmazást tartalmaz</div>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 700 }}>Air Wave Smart™ + Komplet</div>
+                  <div style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Zahŕňa aplikáciu pre smartphone</div>
                 </div>
               </div>
               <ul style={{ color: '#cbd5e1', listStyle: 'none', padding: 0, margin: 0 }}>
                 <li style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                  <span>Katalógus ár</span> <span style={{ textDecoration: 'line-through' }}>69.997 Ft</span>
+                  <span>Katalógová cena</span> <span style={{ textDecoration: 'line-through' }}>€174,99</span>
                 </li>
                 <li style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                  <span>Black Friday kedvezmény</span> <span style={{ color: '#FFB800' }}>-41.998 Ft</span>
+                  <span>Black Friday zľava</span> <span style={{ color: '#FFB800' }}>-€105,00</span>
                 </li>
                 <li style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                  <span>Szállítás</span> <span style={{ color: '#4ADE80' }}>INGYENES</span>
+                  <span>Doprava</span> <span style={{ color: '#4ADE80' }}>ZADARMO</span>
                 </li>
                 <li style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 0', fontSize: '1.25rem', fontWeight: 700, color: 'white' }}>
-                  <span>Összesen</span> <span>27.999 Ft</span>
+                  <span>Celkom</span> <span>€69,99</span>
                 </li>
               </ul>
               <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#94a3b8', display: 'flex', gap: '10px', alignItems: 'center' }}>
-                 <span>🛡️ 2 év garancia tartalmazza</span>
+                 <span>🛡️ Záruka 2 roky v cene</span>
               </div>
             </div>
           </div>
@@ -1261,26 +1261,26 @@ export default function LandingPage() {
           {/* Right: Modern Form */}
           <div style={{ background: 'white', borderRadius: '24px', padding: '2.5rem', color: '#1E293B' }}>
             <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Biztonságos rendelés</h3>
-              <p style={{ color: '#64748b', fontSize: '0.9rem' }}>Nincs szükség előzetes fizetésre.</p>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Bezpečná objednávka</h3>
+              <p style={{ color: '#64748b', fontSize: '0.9rem' }}>Nie je potrebná platba vopred.</p>
             </div>
 
             <form onSubmit={handleFormSubmit} style={{ display: 'grid', gap: '1rem' }}>
               <input type="hidden" name="tmfp" />
 
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b', marginBottom: '4px', display: 'block' }}>TELJES NÉV</label>
-                <input required type="text" placeholder="Nagy István" value={orderData.name} onChange={(e) => setOrderData({...orderData, name: e.target.value})} style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', background: '#F8FAFC' }} />
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b', marginBottom: '4px', display: 'block' }}>MENO A PRIEZVISKO</label>
+                <input required type="text" placeholder="Ján Novák" value={orderData.name} onChange={(e) => setOrderData({...orderData, name: e.target.value})} style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', background: '#F8FAFC' }} />
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b', marginBottom: '4px', display: 'block' }}>TELJES CÍM</label>
-                <input required type="text" placeholder="Andrássy út 123, 1061 Budapest" value={orderData.address} onChange={(e) => setOrderData({...orderData, address: e.target.value})} style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', background: '#F8FAFC' }} />
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b', marginBottom: '4px', display: 'block' }}>ÚPLNÁ ADRESA</label>
+                <input required type="text" placeholder="Hlavná 123, 81000 Bratislava" value={orderData.address} onChange={(e) => setOrderData({...orderData, address: e.target.value})} style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', background: '#F8FAFC' }} />
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b', marginBottom: '4px', display: 'block' }}>MOBILTELEFON</label>
-                <input required type="tel" placeholder="+36 20 123 4567" value={orderData.phone} onChange={(e) => setOrderData({...orderData, phone: e.target.value})} style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', background: '#F8FAFC' }} />
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b', marginBottom: '4px', display: 'block' }}>MOBIL</label>
+                <input required type="tel" placeholder="+421 901 123 456" value={orderData.phone} onChange={(e) => setOrderData({...orderData, phone: e.target.value})} style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', background: '#F8FAFC' }} />
               </div>
 
               {/* Garanzie e Sicurezza */}
@@ -1288,19 +1288,19 @@ export default function LandingPage() {
                 <div style={{ display: 'grid', gap: '0.75rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#16A34A', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', flexShrink: 0 }}>✓</div>
-                    <span style={{ fontSize: '0.9rem', color: '#1E293B', fontWeight: 600 }}>Utánvétes fizetés</span>
+                    <span style={{ fontSize: '0.9rem', color: '#1E293B', fontWeight: 600 }}>Platba na dobierku</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#FF8C00', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', flexShrink: 0 }}>⚡</div>
-                    <span style={{ fontSize: '0.9rem', color: '#1E293B', fontWeight: 600 }}>Ingyenes szállítás 24-48 órán belül</span>
+                    <span style={{ fontSize: '0.9rem', color: '#1E293B', fontWeight: 600 }}>Bezplatná doprava do 24-48h</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#3B82F6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', flexShrink: 0 }}>↺</div>
-                    <span style={{ fontSize: '0.9rem', color: '#1E293B', fontWeight: 600 }}>30 nap ingyenes visszaküldésre</span>
+                    <span style={{ fontSize: '0.9rem', color: '#1E293B', fontWeight: 600 }}>30 dní na bezplatný návrat</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#8B5CF6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', flexShrink: 0 }}>★</div>
-                    <span style={{ fontSize: '0.9rem', color: '#1E293B', fontWeight: 600 }}>2 év garancia tartalmazza</span>
+                    <span style={{ fontSize: '0.9rem', color: '#1E293B', fontWeight: 600 }}>2 roky záruky v cene</span>
                   </div>
                 </div>
               </div>
@@ -1313,7 +1313,7 @@ export default function LandingPage() {
                 boxShadow: '0 10px 25px -5px rgba(255, 122, 0, 0.4)',
                 transition: 'all 0.3s ease'
               }}>
-                <span>Rendelés megerősítése</span>
+                <span>Potvrdiť objednávku</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
             </form>
@@ -1354,8 +1354,8 @@ export default function LandingPage() {
                 Air Wave Smart™
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#16a34a' }}>27.999 Ft</span>
-                <span style={{ fontSize: '0.875rem', textDecoration: 'line-through', color: 'white', opacity: 0.8 }}>69.997 Ft</span>
+                <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#16a34a' }}>69,99 €</span>
+                <span style={{ fontSize: '0.875rem', textDecoration: 'line-through', color: 'white', opacity: 0.8 }}>174,99 €</span>
               </div>
             </div>
           </div>
@@ -1377,7 +1377,7 @@ export default function LandingPage() {
               flexShrink: 0
             }}
           >
-            Vásárolj most
+            Kúpiť teraz
           </button>
         </div>
       </div>

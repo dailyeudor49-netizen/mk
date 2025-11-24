@@ -39,9 +39,9 @@ export default function ThankYouPage() {
         window.gtag('js', new Date());
         window.gtag('config', 'AW-17746789099');
         window.gtag('event', 'conversion', {
-          'send_to': 'AW-17746789099/Qc-RCO-plcQbEOuFqo5C',
+          'send_to': 'AW-17746789099/y9IvCKyq_cUbEOuFqo5C',
           'value': 1.0,
-          'currency': 'EUR',
+          'currency': 'PLN',
           'transaction_id': transactionId
         });
         sessionStorage.setItem('conversionTracked', 'true');
@@ -95,7 +95,7 @@ export default function ThankYouPage() {
           color: '#111827',
           marginBottom: '0.5rem'
         }}>
-          Hvala na narudžbi!
+          Dziękujemy za zamówienie!
         </h1>
 
         <p style={{
@@ -103,7 +103,7 @@ export default function ThankYouPage() {
           fontSize: '1rem',
           marginBottom: '1.5rem'
         }}>
-          Vaša narudžba je uspješno zaprimljena.
+          Twoje zamówienie zostało pomyślnie przyjęte.
         </p>
 
         <div style={{
@@ -113,7 +113,7 @@ export default function ThankYouPage() {
           marginBottom: '1.5rem',
           border: '1px solid #FFDAA3'
         }}>
-          <div style={{ fontSize: '0.875rem', color: '#92400e', marginBottom: '0.25rem' }}>Broj narudžbe</div>
+          <div style={{ fontSize: '0.875rem', color: '#92400e', marginBottom: '0.25rem' }}>Numer zamówienia</div>
           <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#FF8C00', letterSpacing: '2px' }}>{orderCode}</div>
         </div>
 
@@ -125,31 +125,31 @@ export default function ThankYouPage() {
           textAlign: 'left'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-            <div style={{ width: '32px', height: '32px', background: '#16a34a', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '1rem' }}>€</div>
+            <div style={{ width: '32px', height: '32px', background: '#16a34a', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '1rem' }}>zł</div>
             <div>
-              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>Plaćanje pouzećem</div>
-              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Platit ćete gotovinom kuriru</div>
+              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>Płatność przy odbiorze</div>
+              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Zapłacisz gotówką kurierowi</div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
             <div style={{ width: '32px', height: '32px', background: '#3B82F6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '1rem' }}>📦</div>
             <div>
-              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>Besplatna dostava</div>
-              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Isporuka za 2-3 radna dana</div>
+              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>Darmowa dostawa</div>
+              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Dostawa w ciągu 24-48h</div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
             <div style={{ width: '32px', height: '32px', background: '#8B5CF6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '1rem' }}>↺</div>
             <div>
-              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>30 dana za povrat</div>
-              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Povrat novca ako niste zadovoljni</div>
+              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>30 dni na zwrot</div>
+              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Zwrot pieniędzy, jeśli nie jesteś zadowolony</div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <div style={{ width: '32px', height: '32px', background: '#F59E0B', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '1rem' }}>★</div>
             <div>
-              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>2 godine jamstva</div>
-              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Na sve proizvode</div>
+              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>2 lata gwarancji</div>
+              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Na wszystkie produkty</div>
             </div>
           </div>
         </div>
@@ -160,12 +160,12 @@ export default function ThankYouPage() {
           padding: '1rem',
           marginBottom: '2rem'
         }}>
-          <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>Trebate pomoć ili želite zatražiti povrat?</div>
+          <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>Potrzebujesz pomocy lub chcesz dokonać zwrotu?</div>
           <a href="mailto:info@ionizi.com" style={{ color: '#FF8C00', fontWeight: 600, textDecoration: 'none', fontSize: '0.95rem' }}>info@ionizi.com</a>
-          <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.5rem' }}>Možete zatražiti povrat u roku od 30 dana ako niste zadovoljni proizvodom</div>
+          <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.5rem' }}>Możesz poprosić o zwrot w ciągu 30 dni, jeśli nie jesteś zadowolony z produktu</div>
         </div>
 
-        <a href="/" style={{
+        <a href="/superhub_pl" style={{
           display: 'inline-block',
           background: 'linear-gradient(135deg, #FFB800 0%, #FF7A00 100%)',
           color: 'white',
@@ -175,7 +175,7 @@ export default function ThankYouPage() {
           fontWeight: 600,
           textDecoration: 'none'
         }}>
-          Povratak na početnu
+          Powrót do strony głównej
         </a>
       </div>
     </div>

@@ -360,7 +360,12 @@ export default function LandingPage() {
             </div>
 
             {/* Rating */}
-            <div className="product-rating">
+            <div className="product-rating" onClick={() => {
+              const reviewsSection = document.querySelector('#reviewsSection');
+              if (reviewsSection) {
+                reviewsSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }} style={{ cursor: 'pointer' }}>
               <div className="stars">
                 <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
               </div>
@@ -1121,7 +1126,7 @@ export default function LandingPage() {
       </section>
 
       {/* Reviews Section */}
-      <section style={{ background: 'linear-gradient(to bottom, #ffffff 0%, #FFFCF5 10%, #FFFCF5 90%, #ffffff 100%)', padding: '4rem 1rem' }}>
+      <section id="reviewsSection" style={{ background: 'linear-gradient(to bottom, #ffffff 0%, #FFFCF5 10%, #FFFCF5 90%, #ffffff 100%)', padding: '4rem 1rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textAlign: 'center', marginBottom: '2.5rem', color: '#111827' }}>
             Provjerene recenzije

@@ -175,9 +175,9 @@ export default function SuperHubPL() {
             <div className="w-full lg:w-1/2 z-10 relative order-1 lg:order-2">
               <div className="relative rounded-xl overflow-hidden shadow-2xl border-4 border-slate-700/50 group">
                 <img
-                  src="/images/superhub polonia/1.png"
+                  src="/images/superhub polonia/img1principale.png"
                   alt="SuperVision Hub"
-                  className="w-full h-full object-cover drop-shadow-2xl"
+                  className="w-full h-auto drop-shadow-2xl"
                 />
               </div>
               <div className="-mt-1 bg-slate-900/90 backdrop-blur-md p-3 md:p-4 rounded-b-lg border border-t-0 border-yellow-400/30 shadow-lg">

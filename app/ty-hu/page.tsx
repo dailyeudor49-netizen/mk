@@ -38,12 +38,12 @@ export default function ThankYouPage() {
         window.gtag = function() { window.dataLayer!.push(arguments); };
         window.gtag('js', new Date());
         window.gtag('config', 'AW-17746711524');
-        // window.gtag('event', 'conversion', {
-        //   'send_to': 'AW-17746711524/0Dz1CM30ksQbEOSnpY5C',
-        //   'value': 1.0,
-        //   'currency': 'HUF',
-        //   'transaction_id': transactionId
-        // });
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17746711524/0Dz1CM30ksQbEOSnpY5C',
+          'value': 1.0,
+          'currency': 'HUF',
+          'transaction_id': transactionId
+        });
         sessionStorage.setItem('conversionTracked', 'true');
         console.log('✅ Google Ads conversion tracked, transaction_id:', transactionId);
       };

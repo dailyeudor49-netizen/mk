@@ -38,12 +38,12 @@ export default function ThankYouPage() {
         window.gtag = function() { window.dataLayer!.push(arguments); };
         window.gtag('js', new Date());
         window.gtag('config', 'AW-17746789099');
-        // window.gtag('event', 'conversion', {
-        //   'send_to': 'AW-17746789099/Qc-RCO-plcQbEOuFqo5C',
-        //   'value': 1.0,
-        //   'currency': 'EUR',
-        //   'transaction_id': transactionId
-        // });
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17746789099/Qc-RCO-plcQbEOuFqo5C',
+          'value': 1.0,
+          'currency': 'EUR',
+          'transaction_id': transactionId
+        });
         sessionStorage.setItem('conversionTracked', 'true');
         console.log('✅ Google Ads conversion tracked, transaction_id:', transactionId);
       };

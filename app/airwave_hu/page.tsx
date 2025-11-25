@@ -3,6 +3,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './airwave.css';
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+  }
+}
+
 // Hook per animazioni scroll
 function useScrollAnimation() {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,6 +46,23 @@ export default function LandingPage() {
       root.style.removeProperty('--background');
       root.style.removeProperty('--foreground');
     };
+  }, []);
+
+  // Google Ads Pageview Tracking
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17746711524';
+      document.head.appendChild(script);
+
+      script.onload = () => {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer!.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-17746711524');
+      };
+    }
   }, []);
 
   // --- Main Product Slider State ---

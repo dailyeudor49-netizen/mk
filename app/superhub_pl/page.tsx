@@ -7,6 +7,13 @@ import {
   Globe, Users, Gift, TrendingDown, Clock, ChevronDown, Check
 } from 'lucide-react';
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+  }
+}
+
 export default function SuperHubPL() {
   const [stickyCTAVisible, setStickyCTAVisible] = useState(false);
   const [orderData, setOrderData] = useState({
@@ -44,6 +51,19 @@ export default function SuperHubPL() {
     script.crossOrigin = 'anonymous';
     script.defer = true;
     document.head.appendChild(script);
+
+    // Google Ads Pageview Tracking
+    const gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17746789099';
+    document.head.appendChild(gtagScript);
+
+    gtagScript.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function() { window.dataLayer!.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', 'AW-17746789099');
+    };
 
     return () => {
       window.removeEventListener('scroll', handleScroll);

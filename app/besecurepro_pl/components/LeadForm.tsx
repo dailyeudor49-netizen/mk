@@ -134,7 +134,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
                 <input
                     required
                     type="text"
-                    className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
+                    className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 placeholder:text-sm placeholder:font-normal focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
                     placeholder="np. Jan Kowalski"
                 />
             </div>
@@ -143,7 +143,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
                 <input
                     required
                     type="text"
-                    className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
+                    className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 placeholder:text-sm placeholder:font-normal focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
                     placeholder="np. ul. Marszałkowska 10/5, 00-001 Warszawa"
                 />
             </div>
@@ -152,7 +152,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
                 <input
                     required
                     type="tel"
-                    className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
+                    className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 placeholder:text-sm placeholder:font-normal focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
                     placeholder="np. +48 600 123 456"
                 />
             </div>
@@ -160,7 +160,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-[#10b981] hover:bg-[#059669] text-white font-black text-xl py-5 rounded-xl shadow-[0_4px_14px_0_rgba(16,185,129,0.39)] transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer mt-4"
+              className="w-full bg-[#10b981] hover:bg-[#059669] text-white font-black text-base py-5 rounded-xl shadow-[0_4px_14px_0_rgba(16,185,129,0.39)] transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer mt-4"
             >
               {isLoading ? (
                 <>

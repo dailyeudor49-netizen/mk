@@ -3,16 +3,19 @@ import Image from 'next/image';
 
 interface FooterProps {
   showBesecureEmail?: boolean;
+  besecureLocale?: 'it' | 'pl';
 }
 
-export default function Footer({ showBesecureEmail }: FooterProps) {
+export default function Footer({ showBesecureEmail, besecureLocale }: FooterProps) {
+  const assistanceText = besecureLocale === 'pl' ? 'Potrzebujesz pomocy:' : 'Per assistenza:';
+
   return (
     <footer className="w-full border-t border-gray-200 bg-gray-50">
       <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-12">
         {showBesecureEmail && (
           <div className="text-center mb-8 pb-8 border-b border-gray-200">
             <p className="text-sm text-gray-600">
-              Per assistenza: <a href="mailto:assistenza@besecurepro.it" className="text-blue-600 hover:underline">assistenza@besecurepro.it</a>
+              {assistanceText} <a href="mailto:assistenza@besecurepro.com" className="text-blue-600 hover:underline">assistenza@besecurepro.com</a>
             </p>
           </div>
         )}

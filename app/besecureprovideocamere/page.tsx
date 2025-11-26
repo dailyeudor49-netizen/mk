@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -61,7 +62,7 @@ export default function Home() {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
-
+    
     const timer = setInterval(() => {
         setTimeLeft(prev => {
             if (prev.s === 0) {
@@ -91,7 +92,8 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white font-inter text-[#1a2744] overflow-x-hidden">
+    <div className="overflow-x-hidden w-full max-w-full">
+    <main className="min-h-screen bg-white font-inter text-[#1a2744] overflow-x-hidden max-w-[100vw]">
 
       {/* Sticky Order Bar - Optimized for Demand Gen Urgency */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#1a2744] shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
@@ -140,7 +142,7 @@ export default function Home() {
       <section className="bg-gradient-to-b from-blue-50 via-white to-white relative overflow-hidden pt-8 pb-16">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-
+            
             {/* Copy Side */}
             <div className="flex flex-col justify-center order-2 lg:order-1">
               <motion.div
@@ -225,9 +227,9 @@ export default function Home() {
 
                <div className="relative w-full max-w-lg mx-auto z-10">
                     <div className="p-2 rounded-3xl transform hover:scale-105 transition-transform duration-500">
-                        <img
-                            src={productImages.kit}
-                            alt="Kit Sicurezza Completo"
+                        <img 
+                            src={productImages.kit} 
+                            alt="Kit Sicurezza Completo" 
                             className="w-full h-auto rounded-2xl shadow-2xl shadow-blue-900/20 object-cover aspect-[4/3] border-4 border-white"
                         />
                          <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-[#1a2744] font-black px-6 py-3 rounded-xl shadow-lg transform rotate-[-3deg] border-2 border-white">
@@ -273,8 +275,8 @@ export default function Home() {
                 className="bg-gray-800/50 backdrop-blur border border-gray-700 rounded-xl overflow-hidden hover:border-red-500/50 transition-colors group"
               >
                 <div className="relative h-48 overflow-hidden">
-                    <img
-                        src={item.image}
+                    <img 
+                        src={item.image} 
                         alt={item.imageAlt}
                         className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
                     />
@@ -300,7 +302,7 @@ export default function Home() {
                  <h2 className="text-2xl md:text-3xl font-bold text-[#1a2744]">Il Tuo Occhio Vigile H24</h2>
                  <p className="text-gray-600 mt-2">Mentre gli altri allarmi suonano e basta, BeSecure Pro ti fa VEDERE.</p>
              </div>
-
+             
              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
                     { title: "Salotto", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=400&q=80", status: "SICURO" },
@@ -339,12 +341,12 @@ export default function Home() {
              <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto pb-12">
                  {/* Visual Composition: Phone (Left/Overlapping) + Camera (Right/Main) */}
                  <div className="relative h-[400px] md:h-[500px] flex items-center justify-center lg:justify-end">
-
+                     
                      {/* THE CAMERA (Background/Main) */}
                      <div className="relative z-10 w-[70%] ml-auto shadow-2xl rounded-2xl border border-gray-100 bg-white">
-                        <img
-                            src={productImages.camera}
-                            alt="Dettaglio Videocamera"
+                        <img 
+                            src={productImages.camera} 
+                            alt="Dettaglio Videocamera" 
                             className="w-full h-full object-cover rounded-2xl"
                         />
                         <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-lg text-xs font-bold text-[#1a2744] flex items-center gap-2 shadow-sm">
@@ -357,7 +359,7 @@ export default function Home() {
                         <div className="bg-black rounded-[2rem] border-[6px] border-gray-900 shadow-[0_20px_50px_rgba(0,0,0,0.4)] overflow-hidden">
                             {/* Action Mode Screen UI */}
                             <div className="bg-gray-900 aspect-[9/19] flex flex-col relative overflow-hidden">
-
+                                
                                 {/* Header Alert */}
                                 <div className="bg-red-600 text-white p-2 pt-3 text-center animate-pulse">
                                     <div className="flex items-center justify-center gap-1">
@@ -368,8 +370,8 @@ export default function Home() {
 
                                 {/* Camera Feed */}
                                 <div className="relative flex-grow bg-gray-800">
-                                     <img
-                                        src="https://images.unsplash.com/photo-1564510714747-6d3209dd0808?auto=format&fit=crop&w=600&q=80"
+                                     <img 
+                                        src="https://images.unsplash.com/photo-1564510714747-6d3209dd0808?auto=format&fit=crop&w=600&q=80" 
                                         className="w-full h-full object-cover opacity-80"
                                         alt="Intruder Feed"
                                     />
@@ -382,7 +384,7 @@ export default function Home() {
                                     <div className="absolute top-2 left-2 bg-green-500 text-white text-[8px] px-1.5 py-0.5 rounded shadow-sm font-bold flex items-center gap-1 animate-pulse">
                                         <ScanFace size={8} /> TRACKING ATTIVO
                                     </div>
-
+                                    
                                     <div className="absolute top-2 right-2 flex flex-col gap-1">
                                         <div className="bg-black/50 text-white text-[8px] px-1 rounded backdrop-blur border border-white/20">REC ●</div>
                                         <div className="bg-black/50 text-white text-[8px] px-1 rounded backdrop-blur border border-white/20">LIVE</div>
@@ -481,7 +483,7 @@ export default function Home() {
                     <p className="text-gray-600 mb-8 leading-relaxed">
                         Tutto comunica in perfetta armonia tramite <strong>WiFi o SIM Inclusa</strong>. Premi un tasto sul <strong>TELECOMANDO INCLUSO</strong> (o sull'app) ed entri in modalità "Fortezza".
                     </p>
-
+                    
                     {/* The "Door Sensor" Focus Block */}
                     <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100 mb-6">
                         <div className="flex items-center gap-3 mb-3">
@@ -489,7 +491,7 @@ export default function Home() {
                             <h3 className="font-bold text-[#1a2744]">Sensori Porte Inclusi (4 Pezzi)</h3>
                         </div>
                         <p className="text-sm text-gray-600 mb-3">
-                            Applichi i due magneti sulla porta. <strong>Appena si staccano (apertura)</strong> scatta istantaneamente la sirena e parte la video-chiamata.
+                            Applichi i due magneti sulla porta. <strong>Appena si staccano (apertura)</strong> scatta istantaneamente la sirena e parte la video-chiamata. 
                         </p>
                         <div className="flex items-center gap-2 text-xs text-green-600 bg-green-50 w-fit px-2 py-1 rounded font-bold">
                             <Battery size={12}/> Batteria lunga durata (5 Anni)
@@ -518,7 +520,7 @@ export default function Home() {
                     <h3 className="font-bold text-xl text-[#1a2744] mb-6 flex items-center gap-2">
                         <Battery className="text-green-500"/> Batterie & Manutenzione
                     </h3>
-
+                    
                     <div className="space-y-6">
                         <div className="flex gap-4 items-start">
                             <div className="bg-gray-100 p-2 rounded-lg"><Camera size={20} className="text-gray-600"/></div>
@@ -638,9 +640,9 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-center text-[#1a2744] mb-10">Cosa riceverai a casa</h2>
             <div className="bg-gray-50 rounded-3xl p-8 shadow-xl border border-gray-100 flex flex-col md:flex-row gap-10 items-center">
                 <div className="w-full md:w-1/2">
-                    <img
-                        src={productImages.unboxing}
-                        alt="Unboxing Kit"
+                    <img 
+                        src={productImages.unboxing} 
+                        alt="Unboxing Kit" 
                         className="w-full rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-500"
                     />
                 </div>
@@ -667,7 +669,7 @@ export default function Home() {
       {/* FINAL CTA SECTION WITH ORDER INSTRUCTIONS */}
       <section className="py-16 bg-white pb-32">
         <div className="max-w-4xl mx-auto px-4">
-
+            
             {/* NEW: HOW TO ORDER STEPS */}
             <div className="mb-12 text-center">
                 <h2 className="text-2xl font-bold text-[#1a2744] mb-8">Come ordinare in 4 step</h2>
@@ -700,7 +702,7 @@ export default function Home() {
             </div>
 
             <LeadForm variant="inline" />
-
+            
             {/* FAQ MOVED HERE */}
             <FAQ />
 
@@ -722,5 +724,6 @@ export default function Home() {
       </section>
 
     </main>
+    </div>
   );
 }

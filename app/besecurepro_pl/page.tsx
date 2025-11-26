@@ -104,6 +104,7 @@ export default function Home() {
                 <span>Oferta Błyskawiczna kończy się za: <span className="text-yellow-400 font-mono font-bold">{timeLeft.m}:{timeLeft.s < 10 ? `0${timeLeft.s}` : timeLeft.s}</span></span>
              </div>
              <div className="flex items-baseline gap-2">
+                <span className="bg-red-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded">-50%</span>
                 <p className="text-white font-extrabold text-xl">429 zł</p>
                 <p className="text-gray-400 text-xs line-through">858 zł</p>
              </div>
@@ -233,6 +234,9 @@ export default function Home() {
                             className="w-full h-auto rounded-2xl shadow-2xl shadow-blue-900/20 object-cover aspect-[4/3] border-4 border-white"
                         />
                          <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-[#1a2744] font-black px-6 py-3 rounded-xl shadow-lg transform rotate-[-3deg] border-2 border-white">
+                            <div className="absolute -top-3 -right-2 bg-red-600 text-white text-xs font-black px-2 py-1 rounded-full shadow-lg">
+                                -50%
+                            </div>
                             <div className="text-[10px] uppercase font-bold text-[#1a2744]/70 mb-0.5 flex items-center gap-1">
                                 <Factory size={10} /> Cena Fabryczna
                             </div>

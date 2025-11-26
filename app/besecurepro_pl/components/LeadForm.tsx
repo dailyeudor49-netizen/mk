@@ -99,7 +99,10 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
 
       {/* Pricing & Benefits */}
       <div className="p-5 bg-white">
-        <div className="flex items-end justify-center gap-3 mb-4">
+        <div className="flex items-end justify-center gap-3 mb-4 relative">
+            <div className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-black px-2 py-1 rounded-full transform rotate-12 shadow-lg">
+                -50%
+            </div>
             <div className="flex flex-col items-end">
                 <span className="text-gray-400 text-sm font-semibold">Cena Katalogowa</span>
                 <span className="text-gray-400 text-lg line-through decoration-red-500 decoration-2 font-bold">858 zł</span>

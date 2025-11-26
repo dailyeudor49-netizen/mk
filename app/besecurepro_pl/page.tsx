@@ -99,9 +99,9 @@ export default function Home() {
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#1a2744] shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
         <div className="max-w-7xl mx-auto w-full px-3 py-3 flex items-center justify-between">
           <div className="flex flex-col md:flex-row md:items-center md:gap-4">
-             <div className="flex items-center gap-2 text-white/90 text-xs md:text-sm font-medium mb-1 md:mb-0">
-                <Clock size={14} className="text-yellow-400" />
-                <span>Oferta Błyskawiczna kończy się za: <span className="text-yellow-400 font-mono font-bold">{timeLeft.m}:{timeLeft.s < 10 ? `0${timeLeft.s}` : timeLeft.s}</span></span>
+             <div className="flex items-center gap-1 md:gap-2 text-white/90 text-[10px] md:text-sm font-medium mb-1 md:mb-0">
+                <Clock size={12} className="text-yellow-400 flex-shrink-0" />
+                <span className="whitespace-nowrap">Oferta kończy się: <span className="text-yellow-400 font-mono font-bold">{timeLeft.m}:{timeLeft.s < 10 ? `0${timeLeft.s}` : timeLeft.s}</span></span>
              </div>
              <div className="flex items-baseline gap-2">
                 <span className="bg-red-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded">-50%</span>
@@ -111,9 +111,9 @@ export default function Home() {
           </div>
           <button
             onClick={scrollToOrderForm}
-            className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2.5 px-6 rounded-full text-sm md:text-base shadow-lg shadow-green-900/20 transition-all cursor-pointer whitespace-nowrap active:scale-95"
+            className="bg-[#10b981] hover:bg-[#059669] text-white font-bold py-2 px-4 md:py-2.5 md:px-6 rounded-full text-xs md:text-base shadow-lg shadow-green-900/20 transition-all cursor-pointer whitespace-nowrap active:scale-95 flex-shrink-0"
           >
-            ZAMÓW TERAZ
+            ZAMÓW
           </button>
         </div>
       </div>
@@ -132,10 +132,10 @@ export default function Home() {
       </nav>
 
       {/* EMERGENCY BANNER - HOLIDAY SEASON */}
-      <div className="bg-yellow-400 text-[#1a2744] py-3 px-4 text-center font-bold text-sm md:text-base border-b-2 border-yellow-500 shadow-sm relative z-30">
-        <div className="flex items-center justify-center gap-2 animate-pulse">
-            <AlertTriangle size={20} className="fill-current text-black" />
-            <span>ALERT ŚWIĄTECZNY: Grudzień to rekordowy miesiąc włamań. Zabezpiecz się przed wyjazdem.</span>
+      <div className="bg-yellow-400 text-[#1a2744] py-2 md:py-3 px-3 md:px-4 text-center font-bold text-[11px] md:text-base border-b-2 border-yellow-500 shadow-sm relative z-30">
+        <div className="flex items-center justify-center gap-1.5 md:gap-2 animate-pulse">
+            <AlertTriangle size={16} className="fill-current text-black flex-shrink-0" />
+            <span className="leading-tight">ALERT: Grudzień = rekord włamań. Zabezpiecz się!</span>
         </div>
       </div>
 
@@ -152,22 +152,22 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 {/* SOCIAL PROOF */}
-                <div className="flex items-center gap-4 mb-6 bg-white p-2 rounded-full shadow-sm w-fit pr-6 border border-gray-100">
-                    <div className="flex -space-x-3">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64" alt="Klient" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=64&h=64" alt="Klient" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64" alt="Klient" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                        <div className="w-10 h-10 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-500">+15k</div>
+                <div className="flex items-center gap-2 md:gap-4 mb-6 bg-white p-2 rounded-full shadow-sm w-fit pr-4 md:pr-6 border border-gray-100">
+                    <div className="flex -space-x-2 md:-space-x-3">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64" alt="Klient" className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover" />
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=64&h=64" alt="Klient" className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover" />
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64" alt="Klient" className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover" />
+                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-[10px] md:text-xs font-bold text-gray-500">+15k</div>
                     </div>
                     <div className="flex flex-col">
-                        <div className="flex items-center gap-1">
-                            <Star size={14} className="fill-yellow-400 text-yellow-400" />
-                            <Star size={14} className="fill-yellow-400 text-yellow-400" />
-                            <Star size={14} className="fill-yellow-400 text-yellow-400" />
-                            <Star size={14} className="fill-yellow-400 text-yellow-400" />
-                            <Star size={14} className="fill-yellow-400 text-yellow-400" />
+                        <div className="flex items-center gap-0.5">
+                            <Star size={12} className="fill-yellow-400 text-yellow-400" />
+                            <Star size={12} className="fill-yellow-400 text-yellow-400" />
+                            <Star size={12} className="fill-yellow-400 text-yellow-400" />
+                            <Star size={12} className="fill-yellow-400 text-yellow-400" />
+                            <Star size={12} className="fill-yellow-400 text-yellow-400" />
                         </div>
-                        <p className="text-xs text-gray-600 font-bold">15 420+ Chronionych Rodzin</p>
+                        <p className="text-[10px] md:text-xs text-gray-600 font-bold">15 420+ Rodzin</p>
                     </div>
                 </div>
 
@@ -176,12 +176,12 @@ export default function Home() {
                   BeSecure Pro
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1] text-[#1a2744] tracking-tight">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1] text-[#1a2744] tracking-tight">
                   Nie czekaj, aż będzie <span className="text-blue-600">za późno</span>.<br/>
                   Chroń bliskich już dziś.
                 </h1>
 
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed max-w-lg">
+                <p className="text-base md:text-lg text-gray-600 mb-6 leading-relaxed max-w-lg">
                   <strong>4 mikrokamery 4K</strong>, 4 czujniki drzwi, pilot, syrena, automatyczne wezwanie służb i natychmiastowe powiadomienia. <strong>Wszystko bez miesięcznych opłat.</strong>
                 </p>
 
@@ -233,14 +233,14 @@ export default function Home() {
                             alt="Kompletny Zestaw Bezpieczeństwa"
                             className="w-full h-auto rounded-2xl shadow-2xl shadow-blue-900/20 object-cover aspect-[4/3] border-4 border-white"
                         />
-                         <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-[#1a2744] font-black px-6 py-3 rounded-xl shadow-lg transform rotate-[-3deg] border-2 border-white">
-                            <div className="absolute -top-3 -right-2 bg-red-600 text-white text-xs font-black px-2 py-1 rounded-full shadow-lg">
+                         <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 bg-yellow-400 text-[#1a2744] font-black px-4 py-2 md:px-6 md:py-3 rounded-xl shadow-lg transform rotate-[-3deg] border-2 border-white">
+                            <div className="absolute -top-2 right-1 bg-red-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded-full shadow-lg">
                                 -50%
                             </div>
-                            <div className="text-[10px] uppercase font-bold text-[#1a2744]/70 mb-0.5 flex items-center gap-1">
+                            <div className="text-[8px] md:text-[10px] uppercase font-bold text-[#1a2744]/70 mb-0.5 flex items-center gap-1">
                                 <Factory size={10} /> Cena Fabryczna
                             </div>
-                            <span className="text-3xl">429 zł</span>
+                            <span className="text-2xl md:text-3xl">429 zł</span>
                         </div>
                     </div>
                </div>

@@ -24,12 +24,15 @@ export interface ProductSpec {
 // Immagini placeholder realistiche per il prodotto hardware
 // Sostituisci questi URL con le tue immagini generate
 export const productImages = {
-    kit: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80", 
-    camera: "https://images.unsplash.com/photo-1596558450268-9c27524ba856?auto=format&fit=crop&w=600&q=80",
-    phoneScreen: "https://images.unsplash.com/photo-1564510714747-6d3209dd0808?auto=format&fit=crop&w=600&q=80",
+    kit: "/images/besecurepro img/IMG PRINCIPALE.png",
+    camera: "/images/besecurepro img/Piccole. Potenti. Invisibili..png",
+    phoneScreen: "/images/besecurepro img/RILEVATA INTRUSIONE.png",
     doorSensor: "https://images.unsplash.com/photo-1585664811087-47f65be1b1f6?auto=format&fit=crop&w=600&q=80",
-    unboxing: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80",
-    installation: "https://images.unsplash.com/photo-1581092921461-eab62e97a782?auto=format&fit=crop&w=600&q=80"
+    unboxing: "/images/besecurepro img/IMG PRINCIPALE.png",
+    installation: "/images/besecurepro img/posiziona sena trapano.png",
+    garage: "/images/besecurepro img/cam 4 garage.png",
+    attivaClick: "/images/besecurepro img/attiva con un click.png",
+    accendiCollegato: "/images/besecurepro img/accendi gia tutto collegato.png"
 };
 
 export const testimonials: Testimonial[] = [
@@ -121,21 +124,21 @@ export const installSteps: Step[] = [
     step: 1,
     title: 'Posiziona Senza Trapano',
     desc: 'Dimentica polvere e buchi nel muro. Usa gli adesivi industriali 3M inclusi. Attacca i sensori sulle porte e le camere dove vuoi.',
-    image: productImages.installation,
+    image: '/images/besecurepro img/posiziona sena trapano.png',
     imageAlt: 'Installazione senza trapano'
   },
   {
     step: 2,
     title: 'Accendi: Tutto Già Collegato',
     desc: 'Le 4 telecamere e i 4 sensori arrivano "Pre-Associati" alla centralina. Non devi configurare il WiFi per ogni pezzo. Accendi e si parlano da soli.',
-    image: 'https://images.unsplash.com/photo-1522125670776-3c7abb882bc2?auto=format&fit=crop&w=600&q=80',
+    image: '/images/besecurepro img/accendi gia tutto collegato.png',
     imageAlt: 'Connessione automatica'
   },
   {
     step: 3,
     title: 'Attiva con un Click',
     desc: 'Premi il telecomando incluso o usa l\'app. Da quel momento, se una porta si apre o qualcuno passa, parte l\'inferno (Sirena + Chiamata).',
-    image: 'https://images.unsplash.com/photo-1520116468816-95b69f847357?auto=format&fit=crop&w=600&q=80',
+    image: '/images/besecurepro img/attiva con un click.png',
     imageAlt: 'Sicurezza domestica attivata'
   }
 ];
@@ -145,21 +148,21 @@ export const whatHappensSteps: Step[] = [
     step: '1',
     title: 'NOTIFICA VIDEO LIVE',
     desc: 'Mentre sei fuori, il telefono vibra. Apri la notifica e <strong>vedi in 4K</strong> chi si è avvicinato alla tua porta. Non è un SMS, è video reale.',
-    image: 'https://images.unsplash.com/photo-1564510714747-6d3209dd0808?auto=format&fit=crop&w=800&q=80',
+    image: '/images/besecurepro img/NOTIFICA VIDEO LIVE.png',
     imageAlt: 'Rilevamento intrusione'
   },
   {
     step: '2',
     title: 'SCATTA IN AUTOMATICO (O DECIDI TU)',
     desc: 'La sirena da 110dB parte <strong>automaticamente</strong> se entrano. Ma se vedi un sospetto in giardino, puoi <strong>attivarla tu manualmente</strong> dall\'app per spaventarlo prima che entri.',
-    image: 'https://images.unsplash.com/photo-1590538902564-905186b59300?auto=format&fit=crop&w=800&q=80',
+    image: '/images/besecurepro img/SCATTA IN AUTOMATICO.png',
     imageAlt: 'Sirena attiva'
   },
   {
     step: '3',
     title: 'TU HAI IL CONTROLLO',
     desc: 'Nessun falso allarme. Il sistema chiama TE. Tu guardi il video e confermi. <strong>Solo se dai l\'OK</strong> (o non rispondi) partono i soccorsi. Sei tu il capo.',
-    image: 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=800&q=80',
+    image: '/images/besecurepro img/TU HAI IL CONTROLLO.png',
     imageAlt: 'Notifica smartphone'
   }
 ];

@@ -308,7 +308,7 @@ export default function Home() {
                     { title: "Salotto", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=400&q=80", status: "SICURO" },
                     { title: "Ingresso", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80", status: "SICURO" },
                     { title: "Giardino", img: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=400&q=80", status: "MOVIMENTO", alert: true },
-                    { title: "Garage", img: "https://images.unsplash.com/photo-1582298538104-fe2e74c2ed54?auto=format&fit=crop&w=400&q=80", status: "SICURO" },
+                    { title: "Garage", img: "/images/besecurepro img/cam 4 garage.png", status: "SICURO" },
                 ].map((cam, i) => (
                     <div key={i} className={`relative rounded-xl overflow-hidden aspect-video shadow-md ${cam.alert ? 'ring-4 ring-red-500 animate-pulse' : ''}`}>
                         <img src={cam.img} className="w-full h-full object-cover" alt={cam.title} />
@@ -369,9 +369,9 @@ export default function Home() {
                                 </div>
 
                                 {/* Camera Feed */}
-                                <div className="relative flex-grow bg-gray-800">
-                                     <img 
-                                        src="https://images.unsplash.com/photo-1564510714747-6d3209dd0808?auto=format&fit=crop&w=600&q=80" 
+                                <div className="relative flex-grow bg-gray-800 max-h-[60%] overflow-hidden">
+                                     <img
+                                        src="/images/besecurepro img/RILEVATA INTRUSIONE.png"
                                         className="w-full h-full object-cover opacity-80"
                                         alt="Intruder Feed"
                                     />
@@ -702,24 +702,9 @@ export default function Home() {
             </div>
 
             <LeadForm variant="inline" />
-            
+
             {/* FAQ MOVED HERE */}
             <FAQ />
-
-            <div className="mt-12 text-center space-y-4 border-t border-gray-100 pt-8 text-sm text-gray-500">
-                <p>© 2024 BeSecure Pro - Tutti i diritti riservati</p>
-                <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 text-xs text-gray-400">
-                    <span>BeSecure Italia S.r.l.</span>
-                    <span>P.IVA: 12345678901 (Placeholder)</span>
-                    <span className="flex items-center justify-center gap-1"><Mail size={12}/> Email: assistenza@besecurepro.it</span>
-                </div>
-                <div className="flex justify-center gap-6 text-xs text-gray-400 underline">
-                    <a href="#" className="hover:text-gray-600">Privacy Policy</a>
-                    <a href="#" className="hover:text-gray-600">Cookie Policy</a>
-                    <a href="#" className="hover:text-gray-600">Termini e Condizioni</a>
-                    <a href="#" className="hover:text-gray-600">Spedizioni e Resi</a>
-                </div>
-            </div>
         </div>
       </section>
 

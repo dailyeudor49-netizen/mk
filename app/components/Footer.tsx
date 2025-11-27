@@ -17,6 +17,11 @@ export default function Footer({ showBesecureEmail, besecureLocale }: FooterProp
             <p className="text-sm text-gray-600">
               {assistanceText} <a href="mailto:assistenza@besecurepro.com" className="text-blue-600 hover:underline">assistenza@besecurepro.com</a>
             </p>
+            <p className="text-xs text-gray-400 mt-2">
+              {besecureLocale === 'pl'
+                ? 'BeSecure Pro jest marką dystrybuowaną przez Ionizi.com'
+                : 'BeSecure Pro è un marchio distribuito da Ionizi.com'}
+            </p>
           </div>
         )}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

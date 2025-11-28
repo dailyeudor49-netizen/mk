@@ -2,8 +2,8 @@ import React from 'react';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ClimateGuard Pro - Budoucnost klimatu",
-  description: "Definitivní klimatický systém 4-v-1. Vesmírná technologie pro váš domov.",
+  title: "ClimateGuard Pro - Budućnost klime",
+  description: "Konačni klimatski sustav 4-u-1. Svemirska tehnologija za vaš dom.",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="cs" className="scroll-smooth overflow-x-hidden">
+    <html lang="hr" className="scroll-smooth overflow-x-hidden">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
         

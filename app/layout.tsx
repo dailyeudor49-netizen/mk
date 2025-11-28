@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import { GTMHead, GTMBody } from "./components/GoogleTagManager";
 import LayoutWrapper from "./components/LayoutWrapper";
+import FacebookPixel from "./components/FacebookPixel";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +35,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <GTMBody />
+        <Suspense fallback={null}>
+          <FacebookPixel />
+        </Suspense>
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>

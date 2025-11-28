@@ -293,7 +293,7 @@ export default function Home() {
         <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-white/5 z-0"></div>
 
         {/* STORY BLOCK 1: IL PARADOSSO */}
-        <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-hidden bg-gradient-to-b from-void-950 via-[#2a0a0a] to-void-950">
+        <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#2a0a0a] to-void-950">
            <div className="absolute top-1/4 -left-20 w-96 h-96 bg-red-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen pointer-events-none"></div>
 
            <div className="max-w-7xl mx-auto relative z-10">
@@ -348,7 +348,7 @@ export default function Home() {
         </section>
 
         {/* STORY BLOCK 2: PERFORMANCE */}
-        <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-hidden bg-gradient-to-b from-void-950 via-[#0a1025] to-void-950">
+        <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#0a1025] to-void-950">
            <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen animation-delay-2000 pointer-events-none"></div>
 
            <div className="max-w-7xl mx-auto relative z-10">
@@ -399,7 +399,7 @@ export default function Home() {
         </section>
 
         {/* STORY BLOCK 3: SALUTE */}
-        <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-hidden bg-gradient-to-b from-void-950 via-[#150520] to-void-950">
+        <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#150520] to-void-950">
            <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-purple-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen animation-delay-4000 pointer-events-none"></div>
 
            <div className="max-w-7xl mx-auto relative z-10">
@@ -447,7 +447,7 @@ export default function Home() {
         </section>
 
         {/* STORY BLOCK 4: ECONOMIA */}
-        <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-hidden bg-gradient-to-b from-void-950 via-[#021005] to-void-950">
+        <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#021005] to-void-950">
            <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-green-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen animation-delay-2000 pointer-events-none"></div>
 
            <div className="max-w-7xl mx-auto relative z-10">
@@ -563,7 +563,7 @@ export default function Home() {
       </div>
 
       {/* --- TECH SPECS SUMMARY --- */}
-      <section className="py-10 md:py-16 bg-void-900 px-4 md:px-6 border-y border-white/10 overflow-hidden">
+      <section className="py-10 md:py-16 bg-void-900 px-4 md:px-6 border-y border-white/10 overflow-x-clip overflow-y-visible">
          <div className="max-w-4xl mx-auto">
             <ScrollReveal>
               <ComparisonTable />
@@ -575,7 +575,7 @@ export default function Home() {
       <Reviews />
 
       {/* --- FAQ --- */}
-      <section className="py-12 md:py-20 px-4 md:px-6 max-w-4xl mx-auto overflow-hidden text-white">
+      <section className="py-12 md:py-20 px-4 md:px-6 max-w-4xl mx-auto overflow-x-clip overflow-y-visible text-white">
          <ScrollReveal className="text-center mb-10 md:mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-3 font-display">Dubbi? Ti risponde l'Esperto</h3>
             <p className="text-base md:text-lg text-gray-400">Clicca sulle domande per una risposta immediata.</p>
@@ -586,7 +586,7 @@ export default function Home() {
       </section>
 
       {/* --- ORDER FORM (SINGLE OFFER 149€) --- */}
-      <section id="order-form" className="py-12 md:py-24 px-4 md:px-6 bg-[#050508] border-t border-white/10 pb-40 md:pb-24 overflow-hidden relative text-white">
+      <section id="order-form" className="py-12 md:py-24 px-4 md:px-6 bg-[#050508] border-t border-white/10 pb-40 md:pb-24 overflow-x-clip overflow-y-visible relative text-white">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-neon-500/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
         <div className="max-w-2xl mx-auto">

@@ -99,7 +99,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-void-950 font-sans selection:bg-neon-500 selection:text-white w-full overflow-x-hidden">
+    <div className="min-h-screen bg-void-950 font-sans selection:bg-neon-500 selection:text-white w-full overflow-x-hidden" style={{ touchAction: 'pan-y' }}>
       <CountdownTimer />
       <Header scrollToForm={scrollToForm} />
 

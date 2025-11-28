@@ -30,7 +30,7 @@ const reviews: ReviewType[] = [
     name: "Piotr Wiśniewski",
     location: "Wrocław",
     rating: 5,
-    text: "Design jest kosmiczny, wygląda jak urządzenie za 2500 PLN. Zapłaciłem przy odbiorze kurierowi gotówką, zero ryzyka. Grzeje natychmiast po włączeniu.",
+    text: "Design jest kosmiczny, wygląda jak urządzenie za 2500 zł. Zapłaciłem przy odbiorze kurierowi gotówką, zero ryzyka. Grzeje natychmiast po włączeniu.",
     highlight: "Bezpieczna płatność przy odbiorze",
     verified: true,
     timeAgo: "3 dni temu"

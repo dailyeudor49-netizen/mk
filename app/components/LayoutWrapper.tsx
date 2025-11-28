@@ -14,11 +14,23 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
   const besecureLocale = pathname?.startsWith('/besecurepro_pl') ? 'pl' : pathname?.startsWith('/besecureprovideocamere') ? 'it' : undefined;
   const showClimateGuardInfo = pathname?.startsWith('/climateguardpro') || pathname?.startsWith('/climateguardpro_sk') || pathname?.startsWith('/climateguardpro_pl') || pathname?.startsWith('/climateguardpro_hr') || pathname?.startsWith('/climateguardpro_hu') || pathname?.startsWith('/climateguardpro_czk');
 
+  // Determine ClimateGuard locale
+  const getClimateGuardLocale = (): 'it' | 'sk' | 'pl' | 'hr' | 'hu' | 'cz' | undefined => {
+    if (pathname?.startsWith('/climateguardpro_sk')) return 'sk';
+    if (pathname?.startsWith('/climateguardpro_pl')) return 'pl';
+    if (pathname?.startsWith('/climateguardpro_hr')) return 'hr';
+    if (pathname?.startsWith('/climateguardpro_hu')) return 'hu';
+    if (pathname?.startsWith('/climateguardpro_czk')) return 'cz';
+    if (pathname?.startsWith('/climateguardpro')) return 'it';
+    return undefined;
+  };
+  const climateGuardLocale = getClimateGuardLocale();
+
   return (
     <>
       {!hideHeader && <Header />}
       {children}
-      <Footer showBesecureEmail={showBesecureEmail} besecureLocale={besecureLocale} showClimateGuardInfo={showClimateGuardInfo} />
+      <Footer showBesecureEmail={showBesecureEmail} besecureLocale={besecureLocale} showClimateGuardInfo={showClimateGuardInfo} climateGuardLocale={climateGuardLocale} />
     </>
   );
 }

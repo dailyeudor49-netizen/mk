@@ -21,7 +21,7 @@ export const CountdownTimer: React.FC = () => {
     <div className="bg-neon-500 text-white py-2 px-4 sticky top-0 z-50 flex justify-between items-center text-xs md:text-sm font-bold shadow-lg border-b border-white/20">
       <div className="flex items-center gap-2">
          <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-         <span className="uppercase tracking-wide text-white drop-shadow-md">OFERTA 299 PLN (-50%)</span>
+         <span className="uppercase tracking-wide text-white drop-shadow-md">OFERTA 299 zł (-50%)</span>
       </div>
       <div className="flex items-center gap-2 font-mono bg-black/20 px-2 py-1 rounded text-white">
         <Timer className="w-3 h-3" />

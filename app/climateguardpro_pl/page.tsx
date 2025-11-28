@@ -211,9 +211,9 @@ export default function Home() {
                        <div>
                           <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Limitowana Oferta 2025</p>
                           <div className="flex items-baseline gap-2 md:gap-3">
-                              <span className="text-5xl md:text-6xl font-black text-void-950 tracking-tighter">299 PLN</span>
+                              <span className="text-5xl md:text-6xl font-black text-void-950 tracking-tighter">299 zł</span>
                               <div className="flex flex-col leading-none">
-                                <span className="text-lg text-gray-400 line-through decoration-red-500 font-bold">599 PLN</span>
+                                <span className="text-lg text-gray-400 line-through decoration-red-500 font-bold">599 zł</span>
                               </div>
                           </div>
                        </div>
@@ -221,7 +221,7 @@ export default function Home() {
                           <span className="bg-red-500 text-white text-xs md:text-sm font-black px-2.5 py-1 rounded-lg shadow-sm uppercase transform rotate-2">
                              -50%
                           </span>
-                          <span className="text-[10px] text-green-600 font-bold bg-green-50 px-1.5 py-0.5 rounded border border-green-100">Oszczędzasz 300 PLN</span>
+                          <span className="text-[10px] text-green-600 font-bold bg-green-50 px-1.5 py-0.5 rounded border border-green-100">Oszczędzasz 300 zł</span>
                        </div>
                     </div>
 
@@ -308,7 +308,7 @@ export default function Home() {
                       Przestań marnować pieniądze na <span className="text-red-500 underline decoration-red-900 underline-offset-4">4 różne</span> urządzenia.
                    </h2>
                    <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
-                      Policzyłeś koszty? Kupno mocnego grzejnika, wentylatora, oczyszczacza i osuszacza kosztuje ponad <strong className="text-red-500 bg-red-950/30 px-1 rounded">3200 PLN</strong>.
+                      Policzyłeś koszty? Kupno mocnego grzejnika, wentylatora, oczyszczacza i osuszacza kosztuje ponad <strong className="text-red-500 bg-red-950/30 px-1 rounded">3200 zł</strong>.
                       <br/><br/>
                       <span className="text-white font-bold text-xl border-l-4 border-red-500 pl-4 block">ClimateGuard Pro™ to ostateczny monolit.</span> Kosmiczny design łączący 4 technologie w jednej kolumnie.
                    </p>
@@ -591,7 +591,7 @@ export default function Home() {
 
         <div className="max-w-2xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-12">
-             <div className="inline-block bg-neon-500 text-void-950 text-sm md:text-sm font-bold px-4 py-1.5 rounded-full mb-4 animate-pulse shadow-[0_0_20px_#FF4D00]">OSTATNIE 7 SZTUK PO 299 PLN</div>
+             <div className="inline-block bg-neon-500 text-void-950 text-sm md:text-sm font-bold px-4 py-1.5 rounded-full mb-4 animate-pulse shadow-[0_0_20px_#FF4D00]">OSTATNIE 7 SZTUK PO 299 zł</div>
              <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">Bezpieczne Zamówienie</h2>
              <p className="text-base md:text-lg text-gray-400">Szybka wysyłka w 24/48h wliczona.</p>
           </ScrollReveal>
@@ -648,7 +648,7 @@ export default function Home() {
                   <div className="bg-white/5 rounded-xl p-5 border border-white/10">
                      <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-2">
                         <h4 className="text-gray-400 text-xs uppercase font-bold tracking-widest">Podsumowanie Zamówienia:</h4>
-                        <span className="text-neon-500 font-bold text-xl">Razem: 299 PLN</span>
+                        <span className="text-neon-500 font-bold text-xl">Razem: 299 zł</span>
                      </div>
                      <ul className="space-y-3">
                         <li className="flex items-center gap-3 text-white text-base md:text-lg">
@@ -712,7 +712,7 @@ export default function Home() {
                      </div>
                      <div className="text-sm md:text-base text-gray-300">
                         <span className="text-yellow-500 font-bold block mb-1 text-base md:text-lg">PŁATNOŚĆ PRZY ODBIORZE</span>
-                        Nie prosimy o kartę kredytową. Zapłacisz <span className="text-white font-bold underline">299 PLN</span> bezpośrednio kurierowi gotówką.
+                        Nie prosimy o kartę kredytową. Zapłacisz <span className="text-white font-bold underline">299 zł</span> bezpośrednio kurierowi gotówką.
                      </div>
                   </div>
 
@@ -741,7 +741,7 @@ export default function Home() {
                  <span className="text-[10px] opacity-90 flex items-center gap-1 font-medium mt-0.5"><Wallet className="w-3 h-3" /> Płacisz Kurierowi</span>
               </div>
               <div className="flex items-center gap-2 bg-black/20 px-3 py-1.5 rounded-lg border border-white/10 relative z-10">
-                 <span className="font-bold text-xl">299 PLN</span>
+                 <span className="font-bold text-xl">299 zł</span>
                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </div>
            </button>

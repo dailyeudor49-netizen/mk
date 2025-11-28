@@ -5,10 +5,39 @@ interface FooterProps {
   showBesecureEmail?: boolean;
   besecureLocale?: 'it' | 'pl';
   showClimateGuardInfo?: boolean;
+  climateGuardLocale?: 'it' | 'sk' | 'pl' | 'hr' | 'hu' | 'cz';
 }
 
-export default function Footer({ showBesecureEmail, besecureLocale, showClimateGuardInfo }: FooterProps) {
+const climateGuardTexts = {
+  it: {
+    assistance: 'Per assistenza:',
+    brand: 'ClimateGuard Pro è un marchio registrato distribuito in esclusiva da Ionizi.com - Rivenditore Ufficiale Autorizzato.'
+  },
+  sk: {
+    assistance: 'Pre pomoc:',
+    brand: 'ClimateGuard Pro je registrovaná značka distribuovaná výhradne spoločnosťou Ionizi.com - Oficiálny autorizovaný predajca.'
+  },
+  pl: {
+    assistance: 'Potrzebujesz pomocy:',
+    brand: 'ClimateGuard Pro jest zarejestrowaną marką dystrybuowaną wyłącznie przez Ionizi.com - Oficjalny Autoryzowany Sprzedawca.'
+  },
+  hr: {
+    assistance: 'Za pomoć:',
+    brand: 'ClimateGuard Pro je registrirana marka koju ekskluzivno distribuira Ionizi.com - Službeni ovlašteni prodavač.'
+  },
+  hu: {
+    assistance: 'Segítségért:',
+    brand: 'A ClimateGuard Pro az Ionizi.com által kizárólagosan forgalmazott bejegyzett márka - Hivatalos meghatalmazott viszonteladó.'
+  },
+  cz: {
+    assistance: 'Pro pomoc:',
+    brand: 'ClimateGuard Pro je registrovaná značka výhradně distribuovaná společností Ionizi.com - Oficiální autorizovaný prodejce.'
+  }
+};
+
+export default function Footer({ showBesecureEmail, besecureLocale, showClimateGuardInfo, climateGuardLocale = 'it' }: FooterProps) {
   const assistanceText = besecureLocale === 'pl' ? 'Potrzebujesz pomocy:' : 'Per assistenza:';
+  const cgText = climateGuardTexts[climateGuardLocale] || climateGuardTexts.it;
 
   return (
     <footer className="w-full border-t border-gray-200 bg-gray-50">
@@ -28,10 +57,10 @@ export default function Footer({ showBesecureEmail, besecureLocale, showClimateG
         {showClimateGuardInfo && (
           <div className="text-center mb-8 pb-8 border-b border-gray-200">
             <p className="text-sm text-gray-600">
-              Per assistenza: <a href="mailto:info@ionizi.com" className="text-blue-600 hover:underline">info@ionizi.com</a>
+              {cgText.assistance} <a href="mailto:info@ionizi.com" className="text-blue-600 hover:underline">info@ionizi.com</a>
             </p>
             <p className="text-xs text-gray-400 mt-2">
-              ClimateGuard Pro è un marchio registrato distribuito in esclusiva da Ionizi.com - Rivenditore Ufficiale Autorizzato.
+              {cgText.brand}
             </p>
           </div>
         )}

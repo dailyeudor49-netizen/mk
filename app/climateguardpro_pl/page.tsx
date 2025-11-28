@@ -56,14 +56,14 @@ const Header = ({ scrollToForm }: { scrollToForm: () => void }) => (
         <div className="w-8 h-8 md:w-9 md:h-9 bg-void-950 rounded-lg flex items-center justify-center font-display font-bold text-white text-lg md:text-xl shadow-lg">C</div>
         <div className="flex flex-col leading-none">
            <span className="font-display font-bold text-lg md:text-xl text-void-950 tracking-tight">ClimateGuard<span className="text-neon-500">Pro</span></span>
-           <span className="text-[9px] md:text-[10px] text-gray-500 font-bold uppercase tracking-widest">Oficjalny Sklep</span>
+           <span className="text-[9px] md:text-[10px] text-gray-500 font-bold uppercase tracking-widest">Official Store</span>
         </div>
       </div>
       <button onClick={scrollToForm} className="bg-void-950 hover:bg-neon-500 text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full flex items-center gap-2 transition-all shadow-lg hover:shadow-neon-500/30 transform hover:-translate-y-0.5 group overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
         <ShoppingCart className="w-4 h-4 group-hover:animate-bounce relative z-10" />
-        <span className="hidden md:inline text-sm font-bold tracking-wide relative z-10">PRZEJDŹ DO FORMULARZA</span>
-        <span className="md:hidden text-xs font-bold uppercase relative z-10">Zamów Teraz</span>
+        <span className="hidden md:inline text-sm font-bold tracking-wide relative z-10">ZAMÓW TERAZ</span>
+        <span className="md:hidden text-xs font-bold uppercase relative z-10">Zamów</span>
       </button>
     </div>
   </nav>
@@ -111,14 +111,14 @@ export default function Home() {
         <div className="w-full bg-void-950 py-2 md:py-2.5 overflow-hidden border-b border-gray-800 relative z-10">
            <div className="flex animate-marquee whitespace-nowrap gap-8 md:gap-12 text-[10px] md:text-sm font-bold text-white uppercase tracking-widest items-center">
               <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Oficjalna Gwarancja 2 Lata</span>
-              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Wybrany Produktem Innowacyjnym 2025</span>
+              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Wybrany Innowacyjnym Produktem 2025</span>
               <span className="flex items-center gap-2"><Truck className="w-3 h-3 md:w-4 md:h-4 text-neon-500"/> Wysyłka z magazynu UE</span>
-              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Autoryzowany Sprzedawca</span>
+              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Autoryzowany Dystrybutor</span>
               {/* Duplicate for infinite loop */}
               <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Oficjalna Gwarancja 2 Lata</span>
-              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Wybrany Produktem Innowacyjnym 2025</span>
+              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Wybrany Innowacyjnym Produktem 2025</span>
               <span className="flex items-center gap-2"><Truck className="w-3 h-3 md:w-4 md:h-4 text-neon-500"/> Wysyłka z magazynu UE</span>
-              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Autoryzowany Sprzedawca</span>
+              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Autoryzowany Dystrybutor</span>
            </div>
         </div>
 
@@ -138,7 +138,7 @@ export default function Home() {
                       </div>
                       <div className="leading-tight">
                          <p className="font-bold text-void-950 text-xs md:text-sm"><span className="text-green-600 font-black">{viewers} Odwiedzających</span> online</p>
-                         <p className="text-gray-500 text-[10px] md:text-xs">Oglądają tę ofertę</p>
+                         <p className="text-gray-500 text-[10px] md:text-xs">Ogląda tę ofertę</p>
                       </div>
                    </div>
                    <div className="text-right">
@@ -154,11 +154,11 @@ export default function Home() {
             <div className="md:col-span-5 flex flex-col min-w-0 relative z-10">
 
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-black text-void-950 mb-3 md:mb-4 tracking-tighter uppercase leading-[0.9]">
-                  Koniec z <span className="text-orange-500">Wysokimi</span> rachunkami.
+                  Koniec z <span className="text-orange-500">wysokimi</span> rachunkami.
                 </h1>
 
                 <p className="text-sm md:text-xl text-gray-700 font-medium mb-5 md:mb-6 leading-relaxed">
-                   Pierwszy system klimatyczny <strong className="text-void-950 bg-gray-100 px-1 rounded">4-w-1 ze Sztuczną Inteligencją</strong>, który ogrzeje Twój dom w 18 minut za pół ceny.
+                   Pierwszy system klimatyczny <strong className="text-void-950 bg-gray-100 px-1 rounded">4-w-1 ze Sztuczną Inteligencją</strong>, który ogrzewa dom w 18 minut za połowę ceny.
                 </p>
 
                 {/* BULLET POINTS */}
@@ -169,7 +169,7 @@ export default function Home() {
                       </div>
                       <div>
                          <h4 className="text-base font-bold text-gray-800 leading-tight">Turbina 360° Równomierna (26°C)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Technologia AirMulti™ rozprowadza ciepłe powietrze w <span className="text-red-600 font-bold underline decoration-red-200">każdy kąt</span>, eliminując zimne strefy.</p>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Technologia AirMulti™ wypycha ciepłe powietrze do <span className="text-red-600 font-bold underline decoration-red-200">każdego kąta</span>, eliminując zimne strefy.</p>
                       </div>
                    </div>
 
@@ -178,8 +178,8 @@ export default function Home() {
                         <Cpu className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Chip ECO-AI (-60% Rachunku)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Czujniki wyłączają grzałkę w tysięcznych części sekundy. <span className="text-green-600 font-bold underline decoration-green-200">Zero marnotrawstwa</span> na rachunkach.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Chip ECO-AI (-60% Rachunków)</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Czujniki wyłączają grzałkę w ułamku sekundy. <span className="text-green-600 font-bold underline decoration-green-200">Zero marnotrawstwa</span> na rachunkach.</p>
                       </div>
                    </div>
 
@@ -199,7 +199,7 @@ export default function Home() {
                       </div>
                       <div>
                          <h4 className="text-base font-bold text-gray-800 leading-tight">Aktywny Filtr HEPA</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Wychwytuje kurz, zapachy z kuchni i pyłki. Oddychaj czystym powietrzem nawet przy zamkniętych oknach.</p>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Wychwytuje kurz, zapachy kuchenne i pyłki. Oddychaj czystym powietrzem nawet przy zamkniętych oknach.</p>
                       </div>
                    </div>
                 </div>
@@ -209,11 +209,11 @@ export default function Home() {
                   <div className="p-5 md:p-6 pb-4 border-b border-gray-100">
                     <div className="flex justify-between items-start mb-4 md:mb-5">
                        <div>
-                          <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Oferta Limitowana 2025</p>
+                          <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Limitowana Oferta 2025</p>
                           <div className="flex items-baseline gap-2 md:gap-3">
-                              <span className="text-5xl md:text-6xl font-black text-void-950 tracking-tighter">299<span className="text-3xl md:text-4xl">zł</span></span>
+                              <span className="text-5xl md:text-6xl font-black text-void-950 tracking-tighter">299 PLN</span>
                               <div className="flex flex-col leading-none">
-                                <span className="text-lg text-gray-400 line-through decoration-red-500 font-bold">599zł</span>
+                                <span className="text-lg text-gray-400 line-through decoration-red-500 font-bold">599 PLN</span>
                               </div>
                           </div>
                        </div>
@@ -221,19 +221,19 @@ export default function Home() {
                           <span className="bg-red-500 text-white text-xs md:text-sm font-black px-2.5 py-1 rounded-lg shadow-sm uppercase transform rotate-2">
                              -50%
                           </span>
-                          <span className="text-[10px] text-green-600 font-bold bg-green-50 px-1.5 py-0.5 rounded border border-green-100">Oszczędzasz 300zł</span>
+                          <span className="text-[10px] text-green-600 font-bold bg-green-50 px-1.5 py-0.5 rounded border border-green-100">Oszczędzasz 300 PLN</span>
                        </div>
                     </div>
 
                     <button onClick={scrollToForm} className="w-full bg-neon-500 hover:bg-neon-400 text-white font-bold py-3.5 md:py-4 rounded-xl shadow-[0_4px_14px_0_rgba(255,77,0,0.39)] hover:shadow-[0_6px_20px_rgba(255,77,0,0.23)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 text-lg md:text-xl mb-2 group leading-tight relative overflow-hidden">
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer"></div>
-                        <span className="relative z-10">PRZEJDŹ DO FORMULARZA</span>
-                        <span className="block text-xs md:text-sm font-normal opacity-90 relative z-10">(Płacisz przy Dostawie)</span>
+                        <span className="relative z-10">ZAMÓW TERAZ</span>
+                        <span className="block text-xs md:text-sm font-normal opacity-90 relative z-10">(Płatność przy odbiorze)</span>
                         <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform relative z-10" />
                     </button>
                     <div className="text-center">
                        <span className="text-[10px] md:text-xs text-gray-400 font-medium flex items-center justify-center gap-1.5">
-                         <Lock className="w-3 h-3" /> Nie wymagamy płatności z góry
+                         <Lock className="w-3 h-3" /> Nie wymagana płatność z góry
                        </span>
                     </div>
                   </div>
@@ -244,8 +244,8 @@ export default function Home() {
                            <Truck className="w-4 h-4" />
                         </div>
                         <div className="leading-tight">
-                           <span className="font-bold text-void-950 text-xs md:text-sm block">Dostawa Ekspresowa 24/48h</span>
-                           <span className="text-gray-500 text-[10px] md:text-xs">Dostawa śledzona i ubezpieczona.</span>
+                           <span className="font-bold text-void-950 text-xs md:text-sm block">Ekspresowa dostawa 24/48h</span>
+                           <span className="text-gray-500 text-[10px] md:text-xs">Przesyłka śledzona i ubezpieczona.</span>
                         </div>
                      </div>
                      <div className="flex items-center gap-3">
@@ -253,8 +253,8 @@ export default function Home() {
                            <Banknote className="w-4 h-4" />
                         </div>
                         <div className="leading-tight">
-                           <span className="font-bold text-void-950 text-xs md:text-sm block">Płatność przy Dostawie</span>
-                           <span className="text-gray-500 text-[10px] md:text-xs">Zapłać gotówką kurierowi. Zero ryzyka.</span>
+                           <span className="font-bold text-void-950 text-xs md:text-sm block">Płatność przy odbiorze</span>
+                           <span className="text-gray-500 text-[10px] md:text-xs">Płać gotówką kurierowi. Zero ryzyka.</span>
                         </div>
                      </div>
                   </div>
@@ -266,7 +266,7 @@ export default function Home() {
           <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-200 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <Shield className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
-                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">TECHNOLOGIA<br/>CERTYFIKOWANA CE</span>
+                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">TECHNOLOGIA<br/>CERTYFIKAT CE</span>
              </div>
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <Zap className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
@@ -278,7 +278,7 @@ export default function Home() {
              </div>
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <Leaf className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
-                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">EKOLOGICZNE</span>
+                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">EKOLOGICZNE<br/>ROZWIĄZANIE</span>
              </div>
           </div>
 
@@ -305,12 +305,12 @@ export default function Home() {
                 <div className="relative">
                    <div className="hidden md:block absolute left-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">01</div>
                    <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                      Przestań marnować pieniądze na <span className="text-red-500 underline decoration-red-900 underline-offset-4">4 różne</span> urządzenia.
+                      Przestań wyrzucać pieniądze na <span className="text-red-500 underline decoration-red-900 underline-offset-4">4 różne</span> urządzenia.
                    </h2>
                    <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
-                      Policzyłeś? Kupno mocnego grzejnika, wentylatora, oczyszczacza i osuszacza kosztuje ponad <strong className="text-red-500 bg-red-950/30 px-1 rounded">3200zł</strong>.
+                      Policzyłeś? Kupno mocnego grzejnika, wentylatora, oczyszczacza i osuszacza kosztuje ponad <strong className="text-red-500 bg-red-950/30 px-1 rounded">3500 PLN</strong>.
                       <br/><br/>
-                      <span className="text-white font-bold text-xl border-l-4 border-red-500 pl-4 block">ClimateGuard Pro™ to definitywny monolit.</span> Kosmiczny design, który mieści 4 technologie w jednej kolumnie.
+                      <span className="text-white font-bold text-xl border-l-4 border-red-500 pl-4 block">ClimateGuard Pro™ to definitywny monolit.</span> Kosmiczny design łączący 4 technologie w jednej kolumnie.
                    </p>
                    <ul className="space-y-4 font-medium text-lg text-white/90">
                       <li className="flex items-center gap-4 p-3 bg-red-950/40 rounded-lg border border-red-500/20 shadow-lg">
@@ -323,13 +323,13 @@ export default function Home() {
                         <span className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/50 shrink-0">
                           <Wind className="w-4 h-4 text-blue-500" />
                         </span>
-                        Rozproszona Wentylacja (Lato)
+                        Wentylacja Rozproszona (Lato)
                       </li>
                       <li className="flex items-center gap-4 p-3 bg-green-950/40 rounded-lg border border-green-500/20">
                         <span className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/50 shrink-0">
                           <Leaf className="w-4 h-4 text-green-500" />
                         </span>
-                        Oczyszczanie Przeciwzapachowe (Zawsze)
+                        Oczyszczanie Anty-Zapachowe (Zawsze)
                       </li>
                    </ul>
                 </div>
@@ -338,8 +338,8 @@ export default function Home() {
                    <div className="mt-4 md:mt-6 bg-[#1a0505] border border-red-500/30 p-4 md:p-5 rounded-2xl shadow-2xl flex items-center gap-3 md:gap-4 max-w-full md:max-w-[280px]">
                       <Package className="w-8 h-8 md:w-10 md:h-10 text-red-500 shrink-0" />
                       <div>
-                         <div className="text-xs text-gray-400 uppercase font-bold leading-none mb-1">Miejsce</div>
-                         <div className="text-white font-bold text-lg md:text-xl">-75% Wielkości</div>
+                         <div className="text-xs text-gray-400 uppercase font-bold leading-none mb-1">Przestrzeń</div>
+                         <div className="text-white font-bold text-lg md:text-xl">-75% Zajmowanej przestrzeni</div>
                       </div>
                    </div>
                 </div>
@@ -358,7 +358,7 @@ export default function Home() {
 
               <ScrollReveal className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
                  <div className="order-2 md:order-1 mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/performance-calore.png" label="ZDJĘCIE: WYKRES ROZPROSZONEGO PRZEPŁYWU I CERAMIKI PTC" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/performance-calore.png" label="ZDJĘCIE: WYKRES ROZPROSZONEGO PRZEPŁYWU I CERAMIKA PTC" height="h-[300px] md:h-[500px]" />
                     <div className="mt-4 md:mt-6 bg-[#050b1a] border border-blue-500/30 p-4 md:p-5 rounded-2xl shadow-2xl max-w-full md:max-w-[280px]">
                        <div className="text-xs text-gray-400 mb-2 uppercase tracking-wide font-bold">Ogrzewanie</div>
                        <div className="flex items-end gap-3">
@@ -374,14 +374,14 @@ export default function Home() {
                        Moc Ceramiczna i <span className="text-blue-500">Inteligentny Przepływ.</span>
                     </h2>
                     <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
-                       Zwykłe grzejniki spalają powietrze i ogrzewają tylko przed sobą.
-                       ClimateGuard używa <strong className="text-blue-400">Ceramiki PTC</strong> (natychmiastowe super-wydajne ogrzewanie) i turbiny, która wypycha <strong className="text-white border-b border-blue-500">290 litrów/sekundę</strong>.
+                       Zwykłe grzejniki spalają powietrze i grzeją tylko przed sobą.
+                       ClimateGuard używa <strong className="text-blue-400">Ceramiki PTC</strong> (natychmiastowe super-wydajne ogrzewanie) i turbiny wypychającej <strong className="text-white border-b border-blue-500">290 litrów/sekundę</strong>.
                        <br/><br/>
                        <span className="text-white block mb-2 text-xl flex items-center gap-2">
                          <Sparkles className="w-5 h-5 text-blue-500" />
                          <strong>Tryb Rozproszony:</strong>
                        </span>
-                       Powietrze nigdy nie uderza bezpośrednio w twarz. Przepływ jest przekierowywany do tyłu, aby otulić pokój otulającym ciepłem, bez dyskomfortu.
+                       Powietrze nigdy nie uderza bezpośrednio w twarz. Przepływ jest kierowany z tyłu, aby otulić pomieszczenie przyjemnym ciepłem, bez dyskomfortu.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                        <div className="bg-blue-950/40 p-5 rounded-2xl border border-blue-500/30 text-center shadow-lg hover:bg-blue-900/60 transition-colors min-w-0">
@@ -414,16 +414,16 @@ export default function Home() {
                        Twój dom jest <span className="text-purple-500">5 razy</span> bardziej zanieczyszczony niż na zewnątrz.
                     </h2>
                     <div className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light space-y-4">
-                       <p>Zimowe zamknięte okna = zużyte powietrze. Filtr <strong className="text-white">HEPA-13 z Węglem Aktywnym</strong> działa podczas ogrzewania:</p>
+                       <p>Zimą zamknięte okna = zatęchłe powietrze. Filtr <strong className="text-white">HEPA-13 z Węglem Aktywnym</strong> pracuje podczas ogrzewania:</p>
 
                        <div className="space-y-3">
                          <div className="flex items-start gap-3 p-2 rounded hover:bg-purple-900/20 transition-colors">
                            <UtensilsCrossed className="w-6 h-6 text-red-500 mt-1 shrink-0" />
-                           <span><strong className="text-red-400">Kuchnia:</strong> Eliminuje zapachy smażenia i ryb w 10 minut.</span>
+                           <span><strong className="text-red-400">Kuchnia:</strong> Usuwa zapachy smażenia i ryb w 10 minut.</span>
                          </div>
                          <div className="flex items-start gap-3 p-2 rounded hover:bg-purple-900/20 transition-colors">
                            <Flower2 className="w-6 h-6 text-yellow-500 mt-1 shrink-0" />
-                           <span><strong className="text-yellow-400">Alergie:</strong> Wychwytuje 99,9% pyłków i alergenów.</span>
+                           <span><strong className="text-yellow-400">Alergie:</strong> Wychwytuje 99.9% pyłków i alergenów.</span>
                          </div>
                          <div className="flex items-start gap-3 p-2 rounded hover:bg-purple-900/20 transition-colors">
                            <Shield className="w-6 h-6 text-green-500 mt-1 shrink-0" />
@@ -435,12 +435,12 @@ export default function Home() {
                        <RefreshCw className="w-10 h-10 md:w-12 md:h-12 text-purple-400 shrink-0 drop-shadow-[0_0_10px_rgba(192,132,252,0.5)]" />
                        <div className="text-sm md:text-base text-gray-200">
                           <strong className="text-white text-lg md:text-xl block mb-1">Osusza podczas ogrzewania:</strong>
-                          Do widzenia mokre szyby i <span className="text-purple-400 font-bold underline decoration-purple-600">czarna pleśń na ścianach</span>.
+                          Żegnaj zaparowane szyby i <span className="text-purple-400 font-bold underline decoration-purple-600">czarna pleśń na ścianach</span>.
                        </div>
                     </div>
                  </div>
                  <div className="relative mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/salute-cucina.png" label="ZDJĘCIE: OPARY KUCHENNE I PYŁKI WYCHWYCONE PRZEZ FILTR" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/salute-cucina.png" label="ZDJĘCIE: OPARY KUCHENNE I PYŁKI PRZECHWYCONE PRZEZ FILTR" height="h-[300px] md:h-[500px]" />
                  </div>
               </ScrollReveal>
            </div>
@@ -462,7 +462,7 @@ export default function Home() {
                  <div className="order-1 md:order-2 relative">
                     <div className="hidden md:block absolute right-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">04</div>
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                       Tryb Auto: <span className="text-green-500">Sam Za Siebie Płaci.</span>
+                       Tryb Auto: <span className="text-green-500">On płaci za siebie.</span>
                     </h2>
                     <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
                        ClimateGuard ma <strong className="text-green-400">"czujniki laserowe"</strong>, które analizują powietrze.
@@ -473,13 +473,13 @@ export default function Home() {
                        </span>
                        <span className="flex items-start gap-3">
                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-500 text-xs font-bold border border-green-500/50 shrink-0 mt-1">2</span>
-                         <span><strong>Czuje zimno:</strong> Gdy osiągnie 26°C, zmniejsza moc do minimum.</span>
+                         <span><strong>Wyczuwa zimno:</strong> Gdy osiągnie 26°C, zmniejsza moc do minimum.</span>
                        </span>
                        <br/><br/>
-                       Nie marnuje 1 wata energii. Dlatego jest <strong className="text-white bg-green-900/40 px-2 py-0.5 rounded border border-green-500/30">Klasy Energetycznej AAA+</strong>.
+                       Nie marnuje ani 1 wata energii. Dlatego ma <strong className="text-white bg-green-900/40 px-2 py-0.5 rounded border border-green-500/30">Klasę Energetyczną AAA+</strong>.
                     </p>
                     <button onClick={scrollToForm} className="bg-white/5 hover:bg-white/10 text-white border-2 border-green-500/50 hover:border-green-500 px-6 py-5 md:px-8 md:py-6 rounded-2xl flex items-center gap-4 transition-all w-full md:w-auto justify-center font-bold text-lg md:text-xl shadow-[0_0_20px_rgba(34,197,94,0.2)]">
-                       Chcę zmniejszyć rachunki o połowę
+                       Chcę zmniejszyć rachunek o połowę
                        <ArrowRight className="w-6 h-6 md:w-7 md:h-7" />
                     </button>
                  </div>
@@ -492,7 +492,7 @@ export default function Home() {
            <div className="max-w-7xl mx-auto">
               <ScrollReveal className="text-center mb-10 md:mb-12">
                  <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Całkowita Wygoda</h2>
-                 <p className="text-lg text-gray-400">Wszystko, czego nie spodziewasz się po urządzeniu domowym.</p>
+                 <p className="text-lg text-gray-400">Wszystko, czego nie oczekujesz od sprzętu AGD.</p>
               </ScrollReveal>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -504,7 +504,7 @@ export default function Home() {
                          <Smartphone className="w-10 h-10 text-neon-500 mb-4" />
                          <h3 className="text-2xl font-bold text-white mb-2">Sterowanie Aplikacją Smart</h3>
                          <p className="text-gray-400 text-lg">
-                            Znajdź ciepły dom po powrocie. Włączaj, wyłączaj i programuj wszystko z telefonu, gdziekolwiek jesteś. Kompatybilne z poleceniami głosowymi.
+                            Znajdź ciepły dom po powrocie. Włączaj, wyłączaj i programuj wszystko z telefonu, gdziekolwiek jesteś. Kompatybilne z komendami głosowymi.
                          </p>
                       </div>
                       <div className="w-full md:w-1/3">
@@ -521,7 +521,7 @@ export default function Home() {
                          <Settings className="w-10 h-10 text-purple-500 mb-4" />
                          <h3 className="text-xl font-bold text-white mb-2">Konserwacja 60 Sek</h3>
                          <p className="text-gray-400 text-lg">
-                            Aplikacja i wyświetlacz powiadamiają, kiedy wymienić filtr. Wymienia się jednym kliknięciem, bez narzędzi. Bardzo łatwe.
+                            Aplikacja i wyświetlacz informują, kiedy wymienić filtr. Wymiana jednym kliknięciem, bez narzędzi. Bardzo łatwe.
                          </p>
                       </div>
                    </div>
@@ -535,7 +535,7 @@ export default function Home() {
                          <Fan className="w-10 h-10 text-blue-500 mb-4" />
                          <h3 className="text-xl font-bold text-white mb-2">Tryb "Rozproszony"</h3>
                          <p className="text-gray-400 text-lg">
-                            Chcesz oczyszczać bez odczuwania powietrza? Przepływ jest przekierowywany do tyłu. Niewidoczny i cichy komfort.
+                            Chcesz oczyszczać bez odczuwania powietrza? Przepływ jest kierowany z tyłu. Niewidzialny i cichy komfort.
                          </p>
                       </div>
                    </div>
@@ -547,13 +547,13 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="flex-1 relative z-10">
                          <Moon className="w-10 h-10 text-green-500 mb-4" />
-                         <h3 className="text-2xl font-bold text-white mb-2">Tryb Nocny Ultra-Cichy</h3>
+                         <h3 className="text-2xl font-bold text-white mb-2">Tryb Nocny Ultra-Silent</h3>
                          <p className="text-gray-400 text-lg">
-                            Śpij spokojnie. Wyświetlacz się wyłącza, poziom hałasu spada poniżej 25dB, a powietrze jest stale oczyszczane podczas snu.
+                            Śpij spokojnie. Wyświetlacz gaśnie, hałas spada poniżej 25dB, a powietrze jest stale oczyszczane podczas snu.
                          </p>
                       </div>
                       <div className="w-full md:w-1/3">
-                         <ImagePlaceholderDark src="/images/climateguardpro img/display-notturno.png" label="WYŁĄCZONY WYŚWIETLACZ" />
+                         <ImagePlaceholderDark src="/images/climateguardpro img/display-notturno.png" label="WYŚWIETLACZ WYGASZONY" />
                       </div>
                    </div>
                  </ScrollReveal>
@@ -585,15 +585,15 @@ export default function Home() {
          </ScrollReveal>
       </section>
 
-      {/* --- ORDER FORM (SINGLE OFFER 299zł) --- */}
+      {/* --- ORDER FORM (SINGLE OFFER 299 PLN) --- */}
       <section id="order-form" className="py-12 md:py-24 px-4 md:px-6 bg-[#050508] border-t border-white/10 pb-40 md:pb-24 overflow-x-clip overflow-y-visible relative text-white">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-neon-500/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
         <div className="max-w-2xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-12">
              <div className="inline-block bg-neon-500 text-void-950 text-sm md:text-sm font-bold px-4 py-1.5 rounded-full mb-4 animate-pulse shadow-[0_0_20px_#FF4D00]">OSTATNIE 7 SZTUK PO 299 PLN</div>
-             <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">Bezpieczne Zamówienie</h2>
-             <p className="text-base md:text-lg text-gray-400">Szybka wysyłka w ciągu 24/48h wliczona.</p>
+             <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">Bezpieczne zamówienie</h2>
+             <p className="text-base md:text-lg text-gray-400">Szybka dostawa w 24/48h w cenie.</p>
           </ScrollReveal>
 
           {/* PROCESS STEPS */}
@@ -614,8 +614,8 @@ export default function Home() {
                      <PhoneCall className="w-6 h-6" />
                   </div>
                   <div>
-                     <h5 className="font-bold text-white uppercase text-sm">2. Potwierdź</h5>
-                     <p className="text-gray-400 text-xs">Zadzwonimy, aby potwierdzić.</p>
+                     <h5 className="font-bold text-white uppercase text-sm">2. Potwierdzenie</h5>
+                     <p className="text-gray-400 text-xs">My zadzwonimy, aby potwierdzić.</p>
                   </div>
                </div>
                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-row md:flex-col items-center gap-4 text-left md:text-center relative">
@@ -624,7 +624,7 @@ export default function Home() {
                      <PackageCheck className="w-6 h-6" />
                   </div>
                   <div>
-                     <h5 className="font-bold text-white uppercase text-sm">3. Zapłać przy Dostawie</h5>
+                     <h5 className="font-bold text-white uppercase text-sm">3. Płatność przy odbiorze</h5>
                      <p className="text-gray-400 text-xs">Gotówką kurierowi.</p>
                   </div>
                </div>
@@ -647,8 +647,8 @@ export default function Home() {
                   {/* PACKAGE SUMMARY */}
                   <div className="bg-white/5 rounded-xl p-5 border border-white/10">
                      <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-2">
-                        <h4 className="text-gray-400 text-xs uppercase font-bold tracking-widest">Podsumowanie Zamówienia:</h4>
-                        <span className="text-neon-500 font-bold text-xl">Razem: 299zł</span>
+                        <h4 className="text-gray-400 text-xs uppercase font-bold tracking-widest">Podsumowanie zamówienia:</h4>
+                        <span className="text-neon-500 font-bold text-xl">Razem: 299 PLN</span>
                      </div>
                      <ul className="space-y-3">
                         <li className="flex items-center gap-3 text-white text-base md:text-lg">
@@ -661,7 +661,7 @@ export default function Home() {
                         </li>
                         <li className="flex items-center gap-3 text-white text-base md:text-lg bg-neon-500/10 p-2 -mx-2 rounded-lg border border-neon-500/20">
                            <Gift className="text-neon-500 w-5 h-5 md:w-6 md:h-6 shrink-0 animate-pulse"/>
-                           <span className="font-bold">1x Filtr HEPA Zapasowy <span className="text-neon-500 text-xs font-black ml-2 bg-neon-500/20 px-1.5 py-0.5 rounded border border-neon-500/50 uppercase">Gratis</span></span>
+                           <span className="font-bold">1x Zapasowy Filtr HEPA <span className="text-neon-500 text-xs font-black ml-2 bg-neon-500/20 px-1.5 py-0.5 rounded border border-neon-500/50 uppercase">Gratis</span></span>
                         </li>
                      </ul>
                   </div>
@@ -677,14 +677,14 @@ export default function Home() {
                     </div>
 
                     <div>
-                       <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">Pełny Adres (Ulica, Miasto, Kod Pocztowy)</label>
+                       <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">Pełny adres (Ulica, Miasto, Kod pocztowy)</label>
                        <div className="relative">
                             <span className="absolute left-4 top-4 text-gray-500"><MapPin className="w-5 h-5" /></span>
                             <textarea
                               name="fullAddress"
                               required
                               rows={3}
-                              placeholder="Np: ul. Marszałkowska 10, 00-001 Warszawa"
+                              placeholder="Np: Ul. Warszawska 10, 00-100 Warszawa"
                               onChange={handleInputChange}
                               className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 pl-12 text-white placeholder-gray-500 focus:outline-none focus:border-neon-500 focus:ring-1 focus:ring-neon-500 transition-all font-sans text-lg resize-none"
                             />
@@ -694,7 +694,7 @@ export default function Home() {
                     <div>
                        <label className="flex justify-between items-center text-gray-400 text-xs font-bold uppercase mb-2 ml-1">
                           <span>Numer Telefonu</span>
-                          <span className="text-neon-500">Aby potwierdzić zamówienie</span>
+                          <span className="text-neon-500">Do potwierdzenia zamówienia</span>
                        </label>
                        <div className="relative">
                             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"><Smartphone className="w-5 h-5" /></span>
@@ -711,8 +711,8 @@ export default function Home() {
                         <CreditCard className="w-6 h-6 text-yellow-500" />
                      </div>
                      <div className="text-sm md:text-base text-gray-300">
-                        <span className="text-yellow-500 font-bold block mb-1 text-base md:text-lg">PŁATNOŚĆ PRZY DOSTAWIE</span>
-                        Nie prosimy o kartę kredytową. Zapłacisz <span className="text-white font-bold underline">299zł</span> bezpośrednio kurierowi gotówką.
+                        <span className="text-yellow-500 font-bold block mb-1 text-base md:text-lg">PŁATNOŚĆ PRZY ODBIORZE</span>
+                        Nie prosimy o kartę kredytową. Zapłacisz <span className="text-white font-bold underline">299 PLN</span> bezpośrednio kurierowi gotówką.
                      </div>
                   </div>
 
@@ -741,7 +741,7 @@ export default function Home() {
                  <span className="text-[10px] opacity-90 flex items-center gap-1 font-medium mt-0.5"><Wallet className="w-3 h-3" /> Płacisz Kurierowi</span>
               </div>
               <div className="flex items-center gap-2 bg-black/20 px-3 py-1.5 rounded-lg border border-white/10 relative z-10">
-                 <span className="font-bold text-xl">299zł</span>
+                 <span className="font-bold text-xl">299 PLN</span>
                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </div>
            </button>

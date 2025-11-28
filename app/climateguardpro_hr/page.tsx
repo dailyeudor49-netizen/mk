@@ -62,8 +62,8 @@ const Header = ({ scrollToForm }: { scrollToForm: () => void }) => (
       <button onClick={scrollToForm} className="bg-void-950 hover:bg-neon-500 text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full flex items-center gap-2 transition-all shadow-lg hover:shadow-neon-500/30 transform hover:-translate-y-0.5 group overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
         <ShoppingCart className="w-4 h-4 group-hover:animate-bounce relative z-10" />
-        <span className="hidden md:inline text-sm font-bold tracking-wide relative z-10">IDI NA OBRAZAC</span>
-        <span className="md:hidden text-xs font-bold uppercase relative z-10">Naruči Sada</span>
+        <span className="hidden md:inline text-sm font-bold tracking-wide relative z-10">NARUČI SADA</span>
+        <span className="md:hidden text-xs font-bold uppercase relative z-10">Naruči sada</span>
       </button>
     </div>
   </nav>
@@ -110,15 +110,15 @@ export default function Home() {
         {/* Animated Marquee Bar */}
         <div className="w-full bg-void-950 py-2 md:py-2.5 overflow-hidden border-b border-gray-800 relative z-10">
            <div className="flex animate-marquee whitespace-nowrap gap-8 md:gap-12 text-[10px] md:text-sm font-bold text-white uppercase tracking-widest items-center">
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Službena Garancija 2 Godine</span>
-              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Izabran Inovativni Proizvod 2025</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Službeno jamstvo 2 godine</span>
+              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Proglašen inovativnim proizvodom 2025</span>
               <span className="flex items-center gap-2"><Truck className="w-3 h-3 md:w-4 md:h-4 text-neon-500"/> Isporuka iz EU skladišta</span>
-              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Ovlašteni Prodavač</span>
+              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Ovlašteni distributer</span>
               {/* Duplicate for infinite loop */}
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Službena Garancija 2 Godine</span>
-              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Izabran Inovativni Proizvod 2025</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Službeno jamstvo 2 godine</span>
+              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Proglašen inovativnim proizvodom 2025</span>
               <span className="flex items-center gap-2"><Truck className="w-3 h-3 md:w-4 md:h-4 text-neon-500"/> Isporuka iz EU skladišta</span>
-              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Ovlašteni Prodavač</span>
+              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Ovlašteni distributer</span>
            </div>
         </div>
 
@@ -138,7 +138,7 @@ export default function Home() {
                       </div>
                       <div className="leading-tight">
                          <p className="font-bold text-void-950 text-xs md:text-sm"><span className="text-green-600 font-black">{viewers} Posjetitelja</span> online</p>
-                         <p className="text-gray-500 text-[10px] md:text-xs">Gleda ovu ponudu</p>
+                         <p className="text-gray-500 text-[10px] md:text-xs">Trenutno gleda ovu ponudu</p>
                       </div>
                    </div>
                    <div className="text-right">
@@ -158,7 +158,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-sm md:text-xl text-gray-700 font-medium mb-5 md:mb-6 leading-relaxed">
-                   Prvi klimatski sustav <strong className="text-void-950 bg-gray-100 px-1 rounded">4-u-1 s Umjetnom Inteligencijom</strong> koji grije tvoj dom u 18 minuta za pola cijene.
+                   Prvi klimatski sustav <strong className="text-void-950 bg-gray-100 px-1 rounded">4-u-1 s umjetnom inteligencijom</strong> koji grije vaš dom za 18 minuta po pola cijene.
                 </p>
 
                 {/* BULLET POINTS */}
@@ -168,8 +168,8 @@ export default function Home() {
                         <Waves className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Turbina 360° Jednolično (26°C)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Tehnologija AirMulti™ gura topli zrak u <span className="text-red-600 font-bold underline decoration-red-200">svaki kutak</span>, eliminirajući hladne zone.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Turbina 360° ravnomjerna (26°C)</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">AirMulti™ tehnologija gura topli zrak u <span className="text-red-600 font-bold underline decoration-red-200">svaki kutak</span>, eliminirajući hladne zone.</p>
                       </div>
                    </div>
 
@@ -178,8 +178,8 @@ export default function Home() {
                         <Cpu className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Čip ECO-AI (-60% Račun)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Senzori isključuju grijač u tisućinki sekunde. <span className="text-green-600 font-bold underline decoration-green-200">Nula rasipanja</span> na računu.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">ECO-AI čip (-60% računi)</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Senzori isključuju grijač u milisekundi. <span className="text-green-600 font-bold underline decoration-green-200">Nula rasipanja</span> na računima.</p>
                       </div>
                    </div>
 
@@ -188,7 +188,7 @@ export default function Home() {
                         <Droplets className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Termički Odvlaživač</h4>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Termički odvlaživač</h4>
                          <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Suši vlagu sa zidova dok grije. Sprječava <span className="text-purple-600 font-bold underline decoration-purple-200">plijesan i kondenzaciju</span>.</p>
                       </div>
                    </div>
@@ -198,7 +198,7 @@ export default function Home() {
                         <ShieldCheck className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Aktivni HEPA Filter</h4>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Aktivni HEPA filter</h4>
                          <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Hvata prašinu, mirise iz kuhinje i pelud. Dišite čist zrak čak i sa zatvorenim prozorima.</p>
                       </div>
                    </div>
@@ -209,7 +209,7 @@ export default function Home() {
                   <div className="p-5 md:p-6 pb-4 border-b border-gray-100">
                     <div className="flex justify-between items-start mb-4 md:mb-5">
                        <div>
-                          <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Ograničena Ponuda 2025</p>
+                          <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Ograničena ponuda 2025</p>
                           <div className="flex items-baseline gap-2 md:gap-3">
                               <span className="text-5xl md:text-6xl font-black text-void-950 tracking-tighter">69,99€</span>
                               <div className="flex flex-col leading-none">
@@ -227,8 +227,8 @@ export default function Home() {
 
                     <button onClick={scrollToForm} className="w-full bg-neon-500 hover:bg-neon-400 text-white font-bold py-3.5 md:py-4 rounded-xl shadow-[0_4px_14px_0_rgba(255,77,0,0.39)] hover:shadow-[0_6px_20px_rgba(255,77,0,0.23)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 text-lg md:text-xl mb-2 group leading-tight relative overflow-hidden">
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer"></div>
-                        <span className="relative z-10">IDI NA OBRAZAC</span>
-                        <span className="block text-xs md:text-sm font-normal opacity-90 relative z-10">(Platiš pri Dostavi)</span>
+                        <span className="relative z-10">NARUČI SADA</span>
+                        <span className="block text-xs md:text-sm font-normal opacity-90 relative z-10">(Plaćanje pouzećem)</span>
                         <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform relative z-10" />
                     </button>
                     <div className="text-center">
@@ -244,8 +244,8 @@ export default function Home() {
                            <Truck className="w-4 h-4" />
                         </div>
                         <div className="leading-tight">
-                           <span className="font-bold text-void-950 text-xs md:text-sm block">Brza Dostava 24/48h</span>
-                           <span className="text-gray-500 text-[10px] md:text-xs">Praćena i osigurana dostava.</span>
+                           <span className="font-bold text-void-950 text-xs md:text-sm block">Ekspresna dostava 24/48h</span>
+                           <span className="text-gray-500 text-[10px] md:text-xs">Dostava s praćenjem i osigurana.</span>
                         </div>
                      </div>
                      <div className="flex items-center gap-3">
@@ -253,8 +253,8 @@ export default function Home() {
                            <Banknote className="w-4 h-4" />
                         </div>
                         <div className="leading-tight">
-                           <span className="font-bold text-void-950 text-xs md:text-sm block">Plaćanje pri Dostavi</span>
-                           <span className="text-gray-500 text-[10px] md:text-xs">Plati gotovinom dostavljaču. Bez rizika.</span>
+                           <span className="font-bold text-void-950 text-xs md:text-sm block">Plaćanje pri dostavi</span>
+                           <span className="text-gray-500 text-[10px] md:text-xs">Platite dostavljaču gotovinom. Bez rizika.</span>
                         </div>
                      </div>
                   </div>
@@ -278,7 +278,7 @@ export default function Home() {
              </div>
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <Leaf className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
-                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">EKO<br/>FRIENDLY</span>
+                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">EKOLOŠKI<br/>PRIHVATLJIVO</span>
              </div>
           </div>
 
@@ -305,41 +305,41 @@ export default function Home() {
                 <div className="relative">
                    <div className="hidden md:block absolute left-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">01</div>
                    <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                      Prestani bacati novac na <span className="text-red-500 underline decoration-red-900 underline-offset-4">4 različita</span> uređaja.
+                      Prestanite bacati novac na <span className="text-red-500 underline decoration-red-900 underline-offset-4">4 različita</span> uređaja.
                    </h2>
                    <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
-                      Jesi li zbrojio? Kupnja moćne grijalice, ventilatora, pročišćivača zraka i odvlaživača košta te preko <strong className="text-red-500 bg-red-950/30 px-1 rounded">800€</strong>.
+                      Jeste li napravili proračun? Kupnja snažne grijalice, ventilatora, pročišćivača i odvlaživača koštaju vas preko <strong className="text-red-500 bg-red-950/30 px-1 rounded">800€</strong>.
                       <br/><br/>
-                      <span className="text-white font-bold text-xl border-l-4 border-red-500 pl-4 block">ClimateGuard Pro™ je konačni monolit.</span> Aerospace dizajn koji objedinjuje 4 tehnologije u jednoj koloni.
+                      <span className="text-white font-bold text-xl border-l-4 border-red-500 pl-4 block">ClimateGuard Pro™ je ultimativni monolit.</span> Zrakoplovni dizajn koji sadrži 4 tehnologije u jednom stupu.
                    </p>
                    <ul className="space-y-4 font-medium text-lg text-white/90">
                       <li className="flex items-center gap-4 p-3 bg-red-950/40 rounded-lg border border-red-500/20 shadow-lg">
                         <span className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center border border-red-500/50 shrink-0">
                           <Flame className="w-4 h-4 text-red-500" />
                         </span>
-                        <span className="font-bold text-red-100">Keramičko Grijanje</span> (Zima)
+                        <span className="font-bold text-red-100">Keramičko grijanje</span> (zima)
                       </li>
                       <li className="flex items-center gap-4 p-3 bg-blue-950/40 rounded-lg border border-blue-500/20">
                         <span className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/50 shrink-0">
                           <Wind className="w-4 h-4 text-blue-500" />
                         </span>
-                        Raspršena Ventilacija (Ljeto)
+                        Raspršena ventilacija (ljeto)
                       </li>
                       <li className="flex items-center gap-4 p-3 bg-green-950/40 rounded-lg border border-green-500/20">
                         <span className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/50 shrink-0">
                           <Leaf className="w-4 h-4 text-green-500" />
                         </span>
-                        Pročišćavanje protiv Mirisa (Uvijek)
+                        Pročišćavanje protiv mirisa (uvijek)
                       </li>
                    </ul>
                 </div>
                 <div className="mt-6 md:mt-0">
-                   <ImagePlaceholderDark src="/images/climateguardpro img/disordine-vs-ordine.png" label="FOTO: 4 STARA UREĐAJA VS 1 CLIMATEGUARD" height="h-[300px] md:h-[500px]" />
+                   <ImagePlaceholderDark src="/images/climateguardpro img/disordine-vs-ordine.png" label="SLIKA: 4 STARA KUĆNA APARATA VS 1 CLIMATEGUARD" height="h-[300px] md:h-[500px]" />
                    <div className="mt-4 md:mt-6 bg-[#1a0505] border border-red-500/30 p-4 md:p-5 rounded-2xl shadow-2xl flex items-center gap-3 md:gap-4 max-w-full md:max-w-[280px]">
                       <Package className="w-8 h-8 md:w-10 md:h-10 text-red-500 shrink-0" />
                       <div>
                          <div className="text-xs text-gray-400 uppercase font-bold leading-none mb-1">Prostor</div>
-                         <div className="text-white font-bold text-lg md:text-xl">-75% Zauzeto</div>
+                         <div className="text-white font-bold text-lg md:text-xl">-75% Veličina</div>
                       </div>
                    </div>
                 </div>
@@ -358,7 +358,7 @@ export default function Home() {
 
               <ScrollReveal className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
                  <div className="order-2 md:order-1 mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/performance-calore.png" label="FOTO: DIJAGRAM RASPRŠENOG TOKA I PTC KERAMIKE" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/performance-calore.png" label="SLIKA: DIJAGRAM RASPRŠENOG TOKA I PTC KERAMIKE" height="h-[300px] md:h-[500px]" />
                     <div className="mt-4 md:mt-6 bg-[#050b1a] border border-blue-500/30 p-4 md:p-5 rounded-2xl shadow-2xl max-w-full md:max-w-[280px]">
                        <div className="text-xs text-gray-400 mb-2 uppercase tracking-wide font-bold">Grijanje</div>
                        <div className="flex items-end gap-3">
@@ -371,22 +371,22 @@ export default function Home() {
                  <div className="order-1 md:order-2 relative">
                     <div className="hidden md:block absolute right-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">02</div>
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                       Keramička Snaga i <span className="text-blue-500">Pametan Protok.</span>
+                       Keramička snaga i <span className="text-blue-500">inteligentni protok.</span>
                     </h2>
                     <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
                        Obične grijalice spaljuju zrak i griju samo ispred sebe.
-                       ClimateGuard koristi <strong className="text-blue-400">PTC Keramiku</strong> (trenutno super-efikasno grijanje) i turbinu koja gura <strong className="text-white border-b border-blue-500">290 litara/sekundu</strong>.
+                       ClimateGuard koristi <strong className="text-blue-400">PTC keramiku</strong> (trenutno super-efikasno grijanje) i turbinu koja gura <strong className="text-white border-b border-blue-500">290 litara/sekundi</strong>.
                        <br/><br/>
                        <span className="text-white block mb-2 text-xl flex items-center gap-2">
                          <Sparkles className="w-5 h-5 text-blue-500" />
-                         <strong>Raspršeni Način Rada:</strong>
+                         <strong>Raspršeni način:</strong>
                        </span>
-                       Zrak te nikad ne udara direktno u lice. Protok se preusmjerava straga kako bi obavio prostoriju ugodnom toplinom, bez nelagode.
+                       Zrak vas nikada ne udara izravno u lice. Protok se preusmjerava na stražnju stranu kako bi obavio prostoriju ugodnom toplinom, bez neugodnosti.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                        <div className="bg-blue-950/40 p-5 rounded-2xl border border-blue-500/30 text-center shadow-lg hover:bg-blue-900/60 transition-colors min-w-0">
                           <Thermometer className="w-8 h-8 md:w-10 md:h-10 text-red-500 mx-auto mb-3 drop-shadow-md"/>
-                          <div className="text-base md:text-lg font-bold text-white truncate">Toplo za <span className="text-red-500">3 Sek</span></div>
+                          <div className="text-base md:text-lg font-bold text-white truncate">Toplo za <span className="text-red-500">3 sek</span></div>
                        </div>
                        <div className="bg-blue-950/40 p-5 rounded-2xl border border-blue-500/30 text-center shadow-lg hover:bg-blue-900/60 transition-colors min-w-0">
                           <Wind className="w-8 h-8 md:w-10 md:h-10 text-cyan-400 mx-auto mb-3 drop-shadow-md"/>
@@ -411,10 +411,10 @@ export default function Home() {
                  <div className="relative">
                     <div className="hidden md:block absolute left-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">03</div>
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                       Tvoj dom je <span className="text-purple-500">5 puta</span> zagađeniji od vanjskog zraka.
+                       Vaš dom je <span className="text-purple-500">5 puta</span> zagađeniji od vanjskog zraka.
                     </h2>
                     <div className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light space-y-4">
-                       <p>Zimi zatvoreni prozori = ustajali zrak. Filter <strong className="text-white">HEPA-13 s Aktivnim Ugljenom</strong> radi dok griješ:</p>
+                       <p>Zima zatvoreni prozori = zagušljiv zrak. <strong className="text-white">HEPA-13 filter s aktivnim ugljenom</strong> radi dok grijete:</p>
 
                        <div className="space-y-3">
                          <div className="flex items-start gap-3 p-2 rounded hover:bg-purple-900/20 transition-colors">
@@ -435,12 +435,12 @@ export default function Home() {
                        <RefreshCw className="w-10 h-10 md:w-12 md:h-12 text-purple-400 shrink-0 drop-shadow-[0_0_10px_rgba(192,132,252,0.5)]" />
                        <div className="text-sm md:text-base text-gray-200">
                           <strong className="text-white text-lg md:text-xl block mb-1">Odvlažuje dok grije:</strong>
-                          Zbogom mokri prozori i <span className="text-purple-400 font-bold underline decoration-purple-600">crna plijesan na zidovima</span>.
+                          Zbogom vlažnim staklima i <span className="text-purple-400 font-bold underline decoration-purple-600">crnoj plijesni na zidovima</span>.
                        </div>
                     </div>
                  </div>
                  <div className="relative mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/salute-cucina.png" label="FOTO: DIM IZ KUHINJE I PELUD UHVAĆENI FILTEROM" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/salute-cucina.png" label="SLIKA: DIM IZ KUHINJE I PELUD UHVAĆENI FILTEROM" height="h-[300px] md:h-[500px]" />
                  </div>
               </ScrollReveal>
            </div>
@@ -457,26 +457,26 @@ export default function Home() {
 
               <ScrollReveal className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
                  <div className="order-2 md:order-1 relative mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/app-risparmio.png" label="FOTO: AUTO NAČIN I APLIKACIJA" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/app-risparmio.png" label="SLIKA: AUTO NAČIN I APLIKACIJA" height="h-[300px] md:h-[500px]" />
                  </div>
                  <div className="order-1 md:order-2 relative">
                     <div className="hidden md:block absolute right-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">04</div>
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                       Auto Način: <span className="text-green-500">On Plaća.</span>
+                       Auto način: <span className="text-green-500">On plaća.</span>
                     </h2>
                     <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
                        ClimateGuard ima <strong className="text-green-400">"laserske senzore"</strong> koji analiziraju zrak.
                        <br/><br/>
                        <span className="flex items-start gap-3 mb-4">
                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-500 text-xs font-bold border border-green-500/50 shrink-0 mt-1">1</span>
-                         <span><strong>Vidi prljavštinu:</strong> Ako kuhate ili ima dima, ubrzava za čišćenje.</span>
+                         <span><strong>Vidi nečistoću:</strong> Ako kuhate ili ima dima, ubrzava za čišćenje.</span>
                        </span>
                        <span className="flex items-start gap-3">
                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-500 text-xs font-bold border border-green-500/50 shrink-0 mt-1">2</span>
-                         <span><strong>Osjeća hladnoću:</strong> Čim dosegne 26°C, smanjuje snagu na minimum.</span>
+                         <span><strong>Osjeća hladnoću:</strong> Čim dostigne 26°C, smanjuje snagu na minimum.</span>
                        </span>
                        <br/><br/>
-                       Ne troši niti 1 vat energije. Zato je <strong className="text-white bg-green-900/40 px-2 py-0.5 rounded border border-green-500/30">Energetska Klasa AAA+</strong>.
+                       Ne troša 1 vat energije. Zato je <strong className="text-white bg-green-900/40 px-2 py-0.5 rounded border border-green-500/30">energetska klasa AAA+</strong>.
                     </p>
                     <button onClick={scrollToForm} className="bg-white/5 hover:bg-white/10 text-white border-2 border-green-500/50 hover:border-green-500 px-6 py-5 md:px-8 md:py-6 rounded-2xl flex items-center gap-4 transition-all w-full md:w-auto justify-center font-bold text-lg md:text-xl shadow-[0_0_20px_rgba(34,197,94,0.2)]">
                        Želim prepoloviti račun
@@ -491,8 +491,8 @@ export default function Home() {
         <section className="py-12 md:py-24 px-4 md:px-6 bg-void-900 border-t border-white/5">
            <div className="max-w-7xl mx-auto">
               <ScrollReveal className="text-center mb-10 md:mb-12">
-                 <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Potpuna Udobnost</h2>
-                 <p className="text-lg text-gray-400">Sve što ne očekuješ od kućanskog uređaja.</p>
+                 <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Potpuna udobnost</h2>
+                 <p className="text-lg text-gray-400">Sve što ne očekujete od kućnog aparata.</p>
               </ScrollReveal>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -502,9 +502,9 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-br from-neon-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="flex-1 relative z-10">
                          <Smartphone className="w-10 h-10 text-neon-500 mb-4" />
-                         <h3 className="text-2xl font-bold text-white mb-2">Pametna Kontrola Aplikacijom</h3>
+                         <h3 className="text-2xl font-bold text-white mb-2">Pametna kontrola aplikacijom</h3>
                          <p className="text-gray-400 text-lg">
-                            Pronađi toplinu kod kuće kad se vratiš. Uključi, isključi i programiraj sve s telefona, gdje god bio. Kompatibilno s glasovnim naredbama.
+                            Pronađite topli dom po povratku. Uključite, isključite i programirajte sve s telefona, gdje god da ste. Kompatibilno s glasovnim naredbama.
                          </p>
                       </div>
                       <div className="w-full md:w-1/3">
@@ -519,9 +519,9 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="relative z-10">
                          <Settings className="w-10 h-10 text-purple-500 mb-4" />
-                         <h3 className="text-xl font-bold text-white mb-2">Održavanje 60 Sekundi</h3>
+                         <h3 className="text-xl font-bold text-white mb-2">Održavanje 60 sek</h3>
                          <p className="text-gray-400 text-lg">
-                            Aplikacija i zaslon te obavijeste kada treba promijeniti filter. Zamjenjuje se jednim klikom, bez alata. Vrlo jednostavno.
+                            Aplikacija i zaslon vas upozoravaju kada treba zamijeniti filter. Zamjenjuje se jednim klikom, bez alata. Vrlo jednostavno.
                          </p>
                       </div>
                    </div>
@@ -533,9 +533,9 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="relative z-10">
                          <Fan className="w-10 h-10 text-blue-500 mb-4" />
-                         <h3 className="text-xl font-bold text-white mb-2">Raspršeni Način</h3>
+                         <h3 className="text-xl font-bold text-white mb-2">Raspršeni način</h3>
                          <p className="text-gray-400 text-lg">
-                            Želiš pročistiti bez da osjetiš zrak na sebi? Protok se preusmjerava straga. Nevidljiva i tiha udobnost.
+                            Želite pročistiti bez osjećaja zraka na tijelu? Protok se preusmjerava na stražnju stranu. Nevidljiva i tiha udobnost.
                          </p>
                       </div>
                    </div>
@@ -547,9 +547,9 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="flex-1 relative z-10">
                          <Moon className="w-10 h-10 text-green-500 mb-4" />
-                         <h3 className="text-2xl font-bold text-white mb-2">Ultra-Tihi Noćni Način</h3>
+                         <h3 className="text-2xl font-bold text-white mb-2">Ultra-tihi noćni način</h3>
                          <p className="text-gray-400 text-lg">
-                            Spavaj mirno. Zaslon se gasi, buka pada ispod 25dB, a zrak se konstantno pročišćava dok spavaš.
+                            Spavajte mirno. Zaslon se isključuje, bučnost pada ispod 25dB, a zrak se neprestano pročišćava dok spavate.
                          </p>
                       </div>
                       <div className="w-full md:w-1/3">
@@ -577,8 +577,8 @@ export default function Home() {
       {/* --- FAQ --- */}
       <section className="py-12 md:py-20 px-4 md:px-6 max-w-4xl mx-auto overflow-x-clip overflow-y-visible text-white">
          <ScrollReveal className="text-center mb-10 md:mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-3 font-display">Imaš Pitanja? Stručnjak Odgovara</h3>
-            <p className="text-base md:text-lg text-gray-400">Klikni na pitanja za trenutni odgovor.</p>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-3 font-display">Sumnje? Stručnjak odgovara</h3>
+            <p className="text-base md:text-lg text-gray-400">Kliknite na pitanja za brzi odgovor.</p>
          </ScrollReveal>
          <ScrollReveal delay={200}>
             <ObjectionHandler />
@@ -591,8 +591,8 @@ export default function Home() {
 
         <div className="max-w-2xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-12">
-             <div className="inline-block bg-neon-500 text-void-950 text-sm md:text-sm font-bold px-4 py-1.5 rounded-full mb-4 animate-pulse shadow-[0_0_20px_#FF4D00]">POSLJEDNJIH 7 KOMADA PO 69,99€</div>
-             <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">Sigurna Naplata</h2>
+             <div className="inline-block bg-neon-500 text-void-950 text-sm md:text-sm font-bold px-4 py-1.5 rounded-full mb-4 animate-pulse shadow-[0_0_20px_#FF4D00]">ZADNJIH 7 KOMADA 69,99€</div>
+             <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">Sigurna narudžba</h2>
              <p className="text-base md:text-lg text-gray-400">Brza dostava za 24/48h uključena.</p>
           </ScrollReveal>
 
@@ -604,8 +604,8 @@ export default function Home() {
                      <ClipboardEdit className="w-6 h-6" />
                   </div>
                   <div>
-                     <h5 className="font-bold text-white uppercase text-sm">1. Ispuni</h5>
-                     <p className="text-gray-400 text-xs">Unesi podatke ispod.</p>
+                     <h5 className="font-bold text-white uppercase text-sm">1. Ispunite</h5>
+                     <p className="text-gray-400 text-xs">Unesite podatke ispod.</p>
                   </div>
                </div>
                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-row md:flex-col items-center gap-4 text-left md:text-center relative">
@@ -614,8 +614,8 @@ export default function Home() {
                      <PhoneCall className="w-6 h-6" />
                   </div>
                   <div>
-                     <h5 className="font-bold text-white uppercase text-sm">2. Potvrdi</h5>
-                     <p className="text-gray-400 text-xs">Mi te zovemo da potvrdimo.</p>
+                     <h5 className="font-bold text-white uppercase text-sm">2. Potvrdite</h5>
+                     <p className="text-gray-400 text-xs">Mi vas zovemo da potvrdimo.</p>
                   </div>
                </div>
                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-row md:flex-col items-center gap-4 text-left md:text-center relative">
@@ -624,7 +624,7 @@ export default function Home() {
                      <PackageCheck className="w-6 h-6" />
                   </div>
                   <div>
-                     <h5 className="font-bold text-white uppercase text-sm">3. Plati pri Dostavi</h5>
+                     <h5 className="font-bold text-white uppercase text-sm">3. Platite pri dostavi</h5>
                      <p className="text-gray-400 text-xs">Gotovinom dostavljaču.</p>
                   </div>
                </div>
@@ -637,9 +637,9 @@ export default function Home() {
              {submitted ? (
                <div className="text-center py-10 md:py-20 flex flex-col items-center">
                   <CheckCircle2 className="w-24 h-24 md:w-28 md:h-28 text-green-500 mb-6" />
-                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Narudžba Potvrđena!</h3>
-                  <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-md mx-auto">Hvala! Tvoja narudžba je zaprimljena. Naš operater će te kontaktirati putem WhatsAppa ili Telefona u roku od 2 sata kako bi potvrdio dostavu.</p>
-                  <button onClick={() => window.location.reload()} className="text-neon-500 font-bold underline text-xl">Vrati se u trgovinu</button>
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Narudžba potvrđena!</h3>
+                  <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-md mx-auto">Hvala! Vaša narudžba je primljena. Naš operater će vas kontaktirati putem WhatsAppa ili telefona u roku od 2 sata kako bi potvrdio dostavu.</p>
+                  <button onClick={() => window.location.reload()} className="text-neon-500 font-bold underline text-xl">Povratak u trgovinu</button>
                </div>
              ) : (
                <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
@@ -647,7 +647,7 @@ export default function Home() {
                   {/* PACKAGE SUMMARY */}
                   <div className="bg-white/5 rounded-xl p-5 border border-white/10">
                      <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-2">
-                        <h4 className="text-gray-400 text-xs uppercase font-bold tracking-widest">Sažetak Narudžbe:</h4>
+                        <h4 className="text-gray-400 text-xs uppercase font-bold tracking-widest">Sažetak narudžbe:</h4>
                         <span className="text-neon-500 font-bold text-xl">Ukupno: 69,99€</span>
                      </div>
                      <ul className="space-y-3">
@@ -657,11 +657,11 @@ export default function Home() {
                         </li>
                         <li className="flex items-center gap-3 text-white text-base md:text-lg">
                            <CheckCircle2 className="text-green-500 w-5 h-5 md:w-6 md:h-6 shrink-0"/>
-                           <span>Pametni Daljinski <span className="text-gray-500 text-xs ml-1">(Uključeno)</span></span>
+                           <span>Pametni daljinski upravljač <span className="text-gray-500 text-xs ml-1">(Uključeno)</span></span>
                         </li>
                         <li className="flex items-center gap-3 text-white text-base md:text-lg bg-neon-500/10 p-2 -mx-2 rounded-lg border border-neon-500/20">
                            <Gift className="text-neon-500 w-5 h-5 md:w-6 md:h-6 shrink-0 animate-pulse"/>
-                           <span className="font-bold">1x Rezervni HEPA Filter <span className="text-neon-500 text-xs font-black ml-2 bg-neon-500/20 px-1.5 py-0.5 rounded border border-neon-500/50 uppercase">Poklon</span></span>
+                           <span className="font-bold">1x HEPA filter za zamjenu <span className="text-neon-500 text-xs font-black ml-2 bg-neon-500/20 px-1.5 py-0.5 rounded border border-neon-500/50 uppercase">Poklon</span></span>
                         </li>
                      </ul>
                   </div>
@@ -669,22 +669,22 @@ export default function Home() {
                   {/* FORM FIELDS */}
                   <div className="space-y-5">
                     <div>
-                        <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">Ime i Prezime</label>
+                        <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">Ime i prezime</label>
                         <div className="relative">
                             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"><ShieldCheck className="w-5 h-5" /></span>
-                            <Input name="fullName" placeholder="Npr: Marko Marić" onChange={handleInputChange} className="pl-12" />
+                            <Input name="fullName" placeholder="Npr: Marko Marković" onChange={handleInputChange} className="pl-12" />
                         </div>
                     </div>
 
                     <div>
-                       <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">Potpuna Adresa (Ulica, Grad, Poštanski Broj)</label>
+                       <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">Potpuna adresa (Ulica, Grad, Poštanski broj)</label>
                        <div className="relative">
                             <span className="absolute left-4 top-4 text-gray-500"><MapPin className="w-5 h-5" /></span>
                             <textarea
                               name="fullAddress"
                               required
                               rows={3}
-                              placeholder="Npr: Trg bana Jelačića 10, 10000 Zagreb"
+                              placeholder="Npr: Ilica 10, 10000 Zagreb"
                               onChange={handleInputChange}
                               className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 pl-12 text-white placeholder-gray-500 focus:outline-none focus:border-neon-500 focus:ring-1 focus:ring-neon-500 transition-all font-sans text-lg resize-none"
                             />
@@ -693,7 +693,7 @@ export default function Home() {
 
                     <div>
                        <label className="flex justify-between items-center text-gray-400 text-xs font-bold uppercase mb-2 ml-1">
-                          <span>Broj Telefona</span>
+                          <span>Broj telefona</span>
                           <span className="text-neon-500">Za potvrdu narudžbe</span>
                        </label>
                        <div className="relative">
@@ -701,7 +701,7 @@ export default function Home() {
                             <Input name="phone" placeholder="Npr: 091 1234567" type="tel" onChange={handleInputChange} className="pl-12" />
                        </div>
                        <p className="text-[10px] text-gray-500 mt-1 ml-1 flex items-center gap-1">
-                          <CheckCircle2 className="w-3 h-3 text-green-500" /> Važno: odgovori na poziv kako bi se odblokirao transport.
+                          <CheckCircle2 className="w-3 h-3 text-green-500" /> Važno: odgovorite na poziv kako biste otključali dostavu.
                        </p>
                     </div>
                   </div>
@@ -712,13 +712,13 @@ export default function Home() {
                      </div>
                      <div className="text-sm md:text-base text-gray-300">
                         <span className="text-yellow-500 font-bold block mb-1 text-base md:text-lg">PLAĆANJE PRI DOSTAVI</span>
-                        Ne tražimo ti kreditnu karticu. Platit ćeš <span className="text-white font-bold underline">69,99€</span> izravno dostavljaču u gotovini.
+                        Ne tražimo kreditnu karticu. Platit ćete <span className="text-white font-bold underline">69,99€</span> izravno dostavljaču u gotovini.
                      </div>
                   </div>
 
                   <button type="submit" className="w-full bg-neon-500 hover:bg-neon-400 text-white font-display font-bold py-5 md:py-6 rounded-2xl text-xl md:text-2xl shadow-[0_0_40px_rgba(255,77,0,0.4)] transition-all mt-6 flex items-center justify-center gap-4 animate-pulse-neon group relative overflow-hidden">
                      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer"></div>
-                     <span className="relative z-10">POTVRDI NARUDŽBU</span>
+                     <span className="relative z-10">POTVRDITE NARUDŽBU</span>
                      <ArrowRight className="w-7 h-7 group-hover:translate-x-1 transition-transform relative z-10"/>
                   </button>
                </form>
@@ -731,14 +731,14 @@ export default function Home() {
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-void-950 shadow-[0_-5px_25px_rgba(0,0,0,0.8)] border-t border-white/10 pb-safe">
         <div className="bg-yellow-500 text-void-950 text-[10px] font-black uppercase text-center py-1.5 tracking-widest flex items-center justify-center gap-2 animate-pulse">
            <Timer className="w-3 h-3" />
-           Bljesak Ponuda -50% ističe
+           Flash ponuda -50% ističe
         </div>
         <div className="p-3">
            <button onClick={scrollToForm} className="w-full bg-neon-500 hover:bg-neon-400 text-white rounded-xl py-3.5 px-5 flex justify-between items-center shadow-[0_0_20px_rgba(255,77,0,0.4)] group active:scale-95 transition-transform relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer"></div>
               <div className="flex flex-col items-start leading-none relative z-10">
                  <span className="font-bold text-lg">NARUČI SADA</span>
-                 <span className="text-[10px] opacity-90 flex items-center gap-1 font-medium mt-0.5"><Wallet className="w-3 h-3" /> Platiš Dostavljaču</span>
+                 <span className="text-[10px] opacity-90 flex items-center gap-1 font-medium mt-0.5"><Wallet className="w-3 h-3" /> Platite dostavljaču</span>
               </div>
               <div className="flex items-center gap-2 bg-black/20 px-3 py-1.5 rounded-lg border border-white/10 relative z-10">
                  <span className="font-bold text-xl">69,99€</span>

@@ -10,7 +10,7 @@ import { ScrollReveal } from './components/ScrollReveal';
 import { OrderFormState } from './types';
 import { ArrowRight, CheckCircle2, Zap, Wind, ShieldCheck, Truck, CreditCard, Star, PlayCircle, Image as ImageIcon, ArrowDown, Moon, RefreshCw, Cpu, Package, Gift, ShoppingCart, Menu, Eye, Thermometer, Droplets, Smartphone, Settings, Fan, Leaf, Sparkles, UtensilsCrossed, Flower2, Shield, ScanEye, ThermometerSnowflake, Flame, Trophy, Banknote, Timer, Lock, BadgeCheck, Radio, Wallet, MapPin, ClipboardEdit, PhoneCall, PackageCheck, Repeat, Waves } from 'lucide-react';
 
-// --- COMPONENTI PER IMMAGINI ---
+// --- KOMPONENTY PRE OBR√ÅZKY ---
 const ImagePlaceholder = ({ src, label, height = "h-56 md:h-full", className = "" }: { src?: string, label: string, height?: string, className?: string }) => {
   if (src) {
     return (
@@ -56,14 +56,14 @@ const Header = ({ scrollToForm }: { scrollToForm: () => void }) => (
         <div className="w-8 h-8 md:w-9 md:h-9 bg-void-950 rounded-lg flex items-center justify-center font-display font-bold text-white text-lg md:text-xl shadow-lg">C</div>
         <div className="flex flex-col leading-none">
            <span className="font-display font-bold text-lg md:text-xl text-void-950 tracking-tight">ClimateGuard<span className="text-neon-500">Pro</span></span>
-           <span className="text-[9px] md:text-[10px] text-gray-500 font-bold uppercase tracking-widest">Ofici·lny obchod</span>
+           <span className="text-[9px] md:text-[10px] text-gray-500 font-bold uppercase tracking-widest">Official Store</span>
         </div>
       </div>
       <button onClick={scrollToForm} className="bg-void-950 hover:bg-neon-500 text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full flex items-center gap-2 transition-all shadow-lg hover:shadow-neon-500/30 transform hover:-translate-y-0.5 group overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
         <ShoppingCart className="w-4 h-4 group-hover:animate-bounce relative z-10" />
-        <span className="hidden md:inline text-sm font-bold tracking-wide relative z-10">ZOBRAZId FORMUL¡R</span>
-        <span className="md:hidden text-xs font-bold uppercase relative z-10">Objednae</span>
+        <span className="hidden md:inline text-sm font-bold tracking-wide relative z-10">OBJEDNA≈§ TERAZ</span>
+        <span className="md:hidden text-xs font-bold uppercase relative z-10">Objedna≈•</span>
       </button>
     </div>
   </nav>
@@ -103,29 +103,29 @@ export default function Home() {
       <CountdownTimer />
       <Header scrollToForm={scrollToForm} />
 
-      {/* --- AGGRESSIVE HERO SECTION (CONVERSION FOCUSED) --- */}
+      {/* --- AGRES√çVNA HERO SEKCIA (CONVERSION FOCUSED) --- */}
       <div className="relative bg-platinum-50 pb-12 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern-light opacity-[0.04] pointer-events-none"></div>
 
         {/* Animated Marquee Bar */}
         <div className="w-full bg-void-950 py-2 md:py-2.5 overflow-hidden border-b border-gray-800 relative z-10">
            <div className="flex animate-marquee whitespace-nowrap gap-8 md:gap-12 text-[10px] md:text-sm font-bold text-white uppercase tracking-widest items-center">
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Ofici·lna z·ruka 2 roky</span>
-              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> InovatÌvny produkt 2025</span>
-              <span className="flex items-center gap-2"><Truck className="w-3 h-3 md:w-4 md:h-4 text-neon-500"/> ExpedÌcia z EU skladu</span>
-              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Autorizovan˝ predajca</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Ofici√°lna z√°ruka 2 roky</span>
+              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Inovat√≠vny produkt roka 2025</span>
+              <span className="flex items-center gap-2"><Truck className="w-3 h-3 md:w-4 md:h-4 text-neon-500"/> Exped√≠cia z E√ö</span>
+              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Autorizovan√Ω predajca</span>
               {/* Duplicate for infinite loop */}
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Ofici·lna z·ruka 2 roky</span>
-              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> InovatÌvny produkt 2025</span>
-              <span className="flex items-center gap-2"><Truck className="w-3 h-3 md:w-4 md:h-4 text-neon-500"/> ExpedÌcia z EU skladu</span>
-              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Autorizovan˝ predajca</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Ofici√°lna z√°ruka 2 roky</span>
+              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Inovat√≠vny produkt roka 2025</span>
+              <span className="flex items-center gap-2"><Truck className="w-3 h-3 md:w-4 md:h-4 text-neon-500"/> Exped√≠cia z E√ö</span>
+              <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Autorizovan√Ω predajca</span>
            </div>
         </div>
 
         <section className="pt-4 md:pt-12 md:pb-16 px-4 md:px-6 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-start min-w-0">
 
-            {/* LEFT COLUMN: VISUALS */}
+            {/* ƒΩAV√ù STƒπPEC: VIZU√ÅLY */}
             <div className="md:col-span-7 min-w-0 relative">
                 <HeroCarousel />
 
@@ -137,39 +137,39 @@ export default function Home() {
                          <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></span>
                       </div>
                       <div className="leading-tight">
-                         <p className="font-bold text-void-950 text-xs md:text-sm"><span className="text-green-600 font-black">{viewers} N·vatevnÌkov</span> online</p>
-                         <p className="text-gray-500 text-[10px] md:text-xs">Sleduj˙ t˙to ponuku</p>
+                         <p className="font-bold text-void-950 text-xs md:text-sm"><span className="text-green-600 font-black">{viewers} n√°v≈°tevn√≠kov</span> online</p>
+                         <p className="text-gray-500 text-[10px] md:text-xs">Pr√°ve sleduje t√∫to ponuku</p>
                       </div>
                    </div>
                    <div className="text-right">
                       <div className="text-[10px] md:text-xs font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded-full border border-red-100 flex items-center gap-1">
                         <Flame className="w-3 h-3 fill-current" />
-                        M¡LO KUSOV
+                        POSLEDN√â KUSY
                       </div>
                    </div>
                 </div>
             </div>
 
-            {/* RIGHT COLUMN: AGGRESSIVE COPY & BUY BOX */}
+            {/* PRAV√ù STƒπPEC: AGRES√çVNY COPY & BUY BOX */}
             <div className="md:col-span-5 flex flex-col min-w-0 relative z-10">
 
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-black text-void-950 mb-3 md:mb-4 tracking-tighter uppercase leading-[0.9]">
-                  Koniec s vysok˝mi <span className="text-orange-500">fakt˙rami.</span>
+                  Koniec <span className="text-orange-500">vysok√Ωm</span> √∫ƒçtom.
                 </h1>
 
                 <p className="text-sm md:text-xl text-gray-700 font-medium mb-5 md:mb-6 leading-relaxed">
-                   Prv˝ klimatick˝ systÈm <strong className="text-void-950 bg-gray-100 px-1 rounded">4-v-1 s umelou inteligenciou</strong>, ktor˝ vyhrieva v·a domov za 18 min˙t za polovin˙ cenu.
+                   Prv√Ω klimatick√Ω syst√©m <strong className="text-void-950 bg-gray-100 px-1 rounded">4-v-1 s umelou inteligenciou</strong>, ktor√Ω zohrieva v√°≈° domov za 18 min√∫t za poloviƒçn√∫ cenu.
                 </p>
 
-                {/* BULLET POINTS */}
+                {/* ODR√Å≈ΩKY */}
                 <div className="grid grid-cols-1 gap-3 mb-6 md:mb-8">
                    <div className="flex items-start gap-3 bg-white/90 p-3.5 rounded-xl border border-gray-200 shadow-sm backdrop-blur-sm transition-transform hover:scale-[1.02]">
                       <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center shrink-0 border border-red-100">
                         <Waves className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">TurbÌna 360∞ rovnomerne (26∞C)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">TechnolÛgia AirMulti" tlaÌ tepl˝ vzduch do <span className="text-red-600 font-bold underline decoration-red-200">ka~dÈho k˙ta</span>, eliminuje studenÈ zÛny.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Turb√≠na 360¬∞ rovnomerne (26¬∞C)</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Technol√≥gia AirMulti‚Ñ¢ rozh√°≈àa tepl√Ω vzduch do <span className="text-red-600 font-bold underline decoration-red-200">ka≈æd√©ho k√∫ta</span>, eliminuje studen√© z√≥ny.</p>
                       </div>
                    </div>
 
@@ -178,8 +178,8 @@ export default function Home() {
                         <Cpu className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">ip ECO-AI (-60% fakt˙ra)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Senzory vypÌnaj˙ odpor na tisÌcinu sekundy. <span className="text-green-600 font-bold underline decoration-green-200">NulovÈ plytvanie</span> energiou.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">ƒåip ECO-AI (-60% √∫ƒçet)</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Senzory vyp√≠naj√∫ vykurovanie na tis√≠cinu sekundy. <span className="text-green-600 font-bold underline decoration-green-200">Nulov√© straty</span> na √∫ƒçte.</p>
                       </div>
                    </div>
 
@@ -188,8 +188,8 @@ export default function Home() {
                         <Droplets className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Termick˝ odvlhova</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Suauje vlhkose zo stien poas vyhrievania. Predch·dza <span className="text-purple-600 font-bold underline decoration-purple-200">plesni a kondenz·cii</span>.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Termick√Ω odvlhƒçovaƒç</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Su≈°√≠ vlhkos≈• zo stien poƒças vykurovania. Predch√°dza <span className="text-purple-600 font-bold underline decoration-purple-200">plesni a kondenz√°cii</span>.</p>
                       </div>
                    </div>
 
@@ -198,8 +198,8 @@ export default function Home() {
                         <ShieldCheck className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">AktÌvny filter HEPA</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Zachyt·va prach, kuchynskÈ pachy a pe>. D˝chajte ist˝ vzduch aj so zatvoren˝mi oknami.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Akt√≠vny HEPA filter</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Zachyt√°va prach, pachy z kuchyne a peƒæ. D√Ωchajte ƒçist√Ω vzduch aj so zatvoren√Ωmi oknami.</p>
                       </div>
                    </div>
                 </div>
@@ -209,11 +209,11 @@ export default function Home() {
                   <div className="p-5 md:p-6 pb-4 border-b border-gray-100">
                     <div className="flex justify-between items-start mb-4 md:mb-5">
                        <div>
-                          <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Limitovan· ponuka 2025</p>
+                          <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Limitovan√° ponuka 2025</p>
                           <div className="flex items-baseline gap-2 md:gap-3">
-                              <span className="text-5xl md:text-6xl font-black text-void-950 tracking-tighter">69,99¨</span>
+                              <span className="text-5xl md:text-6xl font-black text-void-950 tracking-tighter">69,99‚Ç¨</span>
                               <div className="flex flex-col leading-none">
-                                <span className="text-lg text-gray-400 line-through decoration-red-500 font-bold">139,99¨</span>
+                                <span className="text-lg text-gray-400 line-through decoration-red-500 font-bold">139,99‚Ç¨</span>
                               </div>
                           </div>
                        </div>
@@ -221,19 +221,19 @@ export default function Home() {
                           <span className="bg-red-500 text-white text-xs md:text-sm font-black px-2.5 py-1 rounded-lg shadow-sm uppercase transform rotate-2">
                              -50%
                           </span>
-                          <span className="text-[10px] text-green-600 font-bold bg-green-50 px-1.5 py-0.5 rounded border border-green-100">UaetrÌte 70¨</span>
+                          <span className="text-[10px] text-green-600 font-bold bg-green-50 px-1.5 py-0.5 rounded border border-green-100">U≈°etr√≠te 70‚Ç¨</span>
                        </div>
                     </div>
 
                     <button onClick={scrollToForm} className="w-full bg-neon-500 hover:bg-neon-400 text-white font-bold py-3.5 md:py-4 rounded-xl shadow-[0_4px_14px_0_rgba(255,77,0,0.39)] hover:shadow-[0_6px_20px_rgba(255,77,0,0.23)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 text-lg md:text-xl mb-2 group leading-tight relative overflow-hidden">
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer"></div>
-                        <span className="relative z-10">ZOBRAZId FORMUL¡R</span>
-                        <span className="block text-xs md:text-sm font-normal opacity-90 relative z-10">(Platba na dobierku)</span>
+                        <span className="relative z-10">OBJEDNA≈§ TERAZ</span>
+                        <span className="block text-xs md:text-sm font-normal opacity-90 relative z-10">(Platba pri prevzat√≠)</span>
                         <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform relative z-10" />
                     </button>
                     <div className="text-center">
                        <span className="text-[10px] md:text-xs text-gray-400 font-medium flex items-center justify-center gap-1.5">
-                         <Lock className="w-3 h-3" /> Nevy~aduje sa vopred platba
+                         <Lock className="w-3 h-3" /> Nevy≈æaduje sa platba vopred
                        </span>
                     </div>
                   </div>
@@ -244,8 +244,8 @@ export default function Home() {
                            <Truck className="w-4 h-4" />
                         </div>
                         <div className="leading-tight">
-                           <span className="font-bold text-void-950 text-xs md:text-sm block">ExpresnÈ doruenie 24/48h</span>
-                           <span className="text-gray-500 text-[10px] md:text-xs">SledovanÈ a poistenÈ doruenie.</span>
+                           <span className="font-bold text-void-950 text-xs md:text-sm block">Expresn√© doruƒçenie 24/48h</span>
+                           <span className="text-gray-500 text-[10px] md:text-xs">Sledovan√© a poisten√© doruƒçenie.</span>
                         </div>
                      </div>
                      <div className="flex items-center gap-3">
@@ -253,8 +253,8 @@ export default function Home() {
                            <Banknote className="w-4 h-4" />
                         </div>
                         <div className="leading-tight">
-                           <span className="font-bold text-void-950 text-xs md:text-sm block">Platba na dobierku</span>
-                           <span className="text-gray-500 text-[10px] md:text-xs">Plaete v hotovosti kuriÈrovi. }iadne riziko.</span>
+                           <span className="font-bold text-void-950 text-xs md:text-sm block">Platba pri doruƒçen√≠</span>
+                           <span className="text-gray-500 text-[10px] md:text-xs">Platba v hotovosti kuri√©rovi. Nulov√© riziko.</span>
                         </div>
                      </div>
                   </div>
@@ -266,15 +266,15 @@ export default function Home() {
           <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-200 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <Shield className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
-                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">TECHNOL”GIA<br/>CERTIFIKOVAN¡ CE</span>
+                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">CERTIFIKOVAN√Å<br/>TECHNOL√ìGIA CE</span>
              </div>
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <Zap className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
-                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">ENERGETICK¡<br/>TRIEDA A+++</span>
+                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">ENERGETICK√Å<br/>TRIEDA A+++</span>
              </div>
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <AwardIcon className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
-                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">DIZAJNOV…<br/>OCENENIE 2025</span>
+                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">DIZAJNOV√Å<br/>CENA 2025</span>
              </div>
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <Leaf className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
@@ -288,58 +288,58 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-16 md:h-24 bg-gradient-to-t from-void-950 to-transparent pointer-events-none"></div>
       </div>
 
-      {/* --- DEEP DIVE MARKETING BODY --- */}
+      {/* --- HLBOK√ù MARKETINGOV√ù OBSAH --- */}
       <div className="bg-void-950 text-white relative overflow-x-clip w-full pt-10">
         <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-white/5 z-0"></div>
 
-        {/* STORY BLOCK 1: IL PARADOSSO */}
+        {/* STORY BLOK 1: PARADOX */}
         <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#2a0a0a] to-void-950">
            <div className="hidden md:block absolute top-1/4 -left-20 w-96 h-96 bg-red-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen pointer-events-none"></div>
 
            <div className="max-w-7xl mx-auto relative z-10">
              <div className="md:hidden mb-6 flex justify-center">
-                <span className="bg-red-500/20 text-red-400 border border-red-500/50 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider">01. ProblÈm</span>
+                <span className="bg-red-500/20 text-red-400 border border-red-500/50 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider">01. Probl√©m</span>
              </div>
 
              <ScrollReveal className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
                 <div className="relative">
                    <div className="hidden md:block absolute left-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">01</div>
                    <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                      PrestaHte vyhadzovae peniaze za <span className="text-red-500 underline decoration-red-900 underline-offset-4">4 rÙzne</span> prÌstroje.
+                      Presta≈àte vyhadzova≈• peniaze za <span className="text-red-500 underline decoration-red-900 underline-offset-4">4 r√¥zne</span> zariadenia.
                    </h2>
                    <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
-                      PoÌtali ste? K˙pie v˝konn˙ pec, ventil·tor, isti vzduchu a odvlhova v·s stojÌ viac ako <strong className="text-red-500 bg-red-950/30 px-1 rounded">800¨</strong>.
+                      Spoƒç√≠tali ste si to? K√∫pa v√Ωkonn√©ho k√∫reniska, ventil√°tora, ƒçistiƒçky vzduchu a odvlhƒçovaƒça v√°s stoj√≠ viac ako <strong className="text-red-500 bg-red-950/30 px-1 rounded">800‚Ç¨</strong>.
                       <br/><br/>
-                      <span className="text-white font-bold text-xl border-l-4 border-red-500 pl-4 block">ClimateGuard Pro" je definitÌvny monolit.</span> Leteck˝ dizajn, ktor˝ zahUHa 4 technolÛgie v jednom st:pci.
+                      <span className="text-white font-bold text-xl border-l-4 border-red-500 pl-4 block">ClimateGuard Pro‚Ñ¢ je definit√≠vny monolit.</span> Leteck√Ω dizajn, ktor√Ω kombinuje 4 technol√≥gie v jednom stƒ∫pci.
                    </p>
                    <ul className="space-y-4 font-medium text-lg text-white/90">
                       <li className="flex items-center gap-4 p-3 bg-red-950/40 rounded-lg border border-red-500/20 shadow-lg">
                         <span className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center border border-red-500/50 shrink-0">
                           <Flame className="w-4 h-4 text-red-500" />
                         </span>
-                        <span className="font-bold text-red-100">KeramickÈ vykurovanie</span> (Zima)
+                        <span className="font-bold text-red-100">Keramick√© vykurovanie</span> (zima)
                       </li>
                       <li className="flex items-center gap-4 p-3 bg-blue-950/40 rounded-lg border border-blue-500/20">
                         <span className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/50 shrink-0">
                           <Wind className="w-4 h-4 text-blue-500" />
                         </span>
-                        Rozpt˝lenÈ vetranie (Leto)
+                        Rozpt√Ωlen√© vetranie (leto)
                       </li>
                       <li className="flex items-center gap-4 p-3 bg-green-950/40 rounded-lg border border-green-500/20">
                         <span className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/50 shrink-0">
                           <Leaf className="w-4 h-4 text-green-500" />
                         </span>
-                        istenie proti pachom (V~dy)
+                        ƒåistenie proti pachom (v≈ædy)
                       </li>
                    </ul>
                 </div>
                 <div className="mt-6 md:mt-0">
-                   <ImagePlaceholderDark src="/images/climateguardpro img/disordine-vs-ordine.png" label="FOTO: 4 STAR… SPOTREBIE VS 1 CLIMATEGUARD" height="h-[300px] md:h-[500px]" />
+                   <ImagePlaceholderDark src="/images/climateguardpro img/disordine-vs-ordine.png" label="FOTO: 4 STAR√â SPOTREBIƒåE VS 1 CLIMATEGUARD" height="h-[300px] md:h-[500px]" />
                    <div className="mt-4 md:mt-6 bg-[#1a0505] border border-red-500/30 p-4 md:p-5 rounded-2xl shadow-2xl flex items-center gap-3 md:gap-4 max-w-full md:max-w-[280px]">
                       <Package className="w-8 h-8 md:w-10 md:h-10 text-red-500 shrink-0" />
                       <div>
                          <div className="text-xs text-gray-400 uppercase font-bold leading-none mb-1">Priestor</div>
-                         <div className="text-white font-bold text-lg md:text-xl">-75% ve>kose</div>
+                         <div className="text-white font-bold text-lg md:text-xl">-75% veƒækos≈•</div>
                       </div>
                    </div>
                 </div>
@@ -347,41 +347,41 @@ export default function Home() {
            </div>
         </section>
 
-        {/* STORY BLOCK 2: PERFORMANCE */}
+        {/* STORY BLOK 2: V√ùKON */}
         <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#0a1025] to-void-950">
            <div className="hidden md:block absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen animation-delay-2000 pointer-events-none"></div>
 
            <div className="max-w-7xl mx-auto relative z-10">
               <div className="md:hidden mb-6 flex justify-center">
-                 <span className="bg-blue-500/20 text-blue-400 border border-blue-500/50 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider">02. TechnolÛgia</span>
+                 <span className="bg-blue-500/20 text-blue-400 border border-blue-500/50 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider">02. Technol√≥gia</span>
               </div>
 
               <ScrollReveal className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
                  <div className="order-2 md:order-1 mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/performance-calore.png" label="FOTO: GRAF ROZPT›LEN…HO TOKU A PTC KERAMIKY" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/performance-calore.png" label="FOTO: GRAF ROZPT√ùLEN√âHO PR√öDENIA A KERAMIKY PTC" height="h-[300px] md:h-[500px]" />
                     <div className="mt-4 md:mt-6 bg-[#050b1a] border border-blue-500/30 p-4 md:p-5 rounded-2xl shadow-2xl max-w-full md:max-w-[280px]">
                        <div className="text-xs text-gray-400 mb-2 uppercase tracking-wide font-bold">Vykurovanie</div>
                        <div className="flex items-end gap-3">
                           <span className="text-3xl md:text-4xl font-bold text-white tracking-tighter">PTC</span>
                           <span className="text-[10px] md:text-xs text-orange-400 mb-1 font-bold bg-orange-900/50 px-2 py-1 rounded border border-orange-500/30">KERAMIKA</span>
                        </div>
-                       <div className="text-xs text-gray-400 mt-2 font-bold text-blue-300">Okam~itÈ teplo.</div>
+                       <div className="text-xs text-gray-400 mt-2 font-bold text-blue-300">Okam≈æit√© teplo.</div>
                     </div>
                  </div>
                  <div className="order-1 md:order-2 relative">
                     <div className="hidden md:block absolute right-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">02</div>
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                       Keramick˝ v˝kon a <span className="text-blue-500">inteligentn˝ pr˙d.</span>
+                       Keramick√Ω v√Ωkon a <span className="text-blue-500">inteligentn√© pr√∫denie.</span>
                     </h2>
                     <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
-                       Norm·lne kachle spa>uj˙ vzduch a hrej˙ len pred sebou.
-                       ClimateGuard pou~Ìva <strong className="text-blue-400">keramiku PTC</strong> (okam~itÈ super ˙innÈ vykurovanie) a turbÌnu, ktor· tlaÌ <strong className="text-white border-b border-blue-500">290 litrov/sekundu</strong>.
+                       Be≈æn√© ohrievaƒçe spaƒæuj√∫ vzduch a zohrevaj√∫ len pred sebou.
+                       ClimateGuard pou≈æ√≠va <strong className="text-blue-400">Keramiku PTC</strong> (okam≈æit√© super-efekt√≠vne vykurovanie) a turb√≠nu, ktor√° tlaƒç√≠ <strong className="text-white border-b border-blue-500">290 litrov/sekundu</strong>.
                        <br/><br/>
                        <span className="text-white block mb-2 text-xl flex items-center gap-2">
                          <Sparkles className="w-5 h-5 text-blue-500" />
-                         <strong>Rozpt˝len˝ re~im:</strong>
+                         <strong>Rozpt√Ωlen√Ω re≈æim:</strong>
                        </span>
-                       Vzduch v·s nikdy nezasiahne priamo do tv·re. Pr˙d sa presmeruje dozadu, aby objal miestnose prÌjemn˝m teplom, bez obea~ovania.
+                       Vzduch v√°s nikdy netraf√≠ priamo do tv√°re. Pr√∫denie je odklonen√© dozadu, aby objalo miestnos≈• pr√≠jemn√Ωm teplom bez nepr√≠jemnosti.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                        <div className="bg-blue-950/40 p-5 rounded-2xl border border-blue-500/30 text-center shadow-lg hover:bg-blue-900/60 transition-colors min-w-0">
@@ -390,7 +390,7 @@ export default function Home() {
                        </div>
                        <div className="bg-blue-950/40 p-5 rounded-2xl border border-blue-500/30 text-center shadow-lg hover:bg-blue-900/60 transition-colors min-w-0">
                           <Wind className="w-8 h-8 md:w-10 md:h-10 text-cyan-400 mx-auto mb-3 drop-shadow-md"/>
-                          <div className="text-base md:text-lg font-bold text-white truncate">Oscil·cia <span className="text-cyan-400">350∞</span></div>
+                          <div className="text-base md:text-lg font-bold text-white truncate">Oscil√°cia <span className="text-cyan-400">350¬∞</span></div>
                        </div>
                     </div>
                  </div>
@@ -398,88 +398,88 @@ export default function Home() {
            </div>
         </section>
 
-        {/* STORY BLOCK 3: SALUTE */}
+        {/* STORY BLOK 3: ZDRAVIE */}
         <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#150520] to-void-950">
            <div className="hidden md:block absolute top-1/2 left-1/4 w-80 h-80 bg-purple-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen animation-delay-4000 pointer-events-none"></div>
 
            <div className="max-w-7xl mx-auto relative z-10">
               <div className="md:hidden mb-6 flex justify-center">
-                 <span className="bg-purple-500/20 text-purple-400 border border-purple-500/50 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider">03. ist˝ vzduch</span>
+                 <span className="bg-purple-500/20 text-purple-400 border border-purple-500/50 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider">03. ƒåist√Ω vzduch</span>
               </div>
 
               <ScrollReveal className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
                  <div className="relative">
                     <div className="hidden md:block absolute left-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">03</div>
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                       V·a domov je <span className="text-purple-500">5-kr·t</span> viac zneisten˝ ako vonku.
+                       V√°≈° domov je <span className="text-purple-500">5-kr√°t</span> zneƒçistenej≈°√≠ ako vonku.
                     </h2>
                     <div className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light space-y-4">
-                       <p>Zima zatvorenÈ okn· = vyd˝chan˝ vzduch. Filter <strong className="text-white">HEPA-13 s aktÌvnym uhlÌm</strong> pracuje poas vyhrievania:</p>
+                       <p>Zima so zatvoren√Ωmi oknami = vyd√Ωchan√Ω vzduch. Filter <strong className="text-white">HEPA-13 s akt√≠vnym uhl√≠m</strong> pracuje poƒças vykurovania:</p>
 
                        <div className="space-y-3">
                          <div className="flex items-start gap-3 p-2 rounded hover:bg-purple-900/20 transition-colors">
                            <UtensilsCrossed className="w-6 h-6 text-red-500 mt-1 shrink-0" />
-                           <span><strong className="text-red-400">KuchyHa:</strong> Odstr·ni pachy z vypr·~ania a r˝b za 10 min˙t.</span>
+                           <span><strong className="text-red-400">Kuchy≈àa:</strong> Odstr√°ni pachy z vypr√°≈æania a r√Ωb za 10 min√∫t.</span>
                          </div>
                          <div className="flex items-start gap-3 p-2 rounded hover:bg-purple-900/20 transition-colors">
                            <Flower2 className="w-6 h-6 text-yellow-500 mt-1 shrink-0" />
-                           <span><strong className="text-yellow-400">Alergie:</strong> ZachytÌ 99,9% pe>u a alergÈnov.</span>
+                           <span><strong className="text-yellow-400">Alergie:</strong> Zachyt√°va 99,9% peƒæu a alerg√©nov.</span>
                          </div>
                          <div className="flex items-start gap-3 p-2 rounded hover:bg-purple-900/20 transition-colors">
                            <Shield className="w-6 h-6 text-green-500 mt-1 shrink-0" />
-                           <span><strong className="text-green-400">Zdravie:</strong> Zlepauje kvalitu vzduchu.</span>
+                           <span><strong className="text-green-400">Zdravie:</strong> Zlep≈°uje kvalitu vzduchu.</span>
                          </div>
                        </div>
                     </div>
                     <div className="flex items-center gap-4 md:gap-6 bg-purple-900/30 border border-purple-500/30 p-5 md:p-6 rounded-2xl shadow-lg hover:border-purple-500 transition-all">
                        <RefreshCw className="w-10 h-10 md:w-12 md:h-12 text-purple-400 shrink-0 drop-shadow-[0_0_10px_rgba(192,132,252,0.5)]" />
                        <div className="text-sm md:text-base text-gray-200">
-                          <strong className="text-white text-lg md:text-xl block mb-1">Odvlhuje poas vyhrievania:</strong>
-                          Zbohom mokrÈ okn· a <span className="text-purple-400 font-bold underline decoration-purple-600">ierna pleseH na sten·ch</span>.
+                          <strong className="text-white text-lg md:text-xl block mb-1">Odvlhƒçuje poƒças vykurovania:</strong>
+                          Zbohom mokr√© okn√° a <span className="text-purple-400 font-bold underline decoration-purple-600">ƒçierna plese≈à na sten√°ch</span>.
                        </div>
                     </div>
                  </div>
                  <div className="relative mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/salute-cucina.png" label="FOTO: KUCHYNSK… V›PARY A PE= ZACHYTEN› FILTROM" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/salute-cucina.png" label="FOTO: KUCHYNSK√â V√ùPARY A PEƒΩ ZACHYTEN√â FILTROM" height="h-[300px] md:h-[500px]" />
                  </div>
               </ScrollReveal>
            </div>
         </section>
 
-        {/* STORY BLOCK 4: ECONOMIA */}
+        {/* STORY BLOK 4: √öSPORA */}
         <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#021005] to-void-950">
            <div className="hidden md:block absolute top-1/3 right-1/4 w-96 h-96 bg-green-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen animation-delay-2000 pointer-events-none"></div>
 
            <div className="max-w-7xl mx-auto relative z-10">
               <div className="md:hidden mb-6 flex justify-center">
-                 <span className="bg-green-500/20 text-green-400 border border-green-500/50 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider">04. ⁄spora AAA+</span>
+                 <span className="bg-green-500/20 text-green-400 border border-green-500/50 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider">04. √öspora AAA+</span>
               </div>
 
               <ScrollReveal className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
                  <div className="order-2 md:order-1 relative mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/app-risparmio.png" label="FOTO: AUTO RE}IM A APLIK¡CIA" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/app-risparmio.png" label="FOTO: AUTOMATICK√ù RE≈ΩIM A APLIK√ÅCIA" height="h-[300px] md:h-[500px]" />
                  </div>
                  <div className="order-1 md:order-2 relative">
                     <div className="hidden md:block absolute right-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">04</div>
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                       Auto re~im: <span className="text-green-500">PlatÌ s·m za seba.</span>
+                       Automatick√Ω re≈æim: <span className="text-green-500">Plat√≠ on.</span>
                     </h2>
                     <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
-                       ClimateGuard m· <strong className="text-green-400">"laserovÈ senzory"</strong>, ktorÈ analyzuj˙ vzduch.
+                       ClimateGuard m√° <strong className="text-green-400">"laserov√© senzory"</strong>, ktor√© analyzuj√∫ vzduch.
                        <br/><br/>
                        <span className="flex items-start gap-3 mb-4">
                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-500 text-xs font-bold border border-green-500/50 shrink-0 mt-1">1</span>
-                         <span><strong>VidÌ apinu:</strong> Ak varÌte alebo je dym, zr˝chli istenie.</span>
+                         <span><strong>Vid√≠ neƒçistoty:</strong> Ak var√≠te alebo je dym, zr√Ωchli ƒçistenie.</span>
                        </span>
                        <span className="flex items-start gap-3">
                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-500 text-xs font-bold border border-green-500/50 shrink-0 mt-1">2</span>
-                         <span><strong>CÌti chlad:</strong> Hne ako dosiahne 26∞C, znÌ~i v˝kon na minimum.</span>
+                         <span><strong>C√≠ti chlad:</strong> Len ƒço dosiahne 26¬∞C, zn√≠≈æi v√Ωkon na minimum.</span>
                        </span>
                        <br/><br/>
-                       Neplytv·va ani 1 watt energie. Preto je <strong className="text-white bg-green-900/40 px-2 py-0.5 rounded border border-green-500/30">energetick· trieda AAA+</strong>.
+                       Nemrh√° ani 1 watt energie. Preto je <strong className="text-white bg-green-900/40 px-2 py-0.5 rounded border border-green-500/30">Energetick√° trieda AAA+</strong>.
                     </p>
                     <button onClick={scrollToForm} className="bg-white/5 hover:bg-white/10 text-white border-2 border-green-500/50 hover:border-green-500 px-6 py-5 md:px-8 md:py-6 rounded-2xl flex items-center gap-4 transition-all w-full md:w-auto justify-center font-bold text-lg md:text-xl shadow-[0_0_20px_rgba(34,197,94,0.2)]">
-                       Chcem znÌ~ie fakt˙ru na polovicu
+                       Chcem zn√≠≈æi≈• √∫ƒçet na polovicu
                        <ArrowRight className="w-6 h-6 md:w-7 md:h-7" />
                     </button>
                  </div>
@@ -491,8 +491,8 @@ export default function Home() {
         <section className="py-12 md:py-24 px-4 md:px-6 bg-void-900 border-t border-white/5">
            <div className="max-w-7xl mx-auto">
               <ScrollReveal className="text-center mb-10 md:mb-12">
-                 <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">⁄pln˝ komfort</h2>
-                 <p className="text-lg text-gray-400">Vaetko, o od spotrebia neak·te.</p>
+                 <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">√öpln√© pohodlie</h2>
+                 <p className="text-lg text-gray-400">V≈°etko, ƒço od spotrebiƒça neƒçak√°te.</p>
               </ScrollReveal>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -502,58 +502,58 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-br from-neon-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="flex-1 relative z-10">
                          <Smartphone className="w-10 h-10 text-neon-500 mb-4" />
-                         <h3 className="text-2xl font-bold text-white mb-2">Ovl·danie cez aplik·ciu</h3>
+                         <h3 className="text-2xl font-bold text-white mb-2">Smart aplik√°cia na ovl√°danie</h3>
                          <p className="text-gray-400 text-lg">
-                            N·jdite tepl˝ domov po n·vrate. Zapnite, vypnite a naprogramujte vaetko z telefÛnu, kdeko>vek ste. KompatibilnÈ s hlasov˝mi prÌkazmi.
+                            Pri n√°vrate n√°jdite domov zohriaty. Zap√≠najte, vyp√≠najte a programujte v≈°etko z telef√≥nu, kdekoƒævek ste. Kompatibiln√© s hlasov√Ωmi pr√≠kazmi.
                          </p>
                       </div>
                       <div className="w-full md:w-1/3">
-                         <ImagePlaceholderDark src="/images/climateguardpro img/telecomando.png" label="OBRAZOVKA APLIK¡CIE" />
+                         <ImagePlaceholderDark src="/images/climateguardpro img/telecomando.png" label="OBRAZOVKA APLIK√ÅCIE" />
                       </div>
                    </div>
                  </ScrollReveal>
 
-                 {/* Card 2: Manutenzione */}
+                 {/* Card 2: √ödr≈æba */}
                  <ScrollReveal delay={150} className="h-full">
                    <div className="bg-void-950 border border-white/10 rounded-3xl p-6 md:p-8 group hover:border-purple-500/50 transition-all h-full relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="relative z-10">
                          <Settings className="w-10 h-10 text-purple-500 mb-4" />
-                         <h3 className="text-xl font-bold text-white mb-2">⁄dr~ba za 60 sek˙nd</h3>
+                         <h3 className="text-xl font-bold text-white mb-2">√ödr≈æba za 60 sek√∫nd</h3>
                          <p className="text-gray-400 text-lg">
-                            Aplik·cia a displej v·s upozornia, kedy vymenie filter. VymenÌ sa jedn˝m kliknutÌm, bez n·strojov. Ve>mi jednoduchÈ.
+                            Aplik√°cia a displej v√°s upozornia, kedy vymeni≈• filter. Men√≠ sa jedn√Ωm kliknut√≠m, bez n√°strojov. Veƒæmi jednoduch√©.
                          </p>
                       </div>
                    </div>
                  </ScrollReveal>
 
-                 {/* Card 3: Flusso Diffuso */}
+                 {/* Card 3: Rozpt√Ωlen√© pr√∫denie */}
                  <ScrollReveal delay={300} className="h-full">
                    <div className="bg-void-950 border border-white/10 rounded-3xl p-6 md:p-8 group hover:border-blue-500/50 transition-all h-full relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="relative z-10">
                          <Fan className="w-10 h-10 text-blue-500 mb-4" />
-                         <h3 className="text-xl font-bold text-white mb-2">Re~im "Rozpt˝len˝"</h3>
+                         <h3 className="text-xl font-bold text-white mb-2">Re≈æim "Rozpt√Ωlen√Ω"</h3>
                          <p className="text-gray-400 text-lg">
-                            Chcete istie bez pocitu vzduchu na tele? Pr˙d sa presmeruje dozadu. Nevidite>n˝ a tich˝ komfort.
+                            Chcete ƒçisti≈• bez pocitu vzduchu na tele? Pr√∫denie je odklonen√© dozadu. Neviditeƒæn√© a tich√© pohodlie.
                          </p>
                       </div>
                    </div>
                  </ScrollReveal>
 
-                 {/* Card 4: Notte */}
+                 {/* Card 4: Noc */}
                  <ScrollReveal delay={450} className="md:col-span-2 h-full">
                    <div className="bg-void-950 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row-reverse items-center gap-6 md:gap-8 group hover:border-green-500/50 transition-all h-full relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="flex-1 relative z-10">
                          <Moon className="w-10 h-10 text-green-500 mb-4" />
-                         <h3 className="text-2xl font-bold text-white mb-2">Non˝ re~im Ultra-Silent</h3>
+                         <h3 className="text-2xl font-bold text-white mb-2">Noƒçn√Ω re≈æim Ultra-Silent</h3>
                          <p className="text-gray-400 text-lg">
-                            SpÌte pokojne. Displej sa vypne, hlunose klesne pod 25dB a vzduch sa neust·le istÌ poas sp·nku.
+                            Spite pokojne. Displej sa vypne, hluƒçnos≈• klesne pod 25 dB a vzduch sa nepretr≈æite ƒçist√≠, k√Ωm sp√≠te.
                          </p>
                       </div>
                       <div className="w-full md:w-1/3">
-                         <ImagePlaceholderDark src="/images/climateguardpro img/display-notturno.png" label="VYPNUT› DISPLEJ" />
+                         <ImagePlaceholderDark src="/images/climateguardpro img/display-notturno.png" label="DISPLEJ VYPNUT√ù" />
                       </div>
                    </div>
                  </ScrollReveal>
@@ -562,7 +562,7 @@ export default function Home() {
         </section>
       </div>
 
-      {/* --- TECH SPECS SUMMARY --- */}
+      {/* --- ZHRNUTIE TECH SPECS --- */}
       <section className="py-10 md:py-16 bg-void-900 px-4 md:px-6 border-y border-white/10 overflow-x-clip overflow-y-visible">
          <div className="max-w-4xl mx-auto">
             <ScrollReveal>
@@ -571,32 +571,32 @@ export default function Home() {
          </div>
       </section>
 
-      {/* --- SOCIAL PROOF --- */}
+      {/* --- SOCI√ÅLNE D√îKAZY --- */}
       <Reviews />
 
       {/* --- FAQ --- */}
       <section className="py-12 md:py-20 px-4 md:px-6 max-w-4xl mx-auto overflow-x-clip overflow-y-visible text-white">
          <ScrollReveal className="text-center mb-10 md:mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-3 font-display">Pochybnosti? Odpovie v·m expert</h3>
-            <p className="text-base md:text-lg text-gray-400">Kliknite na ot·zky pre okam~it˙ odpove.</p>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-3 font-display">M√°te pochybnosti? Odpoved√° expert</h3>
+            <p className="text-base md:text-lg text-gray-400">Kliknite na ot√°zky pre okam≈æit√∫ odpoveƒè.</p>
          </ScrollReveal>
          <ScrollReveal delay={200}>
             <ObjectionHandler />
          </ScrollReveal>
       </section>
 
-      {/* --- ORDER FORM (SINGLE OFFER 69,99¨) --- */}
+      {/* --- OBJEDN√ÅVKOV√ù FORMUL√ÅR (JEDNA PONUKA 69,99‚Ç¨) --- */}
       <section id="order-form" className="py-12 md:py-24 px-4 md:px-6 bg-[#050508] border-t border-white/10 pb-40 md:pb-24 overflow-x-clip overflow-y-visible relative text-white">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-neon-500/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
         <div className="max-w-2xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-12">
-             <div className="inline-block bg-neon-500 text-void-950 text-sm md:text-sm font-bold px-4 py-1.5 rounded-full mb-4 animate-pulse shadow-[0_0_20px_#FF4D00]">POSLEDN›CH 7 KUSOV ZA 69,99¨</div>
-             <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">Bezpen· pokladHa</h2>
-             <p className="text-base md:text-lg text-gray-400">R˝chle doruenie za 24/48h v cene.</p>
+             <div className="inline-block bg-neon-500 text-void-950 text-sm md:text-sm font-bold px-4 py-1.5 rounded-full mb-4 animate-pulse shadow-[0_0_20px_#FF4D00]">POSLEDN√ùCH 7 KUSOV ZA 69,99‚Ç¨</div>
+             <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">Bezpeƒçn√° objedn√°vka</h2>
+             <p className="text-base md:text-lg text-gray-400">R√Ωchle doruƒçenie za 24/48h zahrnut√©.</p>
           </ScrollReveal>
 
-          {/* PROCESS STEPS */}
+          {/* KROKY PROCESU */}
           <ScrollReveal delay={100} className="mb-10">
              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-row md:flex-col items-center gap-4 text-left md:text-center">
@@ -604,8 +604,8 @@ export default function Home() {
                      <ClipboardEdit className="w-6 h-6" />
                   </div>
                   <div>
-                     <h5 className="font-bold text-white uppercase text-sm">1. VyplHte</h5>
-                     <p className="text-gray-400 text-xs">Zadajte ˙daje ni~aie.</p>
+                     <h5 className="font-bold text-white uppercase text-sm">1. Vypl≈àte</h5>
+                     <p className="text-gray-400 text-xs">Vlo≈æte √∫daje ni≈æ≈°ie.</p>
                   </div>
                </div>
                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-row md:flex-col items-center gap-4 text-left md:text-center relative">
@@ -615,7 +615,7 @@ export default function Home() {
                   </div>
                   <div>
                      <h5 className="font-bold text-white uppercase text-sm">2. Potvrdenie</h5>
-                     <p className="text-gray-400 text-xs">Zavol·me v·m na potvrdenie.</p>
+                     <p className="text-gray-400 text-xs">Zavol√°me v√°m na potvrdenie.</p>
                   </div>
                </div>
                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-row md:flex-col items-center gap-4 text-left md:text-center relative">
@@ -624,8 +624,8 @@ export default function Home() {
                      <PackageCheck className="w-6 h-6" />
                   </div>
                   <div>
-                     <h5 className="font-bold text-white uppercase text-sm">3. Platba na dobierku</h5>
-                     <p className="text-gray-400 text-xs">V hotovosti kuriÈrovi.</p>
+                     <h5 className="font-bold text-white uppercase text-sm">3. Platba pri doruƒçen√≠</h5>
+                     <p className="text-gray-400 text-xs">V hotovosti kuri√©rovi.</p>
                   </div>
                </div>
              </div>
@@ -637,18 +637,18 @@ export default function Home() {
              {submitted ? (
                <div className="text-center py-10 md:py-20 flex flex-col items-center">
                   <CheckCircle2 className="w-24 h-24 md:w-28 md:h-28 text-green-500 mb-6" />
-                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Objedn·vka potvrden·!</h3>
-                  <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-md mx-auto">akujeme! Vaaa objedn·vka bola prijat·. N·a oper·tor v·s bude kontaktovae cez WhatsApp alebo telefÛn do 2 hodÌn na potvrdenie doruenia.</p>
-                  <button onClick={() => window.location.reload()} className="text-neon-500 font-bold underline text-xl">Sp‰e do obchodu</button>
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Objedn√°vka potvrden√°!</h3>
+                  <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-md mx-auto">ƒéakujeme! Va≈°a objedn√°vka bola prijat√°. N√°≈° oper√°tor v√°s bude kontaktova≈• cez WhatsApp alebo telef√≥n do 2 hod√≠n na potvrdenie z√°sielky.</p>
+                  <button onClick={() => window.location.reload()} className="text-neon-500 font-bold underline text-xl">Sp√§≈• do obchodu</button>
                </div>
              ) : (
                <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
 
-                  {/* PACKAGE SUMMARY */}
+                  {/* ZHRNUTIE BAL√çKA */}
                   <div className="bg-white/5 rounded-xl p-5 border border-white/10">
                      <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-2">
-                        <h4 className="text-gray-400 text-xs uppercase font-bold tracking-widest">S˙hrn objedn·vky:</h4>
-                        <span className="text-neon-500 font-bold text-xl">Celkom: 69,99¨</span>
+                        <h4 className="text-gray-400 text-xs uppercase font-bold tracking-widest">S√∫hrn objedn√°vky:</h4>
+                        <span className="text-neon-500 font-bold text-xl">Spolu: 69,99‚Ç¨</span>
                      </div>
                      <ul className="space-y-3">
                         <li className="flex items-center gap-3 text-white text-base md:text-lg">
@@ -657,34 +657,34 @@ export default function Home() {
                         </li>
                         <li className="flex items-center gap-3 text-white text-base md:text-lg">
                            <CheckCircle2 className="text-green-500 w-5 h-5 md:w-6 md:h-6 shrink-0"/>
-                           <span>Inteligentn˝ dia>kov˝ ovl·da <span className="text-gray-500 text-xs ml-1">(S˙ase balenia)</span></span>
+                           <span>Smart diaƒækov√© ovl√°danie <span className="text-gray-500 text-xs ml-1">(Zahrnut√©)</span></span>
                         </li>
                         <li className="flex items-center gap-3 text-white text-base md:text-lg bg-neon-500/10 p-2 -mx-2 rounded-lg border border-neon-500/20">
                            <Gift className="text-neon-500 w-5 h-5 md:w-6 md:h-6 shrink-0 animate-pulse"/>
-                           <span className="font-bold">1x N·hradn˝ filter HEPA <span className="text-neon-500 text-xs font-black ml-2 bg-neon-500/20 px-1.5 py-0.5 rounded border border-neon-500/50 uppercase">Darek</span></span>
+                           <span className="font-bold">1x N√°hradn√Ω HEPA filter <span className="text-neon-500 text-xs font-black ml-2 bg-neon-500/20 px-1.5 py-0.5 rounded border border-neon-500/50 uppercase">Darƒçek</span></span>
                         </li>
                      </ul>
                   </div>
 
-                  {/* FORM FIELDS */}
+                  {/* POLIA FORMUL√ÅRA */}
                   <div className="space-y-5">
                     <div>
                         <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">Meno a priezvisko</label>
                         <div className="relative">
                             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"><ShieldCheck className="w-5 h-5" /></span>
-                            <Input name="fullName" placeholder="Napr.: J·n Nov·k" onChange={handleInputChange} className="pl-12" />
+                            <Input name="fullName" placeholder="Napr.: J√°n Nov√°k" onChange={handleInputChange} className="pl-12" />
                         </div>
                     </div>
 
                     <div>
-                       <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">⁄pln· adresa (Ulica, Mesto, PS)</label>
+                       <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">√öpln√° adresa (Ulica, Mesto, PSƒå)</label>
                        <div className="relative">
                             <span className="absolute left-4 top-4 text-gray-500"><MapPin className="w-5 h-5" /></span>
                             <textarea
                               name="fullAddress"
                               required
                               rows={3}
-                              placeholder="Napr.: Hlavn· 10, 811 01 Bratislava"
+                              placeholder="Napr.: Hlavn√° 10, 81000 Bratislava"
                               onChange={handleInputChange}
                               className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 pl-12 text-white placeholder-gray-500 focus:outline-none focus:border-neon-500 focus:ring-1 focus:ring-neon-500 transition-all font-sans text-lg resize-none"
                             />
@@ -693,15 +693,15 @@ export default function Home() {
 
                     <div>
                        <label className="flex justify-between items-center text-gray-400 text-xs font-bold uppercase mb-2 ml-1">
-                          <span>TelefÛnne Ìslo</span>
-                          <span className="text-neon-500">Pre potvrdenie objedn·vky</span>
+                          <span>Telef√≥nne ƒç√≠slo</span>
+                          <span className="text-neon-500">Na potvrdenie objedn√°vky</span>
                        </label>
                        <div className="relative">
                             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"><Smartphone className="w-5 h-5" /></span>
                             <Input name="phone" placeholder="Napr.: 0901 234 567" type="tel" onChange={handleInputChange} className="pl-12" />
                        </div>
                        <p className="text-[10px] text-gray-500 mt-1 ml-1 flex items-center gap-1">
-                          <CheckCircle2 className="w-3 h-3 text-green-500" /> DÙle~itÈ: odpovedzte na hovor pre aktiv·ciu doruenia.
+                          <CheckCircle2 className="w-3 h-3 text-green-500" /> D√¥le≈æit√©: odpovedzte na hovor pre odoslanie z√°sielky.
                        </p>
                     </div>
                   </div>
@@ -711,14 +711,14 @@ export default function Home() {
                         <CreditCard className="w-6 h-6 text-yellow-500" />
                      </div>
                      <div className="text-sm md:text-base text-gray-300">
-                        <span className="text-yellow-500 font-bold block mb-1 text-base md:text-lg">PLATBA NA DOBIERKU</span>
-                        Nep˝tame si kartu. ZaplatÌte <span className="text-white font-bold underline">69,99¨</span> priamo kuriÈrovi v hotovosti.
+                        <span className="text-yellow-500 font-bold block mb-1 text-base md:text-lg">PLATBA PRI DORUƒåEN√ç</span>
+                        Nep√Ωtame si kreditn√∫ kartu. Zaplat√≠te <span className="text-white font-bold underline">69,99‚Ç¨</span> priamo kuri√©rovi v hotovosti.
                      </div>
                   </div>
 
                   <button type="submit" className="w-full bg-neon-500 hover:bg-neon-400 text-white font-display font-bold py-5 md:py-6 rounded-2xl text-xl md:text-2xl shadow-[0_0_40px_rgba(255,77,0,0.4)] transition-all mt-6 flex items-center justify-center gap-4 animate-pulse-neon group relative overflow-hidden">
                      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer"></div>
-                     <span className="relative z-10">POTVRDId OBJEDN¡VKU</span>
+                     <span className="relative z-10">POTVRDI≈§ OBJEDN√ÅVKU</span>
                      <ArrowRight className="w-7 h-7 group-hover:translate-x-1 transition-transform relative z-10"/>
                   </button>
                </form>
@@ -727,21 +727,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Aggressive Sticky Mobile Bar */}
+      {/* Agres√≠vny Sticky Mobile Bar */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-void-950 shadow-[0_-5px_25px_rgba(0,0,0,0.8)] border-t border-white/10 pb-safe">
         <div className="bg-yellow-500 text-void-950 text-[10px] font-black uppercase text-center py-1.5 tracking-widest flex items-center justify-center gap-2 animate-pulse">
            <Timer className="w-3 h-3" />
-           BleskovÈ z>avy -50% oskoro vypraÌ
+           Bleskov√© ponuka -50% konƒç√≠
         </div>
         <div className="p-3">
            <button onClick={scrollToForm} className="w-full bg-neon-500 hover:bg-neon-400 text-white rounded-xl py-3.5 px-5 flex justify-between items-center shadow-[0_0_20px_rgba(255,77,0,0.4)] group active:scale-95 transition-transform relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer"></div>
               <div className="flex flex-col items-start leading-none relative z-10">
-                 <span className="font-bold text-lg">OBJEDNAd TERAZ</span>
-                 <span className="text-[10px] opacity-90 flex items-center gap-1 font-medium mt-0.5"><Wallet className="w-3 h-3" /> PlatÌte kuriÈrovi</span>
+                 <span className="font-bold text-lg">OBJEDNA≈§ TERAZ</span>
+                 <span className="text-[10px] opacity-90 flex items-center gap-1 font-medium mt-0.5"><Wallet className="w-3 h-3" /> Platba kuri√©rovi</span>
               </div>
               <div className="flex items-center gap-2 bg-black/20 px-3 py-1.5 rounded-lg border border-white/10 relative z-10">
-                 <span className="font-bold text-xl">69,99¨</span>
+                 <span className="font-bold text-xl">69,99‚Ç¨</span>
                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </div>
            </button>
@@ -751,12 +751,12 @@ export default function Home() {
   );
 }
 
-// Icon for Design Award
+// Ikona pre dizajnov√© ocenenie
 const AwardIcon = (props: any) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
 )
 
-// Increased Font Size for Inputs + className prop
+// Zv√§ƒç≈°en√° veƒækos≈• p√≠sma pre vstupy + className prop
 const Input = ({ className = "", ...props }: any) => (
    <input
       required

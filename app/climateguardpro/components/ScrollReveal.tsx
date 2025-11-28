@@ -29,8 +29,8 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className 
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms`, touchAction: 'pan-y' }}
-      className={`transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-[0.98]'} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`transition-[opacity,transform] duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}
     >
       {children}
     </div>

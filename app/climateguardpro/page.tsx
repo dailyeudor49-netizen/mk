@@ -289,7 +289,7 @@ export default function Home() {
       </div>
 
       {/* --- DEEP DIVE MARKETING BODY --- */}
-      <div className="bg-void-950 text-white relative overflow-x-hidden w-full pt-10">
+      <div className="bg-void-950 text-white relative overflow-x-clip w-full pt-10">
         <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-white/5 z-0"></div>
 
         {/* STORY BLOCK 1: IL PARADOSSO */}

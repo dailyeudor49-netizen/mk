@@ -4,9 +4,10 @@ import Image from 'next/image';
 interface FooterProps {
   showBesecureEmail?: boolean;
   besecureLocale?: 'it' | 'pl';
+  showClimateGuardInfo?: boolean;
 }
 
-export default function Footer({ showBesecureEmail, besecureLocale }: FooterProps) {
+export default function Footer({ showBesecureEmail, besecureLocale, showClimateGuardInfo }: FooterProps) {
   const assistanceText = besecureLocale === 'pl' ? 'Potrzebujesz pomocy:' : 'Per assistenza:';
 
   return (
@@ -21,6 +22,16 @@ export default function Footer({ showBesecureEmail, besecureLocale }: FooterProp
               {besecureLocale === 'pl'
                 ? 'BeSecure Pro jest marką dystrybuowaną przez Ionizi.com'
                 : 'BeSecure Pro è un marchio distribuito da Ionizi.com'}
+            </p>
+          </div>
+        )}
+        {showClimateGuardInfo && (
+          <div className="text-center mb-8 pb-8 border-b border-gray-200">
+            <p className="text-sm text-gray-600">
+              Per assistenza: <a href="mailto:info@ionizi.com" className="text-blue-600 hover:underline">info@ionizi.com</a>
+            </p>
+            <p className="text-xs text-gray-400 mt-2">
+              ClimateGuard Pro è un marchio registrato distribuito in esclusiva da Ionizi.com - Rivenditore Ufficiale Autorizzato.
             </p>
           </div>
         )}

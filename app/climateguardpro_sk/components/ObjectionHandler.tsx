@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Sparkles, Loader2, MessageCircleQuestion } from 'lucide-react';
 
-// Risposte predefinite per le FAQ
+// Preddefinované odpovede na FAQ
 const faqResponses: Record<string, string> = {
-  "Skutočne ušetrím 60% na energii?": "Áno, vďaka keramickej technológii PTC a čipu ECO-AI, ktorý optimalizuje spotrebu v reálnom čase. Naši zákazníci hlásia priemerné úspory 55-65% oproti tradičným kachliam.",
-  "Dokáže vyhrievať obývačku s 90m²?": "Určite áno! Turbína 360° distribuuje teplý vzduch rovnomerne až do 120m². Pre väčšie priestory odporúčame 2 jednotky pre optimálny výkon.",
-  "Pomáha proti zimnej plesni?": "Áno, integrovaný termický odvlhčovač odstraňuje prebytočnú vlhkosť počas vyhrievania, čím predchádza tvorbe plesní a kondenzácie na stenách a oknách.",
-  "Je počas noci hlučný?": "V nočnom režime ClimateGuard Pro pracuje len na 25dB - tichšie ako šepot. Displej sa úplne vypne, aby nerušil spánok.",
-  "Môžem zaplatiť kuriérovi?": "Samozrejme! Ponúkame platbu na dobierku. Zaplatíte priamo kuriérovi v hotovosti pri prevzatí produktu. Nulové riziko pre vás."
+  "Naozaj ušetrím 60% na účtoch?": "Áno, vďaka keramickej technológii PTC a čipu ECO-AI, ktorý optimalizuje spotrebu v reálnom čase. Naši zákazníci hlásia priemerné úspory 55-65% v porovnaní s tradičným kúrením.",
+  "Vyhreje miestnosť 90m²?": "Absolútne áno! Turbína 360° rozdeľuje teplý vzduch rovnomerne až do 120m². Pre väčšie priestory odporúčame 2 jednotky pre optimálny výkon.",
+  "Pomáha proti plesni v zime?": "Áno, integrované tepelné odvlhčovanie odstraňuje prebytočnú vlhkosť pri vykurovaní, čím predchádza tvorbe plesní a kondenzácie na stenách a oknách.",
+  "Je v noci hlučný?": "V nočnom režime ClimateGuard Pro pracuje pri iba 25dB - tichšie ako šepot. Displej sa úplne vypne, aby nerušil spánok.",
+  "Môžem zaplatiť kuriérovi?": "Samozrejme! Ponúkame platbu na dobierku. Zaplatíte priamo kuriérovi v hotovosti pri doručení produktu. Nulové riziko pre vás."
 };
 
 export const ObjectionHandler: React.FC = () => {
@@ -16,10 +16,10 @@ export const ObjectionHandler: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const doubts = [
-    "Skutočne ušetrím 60% na energii?",
-    "Dokáže vyhrievať obývačku s 90m²?",
-    "Pomáha proti zimnej plesni?",
-    "Je počas noci hlučný?",
+    "Naozaj ušetrím 60% na účtoch?",
+    "Vyhreje miestnosť 90m²?",
+    "Pomáha proti plesni v zime?",
+    "Je v noci hlučný?",
     "Môžem zaplatiť kuriérovi?"
   ];
 
@@ -31,7 +31,7 @@ export const ObjectionHandler: React.FC = () => {
     // Simula un breve ritardo per dare l'effetto di "risposta"
     await new Promise(resolve => setTimeout(resolve, 800));
 
-    const answer = faqResponses[question] || "Ľutujem, nemám odpoveď na túto otázku. Kontaktujte nás pre viac informácií.";
+    const answer = faqResponses[question] || "Prepáčte, na túto otázku nemám odpoveď. Kontaktujte nás pre viac informácií.";
     setResponse(answer);
     setLoading(false);
   };
@@ -50,7 +50,7 @@ export const ObjectionHandler: React.FC = () => {
                 <MessageCircleQuestion className="w-5 h-5 text-neon-500" />
                 <span className="font-display font-bold tracking-wider text-sm uppercase">Zákaznícka podpora</span>
               </div>
-              <p className="text-gray-400 text-xs mb-4">Časté otázky:</p>
+              <p className="text-gray-400 text-xs mb-4">Často kladené otázky:</p>
               <div className="flex flex-col gap-2">
                  {doubts.map((q) => (
                    <button
@@ -74,7 +74,7 @@ export const ObjectionHandler: React.FC = () => {
             {!activeQuestion ? (
                <div className="text-center opacity-50">
                   <MessageCircleQuestion className="w-12 h-12 mx-auto mb-4 text-gray-600" />
-                  <p className="font-display text-lg text-gray-400">Vyberte otázku zo zoznamu</p>
+                  <p className="font-display text-lg text-gray-400">Vyberte otázku z ponuky vľavo</p>
                </div>
             ) : (
                <div className="relative z-10">

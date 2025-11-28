@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Image as ImageIcon, MapPin, Truck } from 'lucide-react';
 
@@ -7,26 +8,26 @@ import { ChevronLeft, ChevronRight, Image as ImageIcon, MapPin, Truck } from 'lu
 const slides = [
   {
     id: 1,
-    label: "FOTO 1: PROIZVOD CIJELOM (FRONTALNO)",
-    sub: "Aerodinamički Dizajn",
+    label: "FOTO 1: PRODOTTO INTERO (FRONTALE)",
+    sub: "Design Aerodinamico",
     image: "/images/climateguardpro img/prodotto-frontale.png"
   },
   {
     id: 2,
-    label: "FOTO 2: PROIZVOD U DNEVNOM BORAVKU",
-    sub: "Domaća Elegancija",
+    label: "FOTO 2: AMBIENTATA IN SALOTTO",
+    sub: "Eleganza Domestica",
     image: "/images/climateguardpro img/ambientata-salotto.png"
   },
   {
     id: 3,
-    label: "FOTO 3: LCD ZASLON & KONTROLE",
-    sub: "Potpuna Kontrola",
+    label: "FOTO 3: DISPLAY LCD & COMANDI",
+    sub: "Controllo Totale",
     image: "/images/climateguardpro img/display-tecnologia.png"
   },
   {
     id: 4,
-    label: "FOTO 4: DETALJ HEPA FILTERA",
-    sub: "Aktivno Pročišćavanje",
+    label: "FOTO 4: DETTAGLIO FILTRO HEPA",
+    sub: "Purificazione Attiva",
     image: "/images/climateguardpro img/filtro-hepa.png"
   },
 ];
@@ -71,7 +72,7 @@ export const HeroCarousel: React.FC = () => {
                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-gray-100 to-gray-200 opacity-80"></div>
                </>
              )}
-
+             
           </div>
         ))}
       </div>
@@ -89,17 +90,17 @@ export const HeroCarousel: React.FC = () => {
       {/* Indicators */}
       <div className="absolute bottom-4 md:bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
         {slides.map((_, i) => (
-          <div
-            key={i}
+          <div 
+            key={i} 
             className={`transition-all duration-300 h-2 rounded-full ${current === i ? 'w-8 md:w-10 bg-neon-500 shadow-lg' : 'w-2.5 md:w-3 bg-gray-300'}`}
           />
         ))}
       </div>
 
-      {/* Trust Badge Overlay (Dostava diljem Hrvatske) - Clean Style */}
+      {/* Trust Badge Overlay (Spedizione Italia) - Clean Style */}
       <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur border border-gray-200 px-3 py-1.5 md:px-4 md:py-2 rounded-xl flex items-center gap-2 z-20 shadow-xl">
          <Truck className="w-4 h-4 md:w-5 md:h-5 text-green-600" />
-         <span className="text-[10px] md:text-sm font-bold text-void-950 uppercase tracking-wide">Dostava diljem Hrvatske</span>
+         <span className="text-[10px] md:text-sm font-bold text-void-950 uppercase tracking-wide">Isporuka iz EU skladišta</span>
       </div>
     </div>
   );

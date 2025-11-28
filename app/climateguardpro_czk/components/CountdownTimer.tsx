@@ -25,7 +25,7 @@ export const CountdownTimer: React.FC = () => {
       </div>
       <div className="flex items-center gap-2 font-mono bg-black/20 px-2 py-1 rounded text-white">
         <Timer className="w-3 h-3" />
-        <span>VYPRŠÍ ZA:</span>
+        <span>KONČÍ ZA:</span>
         {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
       </div>
     </div>

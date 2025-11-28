@@ -3,11 +3,11 @@ import { Sparkles, Loader2, MessageCircleQuestion } from 'lucide-react';
 
 // Risposte predefinite per le FAQ
 const faqResponses: Record<string, string> = {
-  "Hoću li stvarno uštedjeti 60% na računu?": "Da, zahvaljujući PTC keramičkoj tehnologiji i ECO-AI čipu koji optimizira potrošnju u stvarnom vremenu. Naši kupci prijavljuju prosječnu uštedu od 55-65% u odnosu na tradicionalne grijalice.",
-  "Može li zagrijati dnevni boravak od 90m²?": "Apsolutno da! Turbina 360° ravnomjerno raspodijeljuje topli zrak do 120m². Za veće prostore preporučujemo 2 jedinice za optimalne performanse.",
-  "Pomaže li protiv zimske plijesni?": "Da, integrirani termički odvlaživač uklanja višak vlage dok grije, sprječavajući stvaranje plijesni i kondenzacije na zidovima i prozorima.",
-  "Je li bučan noću?": "U noćnom načinu rada, ClimateGuard Pro radi na samo 25dB - tiši od šapta. Zaslon se potpuno isključuje kako ne bi ometao san.",
-  "Mogu li platiti dostavljaču?": "Naravno! Nudimo plaćanje pri dostavi (pouzećem). Plaćate izravno dostavljaču u gotovini kada primite proizvod. Nema rizika za vas."
+  "Stvarno uštedim 60% na računu?": "Da, zahvaljujući PTC keramičkoj tehnologiji i ECO-AI čipu koji optimizira potrošnju u realnom vremenu. Naši kupci izvještavaju o prosječnoj uštedi od 55-65% u odnosu na tradicionalne grijalice.",
+  "Može li zagrijati dnevnu sobu od 90m²?": "Apsolutno da! Turbina 360° ravnomjerno raspoređuje topli zrak do 120m². Za veće prostore preporučujemo 2 jedinice za optimalne performanse.",
+  "Pomaže li protiv zimske plijesni?": "Da, integrirani termalni odvlaživač uklanja višak vlage dok grije, sprječavajući stvaranje plijesni i kondenzacije na zidovima i prozorima.",
+  "Bučan li je noću?": "U noćnom načinu rada, ClimateGuard Pro radi sa samo 25dB - tiši od šapta. Zaslon se potpuno gasi kako ne bi ometao san.",
+  "Mogu li platiti kuriru?": "Naravno! Nudimo plaćanje pouzećem. Plaćate direktno kuriru gotovinom kada primite proizvod. Nula rizika za vas."
 };
 
 export const ObjectionHandler: React.FC = () => {
@@ -16,11 +16,11 @@ export const ObjectionHandler: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const doubts = [
-    "Hoću li stvarno uštedjeti 60% na računu?",
-    "Može li zagrijati dnevni boravak od 90m²?",
+    "Stvarno uštedim 60% na računu?",
+    "Može li zagrijati dnevnu sobu od 90m²?",
     "Pomaže li protiv zimske plijesni?",
-    "Je li bučan noću?",
-    "Mogu li platiti dostavljaču?"
+    "Bučan li je noću?",
+    "Mogu li platiti kuriru?"
   ];
 
   const askExpert = async (question: string) => {
@@ -48,7 +48,7 @@ export const ObjectionHandler: React.FC = () => {
            <div>
               <div className="flex items-center gap-2 mb-6 text-white">
                 <MessageCircleQuestion className="w-5 h-5 text-neon-500" />
-                <span className="font-display font-bold tracking-wider text-sm uppercase">Korisnička Podrška</span>
+                <span className="font-display font-bold tracking-wider text-sm uppercase">Korisnička podrška</span>
               </div>
               <p className="text-gray-400 text-xs mb-4">Često postavljana pitanja:</p>
               <div className="flex flex-col gap-2">
@@ -74,7 +74,7 @@ export const ObjectionHandler: React.FC = () => {
             {!activeQuestion ? (
                <div className="text-center opacity-50">
                   <MessageCircleQuestion className="w-12 h-12 mx-auto mb-4 text-gray-600" />
-                  <p className="font-display text-lg text-gray-400">Odaberite pitanje s lijeve strane</p>
+                  <p className="font-display text-lg text-gray-400">Odaberite pitanje sa strane</p>
                </div>
             ) : (
                <div className="relative z-10">
@@ -84,7 +84,7 @@ export const ObjectionHandler: React.FC = () => {
                  {loading ? (
                     <div className="flex items-center gap-3 text-neon-500">
                        <Loader2 className="w-5 h-5 animate-spin" />
-                       <span className="font-bold text-sm">Pišem odgovor...</span>
+       <span className="font-bold text-sm">Pišem odgovor...</span>
                     </div>
                  ) : (
                     <div className="animate-fade-in-up">

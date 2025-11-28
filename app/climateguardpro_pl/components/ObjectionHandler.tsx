@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Sparkles, Loader2, MessageCircleQuestion } from 'lucide-react';
 
-// Odpowiedzi na FAQ
+// Risposte predefinite per le FAQ
 const faqResponses: Record<string, string> = {
-  "Czy naprawdę zaoszczędzę 60% na rachunkach?": "Tak, dzięki technologii ceramicznej PTC i chipowi ECO-AI, który optymalizuje zużycie w czasie rzeczywistym. Nasi klienci zgłaszają średnie oszczędności 55-65% w porównaniu z tradycyjnymi grzejnikami.",
-  "Czy ogrzeje salon 90m²?": "Absolutnie tak! Turbina 360° równomiernie rozprowadza ciepłe powietrze na powierzchni do 120m². W przypadku większych pomieszczeń zalecamy 2 jednostki dla optymalnej wydajności.",
-  "Czy pomaga przeciwko zimowej pleśni?": "Tak, wbudowany osuszacz termiczny usuwa nadmiar wilgoci podczas ogrzewania, zapobiegając tworzeniu się pleśni i kondensacji na ścianach i oknach.",
-  "Czy robi hałas w nocy?": "W trybie nocnym ClimateGuard Pro działa przy zaledwie 25dB - ciszej niż szept. Wyświetlacz całkowicie się wyłącza, aby nie zakłócać snu.",
-  "Czy mogę zapłacić kurierowi?": "Oczywiście! Oferujemy płatność przy dostawie (za pobraniem). Płacisz bezpośrednio kurierowi gotówką, gdy otrzymujesz produkt. Zero ryzyka dla Ciebie."
+  "Naprawdę zaoszczędzę 60% na rachunku?": "Tak, dzięki technologii PTC ceramicznej i chipowi ECO-AI, który optymalizuje zużycie w czasie rzeczywistym. Nasi klienci zgłaszają średnie oszczędności 55-65% w porównaniu do tradycyjnych grzejników.",
+  "Czy ogrzeje salon o powierzchni 90 m²?": "Absolutnie tak! Turbina 360° rozprowadza ciepłe powietrze równomiernie do 120 m². Dla większych pomieszczeń zalecamy 2 jednostki dla optymalnej wydajności.",
+  "Czy pomaga w walce z pleśnią zimą?": "Tak, zintegrowany osuszacz termiczny usuwa nadmiar wilgoci podczas ogrzewania, zapobiegając powstawaniu pleśni i kondensacji na ścianach i oknach.",
+  "Czy jest głośny w nocy?": "W trybie nocnym ClimateGuard Pro pracuje przy zaledwie 25dB - ciszej niż szept. Wyświetlacz wyłącza się całkowicie, aby nie zakłócać snu.",
+  "Czy mogę zapłacić kurierowi?": "Oczywiście! Oferujemy płatność przy odbiorze (za pobraniem). Płacisz bezpośrednio kurierowi gotówką po otrzymaniu produktu. Zero ryzyka dla Ciebie."
 };
 
 export const ObjectionHandler: React.FC = () => {
@@ -16,10 +16,10 @@ export const ObjectionHandler: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const doubts = [
-    "Czy naprawdę zaoszczędzę 60% na rachunkach?",
-    "Czy ogrzeje salon 90m²?",
-    "Czy pomaga przeciwko zimowej pleśni?",
-    "Czy robi hałas w nocy?",
+    "Naprawdę zaoszczędzę 60% na rachunku?",
+    "Czy ogrzeje salon o powierzchni 90 m²?",
+    "Czy pomaga w walce z pleśnią zimą?",
+    "Czy jest głośny w nocy?",
     "Czy mogę zapłacić kurierowi?"
   ];
 
@@ -28,7 +28,7 @@ export const ObjectionHandler: React.FC = () => {
     setLoading(true);
     setResponse(null);
 
-    // Symulacja krótkiego opóźnienia dla efektu "odpowiedzi"
+    // Simula un breve ritardo per dare l'effetto di "risposta"
     await new Promise(resolve => setTimeout(resolve, 800));
 
     const answer = faqResponses[question] || "Przepraszam, nie mam odpowiedzi na to pytanie. Skontaktuj się z nami, aby uzyskać więcej informacji.";
@@ -50,7 +50,7 @@ export const ObjectionHandler: React.FC = () => {
                 <MessageCircleQuestion className="w-5 h-5 text-neon-500" />
                 <span className="font-display font-bold tracking-wider text-sm uppercase">Wsparcie Klienta</span>
               </div>
-              <p className="text-gray-400 text-xs mb-4">Często zadawane pytania:</p>
+              <p className="text-gray-400 text-xs mb-4">Najczęściej zadawane pytania:</p>
               <div className="flex flex-col gap-2">
                  {doubts.map((q) => (
                    <button
@@ -74,7 +74,7 @@ export const ObjectionHandler: React.FC = () => {
             {!activeQuestion ? (
                <div className="text-center opacity-50">
                   <MessageCircleQuestion className="w-12 h-12 mx-auto mb-4 text-gray-600" />
-                  <p className="font-display text-lg text-gray-400">Wybierz pytanie obok</p>
+                  <p className="font-display text-lg text-gray-400">Wybierz pytanie z boku</p>
                </div>
             ) : (
                <div className="relative z-10">

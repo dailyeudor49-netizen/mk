@@ -10,7 +10,7 @@ import { ScrollReveal } from './components/ScrollReveal';
 import { OrderFormState } from './types';
 import { ArrowRight, CheckCircle2, Zap, Wind, ShieldCheck, Truck, CreditCard, Star, PlayCircle, Image as ImageIcon, ArrowDown, Moon, RefreshCw, Cpu, Package, Gift, ShoppingCart, Menu, Eye, Thermometer, Droplets, Smartphone, Settings, Fan, Leaf, Sparkles, UtensilsCrossed, Flower2, Shield, ScanEye, ThermometerSnowflake, Flame, Trophy, Banknote, Timer, Lock, BadgeCheck, Radio, Wallet, MapPin, ClipboardEdit, PhoneCall, PackageCheck, Repeat, Waves } from 'lucide-react';
 
-// --- KOMPONENTY PRE OBRÁZKY ---
+// --- COMPONENTI PER IMMAGINI ---
 const ImagePlaceholder = ({ src, label, height = "h-56 md:h-full", className = "" }: { src?: string, label: string, height?: string, className?: string }) => {
   if (src) {
     return (
@@ -87,7 +87,7 @@ export default function Home() {
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
@@ -103,20 +103,20 @@ export default function Home() {
       <CountdownTimer />
       <Header scrollToForm={scrollToForm} />
 
-      {/* --- AGRESÍVNA HERO SEKCIA (CONVERSION FOCUSED) --- */}
+      {/* --- AGGRESSIVE HERO SECTION (CONVERSION FOCUSED) --- */}
       <div className="relative bg-platinum-50 pb-12 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern-light opacity-[0.04] pointer-events-none"></div>
-
+        
         {/* Animated Marquee Bar */}
         <div className="w-full bg-void-950 py-2 md:py-2.5 overflow-hidden border-b border-gray-800 relative z-10">
            <div className="flex animate-marquee whitespace-nowrap gap-8 md:gap-12 text-[10px] md:text-sm font-bold text-white uppercase tracking-widest items-center">
               <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Oficiálna záruka 2 roky</span>
-              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Inovatívny produkt roka 2025</span>
+              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Inovatívny produkt 2025</span>
               <span className="flex items-center gap-2"><Truck className="w-3 h-3 md:w-4 md:h-4 text-neon-500"/> Expedícia z EÚ</span>
               <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Autorizovaný predajca</span>
               {/* Duplicate for infinite loop */}
               <span className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-green-500"/> Oficiálna záruka 2 roky</span>
-              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Inovatívny produkt roka 2025</span>
+              <span className="flex items-center gap-2"><Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500"/> Inovatívny produkt 2025</span>
               <span className="flex items-center gap-2"><Truck className="w-3 h-3 md:w-4 md:h-4 text-neon-500"/> Expedícia z EÚ</span>
               <span className="flex items-center gap-2"><BadgeCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400"/> Autorizovaný predajca</span>
            </div>
@@ -124,11 +124,11 @@ export default function Home() {
 
         <section className="pt-4 md:pt-12 md:pb-16 px-4 md:px-6 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-start min-w-0">
-
-            {/* ĽAVÝ STĹPEC: VIZUÁLY */}
+            
+            {/* LEFT COLUMN: VISUALS */}
             <div className="md:col-span-7 min-w-0 relative">
                 <HeroCarousel />
-
+                
                 {/* Social Proof Widget */}
                 <div className="mt-3 md:mt-4 flex items-center justify-between bg-white border border-gray-200 p-2.5 md:p-3 rounded-lg md:rounded-xl shadow-sm max-w-full">
                    <div className="flex items-center gap-3">
@@ -150,26 +150,26 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* PRAVÝ STĹPEC: AGRESÍVNY COPY & BUY BOX */}
+            {/* RIGHT COLUMN: AGGRESSIVE COPY & BUY BOX */}
             <div className="md:col-span-5 flex flex-col min-w-0 relative z-10">
-
+                
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-black text-void-950 mb-3 md:mb-4 tracking-tighter uppercase leading-[0.9]">
                   Koniec <span className="text-orange-500">vysokým</span> účtom.
                 </h1>
-
+                
                 <p className="text-sm md:text-xl text-gray-700 font-medium mb-5 md:mb-6 leading-relaxed">
-                   Prvý klimatický systém <strong className="text-void-950 bg-gray-100 px-1 rounded">4-v-1 s umelou inteligenciou</strong>, ktorý zohrieva váš domov za 18 minút za polovičnú cenu.
+                   Prvý klimatický systém <strong className="text-void-950 bg-gray-100 px-1 rounded">4-v-1 s umelou inteligenciou</strong>, ktorý vykúri váš domov za 18 minút za polovičnú cenu.
                 </p>
 
-                {/* ODRÁŽKY */}
+                {/* BULLET POINTS */}
                 <div className="grid grid-cols-1 gap-3 mb-6 md:mb-8">
                    <div className="flex items-start gap-3 bg-white/90 p-3.5 rounded-xl border border-gray-200 shadow-sm backdrop-blur-sm transition-transform hover:scale-[1.02]">
                       <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center shrink-0 border border-red-100">
                         <Waves className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Turbína 360° rovnomerne (26°C)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Technológia AirMulti™ rozháňa teplý vzduch do <span className="text-red-600 font-bold underline decoration-red-200">každého kúta</span>, eliminuje studené zóny.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Turbína 360° Rovnomerná (26°C)</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Technológia AirMulti™ tlačí teplý vzduch do <span className="text-red-600 font-bold underline decoration-red-200">každého kúta</span>, eliminuje studené zóny.</p>
                       </div>
                    </div>
 
@@ -178,8 +178,8 @@ export default function Home() {
                         <Cpu className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Čip ECO-AI (-60% účet)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Senzory vypínajú vykurovanie na tisícinu sekundy. <span className="text-green-600 font-bold underline decoration-green-200">Nulové straty</span> na účte.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Čip ECO-AI (-60% účty)</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Senzory vypínajú odpor na tisícinu sekundy. <span className="text-green-600 font-bold underline decoration-green-200">Nulové plytvanie</span> na účtoch.</p>
                       </div>
                    </div>
 
@@ -188,11 +188,11 @@ export default function Home() {
                         <Droplets className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Termický odvlhčovač</h4>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Tepelné odvlhčovanie</h4>
                          <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Suší vlhkosť zo stien počas vykurovania. Predchádza <span className="text-purple-600 font-bold underline decoration-purple-200">plesni a kondenzácii</span>.</p>
                       </div>
                    </div>
-
+                   
                    <div className="flex items-start gap-3 bg-white/90 p-3.5 rounded-xl border border-gray-200 shadow-sm backdrop-blur-sm transition-transform hover:scale-[1.02]">
                       <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
                         <ShieldCheck className="w-5 h-5" />
@@ -228,7 +228,7 @@ export default function Home() {
                     <button onClick={scrollToForm} className="w-full bg-neon-500 hover:bg-neon-400 text-white font-bold py-3.5 md:py-4 rounded-xl shadow-[0_4px_14px_0_rgba(255,77,0,0.39)] hover:shadow-[0_6px_20px_rgba(255,77,0,0.23)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 text-lg md:text-xl mb-2 group leading-tight relative overflow-hidden">
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer"></div>
                         <span className="relative z-10">OBJEDNAŤ TERAZ</span>
-                        <span className="block text-xs md:text-sm font-normal opacity-90 relative z-10">(Platba pri prevzatí)</span>
+                        <span className="block text-xs md:text-sm font-normal opacity-90 relative z-10">(Platba pri doručení)</span>
                         <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform relative z-10" />
                     </button>
                     <div className="text-center">
@@ -254,19 +254,19 @@ export default function Home() {
                         </div>
                         <div className="leading-tight">
                            <span className="font-bold text-void-950 text-xs md:text-sm block">Platba pri doručení</span>
-                           <span className="text-gray-500 text-[10px] md:text-xs">Platba v hotovosti kuriérovi. Nulové riziko.</span>
+                           <span className="text-gray-500 text-[10px] md:text-xs">Zaplaťte kuriérovi v hotovosti. Nulové riziko.</span>
                         </div>
                      </div>
                   </div>
                 </div>
             </div>
           </div>
-
+          
           {/* TRUST BADGES */}
           <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-200 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <Shield className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
-                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">CERTIFIKOVANÁ<br/>TECHNOLÓGIA CE</span>
+                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">TECHNOLÓGIA<br/>CERTIFIKOVANÁ CE</span>
              </div>
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <Zap className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
@@ -278,21 +278,21 @@ export default function Home() {
              </div>
              <div className="flex flex-col items-center justify-center p-3 md:p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <Leaf className="w-6 h-6 md:w-8 md:h-8 text-void-950 mb-2" />
-                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">EKO<br/>FRIENDLY</span>
+                <span className="text-[10px] md:text-xs font-bold leading-tight text-center text-gray-600">EKOLOGICKY<br/>ŠETRNÉ</span>
              </div>
           </div>
 
         </section>
-
+        
         {/* Transition Curve */}
         <div className="absolute bottom-0 left-0 right-0 h-16 md:h-24 bg-gradient-to-t from-void-950 to-transparent pointer-events-none"></div>
       </div>
 
-      {/* --- HLBOKÝ MARKETINGOVÝ OBSAH --- */}
+      {/* --- DEEP DIVE MARKETING BODY --- */}
       <div className="bg-void-950 text-white relative overflow-x-clip w-full pt-10">
         <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-white/5 z-0"></div>
 
-        {/* STORY BLOK 1: PARADOX */}
+        {/* STORY BLOCK 1: IL PARADOSSO */}
         <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#2a0a0a] to-void-950">
            <div className="hidden md:block absolute top-1/4 -left-20 w-96 h-96 bg-red-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen pointer-events-none"></div>
 
@@ -305,41 +305,41 @@ export default function Home() {
                 <div className="relative">
                    <div className="hidden md:block absolute left-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">01</div>
                    <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                      Prestaňte vyhadzovať peniaze za <span className="text-red-500 underline decoration-red-900 underline-offset-4">4 rôzne</span> zariadenia.
+                      Prestaňte hádzať peniaze za <span className="text-red-500 underline decoration-red-900 underline-offset-4">4 rôzne</span> zariadenia.
                    </h2>
                    <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
-                      Spočítali ste si to? Kúpa výkonného kúreniska, ventilátora, čističky vzduchu a odvlhčovača vás stojí viac ako <strong className="text-red-500 bg-red-950/30 px-1 rounded">800€</strong>.
+                      Spočítali ste si to? Kúpiť výkonný ohrievač, ventilátor, čistič vzduchu a odvlhčovač vás stojí viac ako <strong className="text-red-500 bg-red-950/30 px-1 rounded">800€</strong>.
                       <br/><br/>
-                      <span className="text-white font-bold text-xl border-l-4 border-red-500 pl-4 block">ClimateGuard Pro™ je definitívny monolit.</span> Letecký dizajn, ktorý kombinuje 4 technológie v jednom stĺpci.
+                      <span className="text-white font-bold text-xl border-l-4 border-red-500 pl-4 block">ClimateGuard Pro™ je definitívny monolit.</span> Aerospace dizajn, ktorý zahŕňa 4 technológie v jednom stĺpci.
                    </p>
                    <ul className="space-y-4 font-medium text-lg text-white/90">
                       <li className="flex items-center gap-4 p-3 bg-red-950/40 rounded-lg border border-red-500/20 shadow-lg">
                         <span className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center border border-red-500/50 shrink-0">
                           <Flame className="w-4 h-4 text-red-500" />
                         </span>
-                        <span className="font-bold text-red-100">Keramické vykurovanie</span> (zima)
+                        <span className="font-bold text-red-100">Keramické vykurovanie</span> (Zima)
                       </li>
                       <li className="flex items-center gap-4 p-3 bg-blue-950/40 rounded-lg border border-blue-500/20">
                         <span className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/50 shrink-0">
                           <Wind className="w-4 h-4 text-blue-500" />
                         </span>
-                        Rozptýlené vetranie (leto)
+                        Rozptýlené vetranie (Leto)
                       </li>
                       <li className="flex items-center gap-4 p-3 bg-green-950/40 rounded-lg border border-green-500/20">
                         <span className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/50 shrink-0">
                           <Leaf className="w-4 h-4 text-green-500" />
                         </span>
-                        Čistenie proti pachom (vždy)
+                        Čistenie proti pachom (Vždy)
                       </li>
                    </ul>
                 </div>
                 <div className="mt-6 md:mt-0">
-                   <ImagePlaceholderDark src="/images/climateguardpro img/disordine-vs-ordine.png" label="FOTO: 4 STARÉ SPOTREBIČE VS 1 CLIMATEGUARD" height="h-[300px] md:h-[500px]" />
+                   <ImagePlaceholderDark src="/images/climateguardpro img/disordine-vs-ordine.png" label="FOTO: 4 VECCHI ELETTRODOMESTICI VS 1 CLIMATEGUARD" height="h-[300px] md:h-[500px]" />
                    <div className="mt-4 md:mt-6 bg-[#1a0505] border border-red-500/30 p-4 md:p-5 rounded-2xl shadow-2xl flex items-center gap-3 md:gap-4 max-w-full md:max-w-[280px]">
                       <Package className="w-8 h-8 md:w-10 md:h-10 text-red-500 shrink-0" />
                       <div>
                          <div className="text-xs text-gray-400 uppercase font-bold leading-none mb-1">Priestor</div>
-                         <div className="text-white font-bold text-lg md:text-xl">-75% veľkosť</div>
+                         <div className="text-white font-bold text-lg md:text-xl">-75% Rozmer</div>
                       </div>
                    </div>
                 </div>
@@ -347,7 +347,7 @@ export default function Home() {
            </div>
         </section>
 
-        {/* STORY BLOK 2: VÝKON */}
+        {/* STORY BLOCK 2: PERFORMANCE */}
         <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#0a1025] to-void-950">
            <div className="hidden md:block absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen animation-delay-2000 pointer-events-none"></div>
 
@@ -358,12 +358,12 @@ export default function Home() {
 
               <ScrollReveal className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
                  <div className="order-2 md:order-1 mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/performance-calore.png" label="FOTO: GRAF ROZPTÝLENÉHO PRÚDENIA A KERAMIKY PTC" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/performance-calore.png" label="FOTO: GRAFICO FLUSSO DIFFUSO E CERAMICA PTC" height="h-[300px] md:h-[500px]" />
                     <div className="mt-4 md:mt-6 bg-[#050b1a] border border-blue-500/30 p-4 md:p-5 rounded-2xl shadow-2xl max-w-full md:max-w-[280px]">
                        <div className="text-xs text-gray-400 mb-2 uppercase tracking-wide font-bold">Vykurovanie</div>
                        <div className="flex items-end gap-3">
                           <span className="text-3xl md:text-4xl font-bold text-white tracking-tighter">PTC</span>
-                          <span className="text-[10px] md:text-xs text-orange-400 mb-1 font-bold bg-orange-900/50 px-2 py-1 rounded border border-orange-500/30">KERAMIKA</span>
+                          <span className="text-[10px] md:text-xs text-orange-400 mb-1 font-bold bg-orange-900/50 px-2 py-1 rounded border border-orange-500/30">CERAMICA</span>
                        </div>
                        <div className="text-xs text-gray-400 mt-2 font-bold text-blue-300">Okamžité teplo.</div>
                     </div>
@@ -371,17 +371,17 @@ export default function Home() {
                  <div className="order-1 md:order-2 relative">
                     <div className="hidden md:block absolute right-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">02</div>
                     <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg">
-                       Keramický výkon a <span className="text-blue-500">inteligentné prúdenie.</span>
+                       Keramický výkon a <span className="text-blue-500">inteligentný prietok.</span>
                     </h2>
                     <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
-                       Bežné ohrievače spaľujú vzduch a zohrevajú len pred sebou.
-                       ClimateGuard používa <strong className="text-blue-400">Keramiku PTC</strong> (okamžité super-efektívne vykurovanie) a turbínu, ktorá tlačí <strong className="text-white border-b border-blue-500">290 litrov/sekundu</strong>.
+                       Bežné ohrievače spaľujú vzduch a ohrejú len pred sebou.
+                       ClimateGuard používa <strong className="text-blue-400">keramiku PTC</strong> (okamžité super-účinné vykurovanie) a turbínu, ktorá tlačí <strong className="text-white border-b border-blue-500">290 litrov/sekundu</strong>.
                        <br/><br/>
                        <span className="text-white block mb-2 text-xl flex items-center gap-2">
                          <Sparkles className="w-5 h-5 text-blue-500" />
                          <strong>Rozptýlený režim:</strong>
                        </span>
-                       Vzduch vás nikdy netrafí priamo do tváre. Prúdenie je odklonené dozadu, aby objalo miestnosť príjemným teplom bez nepríjemnosti.
+                       Vzduch vás nikdy netrafí priamo do tváre. Prietok je odkláňaný dozadu, aby objal miestnosť objímajúcim teplom bez otravného prievanu.
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                        <div className="bg-blue-950/40 p-5 rounded-2xl border border-blue-500/30 text-center shadow-lg hover:bg-blue-900/60 transition-colors min-w-0">
@@ -398,7 +398,7 @@ export default function Home() {
            </div>
         </section>
 
-        {/* STORY BLOK 3: ZDRAVIE */}
+        {/* STORY BLOCK 3: SALUTE */}
         <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#150520] to-void-950">
            <div className="hidden md:block absolute top-1/2 left-1/4 w-80 h-80 bg-purple-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen animation-delay-4000 pointer-events-none"></div>
 
@@ -414,8 +414,8 @@ export default function Home() {
                        Váš domov je <span className="text-purple-500">5-krát</span> znečistenejší ako vonku.
                     </h2>
                     <div className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 font-light space-y-4">
-                       <p>Zima so zatvorenými oknami = vydýchaný vzduch. Filter <strong className="text-white">HEPA-13 s aktívnym uhlím</strong> pracuje počas vykurovania:</p>
-
+                       <p>Zima, zatvorené okná = vydýchaný vzduch. Filter <strong className="text-white">HEPA-13 s aktívnym uhlím</strong> pracuje počas vykurovania:</p>
+                       
                        <div className="space-y-3">
                          <div className="flex items-start gap-3 p-2 rounded hover:bg-purple-900/20 transition-colors">
                            <UtensilsCrossed className="w-6 h-6 text-red-500 mt-1 shrink-0" />
@@ -440,13 +440,13 @@ export default function Home() {
                     </div>
                  </div>
                  <div className="relative mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/salute-cucina.png" label="FOTO: KUCHYNSKÉ VÝPARY A PEĽ ZACHYTENÉ FILTROM" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/salute-cucina.png" label="FOTO: FUMI CUCINA E POLLINE CATTURATI DAL FILTRO" height="h-[300px] md:h-[500px]" />
                  </div>
               </ScrollReveal>
            </div>
         </section>
 
-        {/* STORY BLOK 4: ÚSPORA */}
+        {/* STORY BLOCK 4: ECONOMIA */}
         <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-x-clip overflow-y-visible bg-gradient-to-b from-void-950 via-[#021005] to-void-950">
            <div className="hidden md:block absolute top-1/3 right-1/4 w-96 h-96 bg-green-600/20 rounded-full blur-[100px] animate-blob mix-blend-screen animation-delay-2000 pointer-events-none"></div>
 
@@ -457,7 +457,7 @@ export default function Home() {
 
               <ScrollReveal className="grid md:grid-cols-2 gap-8 md:gap-20 items-center">
                  <div className="order-2 md:order-1 relative mt-6 md:mt-0">
-                    <ImagePlaceholderDark src="/images/climateguardpro img/app-risparmio.png" label="FOTO: AUTOMATICKÝ REŽIM A APLIKÁCIA" height="h-[300px] md:h-[500px]" />
+                    <ImagePlaceholderDark src="/images/climateguardpro img/app-risparmio.png" label="FOTO: MODALITÀ AUTO E APP" height="h-[300px] md:h-[500px]" />
                  </div>
                  <div className="order-1 md:order-2 relative">
                     <div className="hidden md:block absolute right-0 -top-10 text-[180px] font-display font-bold text-white/5 leading-none -z-10 select-none">04</div>
@@ -469,17 +469,17 @@ export default function Home() {
                        <br/><br/>
                        <span className="flex items-start gap-3 mb-4">
                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-500 text-xs font-bold border border-green-500/50 shrink-0 mt-1">1</span>
-                         <span><strong>Vidí nečistoty:</strong> Ak varíte alebo je dym, zrýchli čistenie.</span>
+                         <span><strong>Vidí špinu:</strong> Ak varíte alebo je dym, zrýchli na čistenie.</span>
                        </span>
                        <span className="flex items-start gap-3">
                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-500 text-xs font-bold border border-green-500/50 shrink-0 mt-1">2</span>
                          <span><strong>Cíti chlad:</strong> Len čo dosiahne 26°C, zníži výkon na minimum.</span>
                        </span>
                        <br/><br/>
-                       Nemrhá ani 1 watt energie. Preto je <strong className="text-white bg-green-900/40 px-2 py-0.5 rounded border border-green-500/30">Energetická trieda AAA+</strong>.
+                       Nemrhá ani 1 wattom energie. Preto má <strong className="text-white bg-green-900/40 px-2 py-0.5 rounded border border-green-500/30">Energetickú triedu AAA+</strong>.
                     </p>
                     <button onClick={scrollToForm} className="bg-white/5 hover:bg-white/10 text-white border-2 border-green-500/50 hover:border-green-500 px-6 py-5 md:px-8 md:py-6 rounded-2xl flex items-center gap-4 transition-all w-full md:w-auto justify-center font-bold text-lg md:text-xl shadow-[0_0_20px_rgba(34,197,94,0.2)]">
-                       Chcem znížiť účet na polovicu
+                       Chcem znížiť účty na polovicu
                        <ArrowRight className="w-6 h-6 md:w-7 md:h-7" />
                     </button>
                  </div>
@@ -492,9 +492,9 @@ export default function Home() {
            <div className="max-w-7xl mx-auto">
               <ScrollReveal className="text-center mb-10 md:mb-12">
                  <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Úplné pohodlie</h2>
-                 <p className="text-lg text-gray-400">Všetko, čo od spotrebiča nečakáte.</p>
+                 <p className="text-lg text-gray-400">Všetko, čo od spotrebiča neočakávate.</p>
               </ScrollReveal>
-
+              
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                  {/* Card 1: App */}
                  <ScrollReveal delay={0} className="md:col-span-2 h-full">
@@ -502,18 +502,18 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-br from-neon-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="flex-1 relative z-10">
                          <Smartphone className="w-10 h-10 text-neon-500 mb-4" />
-                         <h3 className="text-2xl font-bold text-white mb-2">Smart aplikácia na ovládanie</h3>
+                         <h3 className="text-2xl font-bold text-white mb-2">Inteligentné ovládanie cez aplikáciu</h3>
                          <p className="text-gray-400 text-lg">
-                            Pri návrate nájdite domov zohriaty. Zapínajte, vypínajte a programujte všetko z telefónu, kdekoľvek ste. Kompatibilné s hlasovými príkazmi.
+                            Nájdite teplý domov pri návrate. Zapnite, vypnite a naprogramujte všetko z telefónu, kdekoľvek ste. Kompatibilné s hlasovými príkazmi.
                          </p>
                       </div>
                       <div className="w-full md:w-1/3">
-                         <ImagePlaceholderDark src="/images/climateguardpro img/telecomando.png" label="OBRAZOVKA APLIKÁCIE" />
+                         <ImagePlaceholderDark src="/images/climateguardpro img/telecomando.png" label="APP SCREEN" />
                       </div>
                    </div>
                  </ScrollReveal>
 
-                 {/* Card 2: Údržba */}
+                 {/* Card 2: Manutenzione */}
                  <ScrollReveal delay={150} className="h-full">
                    <div className="bg-void-950 border border-white/10 rounded-3xl p-6 md:p-8 group hover:border-purple-500/50 transition-all h-full relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -521,13 +521,13 @@ export default function Home() {
                          <Settings className="w-10 h-10 text-purple-500 mb-4" />
                          <h3 className="text-xl font-bold text-white mb-2">Údržba za 60 sekúnd</h3>
                          <p className="text-gray-400 text-lg">
-                            Aplikácia a displej vás upozornia, kedy vymeniť filter. Mení sa jedným kliknutím, bez nástrojov. Veľmi jednoduché.
+                            Aplikácia a displej vás upozornia, kedy vymeniť filter. Vymení sa jedným kliknutím, bez nástrojov. Veľmi jednoduché.
                          </p>
                       </div>
                    </div>
                  </ScrollReveal>
 
-                 {/* Card 3: Rozptýlené prúdenie */}
+                 {/* Card 3: Flusso Diffuso */}
                  <ScrollReveal delay={300} className="h-full">
                    <div className="bg-void-950 border border-white/10 rounded-3xl p-6 md:p-8 group hover:border-blue-500/50 transition-all h-full relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -535,25 +535,25 @@ export default function Home() {
                          <Fan className="w-10 h-10 text-blue-500 mb-4" />
                          <h3 className="text-xl font-bold text-white mb-2">Režim "Rozptýlený"</h3>
                          <p className="text-gray-400 text-lg">
-                            Chcete čistiť bez pocitu vzduchu na tele? Prúdenie je odklonené dozadu. Neviditeľné a tiché pohodlie.
+                            Chcete čistiť bez pocitu vzduchu na sebe? Prietok je odkláňaný dozadu. Neviditeľný a tichý komfort.
                          </p>
                       </div>
                    </div>
                  </ScrollReveal>
 
-                 {/* Card 4: Noc */}
+                 {/* Card 4: Notte */}
                  <ScrollReveal delay={450} className="md:col-span-2 h-full">
                    <div className="bg-void-950 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row-reverse items-center gap-6 md:gap-8 group hover:border-green-500/50 transition-all h-full relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="flex-1 relative z-10">
                          <Moon className="w-10 h-10 text-green-500 mb-4" />
-                         <h3 className="text-2xl font-bold text-white mb-2">Nočný režim Ultra-Silent</h3>
+                         <h3 className="text-2xl font-bold text-white mb-2">Ultra-tichý nočný režim</h3>
                          <p className="text-gray-400 text-lg">
-                            Spite pokojne. Displej sa vypne, hlučnosť klesne pod 25 dB a vzduch sa nepretržite čistí, kým spíte.
+                            Spite v pokoji. Displej sa vypne, hlučnosť klesne pod 25dB a vzduch sa neustále čistí počas spánku.
                          </p>
                       </div>
                       <div className="w-full md:w-1/3">
-                         <ImagePlaceholderDark src="/images/climateguardpro img/display-notturno.png" label="DISPLEJ VYPNUTÝ" />
+                         <ImagePlaceholderDark src="/images/climateguardpro img/display-notturno.png" label="DISPLAY SPENTO" />
                       </div>
                    </div>
                  </ScrollReveal>
@@ -562,7 +562,7 @@ export default function Home() {
         </section>
       </div>
 
-      {/* --- ZHRNUTIE TECH SPECS --- */}
+      {/* --- TECH SPECS SUMMARY --- */}
       <section className="py-10 md:py-16 bg-void-900 px-4 md:px-6 border-y border-white/10 overflow-x-clip overflow-y-visible">
          <div className="max-w-4xl mx-auto">
             <ScrollReveal>
@@ -571,7 +571,7 @@ export default function Home() {
          </div>
       </section>
 
-      {/* --- SOCIÁLNE DÔKAZY --- */}
+      {/* --- SOCIAL PROOF --- */}
       <Reviews />
 
       {/* --- FAQ --- */}
@@ -585,18 +585,18 @@ export default function Home() {
          </ScrollReveal>
       </section>
 
-      {/* --- OBJEDNÁVKOVÝ FORMULÁR (JEDNA PONUKA 69,99€) --- */}
+      {/* --- ORDER FORM (SINGLE OFFER 149€) --- */}
       <section id="order-form" className="py-12 md:py-24 px-4 md:px-6 bg-[#050508] border-t border-white/10 pb-40 md:pb-24 overflow-x-clip overflow-y-visible relative text-white">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-neon-500/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
         <div className="max-w-2xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-12">
              <div className="inline-block bg-neon-500 text-void-950 text-sm md:text-sm font-bold px-4 py-1.5 rounded-full mb-4 animate-pulse shadow-[0_0_20px_#FF4D00]">POSLEDNÝCH 7 KUSOV ZA 69,99€</div>
-             <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">Bezpečná objednávka</h2>
-             <p className="text-base md:text-lg text-gray-400">Rýchle doručenie za 24/48h zahrnuté.</p>
+             <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">Bezpečný checkout</h2>
+             <p className="text-base md:text-lg text-gray-400">Rýchle doručenie do 24/48h zahrnuté.</p>
           </ScrollReveal>
 
-          {/* KROKY PROCESU */}
+          {/* PROCESS STEPS */}
           <ScrollReveal delay={100} className="mb-10">
              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-row md:flex-col items-center gap-4 text-left md:text-center">
@@ -632,41 +632,41 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={200} className="bg-void-900/80 border border-white/10 p-6 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden backdrop-blur-xl">
-             <div ref={formRef} className="absolute -top-24 md:-top-32 invisible" />
-
+             <div ref={formRef} className="absolute -top-24 md:-top-32 invisible" /> 
+             
              {submitted ? (
                <div className="text-center py-10 md:py-20 flex flex-col items-center">
                   <CheckCircle2 className="w-24 h-24 md:w-28 md:h-28 text-green-500 mb-6" />
                   <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Objednávka potvrdená!</h3>
-                  <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-md mx-auto">Ďakujeme! Vaša objednávka bola prijatá. Náš operátor vás bude kontaktovať cez WhatsApp alebo telefón do 2 hodín na potvrdenie zásielky.</p>
+                  <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-md mx-auto">Ďakujeme! Vaša objednávka bola prijatá. Náš operátor vás bude kontaktovať cez WhatsApp alebo telefón do 2 hodín na potvrdenie odoslania.</p>
                   <button onClick={() => window.location.reload()} className="text-neon-500 font-bold underline text-xl">Späť do obchodu</button>
                </div>
              ) : (
                <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-
-                  {/* ZHRNUTIE BALÍKA */}
+                  
+                  {/* PACKAGE SUMMARY */}
                   <div className="bg-white/5 rounded-xl p-5 border border-white/10">
                      <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-2">
-                        <h4 className="text-gray-400 text-xs uppercase font-bold tracking-widest">Súhrn objednávky:</h4>
-                        <span className="text-neon-500 font-bold text-xl">Spolu: 69,99€</span>
+                        <h4 className="text-gray-400 text-xs uppercase font-bold tracking-widest">Zhrnutie objednávky:</h4>
+                        <span className="text-neon-500 font-bold text-xl">Celkom: 69,99€</span>
                      </div>
                      <ul className="space-y-3">
                         <li className="flex items-center gap-3 text-white text-base md:text-lg">
-                           <CheckCircle2 className="text-green-500 w-5 h-5 md:w-6 md:h-6 shrink-0"/>
-                           <span className="font-bold">1x ClimateGuard Pro 4-v-1</span>
+                           <CheckCircle2 className="text-green-500 w-5 h-5 md:w-6 md:h-6 shrink-0"/> 
+                           <span className="font-bold">1x ClimateGuard Pro 4-in-1</span>
                         </li>
                         <li className="flex items-center gap-3 text-white text-base md:text-lg">
-                           <CheckCircle2 className="text-green-500 w-5 h-5 md:w-6 md:h-6 shrink-0"/>
-                           <span>Smart diaľkové ovládanie <span className="text-gray-500 text-xs ml-1">(Zahrnuté)</span></span>
+                           <CheckCircle2 className="text-green-500 w-5 h-5 md:w-6 md:h-6 shrink-0"/> 
+                           <span>Inteligentné diaľkové ovládanie <span className="text-gray-500 text-xs ml-1">(Zahrnuté)</span></span>
                         </li>
                         <li className="flex items-center gap-3 text-white text-base md:text-lg bg-neon-500/10 p-2 -mx-2 rounded-lg border border-neon-500/20">
-                           <Gift className="text-neon-500 w-5 h-5 md:w-6 md:h-6 shrink-0 animate-pulse"/>
+                           <Gift className="text-neon-500 w-5 h-5 md:w-6 md:h-6 shrink-0 animate-pulse"/> 
                            <span className="font-bold">1x Náhradný HEPA filter <span className="text-neon-500 text-xs font-black ml-2 bg-neon-500/20 px-1.5 py-0.5 rounded border border-neon-500/50 uppercase">Darček</span></span>
                         </li>
                      </ul>
                   </div>
 
-                  {/* POLIA FORMULÁRA */}
+                  {/* FORM FIELDS */}
                   <div className="space-y-5">
                     <div>
                         <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">Meno a priezvisko</label>
@@ -680,12 +680,12 @@ export default function Home() {
                        <label className="block text-gray-400 text-xs font-bold uppercase mb-2 ml-1">Úplná adresa (Ulica, Mesto, PSČ)</label>
                        <div className="relative">
                             <span className="absolute left-4 top-4 text-gray-500"><MapPin className="w-5 h-5" /></span>
-                            <textarea
-                              name="fullAddress"
+                            <textarea 
+                              name="fullAddress" 
                               required
                               rows={3}
-                              placeholder="Napr.: Hlavná 10, 81000 Bratislava"
-                              onChange={handleInputChange}
+                              placeholder="Napr.: Hlavná 10, 81000 Bratislava" 
+                              onChange={handleInputChange} 
                               className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 pl-12 text-white placeholder-gray-500 focus:outline-none focus:border-neon-500 focus:ring-1 focus:ring-neon-500 transition-all font-sans text-lg resize-none"
                             />
                        </div>
@@ -698,14 +698,14 @@ export default function Home() {
                        </label>
                        <div className="relative">
                             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"><Smartphone className="w-5 h-5" /></span>
-                            <Input name="phone" placeholder="Napr.: 0901 234 567" type="tel" onChange={handleInputChange} className="pl-12" />
+                            <Input name="phone" placeholder="Napr.: +421 900 123 456" type="tel" onChange={handleInputChange} className="pl-12" />
                        </div>
                        <p className="text-[10px] text-gray-500 mt-1 ml-1 flex items-center gap-1">
-                          <CheckCircle2 className="w-3 h-3 text-green-500" /> Dôležité: odpovedzte na hovor pre odoslanie zásielky.
+                          <CheckCircle2 className="w-3 h-3 text-green-500" /> Dôležité: odpovedzte na hovor, aby sa uvoľnilo doručenie.
                        </p>
                     </div>
                   </div>
-
+                  
                   <div className="bg-yellow-500/10 border border-yellow-500/20 p-5 rounded-2xl flex gap-4 items-start">
                      <div className="bg-yellow-500/20 p-2.5 rounded-full shrink-0">
                         <CreditCard className="w-6 h-6 text-yellow-500" />
@@ -727,11 +727,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Agresívny Sticky Mobile Bar */}
+      {/* Aggressive Sticky Mobile Bar */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-void-950 shadow-[0_-5px_25px_rgba(0,0,0,0.8)] border-t border-white/10 pb-safe">
         <div className="bg-yellow-500 text-void-950 text-[10px] font-black uppercase text-center py-1.5 tracking-widest flex items-center justify-center gap-2 animate-pulse">
            <Timer className="w-3 h-3" />
-           Bleskové ponuka -50% končí
+           Bleskový výpredaj -50% končí
         </div>
         <div className="p-3">
            <button onClick={scrollToForm} className="w-full bg-neon-500 hover:bg-neon-400 text-white rounded-xl py-3.5 px-5 flex justify-between items-center shadow-[0_0_20px_rgba(255,77,0,0.4)] group active:scale-95 transition-transform relative overflow-hidden">
@@ -751,16 +751,16 @@ export default function Home() {
   );
 }
 
-// Ikona pre dizajnové ocenenie
+// Icon for Design Award
 const AwardIcon = (props: any) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
 )
 
-// Zväčšená veľkosť písma pre vstupy + className prop
+// Increased Font Size for Inputs + className prop
 const Input = ({ className = "", ...props }: any) => (
-   <input
+   <input 
       required
-      className={`w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-neon-500 focus:ring-1 focus:ring-neon-500 transition-all font-sans text-lg ${className}`}
-      {...props}
+      className={`w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-neon-500 focus:ring-1 focus:ring-neon-500 transition-all font-sans text-lg ${className}`} 
+      {...props} 
    />
 );

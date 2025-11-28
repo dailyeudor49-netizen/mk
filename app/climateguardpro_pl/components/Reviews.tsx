@@ -10,28 +10,28 @@ const reviews: ReviewType[] = [
     name: "Jan Kowalski",
     location: "Warszawa",
     rating: 5,
-    text: "Byłem sceptyczny co do 90m², mam duży otwarty salon. Ale muszę przyznać, że rozprowadza ciepłe powietrze wszędzie w mniej niż 20 minut. Najlepsza rzecz? Rachunek za gaz spadł naprawdę o 40% w porównaniu z zeszłym rokiem.",
-    highlight: "Rachunki o połowę niższe i ciepły dom",
+    text: "Byłem sceptyczny co do 90 m², mam duży otwarty salon. Ale muszę przyznać, że wypycha ciepłe powietrze wszędzie w mniej niż 20 minut. Najlepsze? Rachunek za gaz spadł naprawdę o 40% w porównaniu z zeszłym rokiem.",
+    highlight: "Rachunek zmniejszony o połowę, dom ciepły",
     verified: true,
     timeAgo: "2 dni temu"
   },
   {
     id: 2,
-    name: "Anna Wiśniewska",
+    name: "Anna Nowak",
     location: "Kraków",
     rating: 5,
-    text: "Rozwiązałam problem pleśni w sypialni. Wcześniej budziłam się z mokrymi szybami, teraz powietrze jest suche i ciepłe. Bardzo cichy w nocy, w końcu śpię.",
-    highlight: "Żegnaj pleśń i wilgoć",
+    text: "Rozwiązałam problem pleśni w sypialni. Wcześniej budziłam się z mokrymi szybami, teraz powietrze jest suche i ciepłe. Bardzo cichy w nocy, w końcu mogę spać.",
+    highlight: "Koniec z pleśnią i wilgocią",
     verified: true,
-    timeAgo: "Kupiony 1 tydzień temu"
+    timeAgo: "Zakupione tydzień temu"
   },
   {
     id: 3,
-    name: "Piotr Nowak",
-    location: "Gdańsk",
+    name: "Piotr Wiśniewski",
+    location: "Wrocław",
     rating: 5,
-    text: "Design jest kosmiczny, wygląda jak przedmiot za 2400zł. Zapłaciłem kurierowi gotówką przy dostawie, zero ryzyka. Grzeje natychmiast po włączeniu.",
-    highlight: "Bezpieczna płatność przy dostawie",
+    text: "Design jest kosmiczny, wygląda jak urządzenie za 2500 PLN. Zapłaciłem przy odbiorze kurierowi gotówką, zero ryzyka. Grzeje natychmiast po włączeniu.",
+    highlight: "Bezpieczna płatność przy odbiorze",
     verified: true,
     timeAgo: "3 dni temu"
   }
@@ -70,10 +70,10 @@ export const Reviews: React.FC = () => {
                   </div>
                   <div className="text-sm text-gray-400 font-medium">{review.timeAgo}</div>
                 </div>
-
+                
                 <h4 className="text-white font-bold mb-4 text-xl leading-tight">"{review.highlight}"</h4>
                 <p className="text-gray-300 text-lg mb-8 leading-relaxed font-light flex-1">"{review.text}"</p>
-
+                
                 <div className="flex items-center gap-4 mt-auto pt-5 border-t border-white/5">
                   <div className="w-12 h-12 rounded-full bg-neon-500/20 flex items-center justify-center text-neon-500 font-bold text-lg shrink-0">
                     {review.name.charAt(0)}

@@ -7,31 +7,31 @@ import { ScrollReveal } from './ScrollReveal';
 const reviews: ReviewType[] = [
   {
     id: 1,
-    name: "Ján Novák",
+    name: "Marek Novák",
     location: "Bratislava",
     rating: 5,
-    text: "Bol som skeptický, či dokáže vyhrievať 90m², mám veľký otvorený priestor. Ale musím povedať, že tlačí teplý vzduch všade za menej ako 20 minút. Najlepšie? Účet za plyn klesol skutočne o 40% oproti minulému roku.",
-    highlight: "Polovičná faktúra a teplý domov",
+    text: "Bol som skeptický ohľadom 90 m², mám veľký otvorený priestor. Ale musím povedať, že rozháňa teplý vzduch všade za menej ako 20 minút. To najlepšie? Účty za plyn skutočne klesli o 40% oproti minulému roku.",
+    highlight: "Účty na polovicu a teplý domov",
     verified: true,
     timeAgo: "Pred 2 dňami"
   },
   {
     id: 2,
-    name: "Petra Horváthová",
+    name: "Jana Kováčová",
     location: "Košice",
     rating: 5,
-    text: "Vyriešila som problém s plesňou v spálni. Predtým som sa budila s mokrými oknami, teraz je vzduch suchý a teplý. V noci je to úplne tiché, konečne spím.",
+    text: "Vyriešila som problém s plesňou v spálni. Predtým som sa budila s mokrými oknami, teraz je vzduch suchý a teplý. V noci veľmi tichý, konečne spím.",
     highlight: "Zbohom pleseň a vlhkosť",
     verified: true,
     timeAgo: "Kúpené pred 1 týždňom"
   },
   {
     id: 3,
-    name: "Martin Kováč",
+    name: "Peter Horváth",
     location: "Žilina",
     rating: 5,
-    text: "Dizajn je futuristický, vyzerá ako produkt za 600€. Zaplatil som na dobierku kuriérovi v hotovosti, žiadne riziko. Ohreje sa okamžite po zapnutí.",
-    highlight: "Platba na dobierku je bezpečná",
+    text: "Dizajn je úžasný, vypadá ako zariadenie za 600€. Zaplatil som pri doručení kuriérovi v hotovosti, nulové riziko. Ohreje hneď ako ho zapnete.",
+    highlight: "Bezpečná platba pri doručení",
     verified: true,
     timeAgo: "Pred 3 dňami"
   }
@@ -70,10 +70,10 @@ export const Reviews: React.FC = () => {
                   </div>
                   <div className="text-sm text-gray-400 font-medium">{review.timeAgo}</div>
                 </div>
-
+                
                 <h4 className="text-white font-bold mb-4 text-xl leading-tight">"{review.highlight}"</h4>
                 <p className="text-gray-300 text-lg mb-8 leading-relaxed font-light flex-1">"{review.text}"</p>
-
+                
                 <div className="flex items-center gap-4 mt-auto pt-5 border-t border-white/5">
                   <div className="w-12 h-12 rounded-full bg-neon-500/20 flex items-center justify-center text-neon-500 font-bold text-lg shrink-0">
                     {review.name.charAt(0)}

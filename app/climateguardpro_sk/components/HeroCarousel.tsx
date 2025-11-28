@@ -100,7 +100,7 @@ export const HeroCarousel: React.FC = () => {
       {/* Trust Badge Overlay (Spedizione Italia) - Clean Style */}
       <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur border border-gray-200 px-3 py-1.5 md:px-4 md:py-2 rounded-xl flex items-center gap-2 z-20 shadow-xl">
          <Truck className="w-4 h-4 md:w-5 md:h-5 text-green-600" />
-         <span className="text-[10px] md:text-sm font-bold text-void-950 uppercase tracking-wide">Dodanie do celého Slovenska</span>
+         <span className="text-[10px] md:text-sm font-bold text-void-950 uppercase tracking-wide">Expedícia z EÚ</span>
       </div>
     </div>
   );

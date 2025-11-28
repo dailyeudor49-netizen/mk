@@ -3,11 +3,11 @@ import { Sparkles, Loader2, MessageCircleQuestion } from 'lucide-react';
 
 // Risposte predefinite per le FAQ
 const faqResponses: Record<string, string> = {
-  "Tényleg 60%-ot spórolok a rezsivel?": "Igen, a PTC kerámia technológiának és az ECO-AI chipnek köszönhetően, amely valós időben optimalizálja a fogyasztást. Ügyfeleink átlagosan 55-65%-os megtakarításról számolnak be a hagyományos fűtőtestekhez képest.",
-  "Képes felfűteni egy 90 m²-es nappalit?": "Abszolút igen! A 360°-os turbina egyenletesen osztja el a meleg levegőt akár 120 m²-en is. Nagyobb helyiségekhez 2 készülék ajánlott az optimális teljesítményhez.",
-  "Segít a téli penész ellen?": "Igen, az integrált páratlanító eltávolítja a felesleges nedvességet miközben fűt, megelőzve a penész és a páralecsapódás kialakulását a falakon és az ablakokon.",
-  "Zajos éjszaka?": "Éjszakai módban a ClimateGuard Pro mindössze 25 dB-en működik - halkabb mint egy suttogás. A kijelző teljesen kikapcsol, hogy ne zavarja az alvást.",
-  "Fizethetek a futárnak?": "Természetesen! Kínálunk utánvétes fizetést. Közvetlenül a futárnak fizet készpénzzel, amikor átveszi a terméket. Nulla kockázat az Ön számára."
+  "Tényleg 60%-ot spórolok a számlán?": "Igen, a PTC kerámia technológiának és az ECO-AI chipnek köszönhetően, amely valós időben optimalizálja a fogyasztást. Ügyfeleink átlagosan 55-65%-os megtakarítást jelentenek a hagyományos fűtőtestekhez képest.",
+  "Képes 90 négyzetméteres nappalit fűteni?": "Abszolút igen! A 360°-os turbina egyenletesen osztja el a meleg levegőt akár 120 négyzetméterig. Nagyobb helyiségekhez 2 egységet ajánlunk az optimális teljesítményhez.",
+  "Segít a téli penész ellen?": "Igen, az integrált termikus párátlanító eltávolítja a felesleges nedvességet, miközben fűt, megelőzve a penész és a pára képződését a falakon és az ablakokon.",
+  "Zajos éjszaka?": "Éjszakai módban a ClimateGuard Pro mindössze 25dB-en működik - halkabb mint egy suttogás. A kijelző teljesen kikapcsol, hogy ne zavarja az alvást.",
+  "Fizethetek a futárnak?": "Természetesen! Utánvétes fizetést kínálunk. Közvetlenül a futárnak fizetsz készpénzben, amikor megkapod a terméket. Nulla kockázat számodra."
 };
 
 export const ObjectionHandler: React.FC = () => {
@@ -16,8 +16,8 @@ export const ObjectionHandler: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const doubts = [
-    "Tényleg 60%-ot spórolok a rezsivel?",
-    "Képes felfűteni egy 90 m²-es nappalit?",
+    "Tényleg 60%-ot spórolok a számlán?",
+    "Képes 90 négyzetméteres nappalit fűteni?",
     "Segít a téli penész ellen?",
     "Zajos éjszaka?",
     "Fizethetek a futárnak?"
@@ -31,7 +31,7 @@ export const ObjectionHandler: React.FC = () => {
     // Simula un breve ritardo per dare l'effetto di "risposta"
     await new Promise(resolve => setTimeout(resolve, 800));
 
-    const answer = faqResponses[question] || "Sajnálom, nincs válaszom erre a kérdésre. További információért vegye fel velünk a kapcsolatot.";
+    const answer = faqResponses[question] || "Sajnálom, erre a kérdésre nincs válaszom. További információért vedd fel velünk a kapcsolatot.";
     setResponse(answer);
     setLoading(false);
   };
@@ -65,7 +65,7 @@ export const ObjectionHandler: React.FC = () => {
            </div>
            <div className="mt-6 text-[10px] text-green-500 font-bold flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              ÜGYFÉLSZOLGÁLAT ELÉRHETŐ
+              ÜGYINTÉZŐ ONLINE
            </div>
         </div>
 
@@ -74,17 +74,17 @@ export const ObjectionHandler: React.FC = () => {
             {!activeQuestion ? (
                <div className="text-center opacity-50">
                   <MessageCircleQuestion className="w-12 h-12 mx-auto mb-4 text-gray-600" />
-                  <p className="font-display text-lg text-gray-400">Válasszon egy kérdést oldalt</p>
+                  <p className="font-display text-lg text-gray-400">Válassz egy kérdést oldalról</p>
                </div>
             ) : (
                <div className="relative z-10">
-                 <div className="mb-4 inline-block px-3 py-1 bg-white/10 rounded text-[10px] uppercase tracking-widest text-gray-400">Az Ön kérdése</div>
+                 <div className="mb-4 inline-block px-3 py-1 bg-white/10 rounded text-[10px] uppercase tracking-widest text-gray-400">A kérdésed</div>
                  <h4 className="text-xl font-display text-white mb-6 leading-tight">{activeQuestion}</h4>
 
                  {loading ? (
                     <div className="flex items-center gap-3 text-neon-500">
                        <Loader2 className="w-5 h-5 animate-spin" />
-                       <span className="font-bold text-sm">Válasz írása...</span>
+                       <span className="font-bold text-sm">A választ írom...</span>
                     </div>
                  ) : (
                     <div className="animate-fade-in-up">

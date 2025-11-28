@@ -7,30 +7,30 @@ import { ScrollReveal } from './ScrollReveal';
 const reviews: ReviewType[] = [
   {
     id: 1,
-    name: "Jan Novák",
+    name: "Petr Novák",
     location: "Praha",
     rating: 5,
-    text: "Byl jsem skeptický ohledně pokrytí 90m², mám velký otevřený prostor. Ale musím říct, že teplý vzduch rozfoukává všude za méně než 20 minut. Nejlepší? Účet za plyn skutečně klesl o 40% oproti loňsku.",
-    highlight: "Nižší účty a teplý domov",
+    text: "Byl jsem skeptický ohledně 90 m², mám velký otevřený prostor. Ale musím říct, že rozhání teplý vzduch všude za méně než 20 minut. Nejlepší? Účet za plyn skutečně klesl o 40% oproti loňskému roku.",
+    highlight: "Účty poloviční a dům teplý",
     verified: true,
     timeAgo: "před 2 dny"
   },
   {
     id: 2,
-    name: "Petra Svobodová",
+    name: "Jana Svobodová",
     location: "Brno",
     rating: 5,
-    text: "Vyřešila jsem problém s plísní v ložnici. Dříve jsem se budila s mokrými okny, teперь je vzduch suchý a teplý. V noci naprosto tichý, konečně spím.",
-    highlight: "Sbohem plísně a vlhkosti",
+    text: "Vyřešila jsem problém s plísní v ložnici. Předtím jsem se budila s mokrými okny, teď je vzduch suchý a teplý. V noci je naprosto tichý, konečně spím.",
+    highlight: "Sbohem plísni a vlhkosti",
     verified: true,
     timeAgo: "Zakoupeno před 1 týdnem"
   },
   {
     id: 3,
-    name: "Petr Horák",
+    name: "Martin Dvořák",
     location: "Ostrava",
     rating: 5,
-    text: "Design je úžasný, vypadá to jako zařízení za 15 000 Kč. Zaplatil jsem při doručení kurýrovi v hotovosti, žádné riziko. Hned jak to zapnete, začne hřát.",
+    text: "Design je prostě úžasný, vypadá jako předmět za 15 000 Kč. Zaplatil jsem při doručení kurýrovi v hotovosti, nulové riziko. Hřeje okamžitě po zapnutí.",
     highlight: "Bezpečná platba při doručení",
     verified: true,
     timeAgo: "před 3 dny"
@@ -54,7 +54,7 @@ export const Reviews: React.FC = () => {
               <Star className="w-6 h-6 fill-current" />
               <Star className="w-6 h-6 fill-current" />
             </div>
-            <span className="text-gray-300 font-bold text-lg">4,9/5 Ověřený Průměr</span>
+            <span className="text-gray-300 font-bold text-lg">4.9/5 Ověřený Průměr</span>
           </div>
         </ScrollReveal>
 
@@ -70,10 +70,10 @@ export const Reviews: React.FC = () => {
                   </div>
                   <div className="text-sm text-gray-400 font-medium">{review.timeAgo}</div>
                 </div>
-
+                
                 <h4 className="text-white font-bold mb-4 text-xl leading-tight">"{review.highlight}"</h4>
                 <p className="text-gray-300 text-lg mb-8 leading-relaxed font-light flex-1">"{review.text}"</p>
-
+                
                 <div className="flex items-center gap-4 mt-auto pt-5 border-t border-white/5">
                   <div className="w-12 h-12 rounded-full bg-neon-500/20 flex items-center justify-center text-neon-500 font-bold text-lg shrink-0">
                     {review.name.charAt(0)}

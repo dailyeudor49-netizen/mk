@@ -4,7 +4,7 @@ interface ScrollRevealProps {
   children?: React.ReactNode;
   className?: string;
   delay?: number;
-  threshold?: number; // Kolik z prvku musí být viditelné před animací (0.1 = 10%)
+  threshold?: number; // Quanto dell'elemento deve essere visibile prima di animarsi (0.1 = 10%)
 }
 
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className = "", delay = 0, threshold = 0.1 }) => {
@@ -16,7 +16,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className 
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Jakmile je viditelný, přestaneme pozorovat pro výkon (jednorázová animace)
+          // Una volta visibile, smettiamo di osservare per performance (animazione one-shot)
           if (ref.current) observer.unobserve(ref.current);
         }
       },

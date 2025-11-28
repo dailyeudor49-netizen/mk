@@ -7,31 +7,31 @@ import { ScrollReveal } from './ScrollReveal';
 const reviews: ReviewType[] = [
   {
     id: 1,
-    name: "Ivan Horvat",
+    name: "Marko Horvat",
     location: "Zagreb",
     rating: 5,
-    text: "Bio sam skeptičan u vezi tvrdnje o 90m², imam veliki open space. No moram reći da gura topli zrak svuda za manje od 20 minuta. Najbolje od svega? Račun za plin je pao stvarno za 40% u odnosu na prošlu godinu.",
-    highlight: "Račun prepolovljen i topla kuća",
+    text: "Bio sam skeptičan oko 90m², imam veliki otvoreni prostor. No moram reći da gura topli zrak svugdje za manje od 20 minuta. Najbolje? Račun za plin zaista pao za 40% u odnosu na prošlu godinu.",
+    highlight: "Račun prepolovljen i topao dom",
     verified: true,
     timeAgo: "prije 2 dana"
   },
   {
     id: 2,
-    name: "Ana Kovačević",
+    name: "Ana Kovačić",
     location: "Split",
     rating: 5,
-    text: "Riješila sam problem plijesni u spavaćoj sobi. Prije sam se budila s vlažnim prozorima, sada je zrak suh i topao. Tiho kao miš noću, konačno spavam.",
-    highlight: "Zbogom plijesni i vlazi",
+    text: "Riješila sam problem plijesni u spavaćoj sobi. Prije sam se budila s mokrim prozorima, sada je zrak suh i topao. Super tiho noću, konačno spavam.",
+    highlight: "Zbogom plijesan i vlaga",
     verified: true,
-    timeAgo: "Kupljeno prije 1 tjedan"
+    timeAgo: "Kupljeno prije tjedan dana"
   },
   {
     id: 3,
-    name: "Marko Babić",
+    name: "Ivan Novak",
     location: "Rijeka",
     rating: 5,
-    text: "Dizajn je vrhunski, izgleda kao predmet od 600€. Platio sam dostavljaču gotovinom pri dostavi, bez rizika. Grije odmah čim ga uključite.",
-    highlight: "Sigurna naplata pri dostavi",
+    text: "Dizajn je nevjerovatan, izgleda kao predmet od 600€. Plaćeno kuriru gotovinom pouzećem, nula rizika. Grije odmah čim ga uključite.",
+    highlight: "Sigurno plaćanje pouzećem",
     verified: true,
     timeAgo: "prije 3 dana"
   }
@@ -54,7 +54,7 @@ export const Reviews: React.FC = () => {
               <Star className="w-6 h-6 fill-current" />
               <Star className="w-6 h-6 fill-current" />
             </div>
-            <span className="text-gray-300 font-bold text-lg">4.9/5 Provjereni Prosjek</span>
+            <span className="text-gray-300 font-bold text-lg">4.9/5 Provjereni prosjek</span>
           </div>
         </ScrollReveal>
 
@@ -70,10 +70,10 @@ export const Reviews: React.FC = () => {
                   </div>
                   <div className="text-sm text-gray-400 font-medium">{review.timeAgo}</div>
                 </div>
-
+                
                 <h4 className="text-white font-bold mb-4 text-xl leading-tight">"{review.highlight}"</h4>
                 <p className="text-gray-300 text-lg mb-8 leading-relaxed font-light flex-1">"{review.text}"</p>
-
+                
                 <div className="flex items-center gap-4 mt-auto pt-5 border-t border-white/5">
                   <div className="w-12 h-12 rounded-full bg-neon-500/20 flex items-center justify-center text-neon-500 font-bold text-lg shrink-0">
                     {review.name.charAt(0)}

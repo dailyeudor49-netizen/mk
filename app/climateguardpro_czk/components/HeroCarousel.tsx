@@ -2,32 +2,32 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Image as ImageIcon, MapPin, Truck } from 'lucide-react';
 
-// --- KONFIGURACE OBRÁZKŮ ---
-// Vložte odkazy na vaše obrázky do pole 'image'.
-// Pokud necháte prázdné "", zobrazí se zástupný symbol s ikonou.
+// --- CONFIGURAZIONE IMMAGINI ---
+// Inserisci i link delle tue immagini nel campo 'image'.
+// Se lasci vuoto "", verrà mostrato il segnaposto con l'icona.
 const slides = [
   {
     id: 1,
-    label: "FOTO 1: CELÝ PRODUKT (ZEPŘEDU)",
-    sub: "Aerodynamický Design",
+    label: "FOTO 1: PRODOTTO INTERO (FRONTALE)",
+    sub: "Design Aerodinamico",
     image: "/images/climateguardpro img/prodotto-frontale.png"
   },
   {
     id: 2,
-    label: "FOTO 2: V OBÝVACÍM POKOJI",
-    sub: "Domácí Elegance",
+    label: "FOTO 2: AMBIENTATA IN SALOTTO",
+    sub: "Eleganza Domestica",
     image: "/images/climateguardpro img/ambientata-salotto.png"
   },
   {
     id: 3,
-    label: "FOTO 3: LCD DISPLEJ & OVLÁDÁNÍ",
-    sub: "Úplná Kontrola",
+    label: "FOTO 3: DISPLAY LCD & COMANDI",
+    sub: "Controllo Totale",
     image: "/images/climateguardpro img/display-tecnologia.png"
   },
   {
     id: 4,
-    label: "FOTO 4: DETAIL HEPA FILTRU",
-    sub: "Aktivní Čištění",
+    label: "FOTO 4: DETTAGLIO FILTRO HEPA",
+    sub: "Purificazione Attiva",
     image: "/images/climateguardpro img/filtro-hepa.png"
   },
 ];
@@ -39,7 +39,7 @@ export const HeroCarousel: React.FC = () => {
   const next = () => setCurrent((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
 
   useEffect(() => {
-    const slideInterval = setInterval(next, 4000); // Auto-přehrávání každé 4 sekundy
+    const slideInterval = setInterval(next, 4000); // Auto-play ogni 4 secondi
     return () => clearInterval(slideInterval);
   }, []);
 
@@ -55,14 +55,14 @@ export const HeroCarousel: React.FC = () => {
           <div key={slide.id} className="min-w-full relative flex items-center justify-center bg-gray-50">
 
              {slide.image ? (
-               // POKUD EXISTUJE OBRÁZEK, ZOBRAZIT HO
+               // SE C'È L'IMMAGINE, MOSTRA QUELLA
                <img
                  src={slide.image}
                  alt={slide.label}
                  className="w-full h-auto block"
                />
              ) : (
-               // JINAK ZOBRAZIT ZÁSTUPNÝ SYMBOL
+               // ALTRIMENTI MOSTRA IL SEGNAPOSTO
                <>
                  <div className="flex flex-col items-center justify-center p-4 md:p-8 text-center transition-opacity transform scale-90 md:scale-100 z-10">
                     <ImageIcon className="w-16 h-16 md:w-24 md:h-24 text-gray-300 mb-6" />
@@ -97,7 +97,7 @@ export const HeroCarousel: React.FC = () => {
         ))}
       </div>
 
-      {/* Trust Badge Overlay (Expedice z EU) - Čistý Styl */}
+      {/* Trust Badge Overlay (Spedizione Italia) - Clean Style */}
       <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur border border-gray-200 px-3 py-1.5 md:px-4 md:py-2 rounded-xl flex items-center gap-2 z-20 shadow-xl">
          <Truck className="w-4 h-4 md:w-5 md:h-5 text-green-600" />
          <span className="text-[10px] md:text-sm font-bold text-void-950 uppercase tracking-wide">Expedice z EU</span>

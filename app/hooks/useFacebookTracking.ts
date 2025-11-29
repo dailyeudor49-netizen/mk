@@ -14,9 +14,8 @@ import {
   saveUserDataToStorage,
   trackLeadCAPI,
   trackPurchaseCAPI,
-  UserData
 } from '@/app/lib/facebook/capi';
-import { FacebookEventData } from '@/app/config/facebook';
+import { FacebookEventData, UserData } from '@/app/config/facebook';
 
 /**
  * Hook per gestire il tracking Facebook nelle landing pages

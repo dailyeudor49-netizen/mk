@@ -54,7 +54,7 @@ export default function FacebookPixel() {
         currency,
         content_name: contentName,
         content_type: 'product' as const,
-        content_ids: ['climateguard-pro'],
+        content_ids: 'climateguard-pro',
       };
 
       // Track via Pixel (client-side)

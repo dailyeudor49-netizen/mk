@@ -81,7 +81,9 @@ export function useFacebookTracking() {
     console.log('[useFacebookTracking] Tracking Purchase, eventId:', eventId);
 
     // Track via Pixel (client-side)
-    trackPurchase(eventData, eventId);
+    if (eventData) {
+      trackPurchase(eventData, eventId);
+    }
 
     // Track via CAPI (server-side)
     await trackPurchaseCAPI(eventId, userData, eventData);
@@ -106,7 +108,7 @@ export function useFacebookTracking() {
     console.log('[useFacebookTracking] Tracking custom event:', eventName, 'eventId:', eventId);
 
     // Track via Pixel (client-side)
-    trackPixelEvent(eventName as 'Lead', eventId, eventData);
+    trackPixelEvent(eventName as 'Lead', eventData, eventId);
 
     return eventId;
   }, [isOnFacebookPage, isOnThankYouPage]);

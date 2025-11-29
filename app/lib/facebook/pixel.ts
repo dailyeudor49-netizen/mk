@@ -110,7 +110,7 @@ export function trackPixelEvent(
   console.log('[FB Pixel] Event ID:', eventId);
 
   if (eventData) {
-    window.fbq('track', eventName, eventData, options);
+    window.fbq('track', eventName, eventData as Record<string, unknown>, options);
   } else {
     window.fbq('track', eventName, {}, options);
   }

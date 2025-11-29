@@ -58,7 +58,7 @@ export default function FacebookPixel() {
       };
 
       // Track via Pixel (client-side)
-      trackPurchase(eventId, eventData);
+      trackPurchase(eventData, eventId);
 
       // Track via CAPI (server-side) per deduplicazione
       trackPurchaseCAPI(eventId, userData, eventData);
@@ -94,7 +94,7 @@ export function useTrackLead() {
     const eventId = generateEventId();
 
     // Track via Pixel (client-side)
-    trackLead(eventId, eventData);
+    trackLead(eventData, eventId);
 
     // Track via CAPI (server-side)
     await trackLeadCAPI(eventId, userData, eventData);

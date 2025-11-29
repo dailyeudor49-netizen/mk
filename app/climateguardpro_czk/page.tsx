@@ -168,8 +168,8 @@ export default function Home() {
                         <Waves className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Turbína 360° Rovnoměrně (26°C)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Technologie AirMulti™ žene teplý vzduch do <span className="text-red-600 font-bold underline decoration-red-200">každého koutu</span>, odstraňuje studené zóny.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Turbína 360° Rovnoměrně (16-32°C)</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Technologie AirMulti™ žene teplý vzduch do <span className="text-red-600 font-bold underline decoration-red-200">každého koutu</span>, odstraňuje studené zóny za 18 minut.</p>
                       </div>
                    </div>
 

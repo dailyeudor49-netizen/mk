@@ -168,8 +168,8 @@ export default function Home() {
                         <Waves className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">Turbina 360° Uniforme (26°C)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">La tecnologia AirMulti™ spinge l'aria calda in <span className="text-red-600 font-bold underline decoration-red-200">ogni angolo</span>, eliminando zone fredde.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">Turbina 360° Uniforme (16-32°C)</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">La tecnologia AirMulti™ spinge l'aria calda in <span className="text-red-600 font-bold underline decoration-red-200">ogni angolo</span>, eliminando zone fredde in 18 minuti.</p>
                       </div>
                    </div>
 

@@ -168,8 +168,8 @@ export default function Home() {
                         <Waves className="w-5 h-5" />
                       </div>
                       <div>
-                         <h4 className="text-base font-bold text-gray-800 leading-tight">360° egyenletes turbina (26°C)</h4>
-                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Az AirMulti™ technológia a meleg levegőt <span className="text-red-600 font-bold underline decoration-red-200">minden sarokban</span> terjeszti, megszüntetve a hideg zónákat.</p>
+                         <h4 className="text-base font-bold text-gray-800 leading-tight">360° egyenletes turbina (16-32°C)</h4>
+                         <p className="text-sm text-gray-800 font-medium leading-snug mt-1">Az AirMulti™ technológia a meleg levegőt <span className="text-red-600 font-bold underline decoration-red-200">minden sarokban</span> terjeszti, megszüntetve a hideg zónákat 18 perc alatt.</p>
                       </div>
                    </div>
 

@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { FB_CONFIG } from '@/app/config/facebook';
 import {
-  initPixelScript,
   trackPageView,
   trackPurchase,
   trackLead,
@@ -17,6 +16,34 @@ import {
   trackPurchaseCAPI,
   trackLeadCAPI
 } from '@/app/lib/facebook/capi';
+
+// Funzione per inizializzare il Pixel direttamente
+function initializePixel() {
+  if (typeof window === 'undefined') return;
+  if (window.fbq) {
+    console.log('[FB Pixel] Pixel già inizializzato');
+    return;
+  }
+
+  console.log('[FB Pixel] Inizializzazione pixel con ID:', FB_CONFIG.PIXEL_ID);
+
+  // Inietta lo script standard di Facebook
+  const script = document.createElement('script');
+  script.innerHTML = `
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '${FB_CONFIG.PIXEL_ID}');
+  `;
+  document.head.appendChild(script);
+
+  console.log('[FB Pixel] Pixel inizializzato con ID:', FB_CONFIG.PIXEL_ID);
+}
 
 export default function FacebookPixel() {
   const pathname = usePathname();
@@ -32,7 +59,7 @@ export default function FacebookPixel() {
     console.log('[FB Pixel] Inizializzazione per pathname:', pathname);
 
     // Inizializza lo script del Pixel
-    initPixelScript();
+    initializePixel();
 
     // Track PageView
     trackPageView();

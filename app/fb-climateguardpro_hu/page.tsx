@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 import { CountdownTimer } from './components/CountdownTimer';
 import { ComparisonTable } from './components/ComparisonTable';
 import { Reviews } from './components/Reviews';
@@ -70,6 +71,9 @@ const Header = ({ scrollToForm }: { scrollToForm: () => void }) => (
 );
 
 export default function Home() {
+  // Facebook Tracking Hook
+  const { trackLeadEvent, saveUserData } = useFacebookTracking();
+
   const formRef = useRef<HTMLDivElement>(null);
   const [formState, setFormState] = useState<OrderFormState>({
     fullName: '', fullAddress: '', phone: ''
@@ -93,8 +97,31 @@ export default function Home() {
     setFormState(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Salva dati utente e traccia Lead per Facebook
+    const nameParts = formState.fullName.trim().split(' ');
+    const nome = nameParts[0] || '';
+    const cognome = nameParts.slice(1).join(' ') || '';
+
+    const userData = {
+      nome,
+      cognome,
+      telefono: formState.phone.trim(),
+      indirizzo: formState.fullAddress.trim()
+    };
+
+    console.log('[Form] Salvataggio dati utente:', userData);
+    saveUserData(userData);
+
+    // Traccia Lead
+    await trackLeadEvent(userData, {
+      content_name: 'ClimateGuard Pro',
+      currency: 'HUF',
+      value: 39900
+    });
+
     setSubmitted(true);
   };
 

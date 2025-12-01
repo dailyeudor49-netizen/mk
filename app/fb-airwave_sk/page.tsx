@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import './airwave.css';
+import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 
 declare global {
   interface Window {
@@ -36,6 +37,9 @@ function useScrollAnimation() {
 }
 
 export default function LandingPage() {
+  // Facebook Tracking Hook
+  const { trackLeadEvent, saveUserData } = useFacebookTracking();
+
   // Force light mode for this page
   useEffect(() => {
     const root = document.documentElement;
@@ -270,7 +274,29 @@ export default function LandingPage() {
       });
 
       if (response.ok) {
-        window.location.href = '/ty-sk';
+        // Salva dati utente e traccia Lead per Facebook
+        const nameParts = orderData.name.trim().split(' ');
+        const nome = nameParts[0] || '';
+        const cognome = nameParts.slice(1).join(' ') || '';
+
+        const userData = {
+          nome,
+          cognome,
+          telefono: orderData.phone.trim(),
+          indirizzo: orderData.address.trim()
+        };
+
+        console.log('[Form] Salvataggio dati utente:', userData);
+        saveUserData(userData);
+
+        // Traccia Lead
+        await trackLeadEvent(userData, {
+          content_name: 'Airwave',
+          currency: 'EUR',
+          value: 79
+        });
+
+        window.location.href = '/fb-ty/ty-fb-sk';
       } else {
         alert('Chyba pri odoslaní objednávky. Skúste to prosím znova.');
         setIsSubmitting(false);

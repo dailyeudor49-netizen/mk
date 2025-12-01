@@ -5,13 +5,13 @@ import { FB_CONFIG, FacebookEventName, FacebookEventData } from '@/app/config/fa
 // Dichiarazione del tipo fbq per TypeScript
 declare global {
   interface Window {
-    fbq: (
+    fbq?: (
       action: string,
       eventName: string,
       params?: Record<string, unknown>,
       options?: { eventID?: string }
     ) => void;
-    _fbq: unknown;
+    _fbq?: unknown;
   }
 }
 
@@ -163,7 +163,7 @@ export function initPixelScript(): string {
  * Verifica se il pathname corrente è una pagina Facebook
  */
 export function isFacebookPage(pathname: string): boolean {
-  const isFb = pathname.startsWith('/fb-') || pathname.startsWith('/ty/ty-fb-');
+  const isFb = pathname.startsWith('/fb-');
   console.log('[FB Pixel] Pathname:', pathname, '-> isFacebookPage:', isFb);
   return isFb;
 }
@@ -172,7 +172,7 @@ export function isFacebookPage(pathname: string): boolean {
  * Verifica se è una thank you page Facebook
  */
 export function isFacebookThankYouPage(pathname: string): boolean {
-  const isTy = pathname.startsWith('/ty/ty-fb-');
+  const isTy = pathname.startsWith('/fb-ty/ty-fb-');
   console.log('[FB Pixel] Pathname:', pathname, '-> isFacebookThankYouPage:', isTy);
   return isTy;
 }

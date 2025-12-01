@@ -4,15 +4,20 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Lock, AlertTriangle, Gift, CreditCard, Signal, PhoneCall, Truck } from 'lucide-react';
+import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 
 interface LeadFormProps {
   variant?: 'hero' | 'inline';
 }
 
 const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
+  // Facebook Tracking Hook
+  const { trackLeadEvent, saveUserData } = useFacebookTracking();
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [stockLeft, setStockLeft] = useState(9);
+  const [formData, setFormData] = useState({ fullName: '', fullAddress: '', phone: '' });
 
   // Fake stock depletion logic for urgency
   useEffect(() => {
@@ -36,9 +41,32 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
     return () => window.removeEventListener('openOrderForm', handleOpenForm);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+
+    // Salva dati utente e traccia Lead per Facebook
+    const nameParts = formData.fullName.trim().split(' ');
+    const nome = nameParts[0] || '';
+    const cognome = nameParts.slice(1).join(' ') || '';
+
+    const userData = {
+      nome,
+      cognome,
+      telefono: formData.phone.trim(),
+      indirizzo: formData.fullAddress.trim()
+    };
+
+    console.log('[Form] Salvataggio dati utente:', userData);
+    saveUserData(userData);
+
+    // Traccia Lead
+    await trackLeadEvent(userData, {
+      content_name: 'BeSecure Pro',
+      currency: 'PLN',
+      value: 429
+    });
+
     setTimeout(() => {
       setIsLoading(false);
       setIsSubmitted(true);
@@ -137,6 +165,9 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
                 <input
                     required
                     type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
                     className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 placeholder:text-sm placeholder:font-normal focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
                     placeholder="np. Jan Kowalski"
                 />
@@ -146,6 +177,9 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
                 <input
                     required
                     type="text"
+                    name="fullAddress"
+                    value={formData.fullAddress}
+                    onChange={(e) => setFormData(prev => ({ ...prev, fullAddress: e.target.value }))}
                     className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 placeholder:text-sm placeholder:font-normal focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
                     placeholder="np. ul. Marszałkowska 10/5, 00-001 Warszawa"
                 />
@@ -155,6 +189,9 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
                 <input
                     required
                     type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                     className="w-full pl-4 pr-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 text-[#1a2744] placeholder-gray-400 placeholder:text-sm placeholder:font-normal focus:border-red-500 focus:bg-white focus:ring-4 focus:ring-red-500/10 outline-none transition-all font-bold"
                     placeholder="np. +48 600 123 456"
                 />

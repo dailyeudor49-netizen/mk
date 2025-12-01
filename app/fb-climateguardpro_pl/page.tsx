@@ -88,6 +88,18 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // --- Fingerprint Script ---
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://offers.supertrendaffiliateprogram.com/forms/tmfp/';
+    script.crossOrigin = 'anonymous';
+    script.defer = true;
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -100,29 +112,67 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Salva dati utente e traccia Lead per Facebook
-    const nameParts = formState.fullName.trim().split(' ');
-    const nome = nameParts[0] || '';
-    const cognome = nameParts.slice(1).join(' ') || '';
+    try {
+      // Network API call
+      const params = new URLSearchParams();
+      params.append('uid', '019855d0-397a-72ee-8df5-c5026966105a');
+      params.append('key', '8ea99f0506e1df27f625d0');
+      params.append('offer', '528');
+      params.append('lp', '528');
+      params.append('name', formState.fullName.trim());
+      params.append('tel', formState.phone.trim());
+      params.append('street-address', formState.fullAddress.trim());
 
-    const userData = {
-      nome,
-      cognome,
-      telefono: formState.phone.trim(),
-      indirizzo: formState.fullAddress.trim()
-    };
+      // Fingerprint
+      const tmfpInput = document.querySelector('input[name="tmfp"]') as HTMLInputElement;
+      if (tmfpInput && tmfpInput.value) {
+        params.append('tmfp', tmfpInput.value);
+      }
 
-    console.log('[Form] Salvataggio dati utente:', userData);
-    saveUserData(userData);
+      // UTM params
+      const urlParams = new URLSearchParams(window.location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'subid', 'subid2', 'subid3', 'subid4', 'subid5', 'pubid'].forEach(param => {
+        const value = urlParams.get(param);
+        if (value) params.append(param, value);
+      });
 
-    // Traccia Lead
-    await trackLeadEvent(userData, {
-      content_name: 'ClimateGuard Pro',
-      currency: 'PLN',
-      value: 299
-    });
+      const response = await fetch('https://offers.supertrendaffiliateprogram.com/forms/api/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      });
 
-    setSubmitted(true);
+      if (response.ok) {
+        // Salva dati utente e traccia Lead per Facebook
+        const nameParts = formState.fullName.trim().split(' ');
+        const nome = nameParts[0] || '';
+        const cognome = nameParts.slice(1).join(' ') || '';
+
+        const userData = {
+          nome,
+          cognome,
+          telefono: formState.phone.trim(),
+          indirizzo: formState.fullAddress.trim()
+        };
+
+        console.log('[Form] Salvataggio dati utente:', userData);
+        saveUserData(userData);
+
+        // Traccia Lead
+        await trackLeadEvent(userData, {
+          content_name: 'ClimateGuard Pro',
+          currency: 'PLN',
+          value: 299
+        });
+
+        // Redirect to thank you page
+        window.location.href = '/fb-ty/ty-fb-pl';
+      } else {
+        console.error('[Form] Network API error:', response.status);
+      }
+    } catch (error) {
+      console.error('[Form] Submit error:', error);
+    }
   };
 
   return (
@@ -670,7 +720,9 @@ export default function Home() {
                </div>
              ) : (
                <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-                  
+                  {/* Hidden input for fingerprint */}
+                  <input type="hidden" name="tmfp" />
+
                   {/* PACKAGE SUMMARY */}
                   <div className="bg-white/5 rounded-xl p-5 border border-white/10">
                      <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-2">

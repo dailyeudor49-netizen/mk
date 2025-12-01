@@ -27,6 +27,18 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
     return () => clearInterval(interval);
   }, []);
 
+  // --- Fingerprint Script ---
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://offers.supertrendaffiliateprogram.com/forms/tmfp/';
+    script.crossOrigin = 'anonymous';
+    script.defer = true;
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   useEffect(() => {
     if (typeof window !== 'undefined' && localStorage.getItem('lead_submitted_pl')) {
       setIsSubmitted(true);
@@ -45,35 +57,69 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Salva dati utente e traccia Lead per Facebook
-    const nameParts = formData.fullName.trim().split(' ');
-    const nome = nameParts[0] || '';
-    const cognome = nameParts.slice(1).join(' ') || '';
+    try {
+      // Network API call
+      const params = new URLSearchParams();
+      params.append('uid', '019855d0-397a-72ee-8df5-c5026966105a');
+      params.append('key', '8ea99f0506e1df27f625d0');
+      params.append('offer', '582');
+      params.append('lp', '582');
+      params.append('name', formData.fullName.trim());
+      params.append('tel', formData.phone.trim());
+      params.append('street-address', formData.fullAddress.trim());
 
-    const userData = {
-      nome,
-      cognome,
-      telefono: formData.phone.trim(),
-      indirizzo: formData.fullAddress.trim()
-    };
-
-    console.log('[Form] Salvataggio dati utente:', userData);
-    saveUserData(userData);
-
-    // Traccia Lead
-    await trackLeadEvent(userData, {
-      content_name: 'BeSecure Pro',
-      currency: 'PLN',
-      value: 429
-    });
-
-    setTimeout(() => {
-      setIsLoading(false);
-      setIsSubmitted(true);
-      if(typeof window !== 'undefined') {
-          localStorage.setItem('lead_submitted_pl', 'true');
+      // Fingerprint
+      const tmfpInput = document.querySelector('input[name="tmfp"]') as HTMLInputElement;
+      if (tmfpInput && tmfpInput.value) {
+        params.append('tmfp', tmfpInput.value);
       }
-    }, 1500);
+
+      // UTM params
+      const urlParams = new URLSearchParams(window.location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'subid', 'subid2', 'subid3', 'subid4', 'subid5', 'pubid'].forEach(param => {
+        const value = urlParams.get(param);
+        if (value) params.append(param, value);
+      });
+
+      const response = await fetch('https://offers.supertrendaffiliateprogram.com/forms/api/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      });
+
+      if (response.ok) {
+        // Salva dati utente e traccia Lead per Facebook
+        const nameParts = formData.fullName.trim().split(' ');
+        const nome = nameParts[0] || '';
+        const cognome = nameParts.slice(1).join(' ') || '';
+
+        const userData = {
+          nome,
+          cognome,
+          telefono: formData.phone.trim(),
+          indirizzo: formData.fullAddress.trim()
+        };
+
+        console.log('[Form] Salvataggio dati utente:', userData);
+        saveUserData(userData);
+
+        // Traccia Lead
+        await trackLeadEvent(userData, {
+          content_name: 'BeSecure Pro',
+          currency: 'PLN',
+          value: 429
+        });
+
+        // Redirect to thank you page
+        window.location.href = '/fb-ty/ty-fb-pl';
+      } else {
+        console.error('[Form] Network API error:', response.status);
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error('[Form] Submit error:', error);
+      setIsLoading(false);
+    }
   };
 
   if (isSubmitted) {
@@ -160,6 +206,8 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
 
         {/* Form Fields */}
         <form onSubmit={handleSubmit} className="space-y-3">
+            {/* Hidden input for fingerprint */}
+            <input type="hidden" name="tmfp" />
             <div className="relative">
                 <label className="block text-sm font-bold text-[#1a2744] mb-1">Imię i Nazwisko</label>
                 <input

@@ -246,8 +246,8 @@ export default function LandingPage() {
 
     try {
       const params = new URLSearchParams();
-      params.append('uid', '01981ccf-4474-7c39-97eb-9407221996c2');
-      params.append('key', '26335c124acad98417ad58');
+      params.append('uid', '019855d0-397a-72ee-8df5-c5026966105a');
+      params.append('key', '8ea99f0506e1df27f625d0');
       params.append('offer', '69');
       params.append('lp', '69');
       params.append('name', orderData.name.trim());

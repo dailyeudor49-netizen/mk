@@ -27,7 +27,7 @@ export default function ThankYouPage() {
 
         // Croazia usa EUR
         trackPurchaseEvent(userData, {
-          value: 79,
+          value: 69,
           currency: 'EUR',
           content_name: 'Product HR',
           content_type: 'product',

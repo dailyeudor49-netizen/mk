@@ -119,7 +119,7 @@ export default function Home() {
     await trackLeadEvent(userData, {
       content_name: 'ClimateGuard Pro',
       currency: 'EUR',
-      value: 79
+      value: 69
     });
 
     setSubmitted(true);

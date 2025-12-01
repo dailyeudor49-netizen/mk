@@ -293,7 +293,7 @@ export default function LandingPage() {
         await trackLeadEvent(userData, {
           content_name: 'Airwave',
           currency: 'HUF',
-          value: 39900
+          value: 27999
         });
 
         window.location.href = '/fb-ty/ty-fb-hu';

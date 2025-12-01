@@ -35,7 +35,7 @@ export default function ThankYouPage() {
           const storedEventData = getEventDataFromStorage();
 
           const eventData = storedEventData || {
-            value: 39900,
+            value: 27999,
             currency: 'HUF',
             content_name: 'Product HU',
             content_type: 'product' as const,

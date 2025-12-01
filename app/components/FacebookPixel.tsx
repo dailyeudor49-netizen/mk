@@ -5,7 +5,6 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { FB_CONFIG } from '@/app/config/facebook';
 import {
   trackPageView,
-  trackPurchase,
   trackLead,
   isFacebookPage,
   isFacebookThankYouPage,
@@ -13,7 +12,6 @@ import {
 } from '@/app/lib/facebook/pixel';
 import {
   getUserDataFromStorage,
-  trackPurchaseCAPI,
   trackLeadCAPI
 } from '@/app/lib/facebook/capi';
 
@@ -64,31 +62,12 @@ export default function FacebookPixel() {
     // Track PageView
     trackPageView();
 
-    // Se siamo su una thank you page, traccia Purchase
+    // Se siamo su una thank you page, NON tracciare Purchase qui
+    // Il Purchase viene tracciato direttamente nelle TY pages con i dati dinamici
     if (isFacebookThankYouPage(pathname)) {
-      console.log('[FB Pixel] Thank you page rilevata, tracking Purchase...');
-
-      const eventId = generateEventId();
-      const userData = getUserDataFromStorage();
-
-      // Recupera i dati dell'evento dalla query string o usa valori di default
-      const value = parseFloat(searchParams?.get('value') || '0') || 299;
-      const currency = searchParams?.get('currency') || 'EUR';
-      const contentName = searchParams?.get('content_name') || 'ClimateGuard Pro';
-
-      const eventData = {
-        value,
-        currency,
-        content_name: contentName,
-        content_type: 'product' as const,
-        content_ids: 'climateguard-pro',
-      };
-
-      // Track via Pixel (client-side)
-      trackPurchase(eventData, eventId);
-
-      // Track via CAPI (server-side) per deduplicazione
-      trackPurchaseCAPI(eventId, userData, eventData);
+      console.log('[FB Pixel] Thank you page rilevata, Purchase sarà tracciato dalla TY page');
+      // NON tracciare Purchase qui - viene fatto nella TY page specifica
+      // che ha accesso ai dati dinamici salvati in sessionStorage
     }
   }, [pathname, searchParams]);
 

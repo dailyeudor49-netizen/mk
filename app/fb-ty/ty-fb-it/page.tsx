@@ -19,27 +19,32 @@ export default function ThankYouPage() {
       setOrderCode(newCode);
     }
 
-    // Facebook Purchase Tracking (dinamico)
+    // Facebook Purchase Tracking (dinamico) - aspetta che il Pixel sia pronto
     if (!purchaseTracked) {
       const alreadyTrackedFb = sessionStorage.getItem('fb_purchase_tracked_it');
       if (!alreadyTrackedFb) {
-        const userData = getUserDataFromStorage();
-        const storedEventData = getEventDataFromStorage();
+        const trackPurchase = () => {
+          const userData = getUserDataFromStorage();
+          const storedEventData = getEventDataFromStorage();
 
-        const eventData = storedEventData || {
-          value: 79,
-          currency: 'EUR',
-          content_name: 'Product IT',
-          content_type: 'product' as const,
-          content_ids: 'product-it'
+          const eventData = storedEventData || {
+            value: 79,
+            currency: 'EUR',
+            content_name: 'Product IT',
+            content_type: 'product' as const,
+            content_ids: 'product-it'
+          };
+
+          console.log('[TY-IT] Using event data:', eventData);
+          trackPurchaseEvent(userData, eventData);
+
+          sessionStorage.setItem('fb_purchase_tracked_it', 'true');
+          setPurchaseTracked(true);
+          console.log('[TY-IT] Facebook Purchase tracked');
         };
 
-        console.log('[TY-IT] Using event data:', eventData);
-        trackPurchaseEvent(userData, eventData);
-
-        sessionStorage.setItem('fb_purchase_tracked_it', 'true');
-        setPurchaseTracked(true);
-        console.log('[TY-IT] Facebook Purchase tracked');
+        // Aspetta 500ms per permettere al Pixel di inizializzarsi
+        setTimeout(trackPurchase, 500);
       }
     }
   }, [purchaseTracked, trackPurchaseEvent]);

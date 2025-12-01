@@ -19,28 +19,34 @@ export default function ThankYouPage() {
       setOrderCode(newCode);
     }
 
-    // Track Purchase solo una volta
+    // Track Purchase solo una volta - aspetta che il Pixel sia pronto
     if (!purchaseTracked) {
       const alreadyTracked = sessionStorage.getItem('fb_purchase_tracked_hr');
       if (!alreadyTracked) {
-        const userData = getUserDataFromStorage();
-        const storedEventData = getEventDataFromStorage();
+        // Aspetta un attimo per permettere al FacebookPixel di inizializzarsi
+        const trackPurchase = () => {
+          const userData = getUserDataFromStorage();
+          const storedEventData = getEventDataFromStorage();
 
-        // Usa i dati salvati dalla landing o fallback a valori di default HR
-        const eventData = storedEventData || {
-          value: 69,
-          currency: 'EUR',
-          content_name: 'Product HR',
-          content_type: 'product' as const,
-          content_ids: 'product-hr'
+          // Usa i dati salvati dalla landing o fallback a valori di default HR
+          const eventData = storedEventData || {
+            value: 69,
+            currency: 'EUR',
+            content_name: 'Product HR',
+            content_type: 'product' as const,
+            content_ids: 'product-hr'
+          };
+
+          console.log('[TY-HR] Using event data:', eventData);
+          trackPurchaseEvent(userData, eventData);
+
+          sessionStorage.setItem('fb_purchase_tracked_hr', 'true');
+          setPurchaseTracked(true);
+          console.log('[TY-HR] Facebook Purchase tracked');
         };
 
-        console.log('[TY-HR] Using event data:', eventData);
-        trackPurchaseEvent(userData, eventData);
-
-        sessionStorage.setItem('fb_purchase_tracked_hr', 'true');
-        setPurchaseTracked(true);
-        console.log('[TY-HR] Facebook Purchase tracked');
+        // Aspetta 500ms per permettere al Pixel di inizializzarsi
+        setTimeout(trackPurchase, 500);
       }
     }
   }, [purchaseTracked, trackPurchaseEvent]);

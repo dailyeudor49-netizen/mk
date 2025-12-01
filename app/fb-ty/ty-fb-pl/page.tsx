@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { getUserDataFromStorage, getEventDataFromStorage } from '@/app/lib/facebook/capi';
 
 declare global {
   interface Window {
@@ -11,6 +13,8 @@ declare global {
 
 export default function ThankYouPage() {
   const [orderCode, setOrderCode] = useState('');
+  const { trackPurchaseEvent } = useFacebookTracking();
+  const [purchaseTracked, setPurchaseTracked] = useState(false);
 
   useEffect(() => {
     const stored = sessionStorage.getItem('orderCode');
@@ -20,6 +24,30 @@ export default function ThankYouPage() {
       const newCode = Math.floor(100000 + Math.random() * 900000).toString();
       sessionStorage.setItem('orderCode', newCode);
       setOrderCode(newCode);
+    }
+
+    // Facebook Purchase Tracking (dinamico)
+    if (!purchaseTracked) {
+      const alreadyTrackedFb = sessionStorage.getItem('fb_purchase_tracked_pl');
+      if (!alreadyTrackedFb) {
+        const userData = getUserDataFromStorage();
+        const storedEventData = getEventDataFromStorage();
+
+        const eventData = storedEventData || {
+          value: 299,
+          currency: 'PLN',
+          content_name: 'Product PL',
+          content_type: 'product' as const,
+          content_ids: 'product-pl'
+        };
+
+        console.log('[TY-PL] Using event data:', eventData);
+        trackPurchaseEvent(userData, eventData);
+
+        sessionStorage.setItem('fb_purchase_tracked_pl', 'true');
+        setPurchaseTracked(true);
+        console.log('[TY-PL] Facebook Purchase tracked');
+      }
     }
 
     // Google Ads Conversion Tracking
@@ -48,7 +76,7 @@ export default function ThankYouPage() {
         console.log('✅ Google Ads conversion tracked, transaction_id:', transactionId);
       };
     }
-  }, []);
+  }, [purchaseTracked, trackPurchaseEvent]);
 
   return (
     <div className="ty-container" style={{

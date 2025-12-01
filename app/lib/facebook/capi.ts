@@ -85,36 +85,37 @@ export function clearUserDataFromStorage(): void {
 }
 
 /**
- * Salva i dati dell'evento (value, currency, content_name) in localStorage
+ * Salva i dati dell'evento (value, currency, content_name) in sessionStorage
  * Da chiamare nella landing page quando si traccia il Lead
+ * Usa sessionStorage invece di localStorage così i dati si cancellano quando chiudi il browser
  */
 export function saveEventDataToStorage(eventData: FacebookEventData): void {
   if (typeof window === 'undefined') return;
 
   try {
-    localStorage.setItem(EVENT_DATA_STORAGE_KEY, JSON.stringify(eventData));
-    console.log('[FB CAPI] eventData salvato in localStorage:', eventData);
+    sessionStorage.setItem(EVENT_DATA_STORAGE_KEY, JSON.stringify(eventData));
+    console.log('[FB CAPI] eventData salvato in sessionStorage:', eventData);
   } catch (error) {
-    console.log('[FB CAPI] Errore salvataggio eventData:', error);
+    console.log('[FB CAPI] Errore salvataggio sessionStorage:', error);
   }
 }
 
 /**
- * Recupera i dati dell'evento da localStorage
+ * Recupera i dati dell'evento da sessionStorage
  * Da chiamare nella TY page per il Purchase
  */
 export function getEventDataFromStorage(): FacebookEventData | null {
   if (typeof window === 'undefined') return null;
 
   try {
-    const stored = localStorage.getItem(EVENT_DATA_STORAGE_KEY);
+    const stored = sessionStorage.getItem(EVENT_DATA_STORAGE_KEY);
     if (stored) {
       const eventData = JSON.parse(stored);
-      console.log('[FB CAPI] eventData da localStorage:', eventData);
+      console.log('[FB CAPI] eventData da sessionStorage:', eventData);
       return eventData;
     }
   } catch (error) {
-    console.log('[FB CAPI] Errore lettura eventData:', error);
+    console.log('[FB CAPI] Errore lettura sessionStorage:', error);
   }
 
   console.log('[FB CAPI] Nessun eventData trovato');
@@ -122,16 +123,16 @@ export function getEventDataFromStorage(): FacebookEventData | null {
 }
 
 /**
- * Pulisce i dati dell'evento da localStorage
+ * Pulisce i dati dell'evento da sessionStorage
  */
 export function clearEventDataFromStorage(): void {
   if (typeof window === 'undefined') return;
 
   try {
-    localStorage.removeItem(EVENT_DATA_STORAGE_KEY);
-    console.log('[FB CAPI] eventData rimosso da localStorage');
+    sessionStorage.removeItem(EVENT_DATA_STORAGE_KEY);
+    console.log('[FB CAPI] eventData rimosso da sessionStorage');
   } catch (error) {
-    console.log('[FB CAPI] Errore rimozione eventData:', error);
+    console.log('[FB CAPI] Errore rimozione sessionStorage:', error);
   }
 }
 

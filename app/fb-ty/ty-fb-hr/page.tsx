@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
-import { getUserDataFromStorage } from '@/app/lib/facebook/capi';
+import { getUserDataFromStorage, getEventDataFromStorage } from '@/app/lib/facebook/capi';
 
 export default function ThankYouPage() {
   const [orderCode, setOrderCode] = useState('');
@@ -24,15 +24,19 @@ export default function ThankYouPage() {
       const alreadyTracked = sessionStorage.getItem('fb_purchase_tracked_hr');
       if (!alreadyTracked) {
         const userData = getUserDataFromStorage();
+        const storedEventData = getEventDataFromStorage();
 
-        // Croazia usa EUR
-        trackPurchaseEvent(userData, {
+        // Usa i dati salvati dalla landing o fallback a valori di default HR
+        const eventData = storedEventData || {
           value: 69,
           currency: 'EUR',
           content_name: 'Product HR',
-          content_type: 'product',
+          content_type: 'product' as const,
           content_ids: 'product-hr'
-        });
+        };
+
+        console.log('[TY-HR] Using event data:', eventData);
+        trackPurchaseEvent(userData, eventData);
 
         sessionStorage.setItem('fb_purchase_tracked_hr', 'true');
         setPurchaseTracked(true);

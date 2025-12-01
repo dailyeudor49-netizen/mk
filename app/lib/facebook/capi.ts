@@ -5,6 +5,7 @@ import { hashNome, hashCognome, hashTelefono, hashEmail } from './hash';
 import { getFbp, getFbc, getUtmParams } from './pixel';
 
 const USER_DATA_STORAGE_KEY = 'userData';
+const EVENT_DATA_STORAGE_KEY = 'fbEventData';
 
 /**
  * Recupera i dati utente da localStorage o query string
@@ -80,6 +81,57 @@ export function clearUserDataFromStorage(): void {
     console.log('[FB CAPI] userData rimosso da localStorage');
   } catch (error) {
     console.log('[FB CAPI] Errore rimozione localStorage:', error);
+  }
+}
+
+/**
+ * Salva i dati dell'evento (value, currency, content_name) in localStorage
+ * Da chiamare nella landing page quando si traccia il Lead
+ */
+export function saveEventDataToStorage(eventData: FacebookEventData): void {
+  if (typeof window === 'undefined') return;
+
+  try {
+    localStorage.setItem(EVENT_DATA_STORAGE_KEY, JSON.stringify(eventData));
+    console.log('[FB CAPI] eventData salvato in localStorage:', eventData);
+  } catch (error) {
+    console.log('[FB CAPI] Errore salvataggio eventData:', error);
+  }
+}
+
+/**
+ * Recupera i dati dell'evento da localStorage
+ * Da chiamare nella TY page per il Purchase
+ */
+export function getEventDataFromStorage(): FacebookEventData | null {
+  if (typeof window === 'undefined') return null;
+
+  try {
+    const stored = localStorage.getItem(EVENT_DATA_STORAGE_KEY);
+    if (stored) {
+      const eventData = JSON.parse(stored);
+      console.log('[FB CAPI] eventData da localStorage:', eventData);
+      return eventData;
+    }
+  } catch (error) {
+    console.log('[FB CAPI] Errore lettura eventData:', error);
+  }
+
+  console.log('[FB CAPI] Nessun eventData trovato');
+  return null;
+}
+
+/**
+ * Pulisce i dati dell'evento da localStorage
+ */
+export function clearEventDataFromStorage(): void {
+  if (typeof window === 'undefined') return;
+
+  try {
+    localStorage.removeItem(EVENT_DATA_STORAGE_KEY);
+    console.log('[FB CAPI] eventData rimosso da localStorage');
+  } catch (error) {
+    console.log('[FB CAPI] Errore rimozione eventData:', error);
   }
 }
 

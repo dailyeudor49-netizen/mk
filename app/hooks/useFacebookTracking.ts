@@ -12,6 +12,8 @@ import {
 } from '@/app/lib/facebook/pixel';
 import {
   saveUserDataToStorage,
+  saveEventDataToStorage,
+  getEventDataFromStorage,
   trackLeadCAPI,
   trackPurchaseCAPI,
 } from '@/app/lib/facebook/capi';
@@ -55,6 +57,11 @@ export function useFacebookTracking() {
 
     // Salva userData per il tracking Purchase nella thank you page
     saveUserDataToStorage(userData);
+
+    // Salva eventData (value, currency, content_name) per il Purchase nella TY page
+    if (eventData) {
+      saveEventDataToStorage(eventData);
+    }
 
     // Track via Pixel (client-side)
     trackLead(eventData, eventId);
@@ -120,13 +127,22 @@ export function useFacebookTracking() {
     saveUserDataToStorage(userData);
   }, []);
 
+  /**
+   * Recupera i dati dell'evento salvati dalla landing page
+   * Da usare nella TY page per ottenere value, currency, content_name
+   */
+  const getStoredEventData = useCallback((): FacebookEventData | null => {
+    return getEventDataFromStorage();
+  }, []);
+
   return {
     isOnFacebookPage,
     isOnThankYouPage,
     trackLeadEvent,
     trackPurchaseEvent,
     trackCustomEvent,
-    saveUserData
+    saveUserData,
+    getStoredEventData
   };
 }
 

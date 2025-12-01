@@ -1,9 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { getUserDataFromStorage } from '@/app/lib/facebook/capi';
 
 export default function ThankYouPage() {
   const [orderCode, setOrderCode] = useState('');
+  const { trackPurchaseEvent } = useFacebookTracking();
+  const [purchaseTracked, setPurchaseTracked] = useState(false);
 
   useEffect(() => {
     const stored = sessionStorage.getItem('orderCode');
@@ -14,7 +18,28 @@ export default function ThankYouPage() {
       sessionStorage.setItem('orderCode', newCode);
       setOrderCode(newCode);
     }
-  }, []);
+
+    // Track Purchase solo una volta
+    if (!purchaseTracked) {
+      const alreadyTracked = sessionStorage.getItem('fb_purchase_tracked_hr');
+      if (!alreadyTracked) {
+        const userData = getUserDataFromStorage();
+
+        // Croazia usa EUR
+        trackPurchaseEvent(userData, {
+          value: 79,
+          currency: 'EUR',
+          content_name: 'Product HR',
+          content_type: 'product',
+          content_ids: 'product-hr'
+        });
+
+        sessionStorage.setItem('fb_purchase_tracked_hr', 'true');
+        setPurchaseTracked(true);
+        console.log('[TY-HR] Facebook Purchase tracked');
+      }
+    }
+  }, [purchaseTracked, trackPurchaseEvent]);
 
   return (
     <div className="ty-container" style={{

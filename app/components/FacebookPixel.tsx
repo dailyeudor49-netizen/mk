@@ -59,16 +59,13 @@ export default function FacebookPixel() {
     // Inizializza lo script del Pixel
     initializePixel();
 
-    // Track PageView solo sulle landing pages (fb-*), NON sulle TY pages
-    if (isFacebookPage(pathname) && !isFacebookThankYouPage(pathname)) {
-      trackPageView();
-      console.log('[FB Pixel] PageView tracciato su landing page');
-    }
+    // Track PageView su tutte le pagine Facebook (landing e TY)
+    trackPageView();
+    console.log('[FB Pixel] PageView tracciato');
 
-    // Se siamo su una thank you page, NON tracciare nulla qui
-    // PageView e Purchase vengono tracciati direttamente nelle TY pages
+    // Se siamo su una thank you page, il Purchase viene tracciato dalla TY page stessa
     if (isFacebookThankYouPage(pathname)) {
-      console.log('[FB Pixel] Thank you page rilevata, tracking gestito dalla TY page');
+      console.log('[FB Pixel] Thank you page rilevata, Purchase sarà tracciato dalla TY page');
     }
   }, [pathname, searchParams]);
 

@@ -6,8 +6,12 @@ import {
   Clapperboard, Trophy, PlugZap, Wifi, PlayCircle, Radio,
   Globe, Users, Gift, TrendingDown, Clock, ChevronDown, Check
 } from 'lucide-react';
+import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 
 export default function SuperHubHU() {
+  // Facebook Tracking Hook
+  const { trackLeadEvent, saveUserData } = useFacebookTracking();
+
   const [stickyCTAVisible, setStickyCTAVisible] = useState(false);
   const [orderData, setOrderData] = useState({
     name: '',
@@ -63,10 +67,10 @@ export default function SuperHubHU() {
 
     try {
       const params = new URLSearchParams();
-      params.append('uid', '01981ccf-4474-7c39-97eb-9407221996c2');
-      params.append('key', '26335c124acad98417ad58');
-      params.append('offer', '25');
-      params.append('lp', '25');
+      params.append('uid', '019855d0-397a-72ee-8df5-c5026966105a');
+      params.append('key', '8ea99f0506e1df27f625d0');
+      params.append('offer', '417');
+      params.append('lp', '417');
       params.append('name', orderData.name.trim());
       params.append('tel', orderData.phone.trim());
       params.append('street-address', orderData.address.trim());
@@ -79,7 +83,7 @@ export default function SuperHubHU() {
 
       // UTM params
       const urlParams = new URLSearchParams(window.location.search);
-      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'subid', 'subid2', 'subid3', 'subid4', 'pubid'].forEach(param => {
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'subid', 'subid2', 'subid3', 'subid4', 'subid5', 'pubid'].forEach(param => {
         const value = urlParams.get(param);
         if (value) params.append(param, value);
       });
@@ -91,7 +95,29 @@ export default function SuperHubHU() {
       });
 
       if (response.ok) {
-        window.location.href = '/ty-hu';
+        // Salva dati utente e traccia Lead per Facebook
+        const nameParts = orderData.name.trim().split(' ');
+        const nome = nameParts[0] || '';
+        const cognome = nameParts.slice(1).join(' ') || '';
+
+        const userData = {
+          nome,
+          cognome,
+          telefono: orderData.phone.trim(),
+          indirizzo: orderData.address.trim()
+        };
+
+        console.log('[Form] Salvataggio dati utente:', userData);
+        saveUserData(userData);
+
+        // Traccia Lead
+        await trackLeadEvent(userData, {
+          content_name: 'SuperHub',
+          currency: 'HUF',
+          value: 23999
+        });
+
+        window.location.href = '/fb-ty/ty-fb-hu';
       } else {
         alert('Hiba a rendelés elküldésekor. Kérjük, próbálja újra.');
         setIsSubmitting(false);
@@ -205,9 +231,9 @@ export default function SuperHubHU() {
               {/* Price */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8">
                 <div className="bg-slate-800/80 p-4 rounded-lg border border-slate-600 backdrop-blur-sm shadow-inner w-full sm:w-auto text-center sm:text-left hover:scale-[1.02] transition-transform duration-300">
-                  <div className="text-slate-400 line-through text-sm">Eredeti ár 139 990 Ft</div>
+                  <div className="text-slate-400 line-through text-sm">Eredeti ár 47 998 Ft</div>
                   <div className="flex items-center justify-center sm:justify-start gap-3">
-                    <span className="text-5xl font-black text-white tracking-tight">69 990 Ft</span>
+                    <span className="text-5xl font-black text-white tracking-tight">23 999 Ft</span>
                     <div className="flex flex-col items-start">
                       <span className="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase animate-pulse">Villám Akció</span>
                       <span className="text-green-400 text-xs font-bold">-50% Kedvezmény</span>
@@ -610,8 +636,8 @@ export default function SuperHubHU() {
                 <p className="text-xs text-green-300">56 990 Ft értékben - INGYEN</p>
               </div>
               <div className="bg-slate-900 p-5 rounded-lg text-center border-2 border-dashed border-yellow-400/30">
-                <p className="text-slate-400 text-sm line-through">Eredeti ár: 139 990 Ft</p>
-                <p className="text-4xl font-black text-white">69 990 Ft</p>
+                <p className="text-slate-400 text-sm line-through">Eredeti ár: 47 998 Ft</p>
+                <p className="text-4xl font-black text-white">23 999 Ft</p>
               </div>
             </div>
             <div className="lg:w-1/2 bg-white text-slate-900 p-8 rounded-2xl shadow-2xl border-t-4 border-green-600">
@@ -745,9 +771,9 @@ export default function SuperHubHU() {
       >
         <div className="hidden md:block font-bold text-lg text-slate-900">Az akció hamarosan lejár!</div>
         <div className="md:hidden flex flex-col">
-          <span className="text-xs text-slate-500 line-through">139 990 Ft</span>
+          <span className="text-xs text-slate-500 line-through">47 998 Ft</span>
           <div className="flex items-baseline gap-1">
-            <span className="font-black text-slate-900 text-xl">69 990 Ft</span>
+            <span className="font-black text-slate-900 text-xl">23 999 Ft</span>
             <span className="text-xs font-bold text-red-600 bg-red-100 px-1 rounded">-50%</span>
           </div>
         </div>

@@ -210,7 +210,7 @@ export default function SuperHubHU() {
                 <div className="flex items-center justify-between">
                   <div className="text-left">
                     <p className="text-white font-bold text-xs md:text-sm uppercase tracking-wider">A csomagban vezeték nélküli kontroller</p>
-                    <p className="text-yellow-400 text-[10px] md:text-xs font-bold">56 990 Ft ÉRTÉKBEN - <span className="animate-pulse">INGYEN</span></p>
+                    <p className="text-yellow-400 text-[10px] md:text-xs font-bold">15 500 Ft ÉRTÉKBEN - <span className="animate-pulse">INGYEN</span></p>
                   </div>
                 </div>
               </div>

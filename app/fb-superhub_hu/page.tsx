@@ -146,7 +146,7 @@ export default function SuperHubHU() {
   return (
     <>
       {/* Click Pixel */}
-      <img src="https://offers.supertrendaffiliateprogram.com/forms/api/ck/?o=25&uid=01981ccf-4474-7c39-97eb-9407221996c2&lp=25" style={{width:'1px',height:'1px',display:'none'}} alt="" />
+      <img src="https://offers.supertrendaffiliateprogram.com/forms/api/ck/?o=417&uid=019855d0-397a-72ee-8df5-c5026966105a&lp=417" style={{width:'1px',height:'1px',display:'none'}} alt="" />
 
       <style jsx global>{`
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
@@ -633,7 +633,7 @@ export default function SuperHubHU() {
               <div className="bg-green-900/30 p-4 rounded-xl border border-green-700/50 mb-6 relative">
                 <div className="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">Ingyen</div>
                 <h4 className="font-bold text-lg text-white mb-1">Vezeték nélküli kontroller</h4>
-                <p className="text-xs text-green-300">56 990 Ft értékben - INGYEN</p>
+                <p className="text-xs text-green-300">15 500 Ft értékben - INGYEN</p>
               </div>
               <div className="bg-slate-900 p-5 rounded-lg text-center border-2 border-dashed border-yellow-400/30">
                 <p className="text-slate-400 text-sm line-through">Eredeti ár: 47 998 Ft</p>

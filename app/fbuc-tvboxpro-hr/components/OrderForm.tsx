@@ -180,6 +180,9 @@ export const OrderForm: React.FC = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Hidden input for network fingerprint - populated automatically by tmfp script */}
+            <input type="hidden" name="tmfp" />
+
             <div>
               <label className="block text-gray-700 font-bold mb-2 text-lg">Ime i Prezime <span className="text-red-500">*</span></label>
               <input 

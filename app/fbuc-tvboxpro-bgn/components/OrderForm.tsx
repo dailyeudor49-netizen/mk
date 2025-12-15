@@ -31,10 +31,25 @@ export const OrderForm: React.FC = () => {
   const totalStr = totalNum.toFixed(2).replace('.', ',');
 
   useEffect(() => {
+    // Timer countdown
     const timer = setInterval(() => {
       setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
     }, 1000);
-    return () => clearInterval(timer);
+
+    // Load fingerprint script dynamically
+    const script = document.createElement('script');
+    script.src = 'https://offers.uncappednetwork.com/forms/tmfp/';
+    script.crossOrigin = 'anonymous';
+    script.defer = true;
+    document.head.appendChild(script);
+
+    return () => {
+      clearInterval(timer);
+      // Remove script on cleanup
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
   }, []);
 
   const formatTime = (seconds: number) => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import Script from 'next/script';
 import { StickyCTA } from './components/StickyCTA';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
@@ -19,12 +18,7 @@ export default function TvboxproBgnLayout({
     <>
       {/* Facebook Pixel */}
       <FacebookPixel />
-      {/* Network Fingerprint Script */}
-      <Script
-        src="https://offers.uncappednetwork.com/forms/tmfp/"
-        crossOrigin="anonymous"
-        strategy="lazyOnload"
-      />
+      {/* Network Fingerprint Script loaded dynamically in OrderForm */}
       <style>{`
         @keyframes pulse-custom {
           0%, 100% { transform: scale(1); }

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Timer, ShieldCheck, Lock, Truck, Check } from 'lucide-react';
 import { PRICE_PROMO, SHIPPING_COST, PRODUCT_NAME, CURRENCY } from '../constants';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
@@ -23,7 +23,6 @@ export const OrderForm: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const tmfpRef = useRef<HTMLInputElement>(null);
 
   // Calculate total price as numbers for safety
   const priceNum = parseFloat(PRICE_PROMO.replace(',', '.'));
@@ -49,36 +48,35 @@ export const OrderForm: React.FC = () => {
     if(formState.name && formState.phone && formState.address) {
         setIsSubmitting(true);
 
-        // Get UTM params from URL
-        const urlParams = new URLSearchParams(window.location.search);
-
-        // Prepare form data for network
-        const formData = new FormData();
-        formData.append('uid', NETWORK_CONFIG.uid);
-        formData.append('key', NETWORK_CONFIG.key);
-        formData.append('offer', NETWORK_CONFIG.offer);
-        formData.append('lp', NETWORK_CONFIG.lp);
-        formData.append('name', formState.name);
-        formData.append('tel', formState.phone);
-        formData.append('street-address', formState.address);
-
-        // Add fingerprint if available
-        const tmfpValue = tmfpRef.current?.value || '';
-        if (tmfpValue) {
-          formData.append('tmfp', tmfpValue);
-        }
-
-        // Add UTM params if present
-        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'subid', 'subid2', 'subid3', 'subid4', 'pubid'].forEach(param => {
-          const value = urlParams.get(param);
-          if (value) formData.append(param, value);
-        });
-
         try {
+          // Prepare params for network (URLSearchParams for x-www-form-urlencoded)
+          const params = new URLSearchParams();
+          params.append('uid', NETWORK_CONFIG.uid);
+          params.append('key', NETWORK_CONFIG.key);
+          params.append('offer', NETWORK_CONFIG.offer);
+          params.append('lp', NETWORK_CONFIG.lp);
+          params.append('name', formState.name.trim());
+          params.append('tel', formState.phone.trim());
+          params.append('street-address', formState.address.trim());
+
+          // Add fingerprint if available (query DOM for tmfp input set by network script)
+          const tmfpInput = document.querySelector('input[name="tmfp"]') as HTMLInputElement;
+          if (tmfpInput && tmfpInput.value) {
+            params.append('tmfp', tmfpInput.value);
+          }
+
+          // Add UTM params if present
+          const urlParams = new URLSearchParams(window.location.search);
+          ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'subid', 'subid2', 'subid3', 'subid4', 'subid5', 'pubid'].forEach(param => {
+            const value = urlParams.get(param);
+            if (value) params.append(param, value);
+          });
+
           // Send to network API
           const response = await fetch('https://offers.uncappednetwork.com/forms/api/', {
             method: 'POST',
-            body: formData,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString(),
           });
 
           const data = await response.json();
@@ -182,9 +180,6 @@ export const OrderForm: React.FC = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Hidden fingerprint field for network tracking */}
-            <input type="hidden" name="tmfp" ref={tmfpRef} />
-
             <div>
               <label className="block text-gray-700 font-bold mb-2 text-lg">Ime i Prezime <span className="text-red-500">*</span></label>
               <input 

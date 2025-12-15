@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { FB_CONFIG } from '@/app/config/facebook';
 import {
@@ -43,7 +43,7 @@ function initializePixel() {
   console.log('[FB Pixel] Pixel inizializzato con ID:', FB_CONFIG.PIXEL_ID);
 }
 
-export default function FacebookPixel() {
+function FacebookPixelInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -71,6 +71,15 @@ export default function FacebookPixel() {
 
   // Render null - questo componente non ha UI
   return null;
+}
+
+// Wrapper con Suspense per useSearchParams
+export default function FacebookPixel() {
+  return (
+    <Suspense fallback={null}>
+      <FacebookPixelInner />
+    </Suspense>
+  );
 }
 
 /**

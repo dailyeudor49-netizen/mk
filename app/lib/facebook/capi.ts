@@ -211,9 +211,6 @@ export async function buildCAPIPayload(
     screen_resolution: typeof window !== 'undefined'
       ? `${window.screen.width}x${window.screen.height}`
       : '',
-
-    // Test event code (rimuovere in produzione)
-    test_event_code: FB_CONFIG.TEST_EVENT_CODE,
   };
 
   console.log('[FB CAPI] Payload costruito:', payload);

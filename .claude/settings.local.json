@@ -34,7 +34,14 @@
       "Bash(npx next build)",
       "Bash(find:*)",
       "Bash(gh api:*)",
-      "Bash(vercel login:*)"
+      "Bash(vercel login:*)",
+      "Bash(npx vercel login)",
+      "Bash(ffmpeg:*)",
+      "Bash(do pngquant --quality=65-80 --force --output \"$f%.png-opt.png\" \"$f\")",
+      "Bash(gh repo list:*)",
+      "Bash(npm audit fix:*)",
+      "Bash(ssh-keygen:*)",
+      "Bash(npx vercel:*)"
     ],
     "deny": [],
     "ask": []

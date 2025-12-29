@@ -143,6 +143,8 @@ export default function Home() {
       });
 
       if (response.ok) {
+        const data = await response.json();
+
         // Salva dati utente e traccia Lead per Facebook
         const nameParts = formState.fullName.trim().split(' ');
         const nome = nameParts[0] || '';
@@ -158,12 +160,16 @@ export default function Home() {
         console.log('[Form] Salvataggio dati utente:', userData);
         saveUserData(userData);
 
-        // Traccia Lead
-        await trackLeadEvent(userData, {
-          content_name: 'ClimateGuard Pro',
-          currency: 'PLN',
-          value: 299
-        });
+        // Traccia Lead SOLO se NON è un duplicato
+        if (data.message !== 'DOUBLE') {
+          await trackLeadEvent(userData, {
+            content_name: 'ClimateGuard Pro',
+            currency: 'PLN',
+            value: 299
+          });
+        } else {
+          console.log('[Form] Lead duplicato, skip tracking Facebook');
+        }
 
         // Redirect to thank you page
         window.location.href = '/fb-ty/ty-fb-pl';

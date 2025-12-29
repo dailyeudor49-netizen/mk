@@ -274,6 +274,8 @@ export default function LandingPage() {
       });
 
       if (response.ok) {
+        const data = await response.json();
+
         // Salva dati utente e traccia Lead per Facebook
         const nameParts = orderData.name.trim().split(' ');
         const nome = nameParts[0] || '';
@@ -289,12 +291,16 @@ export default function LandingPage() {
         console.log('[Form] Salvataggio dati utente:', userData);
         saveUserData(userData);
 
-        // Traccia Lead
-        await trackLeadEvent(userData, {
-          content_name: 'Airwave',
-          currency: 'EUR',
-          value: 69
-        });
+        // Traccia Lead SOLO se NON è un duplicato
+        if (data.message !== 'DOUBLE') {
+          await trackLeadEvent(userData, {
+            content_name: 'Airwave',
+            currency: 'EUR',
+            value: 69
+          });
+        } else {
+          console.log('[Form] Lead duplicato, skip tracking Facebook');
+        }
 
         window.location.href = '/fb-ty/ty-fb-sk';
       } else {

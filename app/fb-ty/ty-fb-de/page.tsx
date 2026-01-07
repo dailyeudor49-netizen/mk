@@ -31,32 +31,32 @@ export default function ThankYouPage() {
       // Check if this is a DOUBLE from network - skip FB tracking
       const skipFBPurchase = sessionStorage.getItem('skipFBPurchase');
       if (skipFBPurchase === 'true') {
-        console.log('[TY-HU] Skipping FB Purchase - DOUBLE from network');
+        console.log('[TY-DE] Skipping FB Purchase - DOUBLE from network');
         sessionStorage.removeItem('skipFBPurchase');
         setPurchaseTracked(true);
         return;
       }
 
-      const alreadyTrackedFb = sessionStorage.getItem('fb_purchase_tracked_hu');
+      const alreadyTrackedFb = sessionStorage.getItem('fb_purchase_tracked_de');
       if (!alreadyTrackedFb) {
         const trackPurchase = () => {
           const userData = getUserDataFromStorage();
           const storedEventData = getEventDataFromStorage();
 
           const eventData = storedEventData || {
-            value: 27999,
-            currency: 'HUF',
-            content_name: 'Product HU',
+            value: 89,
+            currency: 'EUR',
+            content_name: 'Produkt DE',
             content_type: 'product' as const,
-            content_ids: 'product-hu'
+            content_ids: 'product-de'
           };
 
-          console.log('[TY-HU] Using event data:', eventData);
+          console.log('[TY-DE] Using event data:', eventData);
           trackPurchaseEvent(userData, eventData);
 
-          sessionStorage.setItem('fb_purchase_tracked_hu', 'true');
+          sessionStorage.setItem('fb_purchase_tracked_de', 'true');
           setPurchaseTracked(true);
-          console.log('[TY-HU] Facebook Purchase tracked');
+          console.log('[TY-DE] Facebook Purchase tracked');
         };
 
         // Aspetta 500ms per permettere al Pixel di inizializzarsi
@@ -64,7 +64,7 @@ export default function ThankYouPage() {
       }
     }
 
-    // Google Ads Conversion Tracking
+    // Google Ads Conversion Tracking (placeholder - user will provide label)
     const alreadyTracked = sessionStorage.getItem('conversionTracked');
     if (typeof window !== 'undefined' && !alreadyTracked) {
       const transactionId = sessionStorage.getItem('orderCode') || Math.floor(100000 + Math.random() * 900000).toString();
@@ -81,9 +81,9 @@ export default function ThankYouPage() {
         window.gtag('js', new Date());
         window.gtag('config', 'AW-17746711524');
         window.gtag('event', 'conversion', {
-          'send_to': 'AW-17746711524/0Dz1CM30ksQbEOSnpY5C',
+          'send_to': 'AW-17746711524/PLACEHOLDER_DE',
           'value': 1.0,
-          'currency': 'HUF',
+          'currency': 'EUR',
           'transaction_id': transactionId
         });
         sessionStorage.setItem('conversionTracked', 'true');
@@ -137,7 +137,7 @@ export default function ThankYouPage() {
           color: '#111827',
           marginBottom: '0.5rem'
         }}>
-          Köszönjük a rendelését!
+          Vielen Dank für Ihre Bestellung!
         </h1>
 
         <p style={{
@@ -145,7 +145,7 @@ export default function ThankYouPage() {
           fontSize: '1rem',
           marginBottom: '1.5rem'
         }}>
-          Rendelését sikeresen rögzítettük.
+          Ihre Bestellung wurde erfolgreich aufgenommen.
         </p>
 
         <div style={{
@@ -155,7 +155,7 @@ export default function ThankYouPage() {
           marginBottom: '1.5rem',
           border: '1px solid #FFDAA3'
         }}>
-          <div style={{ fontSize: '0.875rem', color: '#92400e', marginBottom: '0.25rem' }}>Rendelésszám</div>
+          <div style={{ fontSize: '0.875rem', color: '#92400e', marginBottom: '0.25rem' }}>Bestellnummer</div>
           <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#FF8C00', letterSpacing: '2px' }}>{orderCode}</div>
         </div>
 
@@ -169,29 +169,29 @@ export default function ThankYouPage() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
             <div style={{ width: '32px', height: '32px', background: '#16a34a', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '1rem' }}>€</div>
             <div>
-              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>Utánvétes fizetés</div>
-              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Készpénzzel fizet a futárnak</div>
+              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>Zahlung bei Lieferung</div>
+              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Bezahlen Sie bar beim Kurier</div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
             <div style={{ width: '32px', height: '32px', background: '#3B82F6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '1rem' }}>📦</div>
             <div>
-              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>Ingyenes szállítás</div>
-              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Kiszállítás 2-3 munkanapon belül</div>
+              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>Kostenloser Versand</div>
+              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Lieferung innerhalb von 2-4 Werktagen</div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
             <div style={{ width: '32px', height: '32px', background: '#8B5CF6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '1rem' }}>↺</div>
             <div>
-              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>30 napos visszaküldés</div>
-              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Pénzvisszafizetés, ha nem elégedett</div>
+              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>30 Tage Rückgaberecht</div>
+              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Geld zurück, wenn Sie nicht zufrieden sind</div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <div style={{ width: '32px', height: '32px', background: '#F59E0B', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '1rem' }}>★</div>
             <div>
-              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>2 év garancia</div>
-              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Minden termékre</div>
+              <div style={{ fontWeight: 600, color: '#1E293B', fontSize: '0.95rem' }}>2 Jahre Garantie</div>
+              <div style={{ color: '#64748b', fontSize: '0.85rem' }}>Auf alle Produkte</div>
             </div>
           </div>
         </div>
@@ -202,9 +202,9 @@ export default function ThankYouPage() {
           padding: '1rem',
           marginBottom: '2rem'
         }}>
-          <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>Segítségre van szüksége vagy visszaküldést szeretne kérni?</div>
+          <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>Brauchen Sie Hilfe oder möchten Sie eine Rückerstattung?</div>
           <a href="mailto:info@ionizi.com" style={{ color: '#FF8C00', fontWeight: 600, textDecoration: 'none', fontSize: '0.95rem' }}>info@ionizi.com</a>
-          <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.5rem' }}>30 napon belül visszaküldést kérhet, ha nem elégedett a termékkel</div>
+          <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.5rem' }}>Sie können innerhalb von 30 Tagen eine Rückerstattung beantragen, wenn Sie mit dem Produkt nicht zufrieden sind</div>
         </div>
 
         <a href="/" style={{
@@ -217,7 +217,7 @@ export default function ThankYouPage() {
           fontWeight: 600,
           textDecoration: 'none'
         }}>
-          Vissza a főoldalra
+          Zurück zur Startseite
         </a>
       </div>
     </div>

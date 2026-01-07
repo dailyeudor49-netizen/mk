@@ -28,6 +28,15 @@ export default function ThankYouPage() {
 
     // Facebook Purchase Tracking (dinamico) - aspetta che il Pixel sia pronto
     if (!purchaseTracked) {
+      // Check if this is a DOUBLE from network - skip FB tracking
+      const skipFBPurchase = sessionStorage.getItem('skipFBPurchase');
+      if (skipFBPurchase === 'true') {
+        console.log('[TY-LT] Skipping FB Purchase - DOUBLE from network');
+        sessionStorage.removeItem('skipFBPurchase');
+        setPurchaseTracked(true);
+        return;
+      }
+
       const alreadyTrackedFb = sessionStorage.getItem('fb_purchase_tracked_lt');
       if (!alreadyTrackedFb) {
         const trackPurchase = () => {

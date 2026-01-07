@@ -28,6 +28,15 @@ export default function ThankYouPage() {
 
     // Facebook Purchase Tracking (dinamico) - aspetta che il Pixel sia pronto
     if (!purchaseTracked) {
+      // Check if this is a DOUBLE from network - skip FB tracking
+      const skipFBPurchase = sessionStorage.getItem('skipFBPurchase');
+      if (skipFBPurchase === 'true') {
+        console.log('[TY-CZ] Skipping FB Purchase - DOUBLE from network');
+        sessionStorage.removeItem('skipFBPurchase');
+        setPurchaseTracked(true);
+        return;
+      }
+
       const alreadyTrackedFb = sessionStorage.getItem('fb_purchase_tracked_cz');
       if (!alreadyTrackedFb) {
         const trackPurchase = () => {
@@ -35,11 +44,11 @@ export default function ThankYouPage() {
           const storedEventData = getEventDataFromStorage();
 
           const eventData = storedEventData || {
-            value: 1799,
+            value: 1999,
             currency: 'CZK',
-            content_name: 'Product CZ',
+            content_name: 'Robot Clean Pro X',
             content_type: 'product' as const,
-            content_ids: 'product-cz'
+            content_ids: 'robotcleanprox-cz'
           };
 
           console.log('[TY-CZ] Using event data:', eventData);

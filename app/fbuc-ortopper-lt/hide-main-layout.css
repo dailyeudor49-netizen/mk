@@ -1,0 +1,7 @@
+/* Hide main site header/footer for FBUC landing pages */
+header,
+footer,
+.main-header,
+.main-footer {
+  display: none !important;
+}

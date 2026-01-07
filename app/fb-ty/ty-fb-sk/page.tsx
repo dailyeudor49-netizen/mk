@@ -35,11 +35,11 @@ export default function ThankYouPage() {
           const storedEventData = getEventDataFromStorage();
 
           const eventData = storedEventData || {
-            value: 79,
+            value: 79.99,
             currency: 'EUR',
-            content_name: 'Product SK',
+            content_name: 'Robot Clean Pro X',
             content_type: 'product' as const,
-            content_ids: 'product-sk'
+            content_ids: 'robotcleanprox-sk'
           };
 
           console.log('[TY-SK] Using event data:', eventData);

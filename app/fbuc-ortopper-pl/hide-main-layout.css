@@ -1,0 +1,7 @@
+/* Hide the main header and footer on fbuc-ortopper-pl landing pages */
+header,
+footer,
+.main-header,
+.main-footer {
+  display: none !important;
+}

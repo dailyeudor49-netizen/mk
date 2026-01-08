@@ -859,27 +859,12 @@ const FAQ: React.FC = () => {
 
 // --- STICKY BAR COMPONENT ---
 const StickyOrderBar: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => {
-  const [timeLeft, setTimeLeft] = useState(599);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => (prev <= 0 ? 599 : prev - 1));
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-  };
-
   return (
     <div className="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 shadow-[0_-5px_20px_rgba(0,0,0,0.15)] p-2 z-50 md:hidden pb-safe">
       <div className="flex items-center gap-2">
         <div className="flex-1 pl-1">
           <div className="text-[10px] text-red-600 font-black uppercase flex items-center mb-0.5 animate-pulse">
-            ⏰ VYPRŠÍ ZA: {formatTime(timeLeft)}
+            🔥 VÝPRODEJ - DO VYPRODÁNÍ ZÁSOB
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-black text-[#dc3545]">{PRICE.toLocaleString()} {CURRENCY}</span>

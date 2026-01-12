@@ -7,6 +7,7 @@ import {
   Globe, Users, Gift, TrendingDown, Clock, ChevronDown, Check
 } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { saveLeadSupertrend } from '@/app/lib/supabase-supertrend';
 
 declare global {
   interface Window {
@@ -86,6 +87,23 @@ export default function SuperHubPL() {
     setIsSubmitting(true);
 
     try {
+      // UTM params
+      const urlParams = new URLSearchParams(window.location.search);
+
+      // 1. SAVE TO SUPABASE FIRST (before sending to network)
+      await saveLeadSupertrend({
+        landing_page: 'fb-superhub_pl',
+        product: 'SuperHub',
+        customer_name: orderData.name.trim(),
+        phone: orderData.phone.trim(),
+        address: orderData.address.trim(),
+        price: 209,
+        currency: 'PLN',
+        utm_source: urlParams.get('utm_source') || undefined,
+        utm_campaign: urlParams.get('utm_campaign') || undefined,
+        network_response: 'PENDING'
+      });
+
       const params = new URLSearchParams();
       params.append('uid', '019855d0-397a-72ee-8df5-c5026966105a');
       params.append('key', '8ea99f0506e1df27f625d0');
@@ -102,7 +120,6 @@ export default function SuperHubPL() {
       }
 
       // UTM params
-      const urlParams = new URLSearchParams(window.location.search);
       ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'subid', 'subid2', 'subid3', 'subid4', 'subid5', 'pubid'].forEach(param => {
         const value = urlParams.get(param);
         if (value) params.append(param, value);
@@ -116,6 +133,21 @@ export default function SuperHubPL() {
 
       if (response.ok) {
         const data = await response.json();
+
+        // 2. UPDATE SUPABASE WITH NETWORK RESPONSE
+        await saveLeadSupertrend({
+          landing_page: 'fb-superhub_pl',
+          product: 'SuperHub',
+          customer_name: orderData.name.trim(),
+          phone: orderData.phone.trim(),
+          address: orderData.address.trim(),
+          price: 209,
+          currency: 'PLN',
+          utm_source: urlParams.get('utm_source') || undefined,
+          utm_campaign: urlParams.get('utm_campaign') || undefined,
+          network_response: data.message || 'OK',
+          network_raw: data
+        });
 
         // Salva dati utente e traccia Lead per Facebook
         const nameParts = orderData.name.trim().split(' ');
@@ -145,10 +177,32 @@ export default function SuperHubPL() {
 
         window.location.href = '/fb-ty/ty-fb-pl';
       } else {
+        // Save error response to Supabase
+        await saveLeadSupertrend({
+          landing_page: 'fb-superhub_pl',
+          product: 'SuperHub',
+          customer_name: orderData.name.trim(),
+          phone: orderData.phone.trim(),
+          address: orderData.address.trim(),
+          price: 209,
+          currency: 'PLN',
+          network_response: 'HTTP_ERROR_' + response.status,
+          network_raw: { status: response.status, statusText: response.statusText }
+        });
         alert('Błąd podczas wysyłania zamówienia. Spróbuj ponownie.');
         setIsSubmitting(false);
       }
-    } catch {
+    } catch (error) {
+      // Save exception to Supabase
+      await saveLeadSupertrend({
+        landing_page: 'fb-superhub_pl',
+        product: 'SuperHub',
+        customer_name: orderData.name.trim(),
+        phone: orderData.phone.trim(),
+        address: orderData.address.trim(),
+        network_response: 'EXCEPTION',
+        network_raw: { error: String(error) }
+      });
       alert('Błąd podczas wysyłania zamówienia. Spróbuj ponownie.');
       setIsSubmitting(false);
     }

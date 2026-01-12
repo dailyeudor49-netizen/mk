@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { PRODUCT_NAME, PRICE_PROMO, PRICE_LIST, CURRENCY, NETWORK_UID, NETWORK_KEY, NETWORK_OFFER, NETWORK_LP, THANK_YOU_PAGE } from '../lib/constants';
 import { ShieldCheck, ArrowRight, Clock } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { saveLeadSupertrend } from '@/app/lib/supabase-supertrend';
 
 declare global {
   interface Window {
@@ -79,9 +80,6 @@ const OrderForm: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Get UTM params from URL
-      const urlParams = new URLSearchParams(window.location.search);
-
       // Facebook Lead tracking
       const nameParts = formData.fullName.trim().split(' ');
       const nome = nameParts[0] || '';
@@ -95,6 +93,24 @@ const OrderForm: React.FC = () => {
       };
 
       saveUserData(userData);
+
+      // Get UTM params from URL
+      const urlParams = new URLSearchParams(window.location.search);
+
+      // 1. SAVE TO SUPABASE FIRST (before sending to network)
+      const priceValue = parseFloat(PRICE_PROMO.replace(/\s/g, ''));
+      await saveLeadSupertrend({
+        landing_page: 'fb-robotcleanprox-sk',
+        product: PRODUCT_NAME,
+        customer_name: formData.fullName,
+        phone: formData.phone,
+        address: formData.fullAddress,
+        price: priceValue,
+        currency: CURRENCY,
+        utm_source: urlParams.get('utm_source') || undefined,
+        utm_campaign: urlParams.get('utm_campaign') || undefined,
+        network_response: 'PENDING'
+      });
 
       const payload = new URLSearchParams({
         uid: NETWORK_UID,
@@ -127,20 +143,58 @@ const OrderForm: React.FC = () => {
 
       if (response.ok) {
         const responseData = await response.json();
+
+        // 2. UPDATE SUPABASE WITH NETWORK RESPONSE
+        await saveLeadSupertrend({
+          landing_page: 'fb-robotcleanprox-sk',
+          product: PRODUCT_NAME,
+          customer_name: formData.fullName,
+          phone: formData.phone,
+          address: formData.fullAddress,
+          price: priceValue,
+          currency: CURRENCY,
+          utm_source: urlParams.get('utm_source') || undefined,
+          utm_campaign: urlParams.get('utm_campaign') || undefined,
+          network_response: responseData.message || 'OK',
+          network_raw: responseData
+        });
+
         if (responseData.message !== 'DOUBLE') {
           await trackLeadEvent(userData, {
             content_name: PRODUCT_NAME,
             currency: 'EUR',
-            value: parseFloat(PRICE_PROMO.replace(',', '.').replace(/\s/g, ''))
+            value: priceValue
           });
         }
 
         router.push(THANK_YOU_PAGE);
       } else {
+        // Save error response to Supabase
+        await saveLeadSupertrend({
+          landing_page: 'fb-robotcleanprox-sk',
+          product: PRODUCT_NAME,
+          customer_name: formData.fullName,
+          phone: formData.phone,
+          address: formData.fullAddress,
+          price: priceValue,
+          currency: CURRENCY,
+          network_response: 'HTTP_ERROR_' + response.status,
+          network_raw: { status: response.status, statusText: response.statusText }
+        });
         alert('Vyskytla sa chyba. Skúste to znova.');
         setIsSubmitting(false);
       }
-    } catch {
+    } catch (error) {
+      // Save exception to Supabase
+      await saveLeadSupertrend({
+        landing_page: 'fb-robotcleanprox-sk',
+        product: PRODUCT_NAME,
+        customer_name: formData.fullName,
+        phone: formData.phone,
+        address: formData.fullAddress,
+        network_response: 'EXCEPTION',
+        network_raw: { error: String(error) }
+      });
       alert('Chyba pripojenia. Skúste to znova.');
       setIsSubmitting(false);
     }

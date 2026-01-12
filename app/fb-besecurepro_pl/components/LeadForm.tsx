@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Lock, AlertTriangle, Gift, CreditCard, Signal, PhoneCall, Truck } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { saveLeadSupertrend } from '@/app/lib/supabase-supertrend';
 
 interface LeadFormProps {
   variant?: 'hero' | 'inline';
@@ -58,6 +59,23 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
     setIsLoading(true);
 
     try {
+      // UTM params
+      const urlParams = new URLSearchParams(window.location.search);
+
+      // 1. SAVE TO SUPABASE FIRST (before sending to network)
+      await saveLeadSupertrend({
+        landing_page: 'fb-besecurepro_pl',
+        product: 'BeSecure Pro',
+        customer_name: formData.fullName.trim(),
+        phone: formData.phone.trim(),
+        address: formData.fullAddress.trim(),
+        price: 429,
+        currency: 'PLN',
+        utm_source: urlParams.get('utm_source') || undefined,
+        utm_campaign: urlParams.get('utm_campaign') || undefined,
+        network_response: 'PENDING'
+      });
+
       // Network API call
       const params = new URLSearchParams();
       params.append('uid', '019855d0-397a-72ee-8df5-c5026966105a');
@@ -75,7 +93,6 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
       }
 
       // UTM params
-      const urlParams = new URLSearchParams(window.location.search);
       ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'subid', 'subid2', 'subid3', 'subid4', 'subid5', 'pubid'].forEach(param => {
         const value = urlParams.get(param);
         if (value) params.append(param, value);
@@ -88,6 +105,23 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
       });
 
       if (response.ok) {
+        const responseData = await response.json();
+
+        // 2. UPDATE SUPABASE WITH NETWORK RESPONSE
+        await saveLeadSupertrend({
+          landing_page: 'fb-besecurepro_pl',
+          product: 'BeSecure Pro',
+          customer_name: formData.fullName.trim(),
+          phone: formData.phone.trim(),
+          address: formData.fullAddress.trim(),
+          price: 429,
+          currency: 'PLN',
+          utm_source: urlParams.get('utm_source') || undefined,
+          utm_campaign: urlParams.get('utm_campaign') || undefined,
+          network_response: responseData.message || 'OK',
+          network_raw: responseData
+        });
+
         // Salva dati utente e traccia Lead per Facebook
         const nameParts = formData.fullName.trim().split(' ');
         const nome = nameParts[0] || '';
@@ -103,20 +137,44 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
         console.log('[Form] Salvataggio dati utente:', userData);
         saveUserData(userData);
 
-        // Traccia Lead
-        await trackLeadEvent(userData, {
-          content_name: 'BeSecure Pro',
-          currency: 'PLN',
-          value: 429
-        });
+        // Traccia Lead SOLO se NON è un duplicato
+        if (responseData.message !== 'DOUBLE') {
+          await trackLeadEvent(userData, {
+            content_name: 'BeSecure Pro',
+            currency: 'PLN',
+            value: 429
+          });
+        }
 
         // Redirect to thank you page
         window.location.href = '/fb-ty/ty-fb-pl';
       } else {
+        // Save error response to Supabase
+        await saveLeadSupertrend({
+          landing_page: 'fb-besecurepro_pl',
+          product: 'BeSecure Pro',
+          customer_name: formData.fullName.trim(),
+          phone: formData.phone.trim(),
+          address: formData.fullAddress.trim(),
+          price: 429,
+          currency: 'PLN',
+          network_response: 'HTTP_ERROR_' + response.status,
+          network_raw: { status: response.status, statusText: response.statusText }
+        });
         console.error('[Form] Network API error:', response.status);
         setIsLoading(false);
       }
     } catch (error) {
+      // Save exception to Supabase
+      await saveLeadSupertrend({
+        landing_page: 'fb-besecurepro_pl',
+        product: 'BeSecure Pro',
+        customer_name: formData.fullName.trim(),
+        phone: formData.phone.trim(),
+        address: formData.fullAddress.trim(),
+        network_response: 'EXCEPTION',
+        network_raw: { error: String(error) }
+      });
       console.error('[Form] Submit error:', error);
       setIsLoading(false);
     }

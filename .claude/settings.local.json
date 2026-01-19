@@ -45,7 +45,12 @@
       "Bash(GIT_ASKPASS=echo git push:*)",
       "Bash(do pngquant --quality=65-80 --force --output \"$i-opt.png\" \"$i.png\")",
       "Bash(echo:*)",
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "Bash(GIT_TERMINAL_PROMPT=0 git clone:*)",
+      "Bash(git checkout:*)",
+      "Bash(xargs sed:*)",
+      "Bash(ssh:*)",
+      "Bash(git fetch:*)"
     ],
     "deny": [],
     "ask": []

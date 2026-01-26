@@ -283,8 +283,8 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
           <div className="flex flex-col items-center justify-center mb-6 mt-6">
              <div className="text-gray-400 font-medium uppercase text-sm tracking-widest mb-1">Akcios Ar</div>
              <div className="flex items-center gap-3">
-               <span className="text-gray-400 line-through text-2xl decoration-2">69 198 Ft</span>
-               <span className="text-5xl md:text-6xl font-black text-red-600 tracking-tighter">34 599 Ft</span>
+               <span className="text-gray-400 line-through text-2xl decoration-2">71 164 Ft</span>
+               <span className="text-5xl md:text-6xl font-black text-red-600 tracking-tighter">35 582 Ft</span>
              </div>
              <span className="text-green-600 font-bold text-lg mt-2">-50% KEDVEZMENY</span>
           </div>
@@ -752,7 +752,7 @@ const OrderForm: React.FC = () => {
       await trackLeadEvent(userData, {
         content_name: 'QuickChef',
         currency: 'HUF',
-        value: 34599
+        value: 35582
       });
 
       setSubmitted(true);
@@ -813,8 +813,8 @@ const OrderForm: React.FC = () => {
         <div className="p-5 md:p-8">
           <div className="flex justify-between items-center mb-6 pb-6 border-b border-gray-200 bg-gray-50 p-4 rounded-lg">
             <div>
-              <p className="text-gray-500 line-through text-sm">Lista ar: 69 198 Ft</p>
-              <p className="text-red-600 font-bold text-2xl">Osszesen: 34 599 Ft</p>
+              <p className="text-gray-500 line-through text-sm">Lista ar: 71 164 Ft</p>
+              <p className="text-red-600 font-bold text-2xl">Osszesen: 35 582 Ft</p>
             </div>
             <div className="text-right">
               <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded border border-blue-200">GYORS SZALLITAS</span>
@@ -1029,9 +1029,9 @@ const StickyMobileCTA: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
     <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-4px_15px_-3px_rgba(0,0,0,0.1)] z-50 md:hidden animate-slide-up pb-safe">
       <div className="flex items-center justify-between px-4 py-3 gap-4">
         <div className="flex flex-col">
-          <span className="text-xs text-gray-400 line-through">69 198 Ft</span>
+          <span className="text-xs text-gray-400 line-through">71 164 Ft</span>
           <div className="flex items-baseline gap-1">
-            <span className="text-xl font-extrabold text-red-600">34 599 Ft</span>
+            <span className="text-xl font-extrabold text-red-600">35 582 Ft</span>
           </div>
         </div>
 

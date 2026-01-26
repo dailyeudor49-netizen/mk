@@ -273,8 +273,8 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
           <div className="flex flex-col items-center justify-center mb-6 mt-6">
              <div className="text-gray-400 font-medium uppercase text-sm tracking-widest mb-1">Preco Promocional</div>
              <div className="flex items-center gap-3">
-               <span className="text-gray-400 line-through text-2xl decoration-2">198 EUR</span>
-               <span className="text-5xl md:text-6xl font-black text-red-600 tracking-tighter">99 EUR</span>
+               <span className="text-gray-400 line-through text-2xl decoration-2">178 EUR</span>
+               <span className="text-5xl md:text-6xl font-black text-red-600 tracking-tighter">89 EUR</span>
              </div>
              <div className="mt-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">-50% DESCONTO</div>
           </div>
@@ -735,7 +735,7 @@ const OrderForm: React.FC = () => {
       await trackLeadEvent(userData, {
         content_name: 'QuickChef',
         currency: 'EUR',
-        value: 99
+        value: 89
       });
 
       // Redirect to thank you page
@@ -766,8 +766,8 @@ const OrderForm: React.FC = () => {
         <div className="p-5 md:p-8">
           <div className="flex justify-between items-center mb-6 pb-6 border-b border-gray-200 bg-gray-50 p-4 rounded-lg">
             <div>
-              <p className="text-gray-500 line-through text-sm">Preco de Tabela: 198 EUR</p>
-              <p className="text-red-600 font-bold text-2xl">Total: 99 EUR</p>
+              <p className="text-gray-500 line-through text-sm">Preco de Tabela: 178 EUR</p>
+              <p className="text-red-600 font-bold text-2xl">Total: 89 EUR</p>
             </div>
             <div className="text-right">
               <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded border border-blue-200">ENVIO RAPIDO</span>
@@ -995,9 +995,9 @@ const StickyMobileCTA: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
     <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-4px_15px_-3px_rgba(0,0,0,0.1)] z-50 md:hidden animate-slide-up pb-safe">
       <div className="flex items-center justify-between px-4 py-3 gap-4">
         <div className="flex flex-col">
-          <span className="text-xs text-gray-400 line-through">198 EUR</span>
+          <span className="text-xs text-gray-400 line-through">178 EUR</span>
           <div className="flex items-baseline gap-1">
-            <span className="text-xl font-extrabold text-red-600">99 EUR</span>
+            <span className="text-xl font-extrabold text-red-600">89 EUR</span>
           </div>
         </div>
 

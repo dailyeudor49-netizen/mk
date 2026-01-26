@@ -51,9 +51,9 @@ interface FaqItem {
 }
 
 // --- CONSTANTS ---
-const PRICE = 2499;
-const PRICE_OLD = 4998;
-const CURRENCY = 'Kc';
+const PRICE = 2099;
+const PRICE_OLD = 4198;
+const CURRENCY = 'Kč';
 const PRODUCT_NAME = 'QuickChef';
 const THANK_YOU_PAGE = '/fb-ty/ty-fb-cz';
 

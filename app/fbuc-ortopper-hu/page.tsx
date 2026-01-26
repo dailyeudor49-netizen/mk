@@ -37,8 +37,8 @@ interface OrderFormProps {
 }
 
 // --- CONSTANTS ---
-const PRICE = 35999;
-const PRICE_OLD = 71998; // -50%
+const PRICE = 39999;
+const PRICE_OLD = 79998; // -50%
 const CURRENCY = 'Ft';
 const PRODUCT_NAME = 'Ortopéd Fedőmatrac';
 const THANK_YOU_PAGE = '/fb-ty/ty-fb-hu';

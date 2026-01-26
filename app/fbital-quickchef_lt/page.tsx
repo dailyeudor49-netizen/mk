@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 import {
   Truck,
   ShieldCheck,
@@ -25,6 +24,7 @@ import {
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
+import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 
 // --- TYPES ---
 
@@ -138,7 +138,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, content }) => {
             onClick={onClose}
             className="px-6 py-2 bg-gray-900 text-white rounded-lg font-bold hover:bg-gray-800 transition-colors"
           >
-            Zamknij
+            Uzdaryti
           </button>
         </div>
       </div>
@@ -152,56 +152,43 @@ const StickyHeader: React.FC = () => {
     <div className="sticky top-0 z-50 w-full bg-red-700 text-white text-xs sm:text-sm font-bold shadow-md">
       <div className="max-w-6xl mx-auto px-2 py-2 flex flex-wrap justify-center items-center gap-x-4 gap-y-1 text-center">
         <div className="flex items-center gap-1">
-          <Truck size={14} /> WYSYLKA 24/48H
+          <Truck size={14} /> PRISTATYMAS 24/48H
         </div>
         <div className="hidden sm:inline">|</div>
         <div className="flex items-center gap-1 text-yellow-300">
-          <Banknote size={14} /> PLATNOSC PRZY ODBIORZE
+          <Banknote size={14} /> MOKEJIMAS PRISTATYMO METU
         </div>
         <div className="hidden sm:inline">|</div>
         <div className="flex items-center gap-1">
-          <ShieldCheck size={14} /> GWARANCJA 2 LATA
+          <ShieldCheck size={14} /> 2 METU GARANTIJA
         </div>
         <div className="hidden md:inline">|</div>
         <div className="hidden md:flex items-center gap-1">
-          <Phone size={14} /> POLSKA OBSLUGA KLIENTA
+          <Phone size={14} /> LIETUVISKA KLIENTU APTARNAVIMAS
         </div>
       </div>
     </div>
   );
 };
 
-// 4. BrandBanner Component
-const BrandBanner: React.FC = () => {
-  return (
-    <div className="bg-gray-900 text-white py-2 px-4">
-      <div className="max-w-6xl mx-auto flex justify-center items-center">
-        <span className="text-sm font-bold tracking-wider">IONIZI</span>
-        <span className="mx-2 text-gray-500">|</span>
-        <span className="text-xs text-gray-400">Oficjalny Sklep</span>
-      </div>
-    </div>
-  );
-};
-
-// 5. Hero Component
+// 4. Hero Component
 const carouselImages = [
-  "https://picsum.photos/seed/quickchefhero1/800/800",
-  "https://picsum.photos/seed/quickchefhero2/800/800",
-  "https://picsum.photos/seed/quickchefhero3/800/800",
-  "https://picsum.photos/seed/quickchefhero4/800/800",
+  "/images/quickchef img/quickchef-hero1.jpg",
+  "/images/quickchef img/quickchef-hero2.jpg",
+  "/images/quickchef img/quickchef-hero3.jpg",
+  "/images/quickchef img/quickchef-hero4.jpg",
 ];
 
 const benefits = [
-  <span key="1"><strong className="text-red-700">NOWOSCI WYLANCZNA:</strong> Automatyczne dozowanie skladnikow (robi wszystko sam)</span>,
-  <span key="2"><strong className="text-gray-900">45 Funkcji w 1:</strong> najbardziej kompletny robot na rynku</span>,
-  <span key="3">Ekran dotykowy <strong className="text-gray-900">7" SoftScreen</strong> duzy i czytelny - prowadzi Cie krok po kroku</span>,
-  <span key="4">Aplikacja z <strong className="text-gray-900">1000+ przepisami</strong> - wybierz i postepuj jak w samouczku</span>,
-  <span key="5">Funkcja <strong className="text-gray-900">"Co mam w lodowce?"</strong> - oszczedzasz na zakupach</span>,
-  <span key="6"><strong className="text-gray-900">Wbudowana waga</strong> precyzyjna co do grama - koniec z odmierzaniem "na oko"</span>,
-  <span key="7">Misa <strong className="text-gray-900">Ceramiczna Nieprzywierajaca</strong> - nic nie przypala, latwo sie czysc</span>,
-  <span key="8">Gotowanie do <strong className="text-gray-900">180C</strong> + prawdziwe smazenie</span>,
-  <span key="9">System <strong className="text-gray-900">OneClick</strong> - zmieniasz akcesoria bez demontazu</span>,
+  <span key="1"><strong className="text-red-700">NAUJOVE EKSKLIUZYVINE:</strong> Automatinis ingredientu dozavimas (viską daro pats)</span>,
+  <span key="2"><strong className="text-gray-900">45 Funkcijos 1-ame:</strong> isskirtinis robotas rinkoje</span>,
+  <span key="3">Lietimui jautrus ekranas <strong className="text-gray-900">7" SoftScreen</strong> didelis ir aiškus - veda zingsnis po zingsnio</span>,
+  <span key="4">Programele su <strong className="text-gray-900">1000+ receptu</strong> - pasirinkite ir sekite kaip pamoka</span>,
+  <span key="5">Funkcija <strong className="text-gray-900">"Kas šaldytuve?"</strong> - taupote pirkiniams</span>,
+  <span key="6"><strong className="text-gray-900">Integruotos svarstykles</strong> tikslios iki gramo - nebera "apytikriu" dozavimo</span>,
+  <span key="7">Keraminis <strong className="text-gray-900">nelimpantis indas</strong> - niekas nepridega, išsivalote akimirksniu</span>,
+  <span key="8">Kepimas iki <strong className="text-gray-900">180C</strong> + tikras kepinimas</span>,
+  <span key="9">Sistema <strong className="text-gray-900">OneClick</strong> - keiciate priedus be jokio ardymo</span>,
 ];
 
 const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
@@ -221,21 +208,21 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
     <section className="bg-white pt-6 pb-12 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-          <span className="text-red-600 block mb-2 text-xl md:text-2xl uppercase tracking-wide">Masz dosc tracenia czasu w kuchni?</span>
-          Odkryj Pierwszy Robot ktory <span className="bg-yellow-200 px-2">Sam Dodaje Skladniki.</span>
+          <span className="text-red-600 block mb-2 text-xl md:text-2xl uppercase tracking-wide">Pavargote gaišti laika virtuveje?</span>
+          Atraskite Pirmaji Robota, kuris <span className="bg-yellow-200 px-2">Pats Prideda Ingredientus.</span>
         </h1>
 
         <p className="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl mx-auto leading-relaxed">
-          Zapomnij o garach i stresie. Wloz wszystko do dozownika, wybierz przepis na ekranie i <strong className="text-gray-900">on gotuje za Ciebie, podczas gdy Ty odpoczywasz.</strong>
+          Pamirškite puodus ir stresa. Sudekite viską i dozatoriu, pasirinkite recepta ekrane ir <strong className="text-gray-900">jis gamina uz jus, kol jus ilsites.</strong>
           <br className="my-2"/>
-          <strong className="text-green-700 bg-green-50 px-3 py-1 rounded inline-block mt-2 border border-green-200 shadow-sm">Perfekcyjny rezultat (nawet jesli nie umiesz gotowac)</strong>
+          <strong className="text-green-700 bg-green-50 px-3 py-1 rounded inline-block mt-2 border border-green-200 shadow-sm">Puikus rezultatas (net jei nemokate gaminti)</strong>
         </p>
 
         <div className="relative mb-8 rounded-xl overflow-hidden shadow-2xl border-4 border-gray-100 max-w-xl mx-auto group bg-gray-100">
            <div className="relative aspect-square w-full">
              <img
                src={carouselImages[currentSlide]}
-               alt={`Robot kuchenny slide ${currentSlide + 1}`}
+               alt={`Virtuves robotas ${currentSlide + 1}`}
                className="w-full h-full object-cover transition-all duration-300"
              />
 
@@ -254,7 +241,7 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
                    key={idx}
                    onClick={() => setCurrentSlide(idx)}
                    className={`w-2.5 h-2.5 rounded-full transition-colors shadow-sm ${idx === currentSlide ? 'bg-red-600' : 'bg-white/70 hover:bg-white'}`}
-                   aria-label={`Idz do slide ${idx + 1}`}
+                   aria-label={`Eiti i ${idx + 1} skaidre`}
                  />
                ))}
              </div>
@@ -263,7 +250,7 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
 
         <div className="bg-yellow-50/60 rounded-xl p-6 md:p-8 mb-8 text-left max-w-2xl mx-auto border-2 border-yellow-200 shadow-sm">
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center leading-tight">
-              Robot ktory pozwala Ci gotowac jak Szef Kuchni <br className="hidden sm:block"/>bez brudzenia niczego
+              Robotas, kuris leidzia gaminti kaip šefui <br className="hidden sm:block"/>be jokio netvarkos
             </h3>
             <ul className="space-y-4">
               {benefits.map((benefit, index) => (
@@ -279,16 +266,16 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
 
         <div className="bg-white border-4 border-red-600 p-6 rounded-xl max-w-2xl mx-auto mb-8 relative shadow-xl transform transition-transform hover:scale-[1.01]">
           <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-2 rounded-full text-sm md:text-base font-bold uppercase tracking-wider shadow-md whitespace-nowrap animate-pulse border-2 border-white">
-            Oferta Limitowana - Tylko Dzis
+            Ribotas pasiulymas - Tik šiandien
           </div>
 
           <div className="flex flex-col items-center justify-center mb-6 mt-6">
-             <div className="text-gray-400 font-medium uppercase text-sm tracking-widest mb-1">Cena Promocyjna</div>
+             <div className="text-gray-400 font-medium uppercase text-sm tracking-widest mb-1">Akcine kaina</div>
              <div className="flex items-center gap-3">
-               <span className="text-gray-400 line-through text-2xl decoration-2">598 zl</span>
-               <span className="text-5xl md:text-6xl font-black text-red-600 tracking-tighter">299 zl</span>
+               <span className="text-gray-400 line-through text-2xl decoration-2">138 EUR</span>
+               <span className="text-5xl md:text-6xl font-black text-red-600 tracking-tighter">69 EUR</span>
              </div>
-             <div className="text-green-600 font-bold text-sm mt-2">-50% RABATU</div>
+             <span className="bg-green-100 text-green-800 font-bold px-3 py-1 rounded-full text-sm mt-2 border border-green-200">-50% NUOLAIDA</span>
           </div>
 
           <div className="bg-gray-50 rounded-lg p-4 mb-6 border border-gray-100 text-left space-y-4">
@@ -297,8 +284,8 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
                  <Truck size={24} strokeWidth={2} />
                </div>
                <div>
-                 <p className="font-bold text-gray-900 leading-none text-lg">Szybka Wysylka</p>
-                 <p className="text-sm text-gray-500 mt-1">Gwarantowana dostawa w 24/48 godzin</p>
+                 <p className="font-bold text-gray-900 leading-none text-lg">Greitas pristatymas</p>
+                 <p className="text-sm text-gray-500 mt-1">Pristatymas per 24/48 valandas</p>
                </div>
              </div>
 
@@ -307,8 +294,8 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
                  <Banknote size={24} strokeWidth={2} />
                </div>
                <div>
-                 <p className="font-bold text-gray-900 leading-none text-lg">Platnosc Przy Odbiorze</p>
-                 <p className="text-sm text-gray-500 mt-1">Bez zaliczki, gotowka kurierowi</p>
+                 <p className="font-bold text-gray-900 leading-none text-lg">Mokate tik pristatymo metu</p>
+                 <p className="text-sm text-gray-500 mt-1">Be išankstinio mokejimo, grynaisiais kurjeriui</p>
                </div>
              </div>
 
@@ -317,14 +304,14 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
                  <ShieldCheck size={24} strokeWidth={2} />
                </div>
                <div>
-                 <p className="font-bold text-gray-900 leading-none text-lg">Gwarancja 2 Lata</p>
-                 <p className="text-sm text-gray-500 mt-1">Pomoc techniczna w cenie</p>
+                 <p className="font-bold text-gray-900 leading-none text-lg">2 metu garantija</p>
+                 <p className="text-sm text-gray-500 mt-1">Technine pagalba itraukta</p>
                </div>
              </div>
           </div>
 
-          <Button onClick={scrollToForm} fullWidth pulse size="xl" subtext="Nie wymagamy karty kredytowej">
-            ZAMOW TERAZ ZE ZNIZKA
+          <Button onClick={scrollToForm} fullWidth pulse size="xl" subtext="Kredito kortele nereikalinga">
+            UZSAKYTI DABAR SU NUOLAIDA
           </Button>
         </div>
 
@@ -336,7 +323,7 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
   );
 };
 
-// 6. SocialProof Component
+// 5. SocialProof Component
 const SocialProof: React.FC = () => {
   return (
     <section className="bg-gray-100 py-8 border-y border-gray-200">
@@ -347,28 +334,28 @@ const SocialProof: React.FC = () => {
           ))}
         </div>
         <h3 className="text-xl font-bold text-gray-800 mb-2">
-          4,8/5 na podstawie ponad 3000 opinii
+          4,8/5 remiantis daugiau nei 3.000 atsiliepimu
         </h3>
         <p className="text-lg text-gray-600 italic mb-6">
-          "W koncu dobrze gotuje bez szalenstwa."
+          "Pagaliau gerai gaminu be jokio streso."
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
           <div className="flex flex-col items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
             <ThumbsUp className="text-blue-600" />
-            <span className="font-bold text-gray-700">Latwy</span>
+            <span className="font-bold text-gray-700">Paprasta</span>
           </div>
           <div className="flex flex-col items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
             <Clock className="text-green-600" />
-            <span className="font-bold text-gray-700">Szybki</span>
+            <span className="font-bold text-gray-700">Greita</span>
           </div>
           <div className="flex flex-col items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
             <Zap className="text-yellow-500" />
-            <span className="font-bold text-gray-700">Nieprzywierajacy</span>
+            <span className="font-bold text-gray-700">Nelimpantis</span>
           </div>
           <div className="flex flex-col items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
             <ChefHat className="text-red-500" />
-            <span className="font-bold text-gray-700">Przepisy z Przewodnikiem</span>
+            <span className="font-bold text-gray-700">Receptai su gidu</span>
           </div>
         </div>
       </div>
@@ -376,14 +363,14 @@ const SocialProof: React.FC = () => {
   );
 };
 
-// 7. ProblemAgitation Component
+// 6. ProblemAgitation Component
 const ProblemAgitation: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
   return (
     <section className="py-12 px-4 bg-white">
       <div className="max-w-3xl mx-auto">
         <div className="bg-red-50 border border-red-100 rounded-xl p-6 md:p-8 shadow-sm">
           <h2 className="text-2xl md:text-3xl font-bold text-red-700 mb-6 text-center">
-            Jesli rozpoznajesz sie w tych sytuacjach... <br/>ten robot zmieni Twoje zycie.
+            Jei atpazįstate save šiose situacijose... <br/>šis robotas pakeis jusu gyvenima.
           </h2>
 
           <ul className="space-y-5 mb-8">
@@ -391,34 +378,34 @@ const ProblemAgitation: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm
               <div className="bg-red-100 p-1 rounded-full shrink-0 mt-1">
                 <X className="text-red-600" size={22} strokeWidth={3} />
               </div>
-              <span className="text-lg text-gray-800">Otwierasz lodowke i <strong className="text-red-700">nigdy nie wiesz, co ugotowac.</strong></span>
+              <span className="text-lg text-gray-800">Atidarote šaldytuva ir <strong className="text-red-700">nezinote ka gaminti.</strong></span>
             </li>
             <li className="flex items-start gap-3">
               <div className="bg-red-100 p-1 rounded-full shrink-0 mt-1">
                 <X className="text-red-600" size={22} strokeWidth={3} />
               </div>
-              <span className="text-lg text-gray-800">Przepisy wychodza Ci <strong className="text-red-700">"tak sobie"</strong> i tracisz ochote.</span>
+              <span className="text-lg text-gray-800">Receptai išeina <strong className="text-red-700">"mazdaug"</strong> ir prarandate nora.</span>
             </li>
             <li className="flex items-start gap-3">
               <div className="bg-red-100 p-1 rounded-full shrink-0 mt-1">
                 <X className="text-red-600" size={22} strokeWidth={3} />
               </div>
-              <span className="text-lg text-gray-800"><strong>Brudzisz tysiace garnkow</strong> i spedzasz godziny na zmywaniu.</span>
+              <span className="text-lg text-gray-800"><strong>Sutepate tuziną puodu</strong> ir valandas praleidziate valydami.</span>
             </li>
             <li className="flex items-start gap-3">
               <div className="bg-red-100 p-1 rounded-full shrink-0 mt-1">
                 <X className="text-red-600" size={22} strokeWidth={3} />
               </div>
-              <span className="text-lg text-gray-800">W koncu <strong>zamawiasz fast food</strong> i wydajesz za duzo.</span>
+              <span className="text-lg text-gray-800">Galutinai <strong>uzsisakote greitaji maista</strong> ir isleidziate per daug.</span>
             </li>
           </ul>
 
           <div className="text-center bg-white p-6 rounded-lg border border-gray-100 shadow-md">
             <p className="text-xl font-bold text-green-700 mb-6 leading-tight">
-              Od teraz gotujesz automatycznie zdrowe dania,<br/> nawet <span className="underline decoration-green-500 decoration-4">bez doswiadczenia.</span>
+              Nuo šiandien automatiškai gaminate sveikus patiekalus,<br/> net <span className="underline decoration-green-500 decoration-4">be patirties.</span>
             </p>
             <Button onClick={scrollToForm} variant="primary" size="lg" className="mx-auto">
-              TAK, CHCE GO - PLACE PRZY ODBIORZE
+              TAIP, NORIU - MOKESIU PRISTATYMO METU
             </Button>
           </div>
         </div>
@@ -427,85 +414,85 @@ const ProblemAgitation: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm
   );
 };
 
-// 8. HowItWorks Component
+// 7. HowItWorks Component
 const HowItWorks: React.FC = () => {
   return (
     <section className="py-12 px-4 bg-gray-50">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-          Jak to dziala?
+          Kaip tai veikia?
         </h2>
-        <p className="text-lg text-gray-600 mb-8">Jest latwiejszy niz mikrofalowka. <strong className="text-gray-900">Robi wszystko sam:</strong></p>
+        <p className="text-lg text-gray-600 mb-8">Paprasčiau nei mikrobange. <strong className="text-gray-900">Viską daro pats:</strong></p>
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-xl shadow-md border-b-4 border-green-500 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-green-500"></div>
             <div className="w-12 h-12 bg-green-100 text-green-700 font-bold text-2xl rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-green-200">1</div>
-            <h3 className="font-bold text-xl mb-2">Zaladuj Dozownik</h3>
-            <p className="text-gray-600">Wloz skladniki do <strong className="text-gray-900">6 przegrodek</strong>. Nie musisz ich wazyc, waga zrobi to za Ciebie.</p>
+            <h3 className="font-bold text-xl mb-2">Uzpildykite dozatoriu</h3>
+            <p className="text-gray-600">Sudekite ingredientus i <strong className="text-gray-900">6 skyrius</strong>. Nereikia sverti iš anksto, tai atlieka svarstykles.</p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-md border-b-4 border-green-500 relative overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-2 bg-green-500"></div>
             <div className="w-12 h-12 bg-green-100 text-green-700 font-bold text-2xl rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-green-200">2</div>
-            <h3 className="font-bold text-xl mb-2">Wybierz Przepis</h3>
-            <p className="text-gray-600">Wybierz z <strong className="text-gray-900">ekranu dotykowego 7"</strong> lub z Aplikacji sposrod 1000+ przepisow z przewodnikiem.</p>
+            <h3 className="font-bold text-xl mb-2">Pasirinkite recepta</h3>
+            <p className="text-gray-600">Pasirinkite iš <strong className="text-gray-900">7" lietimui jautraus ekrano</strong> arba programeles iš 1000+ patiekalu su gidu.</p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-md border-b-4 border-green-500 relative overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-2 bg-green-500"></div>
             <div className="w-12 h-12 bg-green-100 text-green-700 font-bold text-2xl rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-green-200">3</div>
-            <h3 className="font-bold text-xl mb-2">Nacisnij START i Idz</h3>
-            <p className="text-gray-600">On dozuje skladniki <strong className="text-gray-900">w odpowiednim momencie</strong>, gotuje i miesza. Powiadomi Cie, gdy bedzie gotowe!</p>
+            <h3 className="font-bold text-xl mb-2">Paspauskite START ir eikite</h3>
+            <p className="text-gray-600">Jis dozuoja ingredientus <strong className="text-gray-900">tinkamu momentu</strong>, gamina ir maišo. Praneša, kai paruošta!</p>
           </div>
         </div>
 
         <div className="mt-8 bg-blue-50 border border-blue-200 text-blue-900 p-5 rounded-lg inline-block text-base md:text-lg shadow-sm">
-          TECHNOLOGIA QUICKSENSE: Jedyny robot, ktory sam dodaje skladniki podczas gotowania. <br/>
-          <span className="text-sm text-blue-700">Nie musisz przy nim stac!</span>
+          <span className="font-bold">QUICKSENSE TECHNOLOGIJA:</span> Vienintelis robotas, kuris pats prideda ingredientus gaminimo metu. <br/>
+          <span className="text-sm text-blue-700">Nereikia stoveti šalia!</span>
         </div>
       </div>
     </section>
   );
 };
 
-// 9. FeaturesGrid Component
+// 8. FeaturesGrid Component
 const features: FeatureBox[] = [
   {
     id: 1,
-    title: "Nigdy sie nie mylisz",
-    description: "Postepuj zgodnie z ekranem, a robot odmierzy wszystko. Rezultat gwarantowany w 100%.",
-    imageUrl: "https://picsum.photos/seed/cookingtouch/500/500"
+    title: "Niekada nesuklysite",
+    description: "Sekite ekrana ir robotas viską dozuoja. 100% garantuotas rezultatas.",
+    imageUrl: "/images/quickchef img/feature-1.jpg"
   },
   {
     id: 2,
-    title: "Robi wszystko sam",
-    description: "Dzieki AUTOMATYCZNEMU DOZOWNIKOWI nie musisz dodawac skladnikow podczas gotowania.",
-    imageUrl: "https://picsum.photos/seed/timerkitchen/500/500"
+    title: "Viską daro pats",
+    description: "Deju automatinio DOZATORIAUS nereikia prideti ingredientu gaminimo metu.",
+    imageUrl: "/images/quickchef img/feature-2.jpg"
   },
   {
     id: 3,
-    title: "Funkcja Oproznic-Lodowke",
-    description: "Wpisz w Aplikacji co masz w lodowce, a on stworzy dla Ciebie idealny przepis. Zero marnowania.",
-    imageUrl: "https://picsum.photos/seed/mobileapprecipe/500/500"
+    title: "Funkcija Ištuštink-šaldytuva",
+    description: "Irašykite, ka turite šaldytuve, i programele ir ji sukurs tobula recepta. Nulis švaistymo.",
+    imageUrl: "/images/quickchef img/feature-3.jpg"
   },
   {
     id: 4,
-    title: "Ceramika Nieprzywierajaca",
-    description: "Misa Unique pokryta ceramika: nigdy nie przywiera i czysc sie jednym pociagnieciem gabki.",
-    imageUrl: "https://picsum.photos/seed/cleanpan/500/500"
+    title: "Keraminis nelimpantis",
+    description: "Unique indas su keraminiu padengimu: niekada nelimpa ir išsivalo vienu mostu.",
+    imageUrl: "/images/quickchef img/feature-4.jpg"
   },
   {
     id: 5,
-    title: "45 Funkcji w 1",
-    description: "Rozdrabnia, wyrabia ciasto, gotuje na parze, fermentuje, slow cooking, jogurt... zastepuje 10 urzadzen.",
-    imageUrl: "https://picsum.photos/seed/kitcheningredients/500/500"
+    title: "45 Funkcijos 1-ame",
+    description: "Smulkina, minko, garina, fermentuoja, slow cooking, jogurtas... pakeicia 10 prietaisu.",
+    imageUrl: "/images/quickchef img/feature-5.jpg"
   },
   {
     id: 6,
-    title: "Rezultaty jak od Szefa",
-    description: "Aksamitne kremy, idealne ciasta na pizze, geste sosy. Wszystko automatycznie.",
-    imageUrl: "https://picsum.photos/seed/risotto/500/500"
+    title: "Šefo rezultatai",
+    description: "Aksominiai kremai, tobulos picos tešlos, tiršti padažai. Viskas automatiškai.",
+    imageUrl: "/images/quickchef img/feature-6.jpg"
   }
 ];
 
@@ -514,7 +501,7 @@ const FeaturesGrid: React.FC = () => {
     <section className="py-12 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">
-          Dlaczego wszyscy go wybieraja:
+          Kodel visi ji renkasi:
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -543,37 +530,37 @@ const FeaturesGrid: React.FC = () => {
   );
 };
 
-// 10. ComparisonTable Component
+// 9. ComparisonTable Component
 const ComparisonTable: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
   return (
     <section className="py-12 px-4 bg-gray-50">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">
-          Szybkie porownanie (bez owijania w bawelne)
+          Greitas palyginimas (be aplinkiniu keliu)
         </h2>
 
         <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-100">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-gray-100 border-b-2 border-gray-300">
-                <th className="p-4 text-gray-600 font-bold text-sm md:text-base w-1/3 uppercase tracking-wider">Cecha</th>
+                <th className="p-4 text-gray-600 font-bold text-sm md:text-base w-1/3 uppercase tracking-wider">Savybe</th>
                 <th className="p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-sm md:text-xl shadow-inner">
                   QuickChef
                 </th>
                 <th className="p-4 text-gray-400 font-medium text-center text-sm md:text-base w-1/3">
-                  Inne Roboty
+                  Kiti robotai
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {[
-                [<span key="1">Automatyczny Dozownik <br/><span className="text-xs font-normal text-gray-500">(Sam dodaje skladniki)</span></span>, true, "Brak (Musisz sam)"],
-                [<span key="2">Liczba Funkcji</span>, "45 (Najbardziej kompletny)", "Okolo 12-20"],
-                [<span key="3">Ekran Dotykowy</span>, "7\" SoftScreen", "Maly lub Brak"],
-                [<span key="4">Aplikacja + Oproznic-Lodowke</span>, "Tak (1000+ Przepisow)", "Malo przepisow"],
-                [<span key="5">Material Misy</span>, "Ceramika Nieprzywierajaca", "Stal (Przywiera)"],
-                [<span key="6">Pojemnosc</span>, "3,3L (Rodzina)", "2,2L (Mala)"],
-                [<span key="7">Czyszczenie</span>, "Samooczyszczanie + Zmywarka", "Meczne reczne"],
+                [<span key="1">Automatinis dozatorius <br/><span className="text-xs font-normal text-gray-500">(Pats prideda ingredientus)</span></span>, true, "Nera (Darote patys)"],
+                [<span key="2">Viso funkciju</span>, "45 (Išsamiausias)", "Apie 12-20"],
+                [<span key="3">Lietimui jautrus ekranas</span>, "7\" SoftScreen", "Mazas arba nera"],
+                [<span key="4">Programele + Ištuštink-šaldytuva</span>, "Taip (1000+ Receptu)", "Mazai receptu"],
+                [<span key="5">Indo medziaga</span>, "Keraminis nelimpantis", "Plienas (Limpa)"],
+                [<span key="6">Talpa</span>, "3,3L (Šeimai)", "2,2L (Maza)"],
+                [<span key="7">Valymas</span>, "Savarankiškas + Indaplove", "Varginantis rankomis"],
               ].map(([feature, isUs, them], idx) => (
                 <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                   <td className="p-3 md:p-4 font-bold text-gray-800 text-sm md:text-base align-middle">{feature}</td>
@@ -591,7 +578,7 @@ const ComparisonTable: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
 
         <div className="mt-8 text-center">
           <Button onClick={scrollToForm} variant="primary" size="lg">
-            ZAMOW TERAZ - PLACE PRZY ODBIORZE
+            GAUKITE DABAR - MOKATE PRISTATYMO METU
           </Button>
         </div>
       </div>
@@ -599,7 +586,7 @@ const ComparisonTable: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
   );
 };
 
-// 11. WhatsIncluded Component
+// 10. WhatsIncluded Component
 const WhatsIncluded: React.FC = () => {
   return (
     <section className="py-12 px-4 bg-blue-50/80">
@@ -607,30 +594,30 @@ const WhatsIncluded: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-1/2 relative">
              <div className="absolute -top-4 -right-4 bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-full shadow-lg z-10 transform rotate-12">
-               KOMPLETNY ZESTAW
+               PILNAS KOMPLEKTAS
              </div>
              <div className="aspect-square w-full rounded-xl shadow-2xl border-4 border-white overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 bg-white">
                 <img
-                  src="https://picsum.photos/seed/boxcontent/800/800"
-                  alt="Zawartosc opakowania QuickChef"
+                  src="/images/quickchef img/box-content.jpg"
+                  alt="QuickChef pakuotes turinys"
                   className="w-full h-full object-cover"
                 />
              </div>
           </div>
           <div className="w-full md:w-1/2">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <Package className="text-blue-600" size={32} /> Co znajdziesz w paczce:
+              <Package className="text-blue-600" size={32} /> Ka rasite pakuoteje:
             </h2>
             <ul className="space-y-4">
               {[
-                <span key="1">Robot <strong>QuickChef 45 Funkcji</strong></span>,
-                <span key="2">Misa <strong>Ceramiczna Nieprzywierajaca (3,3L)</strong></span>,
-                <span key="3"><strong className="text-blue-700">Automatyczny Dozownik</strong> QuickSense</span>,
-                <span key="4">Akcesoria <strong>Lopatka Saute</strong> (do risotto/sosow)</span>,
-                <span key="5">Parownik XL 2-poziomowy</span>,
-                <span key="6">Zestaw do Krojenia: Ostrza, Motylek, Lyzka</span>,
-                <span key="7"><strong className="text-green-700">BONUS:</strong> Aplikacja Premium z 1000+ Przepisami</span>,
-                <span key="8"><strong className="text-gray-900">Gwarancja 2 Lata</strong></span>
+                <span key="1">Robotas <strong>QuickChef 45 Funkcijos</strong></span>,
+                <span key="2">Indas <strong>Keraminis Nelimpantis (3,3L)</strong></span>,
+                <span key="3"><strong className="text-blue-700">Automatinis Dozatorius</strong> QuickSense</span>,
+                <span key="4">Priedas <strong>Saute mentelė</strong> (rizotams/padažams)</span>,
+                <span key="5">XL garintuvas 2 lygiu</span>,
+                <span key="6">Pjaustymo rinkinys: Peiliukai, Drugelis, Šaukštas</span>,
+                <span key="7"><strong className="text-green-700">PREMIJA:</strong> Premium programele su 1000+ Receptu</span>,
+                <span key="8"><strong className="text-gray-900">2 metu garantija</strong></span>
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-lg text-gray-800 border-b border-blue-100 pb-2 last:border-0">
                   <CheckCircle className="text-green-500 shrink-0 mt-1" size={22} fill="currentColor" />
@@ -645,8 +632,8 @@ const WhatsIncluded: React.FC = () => {
                       <Truck size={24} />
                   </div>
                   <div>
-                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wide">Wysylka</p>
-                      <p className="font-bold text-gray-900 text-lg leading-none mt-1">Szybka 24/48h</p>
+                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wide">Pristatymas</p>
+                      <p className="font-bold text-gray-900 text-lg leading-none mt-1">Greitas 24/48h</p>
                   </div>
               </div>
 
@@ -655,8 +642,8 @@ const WhatsIncluded: React.FC = () => {
                       <Banknote size={24} />
                   </div>
                   <div>
-                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wide">Platnosc</p>
-                      <p className="font-bold text-gray-900 text-lg leading-none mt-1">Przy Odbiorze</p>
+                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wide">Mokejimas</p>
+                      <p className="font-bold text-gray-900 text-lg leading-none mt-1">Pristatymo metu</p>
                   </div>
               </div>
             </div>
@@ -667,14 +654,14 @@ const WhatsIncluded: React.FC = () => {
   );
 };
 
-// 12. Reviews Component
+// 11. Reviews Component
 const reviewsList: Review[] = [
-  { id: 1, name: "Maria", age: 57, location: "Warszawa", stars: 5, text: "Nigdy nie bylam dobra w kuchni... z tym wszystko mi wychodzi. Ekran mowi co robic, super wygodne." },
-  { id: 2, name: "Krzysztof", age: 63, location: "Krakow", stars: 5, text: "Gotowanie stawalo sie meczace. Teraz wkladam wszystko i on robi. Czyszczenie duzo latwiejsze." },
-  { id: 3, name: "Elzbieta", age: 41, location: "Gdansk", stars: 5, text: "Pracuje i nie mam czasu. To mnie ratuje wieczorami. Nawet ciasta i sosy wychodza idealne." },
-  { id: 4, name: "Pawel", age: 52, location: "Wroclaw", stars: 5, text: "Wbudowana waga super, w koncu nie myle proporcji... wczesniej wyrzucalem polowe dan." },
-  { id: 5, name: "Anna", age: 60, location: "Poznan", stars: 5, text: "Misa nie przywiera, to mnie przekonalo. Wczesniej musialem ciagle skrobac." },
-  { id: 6, name: "Zofia", age: 35, location: "Lodz", stars: 5, text: "Aplikacja z przepisami mega przydatna... a ta opcja 'co mam w lodowce' jest genialna, nic nie marnuje." }
+  { id: 1, name: "Ruta", age: 57, location: "Vilnius", stars: 5, text: "Niekada nebuvau gera virėja... su šituo viskas puikiai pavyksta. Ekranas parodo, ka daryti, labai patogu." },
+  { id: 2, name: "Jonas", age: 63, location: "Kaunas", stars: 5, text: "Gaminti darėsi nuobodu. Dabar sudėju viską ir jis gamina. Valyti daug paprasčiau." },
+  { id: 3, name: "Elena", age: 41, location: "Klaipeda", stars: 5, text: "Dirbu ir neturiu laiko. Tai išgelbsti vakarais. Net tešlos ir padažai puikiai išeina." },
+  { id: 4, name: "Paulius", age: 52, location: "Šiauliai", stars: 5, text: "Integruotos svarstyklės yra nuostabios, pagaliau nesuklystu su kiekiais... anksčiau išmesdavau pusę receptų." },
+  { id: 5, name: "Ana", age: 60, location: "Panevežys", stars: 5, text: "Indas nelimpa, tai mane įtikino. Anksčiau visada reikėjo grandyti." },
+  { id: 6, name: "Saulė", age: 35, location: "Alytus", stars: 5, text: "Programėlė su receptais labai naudinga... o funkcija 'kas šaldytuve' yra geniali, nebešvaistau nieko." }
 ];
 
 const Reviews: React.FC = () => {
@@ -682,7 +669,7 @@ const Reviews: React.FC = () => {
     <section className="py-12 px-4 bg-white border-t border-gray-200">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-          Prawdziwe opinie klientow
+          Tikri klientu atsiliepimai
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -690,7 +677,7 @@ const Reviews: React.FC = () => {
             <div key={review.id} className="bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-100">
               <div className="flex justify-between items-start mb-3">
                 <div>
-                  <h4 className="font-bold text-gray-900">{review.name}, {review.age} lat</h4>
+                  <h4 className="font-bold text-gray-900">{review.name}, {review.age} m.</h4>
                   <div className="flex items-center text-gray-500 text-xs mt-1">
                     <MapPin size={12} className="mr-1" /> {review.location}
                   </div>
@@ -703,7 +690,7 @@ const Reviews: React.FC = () => {
               </div>
               <p className="text-gray-700 italic">"{review.text}"</p>
               <div className="mt-4 flex items-center gap-2 text-green-700 text-xs font-bold uppercase">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span> Zweryfikowany Zakup
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span> Patvirtintas pirkimas
               </div>
             </div>
           ))}
@@ -713,7 +700,7 @@ const Reviews: React.FC = () => {
   );
 };
 
-// 13. OrderForm Component
+// 12. OrderForm Component
 const OrderForm: React.FC = () => {
   const { trackLeadEvent, saveUserData } = useFacebookTracking();
 
@@ -722,7 +709,6 @@ const OrderForm: React.FC = () => {
     phone: '',
     fullAddress: '',
   });
-  const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -732,11 +718,15 @@ const OrderForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (isSubmitting) return;
+    if (!formData.firstName || !formData.phone || !formData.fullAddress) {
+      alert("Prašome uzpildyti visus privalomus laukus");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      // Prepare user data for Facebook tracking
+      // Parse name into first and last name for Facebook
       const nameParts = formData.firstName.trim().split(' ');
       const nome = nameParts[0] || '';
       const cognome = nameParts.slice(1).join(' ') || '';
@@ -748,47 +738,24 @@ const OrderForm: React.FC = () => {
         indirizzo: formData.fullAddress.trim()
       };
 
-      console.log('[Form] Saving user data:', userData);
+      // Save user data for Facebook tracking
       saveUserData(userData);
 
       // Track Lead event for Facebook
       await trackLeadEvent(userData, {
         content_name: 'QuickChef',
-        currency: 'PLN',
-        value: 299
+        currency: 'EUR',
+        value: 69
       });
 
       // Redirect to thank you page
-      window.location.href = '/fb-ty/ty-fb-pl';
-
+      window.location.href = '/fb-ty/ty-fb-lt';
     } catch (error) {
-      console.error('[Form] Submit error:', error);
-      setIsSubmitting(false);
+      console.error('Form submission error:', error);
+      // Still redirect on error
+      window.location.href = '/fb-ty/ty-fb-lt';
     }
   };
-
-  if (submitted) {
-    return (
-      <div id="order-form" className="py-12 px-4 bg-green-50 text-center rounded-xl border-4 border-green-500 max-w-2xl mx-auto my-8 scroll-mt-20">
-        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
-          <ShieldCheck size={48} className="text-green-600" />
-        </div>
-        <h2 className="text-3xl font-bold text-green-800 mb-4">Dziekujemy za zamowienie!</h2>
-        <p className="text-xl text-gray-700 mb-6">
-          Nasz operator wkrotce zadzwoni pod numer <strong className="whitespace-nowrap">{formData.phone}</strong> aby potwierdzic wysylke.
-        </p>
-        <div className="bg-white p-4 rounded-lg border border-gray-200 inline-block text-left">
-          <p className="font-bold text-gray-800 mb-1">Co sie teraz dzieje?</p>
-          <ol className="list-decimal list-inside text-gray-600 space-y-1">
-            <li>Twoje zamowienie zostalo zarejestrowane.</li>
-            <li>Otrzymasz telefon potwierdzajacy.</li>
-            <li>Kurier dostarczy w 24/48h.</li>
-            <li>Zaplacisz gotowka przy odbiorze.</li>
-          </ol>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <section id="order-form" className="py-12 px-4 bg-red-50 border-t-4 border-red-600 scroll-mt-20">
@@ -796,45 +763,45 @@ const OrderForm: React.FC = () => {
         <div className="bg-red-600 p-6 text-center text-white relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-white opacity-10 transform -skew-x-12"></div>
           <h2 className="text-2xl md:text-3xl font-extrabold mb-2 uppercase relative z-10">
-            Formularz Zamowienia
+            Uzsakymo forma
           </h2>
-          <p className="font-medium opacity-90 relative z-10">Wypelnij aby otrzymac oferte -50%</p>
+          <p className="font-medium opacity-90 relative z-10">Uzpildykite ir gaukite 50% nuolaida</p>
         </div>
 
         <div className="bg-yellow-100 p-3 text-center border-b border-yellow-200">
           <p className="text-red-700 font-bold text-sm animate-pulse">
-            Duze zainteresowanie: zostalo tylko 7 sztuk w tej cenie!
+            Didelė paklausa: tik 7 vienetai šia kaina!
           </p>
         </div>
 
         <div className="p-5 md:p-8">
           <div className="flex justify-between items-center mb-6 pb-6 border-b border-gray-200 bg-gray-50 p-4 rounded-lg">
             <div>
-              <p className="text-gray-500 line-through text-sm">Cena Katalogowa: 598 zl</p>
-              <p className="text-red-600 font-bold text-2xl">Razem: 299 zl</p>
+              <p className="text-gray-500 line-through text-sm">Kaina: 138 EUR</p>
+              <p className="text-red-600 font-bold text-2xl">Viso: 69 EUR</p>
             </div>
             <div className="text-right">
-              <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded border border-blue-200">SZYBKA WYSYLKA</span>
+              <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded border border-blue-200">GREITAS PRISTATYMAS</span>
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Imie i Nazwisko *</label>
+              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Vardas ir Pavarde *</label>
               <input
                 type="text"
                 name="firstName"
                 required
                 autoComplete="name"
                 className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:ring-green-500 outline-none transition-colors text-lg"
-                placeholder="Np: Jan Kowalski"
+                placeholder="Pvz.: Jonas Jonaitis"
                 value={formData.firstName}
                 onChange={handleChange}
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Telefon (Komorka) *</label>
+              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Telefonas (Mobilusis) *</label>
               <input
                 type="tel"
                 name="phone"
@@ -843,23 +810,23 @@ const OrderForm: React.FC = () => {
                 inputMode="numeric"
                 pattern="[0-9]*"
                 className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:ring-green-500 outline-none transition-colors text-lg"
-                placeholder="Np: 500 123 456"
+                placeholder="Pvz.: +370 612 34567"
                 value={formData.phone}
                 onChange={handleChange}
               />
               <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
-                <ShieldCheck size={12}/> Wazne dla potwierdzenia wysylki
+                <ShieldCheck size={12}/> Svarbu pristatymo patvirtinimui
               </p>
             </div>
 
             <div>
-              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Pelny Adres (Ulica, Numer, Miasto, Kod) *</label>
+              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Pilnas adresas (Gatvė, Nr., Miestas, Pašto kodas) *</label>
               <textarea
                 name="fullAddress"
                 required
                 autoComplete="street-address"
                 className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:ring-green-500 outline-none transition-colors text-lg h-32"
-                placeholder="Np: ul. Marszalkowska 10, 00-001 Warszawa"
+                placeholder="Pvz.: Gedimino pr. 10, LT-01103 Vilnius"
                 value={formData.fullAddress}
                 onChange={handleChange}
               />
@@ -869,19 +836,19 @@ const OrderForm: React.FC = () => {
                <label className="flex items-start gap-3 cursor-pointer pointer-events-none">
                  <input type="radio" checked readOnly className="w-5 h-5 text-green-600 mt-1" />
                  <div>
-                   <span className="block font-bold text-gray-800">Platnosc Przy Odbiorze (Gotowka)</span>
-                   <span className="block text-xs text-gray-500">Placisz bezposrednio kurierowi gdy przyjdzie paczka. Bez ryzyka.</span>
+                   <span className="block font-bold text-gray-800">Mokejimas pristatymo metu (Grynaisiais)</span>
+                   <span className="block text-xs text-gray-500">Mokate tiesiogiai kurjeriui, kai gausite siuntini. Be rizikos.</span>
                  </div>
                </label>
             </div>
 
             <Button type="submit" fullWidth pulse variant="primary" className="mt-6 shadow-xl text-xl" disabled={isSubmitting}>
-              {isSubmitting ? 'PRZETWARZANIE...' : 'POTWIERDZ ZAMOWIENIE'}
+              {isSubmitting ? 'SIUNČIAMA...' : 'PATVIRTINTI UZSAKYMA'}
             </Button>
 
             <div className="flex justify-center items-center gap-4 text-xs text-gray-400 mt-4">
-              <span className="flex items-center gap-1"><Lock size={12}/> SSL Secure 256-bit</span>
-              <span className="flex items-center gap-1"><Truck size={12}/> Szybka Wysylka</span>
+              <span className="flex items-center gap-1"><Lock size={12}/> SSL saugus 256-bit</span>
+              <span className="flex items-center gap-1"><Truck size={12}/> Greitas pristatymas</span>
             </div>
 
           </form>
@@ -891,14 +858,14 @@ const OrderForm: React.FC = () => {
   );
 };
 
-// 14. Faq Component
+// 13. Faq Component
 const faqs: FaqItem[] = [
-  { question: "Czy moge zaplacic przy odbiorze?", answer: "Tak, oczywiscie. Placisz gotowka bezposrednio kurierowi gdy dostarczy paczke. Zadnej przedplaty." },
-  { question: "Ile trwa dostawa?", answer: "Wysylamy kurierem ekspresowym w 24/48 godzin roboczych na terenie calej Polski." },
-  { question: "Czy trzeba umiec gotowac?", answer: "Nie! Robot prowadzi Cie krok po kroku przez ekran dotykowy i Aplikacje. Jest stworzony dla tych, ktorzy nie maja czasu lub ochoty gotowac, ale chca dobrze jesc." },
-  { question: "Czy latwo sie czysc?", answer: "Tak, ma funkcje samooczyszczania, a misa ma ceramiczna powloke nieprzywierajaca - czysc sie jednym pociagnieciem gabki." },
-  { question: "Co moge ugotowac?", answer: "Praktycznie wszystko: risotto, makaron, zupy-kremy, gotowanie na parze (ryby/warzywa), ciasta na pizze i chleb, desery, jogurt i wiele wiecej." },
-  { question: "A jesli mi nie odpowiada?", answer: "Masz 2-letnia gwarancje. Ponadto oferujemy dedykowana polska obsluge klienta na kazde pytanie lub problem." }
+  { question: "Ar galiu moketi pristatymo metu?", answer: "Taip, zinoma. Mokate grynaisiais tiesiogiai kurjeriui, kai gausite siuntini. Išankstinio mokejimo nereikia." },
+  { question: "Kiek laiko trunka pristatymas?", answer: "Siunčiame greitu pristatymu per 24/48 darbo valandas i visa Lietuva." },
+  { question: "Ar reikia moketi gaminti?", answer: "Ne! Robotas veda jus zingsnis po zingsnio per lietimui jautru ekrana ir programele. Sukurtas tiems, kas neturi laiko ar noro gaminti, bet nori valgyti skaniai." },
+  { question: "Ar lengva išvalyti?", answer: "Taip, turi savarankiško valymo funkcija, o indas turi keramini nelimpanti padengima, kuris išsivalo vienu šluostymu." },
+  { question: "Ka galiu gaminti?", answer: "Beveik viską: rizotus, pastas, kremu sriubas, garintas (zuvis/darzoves), picos ir duonos tešlas, desertus, jogurta ir dar daug daugiau." },
+  { question: "O jei man netinka?", answer: "Turite 2 metu garantija. Be to, siulome klientu aptarnavima lietuviu kalba bet kokiems klausimams ar problemoms." }
 ];
 
 const Faq: React.FC = () => {
@@ -912,7 +879,7 @@ const Faq: React.FC = () => {
     <section className="py-12 px-4 bg-white">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">
-          Czesto Zadawane Pytania
+          Dažniausiai uzduodami klausimai
         </h2>
 
         <div className="space-y-4">
@@ -939,26 +906,39 @@ const Faq: React.FC = () => {
   );
 };
 
+// 14. BrandBanner Component
+const BrandBanner: React.FC = () => {
+  return (
+    <section className="py-6 px-4 bg-gray-900">
+      <div className="max-w-4xl mx-auto text-center">
+        <p className="text-gray-400 text-sm">
+          QuickChef yra prekės zenklas, platinamas išskirtinai <strong className="text-white">Ionizi</strong> - Oficialus iįgaliotas platintojas
+        </p>
+      </div>
+    </section>
+  );
+};
+
 // 15. Footer Component
 const Footer: React.FC = () => {
   const [modalOpen, setModalOpen] = useState<'privacy' | 'terms' | null>(null);
 
   const privacyContent = (
     <>
-      <p><strong>Polityka Prywatnosci (RODO)</strong></p>
-      <p>Dane zebrane na tej stronie (Imie, Telefon, Adres) sa wykorzystywane wylacznie do obslugi i wysylki Twojego zamowienia robota QuickChef.</p>
-      <p>Twoje dane nigdy nie beda sprzedawane osobom trzecim. Platnosc odbywa sie przy odbiorze, wiec nie zbieramy danych kart kredytowych.</p>
-      <p>Administrator danych: IONIZI Sp. z o.o.</p>
+      <p><strong>Privatumo politika (BDAR)</strong></p>
+      <p>Šiame puslapyje surinkti duomenys (Vardas, Telefonas, Adresas) naudojami išskirtinai jusu QuickChef roboto uzsakymo apdorojimui ir pristatymui.</p>
+      <p>Jusu duomenys niekada nebus parduoti tretiesiems asmenims. Mokejimas atliekamas pristatymo metu, todėl mes nerenkame kredito korteliu duomenu.</p>
+      <p>Duomenu valdytojas: Ionizi Ltd.</p>
     </>
   );
 
   const termsContent = (
     <>
-      <p><strong>Regulamin Sprzedazy</strong></p>
-      <p>1. <strong>Platnosc:</strong> Platnosc odbywa sie w calosci gotowka przy odbiorze (za pobraniem) kurierowi ekspresowemu.</p>
-      <p>2. <strong>Wysylka:</strong> Dostawa odbywa sie w 24/48 godzin roboczych kurierem.</p>
-      <p>3. <strong>Prawo do Odstapienia:</strong> Klient ma prawo odstapic od umowy w ciagu 14 dni od otrzymania produktu.</p>
-      <p>4. <strong>Gwarancja:</strong> Wszystkie produkty sa objete 24-miesieczna gwarancja na wady zgodnosci.</p>
+      <p><strong>Pardavimo salygos ir taisykles</strong></p>
+      <p>1. <strong>Mokejimas:</strong> Mokejimas atliekamas pilnai grynaisiais pristatymo metu kurjeriui.</p>
+      <p>2. <strong>Pristatymas:</strong> Pristatymas vykdomas per 24/48 darbo valandas greitu pristatymu.</p>
+      <p>3. <strong>Atsisakymo teise:</strong> Klientas turi teise atsisakyti per 14 dienu nuo produkto gavimo.</p>
+      <p>4. <strong>Garantija:</strong> Visiems produktams taikoma 24 menesiu teisine garantija del atitikties defektu.</p>
     </>
   );
 
@@ -966,23 +946,23 @@ const Footer: React.FC = () => {
     <>
       <footer className="bg-gray-900 text-gray-400 py-12 px-4 text-center text-sm border-t border-gray-800">
         <div className="max-w-4xl mx-auto">
-          <p className="mb-6 font-semibold text-gray-300">&copy; {new Date().getFullYear()} IONIZI - QuickChef Polska. Wszelkie prawa zastrzezone.</p>
+          <p className="mb-6 font-semibold text-gray-300">&copy; {new Date().getFullYear()} Ionizi. Visos teises saugomos.</p>
 
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             <button onClick={() => setModalOpen('privacy')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Polityka Prywatnosci
+              Privatumo politika
             </button>
             <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Regulamin
+              Salygos ir taisykles
             </button>
             <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Wysylka i Zwroty
+              Pristatymas ir grazinimas
             </button>
           </div>
 
           <div className="text-xs text-gray-600 max-w-2xl mx-auto leading-relaxed border-t border-gray-800 pt-6">
-            <p className="mb-2">Ta strona nie jest czescia serwisu Facebook ani Facebook Inc. Ponadto ta strona nie jest w zaden sposob zatwierdzona przez Facebook. FACEBOOK jest znakiem towarowym FACEBOOK, Inc.</p>
-            <p>Zdjecia maja charakter pogladowy. Opinie pochodza z rzeczywistych doswiadczen naszych klientow, ale wyniki moga sie roznic w zaleznosci od osoby.</p>
+            <p className="mb-2">Ši svetaine nera Facebook svetaines ar Facebook Inc. dalis. Be to, ši svetaine nera jokiu budu patvirtinta Facebook. FACEBOOK yra FACEBOOK, Inc. prekės zenklas.</p>
+            <p>Vaizdai pateikti iliustraciniais tikslais. Atsiliepimai yra tikru musu klientu patirtys, taciau rezultatai gali skirtis priklausomai nuo asmens.</p>
           </div>
         </div>
       </footer>
@@ -990,13 +970,13 @@ const Footer: React.FC = () => {
       <Modal
         isOpen={modalOpen === 'privacy'}
         onClose={() => setModalOpen(null)}
-        title="Polityka Prywatnosci"
+        title="Privatumo politika"
         content={privacyContent}
       />
       <Modal
         isOpen={modalOpen === 'terms'}
         onClose={() => setModalOpen(null)}
-        title="Regulamin"
+        title="Salygos ir taisykles"
         content={termsContent}
       />
     </>
@@ -1026,15 +1006,15 @@ const StickyMobileCTA: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
     <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-4px_15px_-3px_rgba(0,0,0,0.1)] z-50 md:hidden animate-slide-up pb-safe">
       <div className="flex items-center justify-between px-4 py-3 gap-4">
         <div className="flex flex-col">
-          <span className="text-xs text-gray-400 line-through">598 zl</span>
+          <span className="text-xs text-gray-400 line-through">138 EUR</span>
           <div className="flex items-baseline gap-1">
-            <span className="text-xl font-extrabold text-red-600">299 zl</span>
+            <span className="text-xl font-extrabold text-red-600">69 EUR</span>
           </div>
         </div>
 
         <div className="flex-grow">
           <Button onClick={scrollToForm} fullWidth size="md" className="shadow-none py-3 text-lg" icon={<ShoppingCart size={18} />}>
-            ZAMOW TERAZ
+            UZSAKYTI DABAR
           </Button>
         </div>
       </div>
@@ -1055,7 +1035,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white font-sans text-gray-900 pb-20 md:pb-0">
       <StickyHeader />
-      <BrandBanner />
       <Hero scrollToForm={scrollToForm} />
       <SocialProof />
       <ProblemAgitation scrollToForm={scrollToForm} />
@@ -1066,6 +1045,7 @@ export default function Home() {
       <Reviews />
       <OrderForm />
       <Faq />
+      <BrandBanner />
       <Footer />
       <StickyMobileCTA scrollToForm={scrollToForm} />
     </main>

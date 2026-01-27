@@ -186,10 +186,11 @@ const BrandBanner: React.FC = () => {
 
 // 5. Hero Component
 const carouselImages = [
-  "https://picsum.photos/seed/quickchefhero1/800/800",
-  "https://picsum.photos/seed/quickchefhero2/800/800",
-  "https://picsum.photos/seed/quickchefhero3/800/800",
-  "https://picsum.photos/seed/quickchefhero4/800/800",
+  "/images/quickchef img/1.png",
+  "/images/quickchef img/2.png",
+  "/images/quickchef img/3.png",
+  "/images/quickchef img/4.png",
+  "/images/quickchef img/5.png",
 ];
 
 const benefits = [
@@ -475,37 +476,37 @@ const features: FeatureBox[] = [
     id: 1,
     title: "Nigdy sie nie mylisz",
     description: "Postepuj zgodnie z ekranem, a robot odmierzy wszystko. Rezultat gwarantowany w 100%.",
-    imageUrl: "https://picsum.photos/seed/cookingtouch/500/500"
+    imageUrl: "/images/quickchef img/Non sbagli mai.png"
   },
   {
     id: 2,
     title: "Robi wszystko sam",
     description: "Dzieki AUTOMATYCZNEMU DOZOWNIKOWI nie musisz dodawac skladnikow podczas gotowania.",
-    imageUrl: "https://picsum.photos/seed/timerkitchen/500/500"
+    imageUrl: "/images/quickchef img/DISPENSER AUTOMATICO.png"
   },
   {
     id: 3,
     title: "Funkcja Oproznic-Lodowke",
     description: "Wpisz w Aplikacji co masz w lodowce, a on stworzy dla Ciebie idealny przepis. Zero marnowania.",
-    imageUrl: "https://picsum.photos/seed/mobileapprecipe/500/500"
+    imageUrl: "/images/quickchef img/Funzione Svota-Frigo.png"
   },
   {
     id: 4,
     title: "Ceramika Nieprzywierajaca",
     description: "Misa Unique pokryta ceramika: nigdy nie przywiera i czysc sie jednym pociagnieciem gabki.",
-    imageUrl: "https://picsum.photos/seed/cleanpan/500/500"
+    imageUrl: "/images/quickchef img/Ceramica Antiaderente.png"
   },
   {
     id: 5,
     title: "45 Funkcji w 1",
     description: "Rozdrabnia, wyrabia ciasto, gotuje na parze, fermentuje, slow cooking, jogurt... zastepuje 10 urzadzen.",
-    imageUrl: "https://picsum.photos/seed/kitcheningredients/500/500"
+    imageUrl: "/images/quickchef img/45 Funzioni in 1.png"
   },
   {
     id: 6,
     title: "Rezultaty jak od Szefa",
     description: "Aksamitne kremy, idealne ciasta na pizze, geste sosy. Wszystko automatycznie.",
-    imageUrl: "https://picsum.photos/seed/risotto/500/500"
+    imageUrl: "/images/quickchef img/Risultati da Chef.png"
   }
 ];
 
@@ -611,7 +612,7 @@ const WhatsIncluded: React.FC = () => {
              </div>
              <div className="aspect-square w-full rounded-xl shadow-2xl border-4 border-white overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 bg-white">
                 <img
-                  src="https://picsum.photos/seed/boxcontent/800/800"
+                  src="/images/quickchef img/1.png"
                   alt="Zawartosc opakowania QuickChef"
                   className="w-full h-full object-cover"
                 />

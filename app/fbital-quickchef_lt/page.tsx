@@ -173,10 +173,11 @@ const StickyHeader: React.FC = () => {
 
 // 4. Hero Component
 const carouselImages = [
-  "/images/quickchef img/quickchef-hero1.jpg",
-  "/images/quickchef img/quickchef-hero2.jpg",
-  "/images/quickchef img/quickchef-hero3.jpg",
-  "/images/quickchef img/quickchef-hero4.jpg",
+  "/images/quickchef img/1.png",
+  "/images/quickchef img/2.png",
+  "/images/quickchef img/3.png",
+  "/images/quickchef img/4.png",
+  "/images/quickchef img/5.png",
 ];
 
 const benefits = [
@@ -462,37 +463,37 @@ const features: FeatureBox[] = [
     id: 1,
     title: "Niekada nesuklysite",
     description: "Sekite ekrana ir robotas viską dozuoja. 100% garantuotas rezultatas.",
-    imageUrl: "/images/quickchef img/feature-1.jpg"
+    imageUrl: "/images/quickchef img/Non sbagli mai.png"
   },
   {
     id: 2,
     title: "Viską daro pats",
     description: "Deju automatinio DOZATORIAUS nereikia prideti ingredientu gaminimo metu.",
-    imageUrl: "/images/quickchef img/feature-2.jpg"
+    imageUrl: "/images/quickchef img/DISPENSER AUTOMATICO.png"
   },
   {
     id: 3,
     title: "Funkcija Ištuštink-šaldytuva",
     description: "Irašykite, ka turite šaldytuve, i programele ir ji sukurs tobula recepta. Nulis švaistymo.",
-    imageUrl: "/images/quickchef img/feature-3.jpg"
+    imageUrl: "/images/quickchef img/Funzione Svota-Frigo.png"
   },
   {
     id: 4,
     title: "Keraminis nelimpantis",
     description: "Unique indas su keraminiu padengimu: niekada nelimpa ir išsivalo vienu mostu.",
-    imageUrl: "/images/quickchef img/feature-4.jpg"
+    imageUrl: "/images/quickchef img/Ceramica Antiaderente.png"
   },
   {
     id: 5,
     title: "45 Funkcijos 1-ame",
     description: "Smulkina, minko, garina, fermentuoja, slow cooking, jogurtas... pakeicia 10 prietaisu.",
-    imageUrl: "/images/quickchef img/feature-5.jpg"
+    imageUrl: "/images/quickchef img/45 Funzioni in 1.png"
   },
   {
     id: 6,
     title: "Šefo rezultatai",
     description: "Aksominiai kremai, tobulos picos tešlos, tiršti padažai. Viskas automatiškai.",
-    imageUrl: "/images/quickchef img/feature-6.jpg"
+    imageUrl: "/images/quickchef img/Risultati da Chef.png"
   }
 ];
 
@@ -598,7 +599,7 @@ const WhatsIncluded: React.FC = () => {
              </div>
              <div className="aspect-square w-full rounded-xl shadow-2xl border-4 border-white overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 bg-white">
                 <img
-                  src="/images/quickchef img/box-content.jpg"
+                  src="/images/quickchef img/1.png"
                   alt="QuickChef pakuotes turinys"
                   className="w-full h-full object-cover"
                 />

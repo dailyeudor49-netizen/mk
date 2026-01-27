@@ -173,10 +173,11 @@ const StickyHeader: React.FC = () => {
 
 // 4. Hero Component
 const carouselImages = [
-  "/images/quickchef img/quickchef-hero1.jpg",
-  "/images/quickchef img/quickchef-hero2.jpg",
-  "/images/quickchef img/quickchef-hero3.jpg",
-  "/images/quickchef img/quickchef-hero4.jpg",
+  "/images/quickchef img/1.png",
+  "/images/quickchef img/2.png",
+  "/images/quickchef img/3.png",
+  "/images/quickchef img/4.png",
+  "/images/quickchef img/5.png",
 ];
 
 const benefits = [
@@ -462,37 +463,37 @@ const features: FeatureBox[] = [
     id: 1,
     title: "Nu gresesti niciodata",
     description: "Urmezi ecranul si robotul dozeaza totul. Rezultat garantat 100%.",
-    imageUrl: "/images/quickchef img/feature-1.jpg"
+    imageUrl: "/images/quickchef img/Non sbagli mai.png"
   },
   {
     id: 2,
     title: "Face totul singur",
     description: "Datorita DOZATORULUI automat nu trebuie sa adaugi ingrediente in timpul gatirii.",
-    imageUrl: "/images/quickchef img/feature-2.jpg"
+    imageUrl: "/images/quickchef img/DISPENSER AUTOMATICO.png"
   },
   {
     id: 3,
     title: "Functia Goleste-frigiderul",
     description: "Introdu in aplicatie ce ai in frigider si iti creeaza reteta perfecta. Zero risipa.",
-    imageUrl: "/images/quickchef img/feature-3.jpg"
+    imageUrl: "/images/quickchef img/Funzione Svota-Frigo.png"
   },
   {
     id: 4,
     title: "Ceramic antiaderent",
     description: "Vas unic cu invelis ceramic: nu se lipeste nimic si se curata dintr-o singura miscare.",
-    imageUrl: "/images/quickchef img/feature-4.jpg"
+    imageUrl: "/images/quickchef img/Ceramica Antiaderente.png"
   },
   {
     id: 5,
     title: "45 Functii intr-unul singur",
     description: "Toaca, framanta, gateste la abur, fermenteaza, slow cooking, iaurt... inlocuieste 10 aparate.",
-    imageUrl: "/images/quickchef img/feature-5.jpg"
+    imageUrl: "/images/quickchef img/45 Funzioni in 1.png"
   },
   {
     id: 6,
     title: "Rezultate de chef",
     description: "Creme catifelate, aluaturi perfecte de pizza, sosuri dense. Totul automat.",
-    imageUrl: "/images/quickchef img/feature-6.jpg"
+    imageUrl: "/images/quickchef img/Risultati da Chef.png"
   }
 ];
 
@@ -598,7 +599,7 @@ const WhatsIncluded: React.FC = () => {
              </div>
              <div className="aspect-square w-full rounded-xl shadow-2xl border-4 border-white overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 bg-white">
                 <img
-                  src="/images/quickchef img/box-content.jpg"
+                  src="/images/quickchef img/1.png"
                   alt="Continutul pachetului QuickChef"
                   className="w-full h-full object-cover"
                 />

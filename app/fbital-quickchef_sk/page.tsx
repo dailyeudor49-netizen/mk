@@ -173,10 +173,11 @@ const StickyHeader: React.FC = () => {
 
 // 4. Hero Component
 const carouselImages = [
-  "https://picsum.photos/seed/quickchefhero1/800/800",
-  "https://picsum.photos/seed/quickchefhero2/800/800",
-  "https://picsum.photos/seed/quickchefhero3/800/800",
-  "https://picsum.photos/seed/quickchefhero4/800/800",
+  "/images/quickchef img/1.png",
+  "/images/quickchef img/2.png",
+  "/images/quickchef img/3.png",
+  "/images/quickchef img/4.png",
+  "/images/quickchef img/5.png",
 ];
 
 const benefits = [
@@ -462,37 +463,37 @@ const features: FeatureBox[] = [
     id: 1,
     title: "Nikdy nespravite chybu",
     description: "Postupujte podla obrazovky a robot odmeruje vsetko. Vysledok garantovany na 100%.",
-    imageUrl: "https://picsum.photos/seed/cookingtouch/500/500"
+    imageUrl: "/images/quickchef img/Non sbagli mai.png"
   },
   {
     id: 2,
     title: "Robi vsetko sam",
     description: "Vdaka automatickemu DAVKOVACU nemusite pridavat ingrediencie pocas varenia.",
-    imageUrl: "https://picsum.photos/seed/timerkitchen/500/500"
+    imageUrl: "/images/quickchef img/DISPENSER AUTOMATICO.png"
   },
   {
     id: 3,
     title: "Funkcia Vyprazdnit-Chladnicku",
     description: "Napisite do Aplikacie, co mate v chladnicke, a ona vam vytvori perfektny recept. Ziadne plytvanie.",
-    imageUrl: "https://picsum.photos/seed/mobileapprecipe/500/500"
+    imageUrl: "/images/quickchef img/Funzione Svota-Frigo.png"
   },
   {
     id: 4,
     title: "Keramicky Nepripalovy Povrch",
     description: "Jednorazova nadoba s keramickym povrchom: nikdy sa nepripali a umyva sa jednym pohybom.",
-    imageUrl: "https://picsum.photos/seed/cleanpan/500/500"
+    imageUrl: "/images/quickchef img/Ceramica Antiaderente.png"
   },
   {
     id: 5,
     title: "45 Funkcii v 1",
     description: "Seka, miesi, vari v pare, kvasit, pomale varenie, jogurt... nahradi 10 spotrebicov.",
-    imageUrl: "https://picsum.photos/seed/kitcheningredients/500/500"
+    imageUrl: "/images/quickchef img/45 Funzioni in 1.png"
   },
   {
     id: 6,
     title: "Vysledky ako od Sefkuchara",
     description: "Kremove polievky, perfektne cesta na pizzu, huste omacky. Vsetko automaticky.",
-    imageUrl: "https://picsum.photos/seed/risotto/500/500"
+    imageUrl: "/images/quickchef img/Risultati da Chef.png"
   }
 ];
 
@@ -598,7 +599,7 @@ const WhatsIncluded: React.FC = () => {
              </div>
              <div className="aspect-square w-full rounded-xl shadow-2xl border-4 border-white overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 bg-white">
                 <img
-                  src="https://picsum.photos/seed/boxcontent/800/800"
+                  src="/images/quickchef img/1.png"
                   alt="Obsah balenia QuickChef"
                   className="w-full h-full object-cover"
                 />

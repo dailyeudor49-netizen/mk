@@ -173,10 +173,11 @@ const StickyHeader: React.FC = () => {
 
 // 4. Hero Component
 const carouselImages = [
-  "/images/quickchef img/quickchef-hero1.jpg",
-  "/images/quickchef img/quickchef-hero2.jpg",
-  "/images/quickchef img/quickchef-hero3.jpg",
-  "/images/quickchef img/quickchef-hero4.jpg",
+  "/images/quickchef img/1.png",
+  "/images/quickchef img/2.png",
+  "/images/quickchef img/3.png",
+  "/images/quickchef img/4.png",
+  "/images/quickchef img/5.png",
 ];
 
 const benefits = [
@@ -462,37 +463,37 @@ const features: FeatureBox[] = [
     id: 1,
     title: "Nunca te equivocas",
     description: "Sigue la pantalla y el robot dosifica todo. Resultado garantizado al 100%.",
-    imageUrl: "/images/quickchef img/feature-1.jpg"
+    imageUrl: "/images/quickchef img/Non sbagli mai.png"
   },
   {
     id: 2,
     title: "Lo hace todo solo",
     description: "Gracias al DISPENSADOR automatico, no tienes que anadir ingredientes durante la coccion.",
-    imageUrl: "/images/quickchef img/feature-2.jpg"
+    imageUrl: "/images/quickchef img/DISPENSER AUTOMATICO.png"
   },
   {
     id: 3,
     title: "Funcion Vacia-Nevera",
     description: "Escribe lo que tienes en la nevera en la App y el te crea la receta perfecta. Cero desperdicio.",
-    imageUrl: "/images/quickchef img/feature-3.jpg"
+    imageUrl: "/images/quickchef img/Funzione Svota-Frigo.png"
   },
   {
     id: 4,
     title: "Ceramica Antiadherente",
     description: "Jarra Unique revestida en ceramica: nunca se pega y se limpia con una pasada.",
-    imageUrl: "/images/quickchef img/feature-4.jpg"
+    imageUrl: "/images/quickchef img/Ceramica Antiaderente.png"
   },
   {
     id: 5,
     title: "45 Funciones en 1",
     description: "Tritura, amasa, cuece al vapor, fermenta, slow cooking, yogur... sustituye 10 electrodomesticos.",
-    imageUrl: "/images/quickchef img/feature-5.jpg"
+    imageUrl: "/images/quickchef img/45 Funzioni in 1.png"
   },
   {
     id: 6,
     title: "Resultados de Chef",
     description: "Cremas aterciopeladas, masas para pizza perfectas, salsas densas. Todo en automatico.",
-    imageUrl: "/images/quickchef img/feature-6.jpg"
+    imageUrl: "/images/quickchef img/Risultati da Chef.png"
   }
 ];
 
@@ -598,7 +599,7 @@ const WhatsIncluded: React.FC = () => {
              </div>
              <div className="aspect-square w-full rounded-xl shadow-2xl border-4 border-white overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 bg-white">
                 <img
-                  src="/images/quickchef img/box-content.jpg"
+                  src="/images/quickchef img/1.png"
                   alt="Contenido del paquete QuickChef"
                   className="w-full h-full object-cover"
                 />

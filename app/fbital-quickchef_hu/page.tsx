@@ -184,10 +184,11 @@ const StickyHeader: React.FC = () => {
 
 // 5. Hero Component
 const carouselImages = [
-  "https://picsum.photos/seed/quickchefhero1/800/800",
-  "https://picsum.photos/seed/quickchefhero2/800/800",
-  "https://picsum.photos/seed/quickchefhero3/800/800",
-  "https://picsum.photos/seed/quickchefhero4/800/800",
+  "/images/quickchef img/1.png",
+  "/images/quickchef img/2.png",
+  "/images/quickchef img/3.png",
+  "/images/quickchef img/4.png",
+  "/images/quickchef img/5.png",
 ];
 
 const benefits = [
@@ -473,37 +474,37 @@ const features: FeatureBox[] = [
     id: 1,
     title: "Sosem rontod el",
     description: "Kovesd a kepernyot es a robot mindent adagol. 100%-os siker garantalva.",
-    imageUrl: "https://picsum.photos/seed/cookingtouch/500/500"
+    imageUrl: "/images/quickchef img/Non sbagli mai.png"
   },
   {
     id: 2,
     title: "Mindent magatok csinal",
     description: "Az AUTOMATIKUS ADAGOLO segitsegevel nem kell hozzavalokat adnod fozes kozben.",
-    imageUrl: "https://picsum.photos/seed/timerkitchen/500/500"
+    imageUrl: "/images/quickchef img/DISPENSER AUTOMATICO.png"
   },
   {
     id: 3,
     title: "Huto-urito funkcio",
     description: "Ird be az Appba, mi van a hutodben, es o elkesziti a tokeletes receptet. Semmi pazarlas.",
-    imageUrl: "https://picsum.photos/seed/mobileapprecipe/500/500"
+    imageUrl: "/images/quickchef img/Funzione Svota-Frigo.png"
   },
   {
     id: 4,
     title: "Keramia bevonat",
     description: "Unique keramia bevonat: sosem ragad, egy torlessel tiszta.",
-    imageUrl: "https://picsum.photos/seed/cleanpan/500/500"
+    imageUrl: "/images/quickchef img/Ceramica Antiaderente.png"
   },
   {
     id: 5,
     title: "45 funkcio 1-ben",
     description: "Daral, gyur, gozon foz, fermentar, lassufoz, joghurtot keszit... 10 haztartasi gepet helyettesit.",
-    imageUrl: "https://picsum.photos/seed/kitcheningredients/500/500"
+    imageUrl: "/images/quickchef img/45 Funzioni in 1.png"
   },
   {
     id: 6,
     title: "Sefszintu eredmenyek",
     description: "Barsonyos kremek, tokeletes pizzateszta, suru szoszok. Minden automatikusan.",
-    imageUrl: "https://picsum.photos/seed/risotto/500/500"
+    imageUrl: "/images/quickchef img/Risultati da Chef.png"
   }
 ];
 
@@ -609,7 +610,7 @@ const WhatsIncluded: React.FC = () => {
              </div>
              <div className="aspect-square w-full rounded-xl shadow-2xl border-4 border-white overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-500 bg-white">
                 <img
-                  src="https://picsum.photos/seed/boxcontent/800/800"
+                  src="/images/quickchef img/1.png"
                   alt="QuickChef csomag tartalma"
                   className="w-full h-full object-cover"
                 />

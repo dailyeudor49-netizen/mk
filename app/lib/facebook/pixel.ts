@@ -163,7 +163,7 @@ export function initPixelScript(): string {
  * Verifica se il pathname corrente è una pagina Facebook
  */
 export function isFacebookPage(pathname: string): boolean {
-  const isFb = pathname.startsWith('/fb-') || pathname.startsWith('/fbuc-');
+  const isFb = pathname.startsWith('/fb-') || pathname.startsWith('/fbuc-') || pathname.startsWith('/fbital-');
   console.log('[FB Pixel] Pathname:', pathname, '-> isFacebookPage:', isFb);
   return isFb;
 }

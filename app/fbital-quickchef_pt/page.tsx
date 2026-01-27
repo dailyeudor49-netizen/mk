@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   Truck,
@@ -26,6 +26,15 @@ import {
   ChevronUp
 } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+
+// --- NETWORK CONFIG ---
+const NETWORK_CONFIG = {
+  apiUrl: 'https://offers.italiadrop.com/forms/api/',
+  uid: '019bfb2e-6cc2-7780-b7d5-e6ab2c6a6b58',
+  key: 'a32454578a4cb8f9f41bd4',
+  offer: '2219',
+  lp: '2258',
+};
 
 // --- TYPES ---
 
@@ -704,6 +713,7 @@ const Reviews: React.FC = () => {
 const OrderForm: React.FC = () => {
   const router = useRouter();
   const { trackLeadEvent, saveUserData } = useFacebookTracking();
+  const tmfpRef = useRef<HTMLInputElement>(null);
   const [formData, setFormData] = useState({
     firstName: '',
     phone: '',
@@ -720,6 +730,48 @@ const OrderForm: React.FC = () => {
     setIsSubmitting(true);
 
     try {
+      // Get UTM params from URL
+      const urlParams = new URLSearchParams(window.location.search);
+
+      // Send to Network API
+      let isDouble = false;
+      try {
+        const networkFormData = new FormData();
+        networkFormData.append('uid', NETWORK_CONFIG.uid);
+        networkFormData.append('key', NETWORK_CONFIG.key);
+        networkFormData.append('offer', NETWORK_CONFIG.offer);
+        networkFormData.append('lp', NETWORK_CONFIG.lp);
+        networkFormData.append('name', formData.firstName);
+        networkFormData.append('tel', formData.phone);
+        networkFormData.append('street-address', formData.fullAddress);
+
+        // Add fingerprint if available
+        const tmfpValue = tmfpRef.current?.value || '';
+        if (tmfpValue) {
+          networkFormData.append('tmfp', tmfpValue);
+        }
+
+        // Add UTM params if present
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'subid', 'subid2', 'subid3', 'subid4', 'pubid'].forEach(param => {
+          const value = urlParams.get(param);
+          if (value) networkFormData.append(param, value);
+        });
+
+        const response = await fetch(NETWORK_CONFIG.apiUrl, {
+          method: 'POST',
+          body: networkFormData,
+        });
+        const data = await response.json();
+        console.log('Network API response:', data);
+
+        if (data.message === 'DOUBLE') {
+          isDouble = true;
+          sessionStorage.setItem('skipFBPurchase', 'true');
+        }
+      } catch (error) {
+        console.error('Network API error:', error);
+      }
+
       // Facebook tracking
       const nameParts = formData.firstName.trim().split(' ');
       const nome = nameParts[0] || '';
@@ -732,12 +784,14 @@ const OrderForm: React.FC = () => {
         indirizzo: formData.fullAddress.trim()
       };
 
-      saveUserData(userData);
-      await trackLeadEvent(userData, {
-        content_name: 'QuickChef',
-        currency: 'EUR',
-        value: 89
-      });
+      if (!isDouble) {
+        saveUserData(userData);
+        await trackLeadEvent(userData, {
+          content_name: 'QuickChef',
+          currency: 'EUR',
+          value: 89
+        });
+      }
 
       // Redirect to thank you page
       router.push('/fb-ty/ty-fb-pt');
@@ -776,6 +830,7 @@ const OrderForm: React.FC = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            <input type="hidden" name="tmfp" ref={tmfpRef} />
             <div>
               <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Nome Completo *</label>
               <input
@@ -1015,6 +1070,14 @@ const StickyMobileCTA: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
 // --- MAIN PAGE COMPONENT ---
 
 export default function Home() {
+  useEffect(() => {
+    const fpScript = document.createElement('script');
+    fpScript.src = 'https://offers.italiadrop.com/forms/tmfp/';
+    fpScript.crossOrigin = 'anonymous';
+    fpScript.defer = true;
+    document.head.appendChild(fpScript);
+  }, []);
+
   const scrollToForm = () => {
     const formElement = document.getElementById('order-form');
     if (formElement) {
@@ -1024,6 +1087,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white font-sans text-gray-900 pb-20 md:pb-0">
+      {/* Network Click Pixel */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`https://offers.italiadrop.com/forms/api/ck/?o=${NETWORK_CONFIG.offer}&uid=${NETWORK_CONFIG.uid}&lp=${NETWORK_CONFIG.lp}`} style={{width:'1px',height:'1px',display:'none'}} alt="" />
       <StickyHeader />
       <Hero scrollToForm={scrollToForm} />
       <SocialProof />

@@ -44,6 +44,7 @@ interface Review {
   location: string;
   stars: number;
   text: string;
+  imageUrl?: string;
 }
 
 interface FeatureBox {
@@ -280,6 +281,9 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
           </div>
 
           <div className="flex flex-col items-center justify-center mb-6 mt-6">
+             <div className="bg-yellow-400 text-gray-900 font-black text-3xl md:text-4xl px-8 py-3 rounded-lg mb-4 shadow-md">
+               -50%
+             </div>
              <div className="text-gray-400 font-medium uppercase text-sm tracking-widest mb-1">Precio Promo</div>
              <div className="flex items-center gap-3">
                <span className="text-gray-400 line-through text-2xl decoration-2">178 EUR</span>
@@ -549,35 +553,35 @@ const ComparisonTable: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
           Comparacion rapida (sin rodeos)
         </h2>
 
-        <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-100">
-          <table className="w-full text-left border-collapse">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-100 overflow-x-auto">
+          <table className="w-full text-left border-collapse min-w-[320px]">
             <thead>
               <tr className="bg-gray-100 border-b-2 border-gray-300">
-                <th className="p-4 text-gray-600 font-bold text-sm md:text-base w-1/3 uppercase tracking-wider">Caracteristica</th>
-                <th className="p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-sm md:text-xl shadow-inner">
+                <th className="p-2 md:p-4 text-gray-600 font-bold text-xs md:text-base w-1/3 uppercase tracking-wider">Caracteristica</th>
+                <th className="p-2 md:p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-xs md:text-xl shadow-inner">
                   QuickChef
                 </th>
-                <th className="p-4 text-gray-400 font-medium text-center text-sm md:text-base w-1/3">
+                <th className="p-2 md:p-4 text-gray-400 font-medium text-center text-xs md:text-base w-1/3">
                   Otros Robots
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {[
-                [<span key="1">Dispensador Automatico <br/><span className="text-xs font-normal text-gray-500">(Anade ingredientes solo)</span></span>, true, "Ausente (Lo haces tu)"],
-                [<span key="2">Funciones Totales</span>, "45 (El mas completo)", "Alrededor de 12-20"],
-                [<span key="3">Pantalla Tactil</span>, "7\" SoftScreen", "Pequena o Ausente"],
-                [<span key="4">App + Vacia-nevera</span>, "Si (1000+ Recetas)", "Pocas recetas"],
-                [<span key="5">Material Jarra</span>, "Ceramica Antiadherente", "Acero (Se pega)"],
-                [<span key="6">Capacidad</span>, "3,3L (Familia)", "2,2L (Pequena)"],
-                [<span key="7">Limpieza</span>, "Autolimpieza + Lavavajillas", "Tediosa a mano"],
+                [<span key="1" className="text-xs md:text-base">Dispensador Automatico <br/><span className="text-[10px] md:text-xs font-normal text-gray-500">(Anade ingredientes solo)</span></span>, true, <span key="o1" className="text-xs md:text-base">Ausente (Lo haces tu)</span>],
+                [<span key="2" className="text-xs md:text-base">Funciones Totales</span>, <span key="u2" className="text-xs md:text-lg">45 (El mas completo)</span>, <span key="o2" className="text-xs md:text-base">Alrededor de 12-20</span>],
+                [<span key="3" className="text-xs md:text-base">Pantalla Tactil</span>, <span key="u3" className="text-xs md:text-lg">7" SoftScreen</span>, <span key="o3" className="text-xs md:text-base">Pequena o Ausente</span>],
+                [<span key="4" className="text-xs md:text-base">App + Vacia-nevera</span>, <span key="u4" className="text-xs md:text-lg">Si (1000+ Recetas)</span>, <span key="o4" className="text-xs md:text-base">Pocas recetas</span>],
+                [<span key="5" className="text-xs md:text-base">Material Jarra</span>, <span key="u5" className="text-xs md:text-lg">Ceramica Antiadherente</span>, <span key="o5" className="text-xs md:text-base">Acero (Se pega)</span>],
+                [<span key="6" className="text-xs md:text-base">Capacidad</span>, <span key="u6" className="text-xs md:text-lg">3,3L (Familia)</span>, <span key="o6" className="text-xs md:text-base">2,2L (Pequena)</span>],
+                [<span key="7" className="text-xs md:text-base">Limpieza</span>, <span key="u7" className="text-xs md:text-lg">Autolimpieza + Lavavajillas</span>, <span key="o7" className="text-xs md:text-base">Tediosa a mano</span>],
               ].map(([feature, isUs, them], idx) => (
                 <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                  <td className="p-3 md:p-4 font-bold text-gray-800 text-sm md:text-base align-middle">{feature}</td>
-                  <td className="p-3 md:p-4 bg-green-50 border-l border-r border-green-100 text-center align-middle">
-                    {isUs === true ? <Check className="inline-block text-green-600" size={28} strokeWidth={4} /> : <span className="font-extrabold text-green-700 text-lg">{isUs}</span>}
+                  <td className="p-2 md:p-4 font-bold text-gray-800 text-xs md:text-base align-middle">{feature}</td>
+                  <td className="p-2 md:p-4 bg-green-50 border-l border-r border-green-100 text-center align-middle">
+                    {isUs === true ? <Check className="inline-block text-green-600" size={28} strokeWidth={4} /> : <span className="font-extrabold text-green-700">{isUs}</span>}
                   </td>
-                  <td className="p-3 md:p-4 text-center text-gray-500 text-sm md:text-base align-middle">
+                  <td className="p-2 md:p-4 text-center text-gray-500 text-xs md:text-base align-middle">
                     {them}
                   </td>
                 </tr>
@@ -666,9 +670,9 @@ const WhatsIncluded: React.FC = () => {
 
 // 11. Reviews Component
 const reviewsList: Review[] = [
-  { id: 1, name: "Maria", age: 57, location: "Madrid", stars: 5, text: "Nunca he sido buena en la cocina... con esto me sale todo bien. La pantalla te dice que hacer, comodisimo." },
-  { id: 2, name: "Jose", age: 63, location: "Barcelona", stars: 5, text: "Cocinar se estaba volviendo pesado. Ahora pongo todo y lo hace el. La limpieza es mucho mas sencilla." },
-  { id: 3, name: "Elena", age: 41, location: "Valencia", stars: 5, text: "Yo trabajo y no tengo tiempo. Esto me salva por las noches. Hasta las masas y las salsas salen perfectas." },
+  { id: 1, name: "Maria", age: 57, location: "Madrid", stars: 5, text: "Nunca he sido buena en la cocina... con esto me sale todo bien. La pantalla te dice que hacer, comodisimo.", imageUrl: "/images/quickchef img/recensione 1.jpg" },
+  { id: 2, name: "Jose", age: 63, location: "Barcelona", stars: 5, text: "Cocinar se estaba volviendo pesado. Ahora pongo todo y lo hace el. La limpieza es mucho mas sencilla.", imageUrl: "/images/quickchef img/recensione 2.jpg" },
+  { id: 3, name: "Elena", age: 41, location: "Valencia", stars: 5, text: "Yo trabajo y no tengo tiempo. Esto me salva por las noches. Hasta las masas y las salsas salen perfectas.", imageUrl: "/images/quickchef img/recensione 3.jpg" },
   { id: 4, name: "Pablo", age: 52, location: "Sevilla", stars: 5, text: "La bascula integrada es genial, por fin no me equivoco con las cantidades... antes tiraba la mitad de las recetas." },
   { id: 5, name: "Ana", age: 60, location: "Bilbao", stars: 5, text: "La jarra no se pega, eso es lo que me convencio. Antes tenia que raspar siempre." },
   { id: 6, name: "Sonia", age: 35, location: "Malaga", stars: 5, text: "La app con recetas es utilsima... y lo de 'que tengo en la nevera' es genial, ya no desperdicio nada." }
@@ -684,23 +688,34 @@ const Reviews: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviewsList.map((review) => (
-            <div key={review.id} className="bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="flex justify-between items-start mb-3">
-                <div>
-                  <h4 className="font-bold text-gray-900">{review.name}, {review.age} anos</h4>
-                  <div className="flex items-center text-gray-500 text-xs mt-1">
-                    <MapPin size={12} className="mr-1" /> {review.location}
+            <div key={review.id} className="bg-gray-50 rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+              {review.imageUrl && (
+                <div className="aspect-video w-full overflow-hidden">
+                  <img
+                    src={review.imageUrl}
+                    alt={`Resena de ${review.name}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <h4 className="font-bold text-gray-900">{review.name}, {review.age} anos</h4>
+                    <div className="flex items-center text-gray-500 text-xs mt-1">
+                      <MapPin size={12} className="mr-1" /> {review.location}
+                    </div>
+                  </div>
+                  <div className="flex text-yellow-400">
+                    {[...Array(review.stars)].map((_, i) => (
+                      <Star key={i} size={16} fill="currentColor" />
+                    ))}
                   </div>
                 </div>
-                <div className="flex text-yellow-400">
-                  {[...Array(review.stars)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
+                <p className="text-gray-700 italic">"{review.text}"</p>
+                <div className="mt-4 flex items-center gap-2 text-green-700 text-xs font-bold uppercase">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span> Compra Verificada
                 </div>
-              </div>
-              <p className="text-gray-700 italic">"{review.text}"</p>
-              <div className="mt-4 flex items-center gap-2 text-green-700 text-xs font-bold uppercase">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span> Compra Verificada
               </div>
             </div>
           ))}

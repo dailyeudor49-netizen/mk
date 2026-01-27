@@ -44,6 +44,7 @@ interface Review {
   location: string;
   stars: number;
   text: string;
+  imageUrl?: string;
 }
 
 interface FeatureBox {
@@ -293,6 +294,9 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
           </div>
 
           <div className="flex flex-col items-center justify-center mb-6 mt-6">
+             <div className="bg-yellow-400 text-gray-900 font-black text-3xl md:text-4xl px-8 py-3 rounded-lg mb-4 shadow-md">
+               -50%
+             </div>
              <div className="text-gray-400 font-medium uppercase text-sm tracking-widest mb-1">Cena Promocyjna</div>
              <div className="flex items-center gap-3">
                <span className="text-gray-400 line-through text-2xl decoration-2">598 zl</span>
@@ -566,31 +570,31 @@ const ComparisonTable: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-gray-100 border-b-2 border-gray-300">
-                <th className="p-4 text-gray-600 font-bold text-sm md:text-base w-1/3 uppercase tracking-wider">Cecha</th>
-                <th className="p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-sm md:text-xl shadow-inner">
+                <th className="p-2 md:p-4 text-gray-600 font-bold text-xs md:text-base w-1/3 uppercase tracking-wider whitespace-normal break-words">Cecha</th>
+                <th className="p-2 md:p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-xs md:text-xl shadow-inner whitespace-normal break-words">
                   QuickChef
                 </th>
-                <th className="p-4 text-gray-400 font-medium text-center text-sm md:text-base w-1/3">
+                <th className="p-2 md:p-4 text-gray-400 font-medium text-center text-xs md:text-base w-1/3 whitespace-normal break-words">
                   Inne Roboty
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {[
-                [<span key="1">Automatyczny Dozownik <br/><span className="text-xs font-normal text-gray-500">(Sam dodaje skladniki)</span></span>, true, "Brak (Musisz sam)"],
-                [<span key="2">Liczba Funkcji</span>, "45 (Najbardziej kompletny)", "Okolo 12-20"],
-                [<span key="3">Ekran Dotykowy</span>, "7\" SoftScreen", "Maly lub Brak"],
-                [<span key="4">Aplikacja + Oproznic-Lodowke</span>, "Tak (1000+ Przepisow)", "Malo przepisow"],
-                [<span key="5">Material Misy</span>, "Ceramika Nieprzywierajaca", "Stal (Przywiera)"],
-                [<span key="6">Pojemnosc</span>, "3,3L (Rodzina)", "2,2L (Mala)"],
-                [<span key="7">Czyszczenie</span>, "Samooczyszczanie + Zmywarka", "Meczne reczne"],
+                [<span key="1" className="text-xs md:text-base whitespace-normal break-words">Automatyczny Dozownik <br/><span className="text-xs font-normal text-gray-500">(Sam dodaje skladniki)</span></span>, true, "Brak (Musisz sam)"],
+                [<span key="2" className="text-xs md:text-base whitespace-normal break-words">Liczba Funkcji</span>, "45 (Najbardziej kompletny)", "Okolo 12-20"],
+                [<span key="3" className="text-xs md:text-base whitespace-normal break-words">Ekran Dotykowy</span>, "7\" SoftScreen", "Maly lub Brak"],
+                [<span key="4" className="text-xs md:text-base whitespace-normal break-words">Aplikacja + Oproznic-Lodowke</span>, "Tak (1000+ Przepisow)", "Malo przepisow"],
+                [<span key="5" className="text-xs md:text-base whitespace-normal break-words">Material Misy</span>, "Ceramika Nieprzywierajaca", "Stal (Przywiera)"],
+                [<span key="6" className="text-xs md:text-base whitespace-normal break-words">Pojemnosc</span>, "3,3L (Rodzina)", "2,2L (Mala)"],
+                [<span key="7" className="text-xs md:text-base whitespace-normal break-words">Czyszczenie</span>, "Samooczyszczanie + Zmywarka", "Meczne reczne"],
               ].map(([feature, isUs, them], idx) => (
                 <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                  <td className="p-3 md:p-4 font-bold text-gray-800 text-sm md:text-base align-middle">{feature}</td>
-                  <td className="p-3 md:p-4 bg-green-50 border-l border-r border-green-100 text-center align-middle">
-                    {isUs === true ? <Check className="inline-block text-green-600" size={28} strokeWidth={4} /> : <span className="font-extrabold text-green-700 text-lg">{isUs}</span>}
+                  <td className="p-2 md:p-4 font-bold text-gray-800 text-xs md:text-base align-middle whitespace-normal break-words">{feature}</td>
+                  <td className="p-2 md:p-4 bg-green-50 border-l border-r border-green-100 text-center align-middle whitespace-normal break-words">
+                    {isUs === true ? <Check className="inline-block text-green-600" size={28} strokeWidth={4} /> : <span className="font-extrabold text-green-700 text-xs md:text-lg whitespace-normal break-words">{isUs}</span>}
                   </td>
-                  <td className="p-3 md:p-4 text-center text-gray-500 text-sm md:text-base align-middle">
+                  <td className="p-2 md:p-4 text-center text-gray-500 text-xs md:text-base align-middle whitespace-normal break-words">
                     {them}
                   </td>
                 </tr>
@@ -679,9 +683,9 @@ const WhatsIncluded: React.FC = () => {
 
 // 12. Reviews Component
 const reviewsList: Review[] = [
-  { id: 1, name: "Maria", age: 57, location: "Warszawa", stars: 5, text: "Nigdy nie bylam dobra w kuchni... z tym wszystko mi wychodzi. Ekran mowi co robic, super wygodne." },
-  { id: 2, name: "Krzysztof", age: 63, location: "Krakow", stars: 5, text: "Gotowanie stawalo sie meczace. Teraz wkladam wszystko i on robi. Czyszczenie duzo latwiejsze." },
-  { id: 3, name: "Elzbieta", age: 41, location: "Gdansk", stars: 5, text: "Pracuje i nie mam czasu. To mnie ratuje wieczorami. Nawet ciasta i sosy wychodza idealne." },
+  { id: 1, name: "Maria", age: 57, location: "Warszawa", stars: 5, text: "Nigdy nie bylam dobra w kuchni... z tym wszystko mi wychodzi. Ekran mowi co robic, super wygodne.", imageUrl: "/images/quickchef img/recensione 1.jpg" },
+  { id: 2, name: "Krzysztof", age: 63, location: "Krakow", stars: 5, text: "Gotowanie stawalo sie meczace. Teraz wkladam wszystko i on robi. Czyszczenie duzo latwiejsze.", imageUrl: "/images/quickchef img/recensione 2.jpg" },
+  { id: 3, name: "Elzbieta", age: 41, location: "Gdansk", stars: 5, text: "Pracuje i nie mam czasu. To mnie ratuje wieczorami. Nawet ciasta i sosy wychodza idealne.", imageUrl: "/images/quickchef img/recensione 3.jpg" },
   { id: 4, name: "Pawel", age: 52, location: "Wroclaw", stars: 5, text: "Wbudowana waga super, w koncu nie myle proporcji... wczesniej wyrzucalem polowe dan." },
   { id: 5, name: "Anna", age: 60, location: "Poznan", stars: 5, text: "Misa nie przywiera, to mnie przekonalo. Wczesniej musialem ciagle skrobac." },
   { id: 6, name: "Zofia", age: 35, location: "Lodz", stars: 5, text: "Aplikacja z przepisami mega przydatna... a ta opcja 'co mam w lodowce' jest genialna, nic nie marnuje." }
@@ -697,23 +701,34 @@ const Reviews: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviewsList.map((review) => (
-            <div key={review.id} className="bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="flex justify-between items-start mb-3">
-                <div>
-                  <h4 className="font-bold text-gray-900">{review.name}, {review.age} lat</h4>
-                  <div className="flex items-center text-gray-500 text-xs mt-1">
-                    <MapPin size={12} className="mr-1" /> {review.location}
+            <div key={review.id} className="bg-gray-50 rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+              {review.imageUrl && (
+                <div className="aspect-video w-full overflow-hidden">
+                  <img
+                    src={review.imageUrl}
+                    alt={`Recenzja od ${review.name}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <h4 className="font-bold text-gray-900">{review.name}, {review.age} lat</h4>
+                    <div className="flex items-center text-gray-500 text-xs mt-1">
+                      <MapPin size={12} className="mr-1" /> {review.location}
+                    </div>
+                  </div>
+                  <div className="flex text-yellow-400">
+                    {[...Array(review.stars)].map((_, i) => (
+                      <Star key={i} size={16} fill="currentColor" />
+                    ))}
                   </div>
                 </div>
-                <div className="flex text-yellow-400">
-                  {[...Array(review.stars)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
+                <p className="text-gray-700 italic">"{review.text}"</p>
+                <div className="mt-4 flex items-center gap-2 text-green-700 text-xs font-bold uppercase">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span> Zweryfikowany Zakup
                 </div>
-              </div>
-              <p className="text-gray-700 italic">"{review.text}"</p>
-              <div className="mt-4 flex items-center gap-2 text-green-700 text-xs font-bold uppercase">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span> Zweryfikowany Zakup
               </div>
             </div>
           ))}

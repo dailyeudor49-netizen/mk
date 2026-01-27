@@ -44,6 +44,7 @@ interface Review {
   location: string;
   stars: number;
   text: string;
+  imageUrl?: string;
 }
 
 interface FeatureBox {
@@ -280,6 +281,9 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
           </div>
 
           <div className="flex flex-col items-center justify-center mb-6 mt-6">
+             <div className="bg-yellow-400 text-gray-900 font-black text-3xl md:text-4xl px-8 py-3 rounded-lg mb-4 shadow-md">
+               -50%
+             </div>
              <div className="text-gray-400 font-medium uppercase text-sm tracking-widest mb-1">Promo Cena</div>
              <div className="flex items-center gap-3">
                <span className="text-gray-400 line-through text-2xl decoration-2">158 EUR</span>
@@ -549,35 +553,35 @@ const ComparisonTable: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
           Rychle porovnanie (bez obchadzok)
         </h2>
 
-        <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-100">
-          <table className="w-full text-left border-collapse">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-100 overflow-x-auto">
+          <table className="w-full text-left border-collapse min-w-[320px]">
             <thead>
               <tr className="bg-gray-100 border-b-2 border-gray-300">
-                <th className="p-4 text-gray-600 font-bold text-sm md:text-base w-1/3 uppercase tracking-wider">Vlastnost</th>
-                <th className="p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-sm md:text-xl shadow-inner">
+                <th className="p-2 md:p-4 text-gray-600 font-bold text-xs md:text-base w-1/3 uppercase tracking-wider">Vlastnost</th>
+                <th className="p-2 md:p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-xs md:text-xl shadow-inner">
                   QuickChef
                 </th>
-                <th className="p-4 text-gray-400 font-medium text-center text-sm md:text-base w-1/3">
+                <th className="p-2 md:p-4 text-gray-400 font-medium text-center text-xs md:text-base w-1/3">
                   Ine Roboty
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {[
-                [<span key="1">Automaticky Davkovac <br/><span className="text-xs font-normal text-gray-500">(Sam pridava ingrediencie)</span></span>, true, "Chyba (Musite to robit vy)"],
-                [<span key="2">Celkovy Pocet Funkcii</span>, "45 (Najkompletnejsi)", "Priblizne 12-20"],
-                [<span key="3">Dotykova Obrazovka</span>, "7\" SoftScreen", "Mala alebo Ziadna"],
-                [<span key="4">Aplikacia + Vyprazdnit-Chladnicku</span>, "Ano (1000+ Receptov)", "Malo receptov"],
-                [<span key="5">Material Nadoby</span>, "Keramicky Nepripalovy", "Ocel (Pripali sa)"],
-                [<span key="6">Objem</span>, "3,3L (Pre rodinu)", "2,2L (Maly)"],
-                [<span key="7">Cistenie</span>, "Samocistenie + Umyvacka", "Nudne rucne umyvanie"],
+                [<span key="1" className="text-xs md:text-base">Automaticky Davkovac <br/><span className="text-[10px] md:text-xs font-normal text-gray-500">(Sam pridava ingrediencie)</span></span>, true, "Chyba (Musite to robit vy)"],
+                [<span key="2" className="text-xs md:text-base">Celkovy Pocet Funkcii</span>, "45 (Najkompletnejsi)", "Priblizne 12-20"],
+                [<span key="3" className="text-xs md:text-base">Dotykova Obrazovka</span>, "7\" SoftScreen", "Mala alebo Ziadna"],
+                [<span key="4" className="text-xs md:text-base">Aplikacia + Vyprazdnit-Chladnicku</span>, "Ano (1000+ Receptov)", "Malo receptov"],
+                [<span key="5" className="text-xs md:text-base">Material Nadoby</span>, "Keramicky Nepripalovy", "Ocel (Pripali sa)"],
+                [<span key="6" className="text-xs md:text-base">Objem</span>, "3,3L (Pre rodinu)", "2,2L (Maly)"],
+                [<span key="7" className="text-xs md:text-base">Cistenie</span>, "Samocistenie + Umyvacka", "Nudne rucne umyvanie"],
               ].map(([feature, isUs, them], idx) => (
                 <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                  <td className="p-3 md:p-4 font-bold text-gray-800 text-sm md:text-base align-middle">{feature}</td>
-                  <td className="p-3 md:p-4 bg-green-50 border-l border-r border-green-100 text-center align-middle">
-                    {isUs === true ? <Check className="inline-block text-green-600" size={28} strokeWidth={4} /> : <span className="font-extrabold text-green-700 text-lg">{isUs}</span>}
+                  <td className="p-2 md:p-4 font-bold text-gray-800 text-xs md:text-base align-middle">{feature}</td>
+                  <td className="p-2 md:p-4 bg-green-50 border-l border-r border-green-100 text-center align-middle">
+                    {isUs === true ? <Check className="inline-block text-green-600" size={28} strokeWidth={4} /> : <span className="font-extrabold text-green-700 text-xs md:text-lg">{isUs}</span>}
                   </td>
-                  <td className="p-3 md:p-4 text-center text-gray-500 text-sm md:text-base align-middle">
+                  <td className="p-2 md:p-4 text-center text-gray-500 text-xs md:text-base align-middle">
                     {them}
                   </td>
                 </tr>
@@ -666,9 +670,9 @@ const WhatsIncluded: React.FC = () => {
 
 // 11. Reviews Component
 const reviewsList: Review[] = [
-  { id: 1, name: "Maria", age: 57, location: "Bratislava", stars: 5, text: "Nikdy som nebola dobra kucharka... s tymto mi vsetko vychadza. Obrazovka vam povie, co robit, velmi pohodlne." },
-  { id: 2, name: "Peter", age: 63, location: "Kosice", stars: 5, text: "Varenie zacalo byt unavne. Teraz vlozim vsetko a on to urobi. Cistenie je omnoho jednoduchsie." },
-  { id: 3, name: "Katarina", age: 41, location: "Zilina", stars: 5, text: "Pracujem a nemam cas. Tento ma zachranuje kazdý vecer. Aj cesta a omacky vychadzaju perfektne." },
+  { id: 1, name: "Maria", age: 57, location: "Bratislava", stars: 5, text: "Nikdy som nebola dobra kucharka... s tymto mi vsetko vychadza. Obrazovka vam povie, co robit, velmi pohodlne.", imageUrl: "/images/quickchef img/recensione 1.jpg" },
+  { id: 2, name: "Peter", age: 63, location: "Kosice", stars: 5, text: "Varenie zacalo byt unavne. Teraz vlozim vsetko a on to urobi. Cistenie je omnoho jednoduchsie.", imageUrl: "/images/quickchef img/recensione 2.jpg" },
+  { id: 3, name: "Katarina", age: 41, location: "Zilina", stars: 5, text: "Pracujem a nemam cas. Tento ma zachranuje kazdý vecer. Aj cesta a omacky vychadzaju perfektne.", imageUrl: "/images/quickchef img/recensione 3.jpg" },
   { id: 4, name: "Jan", age: 52, location: "Nitra", stars: 5, text: "Integrovna vaha je uzasna, konecne uz nerobim chyby v davkach... predtym som polovicu receptov zahodil." },
   { id: 5, name: "Eva", age: 60, location: "Presov", stars: 5, text: "Nadoba sa nepripali, to ma presvedcilo. Predtym som musela stale skrabat." },
   { id: 6, name: "Zuzana", age: 35, location: "Trnava", stars: 5, text: "Aplikacia s receptami je velmi uzitocna... a funkcia 'co mam v chladnicke' je genialna, uz neplytva." }
@@ -684,23 +688,34 @@ const Reviews: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviewsList.map((review) => (
-            <div key={review.id} className="bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="flex justify-between items-start mb-3">
-                <div>
-                  <h4 className="font-bold text-gray-900">{review.name}, {review.age} rokov</h4>
-                  <div className="flex items-center text-gray-500 text-xs mt-1">
-                    <MapPin size={12} className="mr-1" /> {review.location}
+            <div key={review.id} className="bg-gray-50 rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+              {review.imageUrl && (
+                <div className="aspect-video w-full overflow-hidden">
+                  <img
+                    src={review.imageUrl}
+                    alt={`Recenzia od ${review.name}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <h4 className="font-bold text-gray-900">{review.name}, {review.age} rokov</h4>
+                    <div className="flex items-center text-gray-500 text-xs mt-1">
+                      <MapPin size={12} className="mr-1" /> {review.location}
+                    </div>
+                  </div>
+                  <div className="flex text-yellow-400">
+                    {[...Array(review.stars)].map((_, i) => (
+                      <Star key={i} size={16} fill="currentColor" />
+                    ))}
                   </div>
                 </div>
-                <div className="flex text-yellow-400">
-                  {[...Array(review.stars)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
+                <p className="text-gray-700 italic">&quot;{review.text}&quot;</p>
+                <div className="mt-4 flex items-center gap-2 text-green-700 text-xs font-bold uppercase">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span> Overeny Nakup
                 </div>
-              </div>
-              <p className="text-gray-700 italic">&quot;{review.text}&quot;</p>
-              <div className="mt-4 flex items-center gap-2 text-green-700 text-xs font-bold uppercase">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span> Overeny Nakup
               </div>
             </div>
           ))}

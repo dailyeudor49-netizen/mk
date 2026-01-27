@@ -44,6 +44,7 @@ interface Review {
   location: string;
   stars: number;
   text: string;
+  imageUrl?: string;
 }
 
 interface FeatureBox {
@@ -280,6 +281,9 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
           </div>
 
           <div className="flex flex-col items-center justify-center mb-6 mt-6">
+             <div className="bg-yellow-400 text-gray-900 font-black text-3xl md:text-4xl px-8 py-3 rounded-lg mb-4 shadow-md">
+               -50%
+             </div>
              <div className="text-gray-400 font-medium uppercase text-sm tracking-widest mb-1">Akcine kaina</div>
              <div className="flex items-center gap-3">
                <span className="text-gray-400 line-through text-2xl decoration-2">138 EUR</span>
@@ -549,35 +553,35 @@ const ComparisonTable: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
           Greitas palyginimas (be aplinkiniu keliu)
         </h2>
 
-        <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-100">
-          <table className="w-full text-left border-collapse">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-100 overflow-x-auto">
+          <table className="w-full text-left border-collapse min-w-[320px]">
             <thead>
               <tr className="bg-gray-100 border-b-2 border-gray-300">
-                <th className="p-4 text-gray-600 font-bold text-sm md:text-base w-1/3 uppercase tracking-wider">Savybe</th>
-                <th className="p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-sm md:text-xl shadow-inner">
+                <th className="p-2 md:p-4 text-gray-600 font-bold text-xs md:text-base w-1/3 uppercase tracking-wider">Savybe</th>
+                <th className="p-2 md:p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-xs md:text-xl shadow-inner">
                   QuickChef
                 </th>
-                <th className="p-4 text-gray-400 font-medium text-center text-sm md:text-base w-1/3">
+                <th className="p-2 md:p-4 text-gray-400 font-medium text-center text-xs md:text-base w-1/3">
                   Kiti robotai
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {[
-                [<span key="1">Automatinis dozatorius <br/><span className="text-xs font-normal text-gray-500">(Pats prideda ingredientus)</span></span>, true, "Nera (Darote patys)"],
-                [<span key="2">Viso funkciju</span>, "45 (Išsamiausias)", "Apie 12-20"],
-                [<span key="3">Lietimui jautrus ekranas</span>, "7\" SoftScreen", "Mazas arba nera"],
-                [<span key="4">Programele + Ištuštink-šaldytuva</span>, "Taip (1000+ Receptu)", "Mazai receptu"],
-                [<span key="5">Indo medziaga</span>, "Keraminis nelimpantis", "Plienas (Limpa)"],
-                [<span key="6">Talpa</span>, "3,3L (Šeimai)", "2,2L (Maza)"],
-                [<span key="7">Valymas</span>, "Savarankiškas + Indaplove", "Varginantis rankomis"],
+                [<span key="1" className="text-xs md:text-base">Automatinis dozatorius <br/><span className="text-[10px] md:text-xs font-normal text-gray-500">(Pats prideda ingredientus)</span></span>, true, "Nera (Darote patys)"],
+                [<span key="2" className="text-xs md:text-base">Viso funkciju</span>, "45 (Išsamiausias)", "Apie 12-20"],
+                [<span key="3" className="text-xs md:text-base">Lietimui jautrus ekranas</span>, "7\" SoftScreen", "Mazas arba nera"],
+                [<span key="4" className="text-xs md:text-base">Programele + Ištuštink-šaldytuva</span>, "Taip (1000+ Receptu)", "Mazai receptu"],
+                [<span key="5" className="text-xs md:text-base">Indo medziaga</span>, "Keraminis nelimpantis", "Plienas (Limpa)"],
+                [<span key="6" className="text-xs md:text-base">Talpa</span>, "3,3L (Šeimai)", "2,2L (Maza)"],
+                [<span key="7" className="text-xs md:text-base">Valymas</span>, "Savarankiškas + Indaplove", "Varginantis rankomis"],
               ].map(([feature, isUs, them], idx) => (
                 <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                  <td className="p-3 md:p-4 font-bold text-gray-800 text-sm md:text-base align-middle">{feature}</td>
-                  <td className="p-3 md:p-4 bg-green-50 border-l border-r border-green-100 text-center align-middle">
-                    {isUs === true ? <Check className="inline-block text-green-600" size={28} strokeWidth={4} /> : <span className="font-extrabold text-green-700 text-lg">{isUs}</span>}
+                  <td className="p-2 md:p-4 font-bold text-gray-800 text-xs md:text-base align-middle">{feature}</td>
+                  <td className="p-2 md:p-4 bg-green-50 border-l border-r border-green-100 text-center align-middle">
+                    {isUs === true ? <Check className="inline-block text-green-600" size={28} strokeWidth={4} /> : <span className="font-extrabold text-green-700 text-xs md:text-lg">{isUs}</span>}
                   </td>
-                  <td className="p-3 md:p-4 text-center text-gray-500 text-sm md:text-base align-middle">
+                  <td className="p-2 md:p-4 text-center text-gray-500 text-xs md:text-base align-middle">
                     {them}
                   </td>
                 </tr>
@@ -666,9 +670,9 @@ const WhatsIncluded: React.FC = () => {
 
 // 11. Reviews Component
 const reviewsList: Review[] = [
-  { id: 1, name: "Ruta", age: 57, location: "Vilnius", stars: 5, text: "Niekada nebuvau gera virėja... su šituo viskas puikiai pavyksta. Ekranas parodo, ka daryti, labai patogu." },
-  { id: 2, name: "Jonas", age: 63, location: "Kaunas", stars: 5, text: "Gaminti darėsi nuobodu. Dabar sudėju viską ir jis gamina. Valyti daug paprasčiau." },
-  { id: 3, name: "Elena", age: 41, location: "Klaipeda", stars: 5, text: "Dirbu ir neturiu laiko. Tai išgelbsti vakarais. Net tešlos ir padažai puikiai išeina." },
+  { id: 1, name: "Ruta", age: 57, location: "Vilnius", stars: 5, text: "Niekada nebuvau gera virėja... su šituo viskas puikiai pavyksta. Ekranas parodo, ka daryti, labai patogu.", imageUrl: "/images/quickchef img/recensione 1.jpg" },
+  { id: 2, name: "Jonas", age: 63, location: "Kaunas", stars: 5, text: "Gaminti darėsi nuobodu. Dabar sudėju viską ir jis gamina. Valyti daug paprasčiau.", imageUrl: "/images/quickchef img/recensione 2.jpg" },
+  { id: 3, name: "Elena", age: 41, location: "Klaipeda", stars: 5, text: "Dirbu ir neturiu laiko. Tai išgelbsti vakarais. Net tešlos ir padažai puikiai išeina.", imageUrl: "/images/quickchef img/recensione 3.jpg" },
   { id: 4, name: "Paulius", age: 52, location: "Šiauliai", stars: 5, text: "Integruotos svarstyklės yra nuostabios, pagaliau nesuklystu su kiekiais... anksčiau išmesdavau pusę receptų." },
   { id: 5, name: "Ana", age: 60, location: "Panevežys", stars: 5, text: "Indas nelimpa, tai mane įtikino. Anksčiau visada reikėjo grandyti." },
   { id: 6, name: "Saulė", age: 35, location: "Alytus", stars: 5, text: "Programėlė su receptais labai naudinga... o funkcija 'kas šaldytuve' yra geniali, nebešvaistau nieko." }
@@ -684,23 +688,34 @@ const Reviews: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviewsList.map((review) => (
-            <div key={review.id} className="bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="flex justify-between items-start mb-3">
-                <div>
-                  <h4 className="font-bold text-gray-900">{review.name}, {review.age} m.</h4>
-                  <div className="flex items-center text-gray-500 text-xs mt-1">
-                    <MapPin size={12} className="mr-1" /> {review.location}
+            <div key={review.id} className="bg-gray-50 rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+              {review.imageUrl && (
+                <div className="aspect-video w-full overflow-hidden">
+                  <img
+                    src={review.imageUrl}
+                    alt={`${review.name} atsiliepimas`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <h4 className="font-bold text-gray-900">{review.name}, {review.age} m.</h4>
+                    <div className="flex items-center text-gray-500 text-xs mt-1">
+                      <MapPin size={12} className="mr-1" /> {review.location}
+                    </div>
+                  </div>
+                  <div className="flex text-yellow-400">
+                    {[...Array(review.stars)].map((_, i) => (
+                      <Star key={i} size={16} fill="currentColor" />
+                    ))}
                   </div>
                 </div>
-                <div className="flex text-yellow-400">
-                  {[...Array(review.stars)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
+                <p className="text-gray-700 italic">"{review.text}"</p>
+                <div className="mt-4 flex items-center gap-2 text-green-700 text-xs font-bold uppercase">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span> Patvirtintas pirkimas
                 </div>
-              </div>
-              <p className="text-gray-700 italic">"{review.text}"</p>
-              <div className="mt-4 flex items-center gap-2 text-green-700 text-xs font-bold uppercase">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span> Patvirtintas pirkimas
               </div>
             </div>
           ))}

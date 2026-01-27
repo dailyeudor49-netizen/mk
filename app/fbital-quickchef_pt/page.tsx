@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
 import {
   Truck,
   ShieldCheck,
@@ -979,67 +981,61 @@ const BrandBanner: React.FC = () => {
   );
 };
 
-// 15. Footer Component
+// Footer Component
 const Footer: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState<'privacy' | 'terms' | null>(null);
-
-  const privacyContent = (
-    <>
-      <p><strong>Politica de Privacidade (RGPD)</strong></p>
-      <p>Os dados recolhidos nesta pagina (Nome, Telefone, Morada) sao utilizados exclusivamente para a gestao e envio da sua encomenda do robot QuickChef.</p>
-      <p>Os seus dados nunca serao vendidos a terceiros. O pagamento e feito na entrega, portanto nao recolhemos dados de cartoes de credito.</p>
-      <p>Responsavel pelo tratamento: Ionizi Portugal Lda.</p>
-    </>
-  );
-
-  const termsContent = (
-    <>
-      <p><strong>Termos e Condicoes de Venda</strong></p>
-      <p>1. <strong>Pagamento:</strong> O pagamento e feito integralmente em dinheiro na entrega (Contra-reembolso) ao estafeta.</p>
-      <p>2. <strong>Envio:</strong> A entrega e feita em 24/48 horas uteis por correio CTT/GLS.</p>
-      <p>3. <strong>Direito de Retratacao:</strong> Nos termos da lei, o cliente tem direito a devolver o produto no prazo de 14 dias apos a rececao.</p>
-      <p>4. <strong>Garantia:</strong> Todos os produtos estao cobertos por Garantia Legal de 24 meses para defeitos de conformidade.</p>
-    </>
-  );
-
   return (
-    <>
-      <footer className="bg-gray-900 text-gray-400 py-12 px-4 text-center text-sm border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <p className="mb-6 font-semibold text-gray-300">&copy; {new Date().getFullYear()} Ionizi. Todos os direitos reservados.</p>
-
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <button onClick={() => setModalOpen('privacy')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Politica de Privacidade
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Termos e Condicoes
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Envios e Devolucoes
-            </button>
+    <div className="w-full border-t border-gray-200 bg-gray-50" style={{ display: 'block' }}>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-12">
+        <div className="text-center mb-8 pb-8 border-b border-gray-200">
+          <p className="text-sm text-gray-600">
+            Precisa de ajuda: <a href="mailto:info@ionizi.com" className="text-blue-600 hover:underline">info@ionizi.com</a>
+          </p>
+          <p className="text-xs text-gray-400 mt-2">
+            QuickChef é uma marca registada distribuída exclusivamente pela Ionizi.com - Revendedor Oficial Autorizado.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/images/ionizi_logo.png"
+                alt="Ionizi"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </Link>
+            <p className="text-sm text-gray-600 mb-4">
+              A sua loja online de confiança para eletrodomésticos e artigos essenciais do dia a dia. Produtos de qualidade entregues em toda a Europa.
+            </p>
           </div>
-
-          <div className="text-xs text-gray-600 max-w-2xl mx-auto leading-relaxed border-t border-gray-800 pt-6">
-            <p className="mb-2">Este site nao faz parte do site Facebook ou Facebook Inc. Alem disso, este site nao e aprovado pelo Facebook de forma alguma. FACEBOOK e uma marca registada da FACEBOOK, Inc.</p>
-            <p>As imagens sao para fins ilustrativos. As avaliacoes sao fruto de experiencias reais dos nossos clientes, mas os resultados podem variar de pessoa para pessoa.</p>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Sobre Nós</h3>
+            <p className="text-sm text-gray-600">
+              Especializamo-nos em fornecer ar condicionado, aquecedores, eletrodomésticos de cozinha e pequenos dispositivos domésticos de alta qualidade.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Informações</h3>
+            <ul className="space-y-3">
+              <li><Link href="/contact" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Contacto</Link></li>
+              <li><Link href="/shipping" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Envio e Devoluções</Link></li>
+              <li><Link href="/terms" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Termos de Serviço</Link></li>
+              <li><Link href="/privacy" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Política de Privacidade</Link></li>
+            </ul>
           </div>
         </div>
-      </footer>
-
-      <Modal
-        isOpen={modalOpen === 'privacy'}
-        onClose={() => setModalOpen(null)}
-        title="Politica de Privacidade"
-        content={privacyContent}
-      />
-      <Modal
-        isOpen={modalOpen === 'terms'}
-        onClose={() => setModalOpen(null)}
-        title="Termos e Condicoes"
-        content={termsContent}
-      />
-    </>
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-gray-600">© 2025 Ionizi. Todos os direitos reservados.</p>
+            <p className="text-sm text-gray-600 mt-4 md:mt-0">Envio rápido em toda a Europa</p>
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-100 py-4 px-4 text-center text-xs text-gray-500 border-t border-gray-200">
+        <p>Esta página não faz parte do site do Facebook nem do Facebook Inc. Além disso, esta página não é de forma alguma endossada pelo Facebook. FACEBOOK é uma marca registada da FACEBOOK, Inc.</p>
+      </div>
+    </div>
   );
 };
 

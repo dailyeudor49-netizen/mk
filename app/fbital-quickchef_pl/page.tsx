@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 import {
   Truck,
@@ -1012,65 +1014,88 @@ const Faq: React.FC = () => {
 
 // 15. Footer Component
 const Footer: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState<'privacy' | 'terms' | null>(null);
-
-  const privacyContent = (
-    <>
-      <p><strong>Polityka Prywatnosci (RODO)</strong></p>
-      <p>Dane zebrane na tej stronie (Imie, Telefon, Adres) sa wykorzystywane wylacznie do obslugi i wysylki Twojego zamowienia robota QuickChef.</p>
-      <p>Twoje dane nigdy nie beda sprzedawane osobom trzecim. Platnosc odbywa sie przy odbiorze, wiec nie zbieramy danych kart kredytowych.</p>
-      <p>Administrator danych: IONIZI Sp. z o.o.</p>
-    </>
-  );
-
-  const termsContent = (
-    <>
-      <p><strong>Regulamin Sprzedazy</strong></p>
-      <p>1. <strong>Platnosc:</strong> Platnosc odbywa sie w calosci gotowka przy odbiorze (za pobraniem) kurierowi ekspresowemu.</p>
-      <p>2. <strong>Wysylka:</strong> Dostawa odbywa sie w 24/48 godzin roboczych kurierem.</p>
-      <p>3. <strong>Prawo do Odstapienia:</strong> Klient ma prawo odstapic od umowy w ciagu 14 dni od otrzymania produktu.</p>
-      <p>4. <strong>Gwarancja:</strong> Wszystkie produkty sa objete 24-miesieczna gwarancja na wady zgodnosci.</p>
-    </>
-  );
-
   return (
-    <>
-      <footer className="bg-gray-900 text-gray-400 py-12 px-4 text-center text-sm border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <p className="mb-6 font-semibold text-gray-300">&copy; {new Date().getFullYear()} IONIZI - QuickChef Polska. Wszelkie prawa zastrzezone.</p>
-
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <button onClick={() => setModalOpen('privacy')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Polityka Prywatnosci
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Regulamin
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Wysylka i Zwroty
-            </button>
+    <div className="w-full border-t border-gray-200 bg-gray-50" style={{ display: 'block' }}>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-12">
+        <div className="text-center mb-8 pb-8 border-b border-gray-200">
+          <p className="text-sm text-gray-600">
+            Potrzebujesz pomocy: <a href="mailto:info@ionizi.com" className="text-blue-600 hover:underline">info@ionizi.com</a>
+          </p>
+          <p className="text-xs text-gray-400 mt-2">
+            QuickChef jest zarejestrowaną marką dystrybuowaną wyłącznie przez Ionizi.com - Oficjalny Autoryzowany Sprzedawca.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Company Info */}
+          <div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/images/ionizi_logo.png"
+                alt="Ionizi"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </Link>
+            <p className="text-sm text-gray-600 mb-4">
+              Twój zaufany sklep internetowy z urządzeniami domowymi i artykułami codziennego użytku. Wysokiej jakości produkty dostarczane w całej Europie.
+            </p>
           </div>
 
-          <div className="text-xs text-gray-600 max-w-2xl mx-auto leading-relaxed border-t border-gray-800 pt-6">
-            <p className="mb-2">Ta strona nie jest czescia serwisu Facebook ani Facebook Inc. Ponadto ta strona nie jest w zaden sposob zatwierdzona przez Facebook. FACEBOOK jest znakiem towarowym FACEBOOK, Inc.</p>
-            <p>Zdjecia maja charakter pogladowy. Opinie pochodza z rzeczywistych doswiadczen naszych klientow, ale wyniki moga sie roznic w zaleznosci od osoby.</p>
+          {/* About */}
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">O Nas</h3>
+            <p className="text-sm text-gray-600">
+              Specjalizujemy się w dostarczaniu wysokiej jakości klimatyzatorów, grzejników, urządzeń kuchennych i małych urządzeń domowych, które ułatwiają życie.
+            </p>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Informacje</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/contact" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">
+                  Kontakt
+                </Link>
+              </li>
+              <li>
+                <Link href="/shipping" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">
+                  Wysyłka i Zwroty
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">
+                  Regulamin
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">
+                  Polityka Prywatności
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
-      </footer>
 
-      <Modal
-        isOpen={modalOpen === 'privacy'}
-        onClose={() => setModalOpen(null)}
-        title="Polityka Prywatnosci"
-        content={privacyContent}
-      />
-      <Modal
-        isOpen={modalOpen === 'terms'}
-        onClose={() => setModalOpen(null)}
-        title="Regulamin"
-        content={termsContent}
-      />
-    </>
+        {/* Bottom */}
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-gray-600">
+              © 2025 Ionizi. Wszelkie prawa zastrzeżone.
+            </p>
+            <p className="text-sm text-gray-600 mt-4 md:mt-0">
+              Szybka wysyłka w całej Europie
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Facebook disclaimer */}
+      <div className="bg-gray-100 py-4 px-4 text-center text-xs text-gray-500 border-t border-gray-200">
+        <p>Ta strona nie jest częścią serwisu Facebook ani Facebook Inc. Ponadto ta strona nie jest w żaden sposób zatwierdzona przez Facebook. FACEBOOK jest znakiem towarowym FACEBOOK, Inc.</p>
+      </div>
+    </div>
   );
 };
 

@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import {
   Truck,
   ShieldCheck,
@@ -1013,67 +1015,61 @@ const Faq: React.FC = () => {
   );
 };
 
-// 15. Footer Component
+// Footer Component
 const Footer: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState<'privacy' | 'terms' | null>(null);
-
-  const privacyContent = (
-    <>
-      <p><strong>Adatvedelmi Tajekoztato (GDPR)</strong></p>
-      <p>Az ezen az oldalon gyujtott adatokat (Nev, Telefonszam, Cim) kizarolag a QuickChef robot rendelesenek kezelesehez es szallitasahoz hasznaljuk.</p>
-      <p>Adataid sosem adjuk el harmadik feleknek. A fizetes atvetkor tortenik, ezert nem gyujtunk bankkartya adatokat.</p>
-      <p>Adatkezelo: Ionizi Ltd.</p>
-    </>
-  );
-
-  const termsContent = (
-    <>
-      <p><strong>Altalanos Szerzodesi Feltetelek</strong></p>
-      <p>1. <strong>Fizetes:</strong> A fizetes teljes egeszeben keszpenzben tortenik atvetkor (utanvet) az expressz futarnak.</p>
-      <p>2. <strong>Szallitas:</strong> A kiszallitas 24/48 munkanap alatt tortenik expressz futarral.</p>
-      <p>3. <strong>Elallasi jog:</strong> A vasarlonak joga van 14 napon belul elallni a termek atvetelétol szamitva.</p>
-      <p>4. <strong>Garancia:</strong> Minden termekre 24 honap torvényes garancia vonatkozik.</p>
-    </>
-  );
-
   return (
-    <>
-      <footer className="bg-gray-900 text-gray-400 py-12 px-4 text-center text-sm border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <p className="mb-6 font-semibold text-gray-300">&copy; {new Date().getFullYear()} Ionizi. Minden jog fenntartva.</p>
-
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <button onClick={() => setModalOpen('privacy')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Adatvedelmi iranyelvek
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Altalanos Szerzodesi Feltetelek
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Szallitas es Visszakuldes
-            </button>
+    <div className="w-full border-t border-gray-200 bg-gray-50" style={{ display: 'block' }}>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-12">
+        <div className="text-center mb-8 pb-8 border-b border-gray-200">
+          <p className="text-sm text-gray-600">
+            Segítségre van szüksége: <a href="mailto:info@ionizi.com" className="text-blue-600 hover:underline">info@ionizi.com</a>
+          </p>
+          <p className="text-xs text-gray-400 mt-2">
+            A QuickChef az Ionizi.com által kizárólagosan forgalmazott bejegyzett márka - Hivatalos meghatalmazott viszonteladó.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/images/ionizi_logo.png"
+                alt="Ionizi"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </Link>
+            <p className="text-sm text-gray-600 mb-4">
+              Megbízható online áruháza háztartási készülékekhez és mindennapi szükségletekhez. Minőségi termékek egész Európába kiszállítva.
+            </p>
           </div>
-
-          <div className="text-xs text-gray-600 max-w-2xl mx-auto leading-relaxed border-t border-gray-800 pt-6">
-            <p className="mb-2">Ez a webhely nem resze a Facebook oldalnak vagy a Facebook Inc.-nek. Tovabba ezt a webhelyet a Facebook semmilyen modon nem hagyta jova. A FACEBOOK a FACEBOOK, Inc. vedjegye.</p>
-            <p>A kepek illusztracios celokat szolgalnak. A velemenyek valodi vasarloinak tapasztalatai, de az eredmenyek szemelytol fuggoën valtozhatnak.</p>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Rólunk</h3>
+            <p className="text-sm text-gray-600">
+              Kiváló minőségű légkondicionálók, fűtőtestek, konyhai készülékek és kis háztartási eszközök biztosítására specializálódtunk.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Információ</h3>
+            <ul className="space-y-3">
+              <li><Link href="/contact" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Kapcsolat</Link></li>
+              <li><Link href="/shipping" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Szállítás és visszaküldés</Link></li>
+              <li><Link href="/terms" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Általános szerződési feltételek</Link></li>
+              <li><Link href="/privacy" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Adatvédelmi irányelvek</Link></li>
+            </ul>
           </div>
         </div>
-      </footer>
-
-      <Modal
-        isOpen={modalOpen === 'privacy'}
-        onClose={() => setModalOpen(null)}
-        title="Adatvedelmi iranyelvek"
-        content={privacyContent}
-      />
-      <Modal
-        isOpen={modalOpen === 'terms'}
-        onClose={() => setModalOpen(null)}
-        title="Altalanos Szerzodesi Feltetelek"
-        content={termsContent}
-      />
-    </>
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-gray-600">© 2025 Ionizi. Minden jog fenntartva.</p>
+            <p className="text-sm text-gray-600 mt-4 md:mt-0">Gyors szállítás egész Európába</p>
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-100 py-4 px-4 text-center text-xs text-gray-500 border-t border-gray-200">
+        <p>Ez az oldal nem része a Facebook webhelyének vagy a Facebook Inc.-nek. Továbbá ezt az oldalt a Facebook semmilyen módon nem támogatja. A FACEBOOK a FACEBOOK, Inc. védjegye.</p>
+      </div>
+    </div>
   );
 };
 

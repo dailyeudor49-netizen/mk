@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import {
   Truck,
   ShieldCheck,
@@ -990,67 +992,61 @@ const BrandBanner: React.FC = () => {
   );
 };
 
-// 15. Footer Component
+// Footer Component
 const Footer: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState<'privacy' | 'terms' | null>(null);
-
-  const privacyContent = (
-    <>
-      <p><strong>Politica de confidentialitate (GDPR)</strong></p>
-      <p>Datele colectate pe aceasta pagina (Nume, Telefon, Adresa) sunt folosite exclusiv pentru procesarea si livrarea comenzii tale de robot QuickChef.</p>
-      <p>Datele tale nu vor fi vandute niciodata catre terti. Plata se face la livrare, deci nu colectam date de card de credit.</p>
-      <p>Operator de date: Ionizi Ltd.</p>
-    </>
-  );
-
-  const termsContent = (
-    <>
-      <p><strong>Termeni si conditii de vanzare</strong></p>
-      <p>1. <strong>Plata:</strong> Plata se face integral cash la livrare catre curier.</p>
-      <p>2. <strong>Livrare:</strong> Livrarea se efectueaza in 24/48 ore lucratoare cu livrare rapida.</p>
-      <p>3. <strong>Drept de retragere:</strong> Clientul are dreptul de retragere in 14 zile de la primirea produsului.</p>
-      <p>4. <strong>Garantie:</strong> Toate produsele beneficiaza de garantie legala de 24 luni pentru defecte de conformitate.</p>
-    </>
-  );
-
   return (
-    <>
-      <footer className="bg-gray-900 text-gray-400 py-12 px-4 text-center text-sm border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <p className="mb-6 font-semibold text-gray-300">&copy; {new Date().getFullYear()} Ionizi. Toate drepturile rezervate.</p>
-
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <button onClick={() => setModalOpen('privacy')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Politica de confidentialitate
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Termeni si conditii
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Livrare si returnare
-            </button>
+    <div className="w-full border-t border-gray-200 bg-gray-50" style={{ display: 'block' }}>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-12">
+        <div className="text-center mb-8 pb-8 border-b border-gray-200">
+          <p className="text-sm text-gray-600">
+            Aveți nevoie de ajutor: <a href="mailto:info@ionizi.com" className="text-blue-600 hover:underline">info@ionizi.com</a>
+          </p>
+          <p className="text-xs text-gray-400 mt-2">
+            QuickChef este o marcă înregistrată distribuită exclusiv de Ionizi.com - Distribuitor Oficial Autorizat.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/images/ionizi_logo.png"
+                alt="Ionizi"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </Link>
+            <p className="text-sm text-gray-600 mb-4">
+              Magazinul dvs. online de încredere pentru electrocasnice și articole esențiale de zi cu zi. Produse de calitate livrate în toată Europa.
+            </p>
           </div>
-
-          <div className="text-xs text-gray-600 max-w-2xl mx-auto leading-relaxed border-t border-gray-800 pt-6">
-            <p className="mb-2">Acest site nu face parte din site-ul Facebook sau Facebook Inc. In plus, acest site nu este sustinut in niciun fel de Facebook. FACEBOOK este o marca inregistrata a FACEBOOK, Inc.</p>
-            <p>Imaginile sunt prezentate in scop ilustrativ. Recenziile sunt experiente reale ale clientilor nostri, dar rezultatele pot varia de la persoana la persoana.</p>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Despre noi</h3>
+            <p className="text-sm text-gray-600">
+              Ne specializăm în furnizarea de aparate de aer condiționat, încălzitoare, electrocasnice de bucătărie și dispozitive mici pentru casă de înaltă calitate.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Informații</h3>
+            <ul className="space-y-3">
+              <li><Link href="/contact" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Contact</Link></li>
+              <li><Link href="/shipping" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Livrare și returnări</Link></li>
+              <li><Link href="/terms" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Termeni și condiții</Link></li>
+              <li><Link href="/privacy" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Politica de confidențialitate</Link></li>
+            </ul>
           </div>
         </div>
-      </footer>
-
-      <Modal
-        isOpen={modalOpen === 'privacy'}
-        onClose={() => setModalOpen(null)}
-        title="Politica de confidentialitate"
-        content={privacyContent}
-      />
-      <Modal
-        isOpen={modalOpen === 'terms'}
-        onClose={() => setModalOpen(null)}
-        title="Termeni si conditii"
-        content={termsContent}
-      />
-    </>
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-gray-600">© 2025 Ionizi. Toate drepturile rezervate.</p>
+            <p className="text-sm text-gray-600 mt-4 md:mt-0">Livrare rapidă în toată Europa</p>
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-100 py-4 px-4 text-center text-xs text-gray-500 border-t border-gray-200">
+        <p>Această pagină nu face parte din site-ul Facebook sau Facebook Inc. De asemenea, această pagină nu este în niciun fel aprobată de Facebook. FACEBOOK este o marcă înregistrată a FACEBOOK, Inc.</p>
+      </div>
+    </div>
   );
 };
 

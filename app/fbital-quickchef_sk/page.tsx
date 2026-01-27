@@ -25,6 +25,8 @@ import {
   ChevronUp
 } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import Link from 'next/link';
+import Image from 'next/image';
 
 // --- NETWORK CONFIG ---
 const NETWORK_CONFIG = {
@@ -1007,67 +1009,61 @@ const BrandBanner: React.FC = () => {
   );
 };
 
-// 15. Footer Component
+// Footer Component
 const Footer: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState<'privacy' | 'terms' | null>(null);
-
-  const privacyContent = (
-    <>
-      <p><strong>Informacie o ochrane osobnych udajov (GDPR)</strong></p>
-      <p>Udaje zhromazdene na tejto stranke (Meno, Telefon, Adresa) sa pouzivaju vyhradne na spracovanie a odoslanie vasej objednavky robota QuickChef.</p>
-      <p>Vase udaje nikdy nebudu predane tretim stranam. Platba prebieha pri doruceni, takze nezhromazdujeme udaje o kreditnych kartach.</p>
-      <p>Spravca udajov: Ionizi s.r.o.</p>
-    </>
-  );
-
-  const termsContent = (
-    <>
-      <p><strong>Obchodne Podmienky</strong></p>
-      <p>1. <strong>Platba:</strong> Platba prebieha v plnej vyske v hotovosti pri doruceni (na dobierku) expresnemu kurierovi.</p>
-      <p>2. <strong>Doprava:</strong> Dorucenie prebieha do 24/48 pracovnych hodin cez kurierskych sluzieb.</p>
-      <p>3. <strong>Pravo na odstupenie:</strong> Zakaznik ma pravo odstupit od zmluvy do 14 dni od prevzatia tovaru.</p>
-      <p>4. <strong>Zaruka:</strong> Na vsetky produkty sa vztahuje zakonna zaruka 24 mesiacov na vady zhody.</p>
-    </>
-  );
-
   return (
-    <>
-      <footer className="bg-gray-900 text-gray-400 py-12 px-4 text-center text-sm border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <p className="mb-6 font-semibold text-gray-300">&copy; {new Date().getFullYear()} QuickChef - Ionizi. Vsetky prava vyhradene.</p>
-
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <button onClick={() => setModalOpen('privacy')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Zasady Ochrany Osobnych Udajov
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Obchodne Podmienky
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Doprava a Vratenie
-            </button>
+    <div className="w-full border-t border-gray-200 bg-gray-50" style={{ display: 'block' }}>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-12">
+        <div className="text-center mb-8 pb-8 border-b border-gray-200">
+          <p className="text-sm text-gray-600">
+            Potrebujete pomoc: <a href="mailto:info@ionizi.com" className="text-blue-600 hover:underline">info@ionizi.com</a>
+          </p>
+          <p className="text-xs text-gray-400 mt-2">
+            QuickChef je registrovaná značka výhradne distribuovaná spoločnosťou Ionizi.com - Oficiálny autorizovaný predajca.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/images/ionizi_logo.png"
+                alt="Ionizi"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </Link>
+            <p className="text-sm text-gray-600 mb-4">
+              Váš dôveryhodný online obchod s domácimi spotrebičmi a každodennými potrebami. Kvalitné produkty doručované po celej Európe.
+            </p>
           </div>
-
-          <div className="text-xs text-gray-600 max-w-2xl mx-auto leading-relaxed border-t border-gray-800 pt-6">
-            <p className="mb-2">Tato stranka nie je sucastou stranky Facebook ani Facebook Inc. Okrem toho tato stranka nie je ziadnym sposobom schvalena Facebookom. FACEBOOK je ochrannou znamkou spolocnosti FACEBOOK, Inc.</p>
-            <p>Obrazky su len na ilustracne ucely. Recenzie su zalozene na skutocnych skusenostiach nasich zakaznikov, ale vysledky sa mozu lisit od cloveka k cloveku.</p>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">O nás</h3>
+            <p className="text-sm text-gray-600">
+              Špecializujeme sa na poskytovanie vysokokvalitných klimatizácií, ohrievačov, kuchynských spotrebičov a malých domácich zariadení.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Informácie</h3>
+            <ul className="space-y-3">
+              <li><Link href="/contact" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Kontakt</Link></li>
+              <li><Link href="/shipping" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Doprava a vrátenie</Link></li>
+              <li><Link href="/terms" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Obchodné podmienky</Link></li>
+              <li><Link href="/privacy" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Zásady ochrany osobných údajov</Link></li>
+            </ul>
           </div>
         </div>
-      </footer>
-
-      <Modal
-        isOpen={modalOpen === 'privacy'}
-        onClose={() => setModalOpen(null)}
-        title="Zasady Ochrany Osobnych Udajov"
-        content={privacyContent}
-      />
-      <Modal
-        isOpen={modalOpen === 'terms'}
-        onClose={() => setModalOpen(null)}
-        title="Obchodne Podmienky"
-        content={termsContent}
-      />
-    </>
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-gray-600">© 2025 Ionizi. Všetky práva vyhradené.</p>
+            <p className="text-sm text-gray-600 mt-4 md:mt-0">Rýchle doručenie po celej Európe</p>
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-100 py-4 px-4 text-center text-xs text-gray-500 border-t border-gray-200">
+        <p>Táto stránka nie je súčasťou webovej stránky Facebook ani spoločnosti Facebook Inc. Táto stránka tiež nie je žiadnym spôsobom schválená spoločnosťou Facebook. FACEBOOK je ochranná známka spoločnosti FACEBOOK, Inc.</p>
+      </div>
+    </div>
   );
 };
 

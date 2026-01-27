@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import {
   Truck,
   ShieldCheck,
@@ -990,67 +992,61 @@ const BrandBanner: React.FC = () => {
   );
 };
 
-// 15. Footer Component
+// Footer Component
 const Footer: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState<'privacy' | 'terms' | null>(null);
-
-  const privacyContent = (
-    <>
-      <p><strong>Privatumo politika (BDAR)</strong></p>
-      <p>Šiame puslapyje surinkti duomenys (Vardas, Telefonas, Adresas) naudojami išskirtinai jusu QuickChef roboto uzsakymo apdorojimui ir pristatymui.</p>
-      <p>Jusu duomenys niekada nebus parduoti tretiesiems asmenims. Mokejimas atliekamas pristatymo metu, todėl mes nerenkame kredito korteliu duomenu.</p>
-      <p>Duomenu valdytojas: Ionizi Ltd.</p>
-    </>
-  );
-
-  const termsContent = (
-    <>
-      <p><strong>Pardavimo salygos ir taisykles</strong></p>
-      <p>1. <strong>Mokejimas:</strong> Mokejimas atliekamas pilnai grynaisiais pristatymo metu kurjeriui.</p>
-      <p>2. <strong>Pristatymas:</strong> Pristatymas vykdomas per 24/48 darbo valandas greitu pristatymu.</p>
-      <p>3. <strong>Atsisakymo teise:</strong> Klientas turi teise atsisakyti per 14 dienu nuo produkto gavimo.</p>
-      <p>4. <strong>Garantija:</strong> Visiems produktams taikoma 24 menesiu teisine garantija del atitikties defektu.</p>
-    </>
-  );
-
   return (
-    <>
-      <footer className="bg-gray-900 text-gray-400 py-12 px-4 text-center text-sm border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <p className="mb-6 font-semibold text-gray-300">&copy; {new Date().getFullYear()} Ionizi. Visos teises saugomos.</p>
-
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <button onClick={() => setModalOpen('privacy')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Privatumo politika
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Salygos ir taisykles
-            </button>
-            <button onClick={() => setModalOpen('terms')} className="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition-all">
-              Pristatymas ir grazinimas
-            </button>
+    <div className="w-full border-t border-gray-200 bg-gray-50" style={{ display: 'block' }}>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-12">
+        <div className="text-center mb-8 pb-8 border-b border-gray-200">
+          <p className="text-sm text-gray-600">
+            Reikia pagalbos: <a href="mailto:info@ionizi.com" className="text-blue-600 hover:underline">info@ionizi.com</a>
+          </p>
+          <p className="text-xs text-gray-400 mt-2">
+            QuickChef yra registruotas prekės ženklas, išskirtinai platinamas Ionizi.com - Oficialus įgaliotas pardavėjas.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/images/ionizi_logo.png"
+                alt="Ionizi"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </Link>
+            <p className="text-sm text-gray-600 mb-4">
+              Jūsų patikima internetinė parduotuvė buitinei technikai ir kasdienėms reikmėms. Kokybiški produktai pristatomi visoje Europoje.
+            </p>
           </div>
-
-          <div className="text-xs text-gray-600 max-w-2xl mx-auto leading-relaxed border-t border-gray-800 pt-6">
-            <p className="mb-2">Ši svetaine nera Facebook svetaines ar Facebook Inc. dalis. Be to, ši svetaine nera jokiu budu patvirtinta Facebook. FACEBOOK yra FACEBOOK, Inc. prekės zenklas.</p>
-            <p>Vaizdai pateikti iliustraciniais tikslais. Atsiliepimai yra tikru musu klientu patirtys, taciau rezultatai gali skirtis priklausomai nuo asmens.</p>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Apie mus</h3>
+            <p className="text-sm text-gray-600">
+              Specializuojamės teikdami aukštos kokybės oro kondicionierius, šildytuvus, virtuvės prietaisus ir mažus buitinius prietaisus.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Informacija</h3>
+            <ul className="space-y-3">
+              <li><Link href="/contact" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Kontaktai</Link></li>
+              <li><Link href="/shipping" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Pristatymas ir grąžinimas</Link></li>
+              <li><Link href="/terms" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Paslaugų sąlygos</Link></li>
+              <li><Link href="/privacy" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Privatumo politika</Link></li>
+            </ul>
           </div>
         </div>
-      </footer>
-
-      <Modal
-        isOpen={modalOpen === 'privacy'}
-        onClose={() => setModalOpen(null)}
-        title="Privatumo politika"
-        content={privacyContent}
-      />
-      <Modal
-        isOpen={modalOpen === 'terms'}
-        onClose={() => setModalOpen(null)}
-        title="Salygos ir taisykles"
-        content={termsContent}
-      />
-    </>
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-gray-600">© 2025 Ionizi. Visos teisės saugomos.</p>
+            <p className="text-sm text-gray-600 mt-4 md:mt-0">Greitas pristatymas visoje Europoje</p>
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-100 py-4 px-4 text-center text-xs text-gray-500 border-t border-gray-200">
+        <p>Šis puslapis nėra Facebook svetainės ar Facebook Inc. dalis. Be to, šis puslapis jokiu būdu nėra patvirtintas Facebook. FACEBOOK yra FACEBOOK, Inc. prekės ženklas.</p>
+      </div>
+    </div>
   );
 };
 

@@ -351,12 +351,12 @@ const Hero = ({ onScrollToOrder }: { onScrollToOrder: () => void }) => {
              </div>
           </div>
 
-          <div className="flex justify-center mt-4 space-x-3 absolute bottom-4 left-0 right-0 md:static">
+          <div className="flex justify-start md:justify-center gap-2 mt-4 px-2 pb-2 overflow-x-auto md:overflow-visible">
             {images.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentImage(idx)}
-                className={`w-12 h-12 md:w-16 md:h-16 rounded-lg border-2 overflow-hidden transition-all bg-white shadow-sm ${idx === currentImage ? 'border-[#dc2626] ring-2 ring-red-100' : 'border-gray-300 opacity-70'}`}
+                className={`w-10 h-10 md:w-14 md:h-14 rounded-lg border-2 overflow-hidden transition-all bg-white shadow-sm shrink-0 ${idx === currentImage ? 'border-[#dc2626] ring-2 ring-red-100' : 'border-gray-300 opacity-70'}`}
               >
                   <img src={images[idx]} alt={`Náhled ${idx}`} className="w-full h-full object-cover" />
               </button>

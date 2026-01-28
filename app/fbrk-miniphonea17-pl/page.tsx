@@ -6,7 +6,7 @@ import {
   MessageCircle, Camera, Play, Gamepad2, ShoppingCart,
   AlertTriangle, X, ArrowDown, Share2, CreditCard, Shield, Zap, Layers, Map,
   Gift, Plus, BadgeCheck, Clock, Lock, XCircle, CheckCircle, MapPin, Quote,
-  ChevronDown, ChevronUp
+  ChevronDown, ChevronUp, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 
@@ -344,6 +344,22 @@ const Hero = ({ onScrollToOrder }: { onScrollToOrder: () => void }) => {
              <div className="absolute top-0 right-0 bg-[#dc2626] text-white font-black px-4 py-2 md:rounded-bl-xl shadow-md z-10 text-xl">
                 {DISCOUNT_PERCENTAGE}
              </div>
+
+             {/* Navigation Arrows */}
+             <button
+               onClick={() => setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
+               className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg z-10 transition-all"
+               aria-label="Poprzednie zdjęcie"
+             >
+               <ChevronLeft size={24} className="text-gray-800" />
+             </button>
+             <button
+               onClick={() => setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
+               className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg z-10 transition-all"
+               aria-label="Następne zdjęcie"
+             >
+               <ChevronRight size={24} className="text-gray-800" />
+             </button>
           </div>
 
           {/* Thumbnails - Below carousel */}

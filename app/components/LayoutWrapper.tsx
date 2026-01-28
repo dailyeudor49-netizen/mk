@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import Header from './Header';
 import Footer from './Footer';
 
-const noHeaderRoutes = ['/besecureprovideocamere', '/besecurepro_pl', '/climateguardpro', '/climateguardpro_sk', '/climateguardpro_pl', '/climateguardpro_hr', '/climateguardpro_hu', '/climateguardpro_czk', '/fb-climateguardpro_pl', '/fb-besecurepro_pl', '/fb-superhub_pl', '/fb-superhub_hu', '/fbuc-lithiumpro', '/fbuc-titansaw', '/fbuc-tvboxpro', '/fbuc-ortopper', '/fb-ty', '/fbrk-miniphonea17-it'];
+const noHeaderRoutes = ['/besecureprovideocamere', '/besecurepro_pl', '/climateguardpro', '/climateguardpro_sk', '/climateguardpro_pl', '/climateguardpro_hr', '/climateguardpro_hu', '/climateguardpro_czk', '/fb-climateguardpro_pl', '/fb-besecurepro_pl', '/fb-superhub_pl', '/fb-superhub_hu', '/fbuc-lithiumpro', '/fbuc-titansaw', '/fbuc-tvboxpro', '/fbuc-ortopper', '/fb-ty', '/fbrk-miniphonea17'];
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Star, Truck, ShieldCheck, Check, Smartphone, Cpu, Wifi, Battery,
   MessageCircle, Camera, Play, Gamepad2, ShoppingCart,
@@ -8,6 +8,15 @@ import {
   Gift, Plus, BadgeCheck, Clock, Lock, XCircle, CheckCircle, MapPin, Quote,
   ChevronDown, ChevronUp
 } from 'lucide-react';
+
+// --- NETWORK CONFIG ---
+const NETWORK_CONFIG = {
+  apiUrl: 'https://offers.supertrendaffiliateprogram.com/forms/api/',
+  uid: '019855d0-397a-72ee-8df5-c5026966105a',
+  key: '8ea99f0506e1df27f625d0',
+  offer: '121',
+  lp: '121',
+};
 
 // --- TYPES ---
 
@@ -1147,6 +1156,8 @@ const FAQ = () => {
 
 // OrderForm Component
 const OrderForm = () => {
+  const tmfpRef = useRef<HTMLInputElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [timeLeft, setTimeLeft] = useState(900); // 15 minutes
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -1178,13 +1189,57 @@ const OrderForm = () => {
     return `${m}:${s < 10 ? '0' : ''}${s}`;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      // Get UTM params from URL
+      const urlParams = new URLSearchParams(window.location.search);
+
+      // Send to Network API
+      try {
+        const networkFormData = new FormData();
+        networkFormData.append('uid', NETWORK_CONFIG.uid);
+        networkFormData.append('key', NETWORK_CONFIG.key);
+        networkFormData.append('offer', NETWORK_CONFIG.offer);
+        networkFormData.append('lp', NETWORK_CONFIG.lp);
+        networkFormData.append('name', formData.firstName);
+        networkFormData.append('tel', formData.phone);
+        networkFormData.append('street-address', formData.address);
+
+        // Add fingerprint if available
+        const tmfpValue = tmfpRef.current?.value || '';
+        if (tmfpValue) {
+          networkFormData.append('tmfp', tmfpValue);
+        }
+
+        // Add UTM params if present
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'subid', 'subid2', 'subid3', 'subid4', 'pubid'].forEach(param => {
+          const value = urlParams.get(param);
+          if (value) networkFormData.append(param, value);
+        });
+
+        const response = await fetch(NETWORK_CONFIG.apiUrl, {
+          method: 'POST',
+          body: networkFormData,
+        });
+        const data = await response.json();
+        console.log('Network API response:', data);
+      } catch (error) {
+        console.error('Network API error:', error);
+      }
+
+      setIsSubmitted(true);
       setTimeout(() => {
-          setIsSubmitted(true);
-          const element = document.getElementById('order-confirmation');
-          if (element) element.scrollIntoView({ behavior: 'smooth' });
-      }, 800);
+        const element = document.getElementById('order-confirmation');
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } catch (error) {
+      console.error('[Form] Submit error:', error);
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -1236,6 +1291,7 @@ const OrderForm = () => {
 
             <div className="p-6 md:p-8">
                 <form onSubmit={handleSubmit} className="space-y-5">
+                    <input type="hidden" name="tmfp" ref={tmfpRef} />
 
                     {/* Visual Recap */}
                     <div className="flex items-center bg-gray-50 p-4 rounded-xl border border-gray-200 mb-6">
@@ -1305,9 +1361,10 @@ const OrderForm = () => {
 
                     <button
                         type="submit"
-                        className="w-full bg-[#16a34a] hover:bg-green-600 text-white font-black text-2xl py-6 rounded-xl shadow-xl mt-4 transform hover:-translate-y-1 active:translate-y-0 transition-all flex items-center justify-center group"
+                        disabled={isSubmitting}
+                        className="w-full bg-[#16a34a] hover:bg-green-600 disabled:bg-gray-400 text-white font-black text-2xl py-6 rounded-xl shadow-xl mt-4 transform hover:-translate-y-1 active:translate-y-0 transition-all flex items-center justify-center group"
                     >
-                        <span>ZAMÓW TERAZ</span>
+                        <span>{isSubmitting ? 'WYSYŁANIE...' : 'ZAMÓW TERAZ'}</span>
                         <Truck className="ml-3 group-hover:translate-x-1 transition-transform" size={28} />
                     </button>
                     <div className="text-center font-bold text-[#16a34a] text-sm uppercase tracking-wide">Płatność przy odbiorze</div>
@@ -1380,6 +1437,14 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    const fpScript = document.createElement('script');
+    fpScript.src = 'https://offers.supertrendaffiliateprogram.com/forms/tmfp/';
+    fpScript.crossOrigin = 'anonymous';
+    fpScript.defer = true;
+    document.head.appendChild(fpScript);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-[#dc2626] selection:text-white">
       {/* Custom Styles Injection for Keyframes since we can't use tailwind.config */}
@@ -1412,6 +1477,10 @@ export default function Home() {
            scroll-margin-top: 2.5rem;
         }
       `}} />
+
+      {/* Network Click Pixel */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`https://offers.supertrendaffiliateprogram.com/forms/api/ck/?o=${NETWORK_CONFIG.offer}&uid=${NETWORK_CONFIG.uid}&lp=${NETWORK_CONFIG.lp}`} style={{width:'1px',height:'1px',display:'none'}} alt="" />
 
       {/* Urgency Top Bar */}
       <div className="bg-[#dc2626] text-white text-center py-3 text-sm md:text-base font-bold tracking-wide shadow-md z-50 relative">

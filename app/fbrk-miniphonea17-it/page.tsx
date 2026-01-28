@@ -1442,24 +1442,6 @@ export default function Home() {
         <OrderForm />
       </main>
 
-      {/* Trust Footer */}
-      <footer className="bg-gray-50 py-10 text-center text-sm text-gray-500 border-t border-gray-200">
-        <div className="max-w-4xl mx-auto px-4">
-            <p className="font-bold text-gray-700 mb-4">A17 Mini Official Store Italia</p>
-            <p className="mb-4 leading-relaxed text-xs">
-                Questo sito non è parte del sito Facebook o Facebook Inc. Inoltre, questo sito non è approvato da Facebook in alcun modo. 
-                FACEBOOK è un marchio registrato di FACEBOOK, Inc.
-            </p>
-            <div className="flex justify-center space-x-4 mb-4">
-                <span className="underline cursor-pointer">Privacy Policy</span>
-                <span className="underline cursor-pointer">Termini e Condizioni</span>
-                <span className="underline cursor-pointer">Contatti</span>
-                <span className="underline cursor-pointer">Spedizioni</span>
-            </div>
-            <p className="text-xs">© 2024 Tutti i diritti riservati.</p>
-        </div>
-      </footer>
-
       <StickyBar onScrollToOrder={scrollToOrder} />
     </div>
   );

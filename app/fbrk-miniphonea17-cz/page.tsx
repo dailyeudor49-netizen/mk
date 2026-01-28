@@ -1022,6 +1022,16 @@ const Bundle = () => {
                              <span className="text-yellow-400 font-bold text-sm">ZDARMA</span>
                         </div>
                      </div>
+
+                     <div className="flex items-center justify-between bg-green-900/30 p-3 rounded-lg border border-green-700/50">
+                        <div className="flex items-center">
+                            <ShieldCheck className="text-green-400 mr-3 shrink-0" size={16} />
+                            <span className="text-sm md:text-base font-bold text-green-300">Záruka 2 roky</span>
+                        </div>
+                        <div className="flex flex-col text-right">
+                             <span className="text-green-400 font-bold text-sm">ZDARMA</span>
+                        </div>
+                     </div>
                 </div>
 
                 {/* Total */}
@@ -1395,7 +1405,7 @@ const OrderForm = () => {
                             <Lock size={12} className="mr-1" /> Žádné bankovní údaje
                         </div>
                         <div className="flex items-center justify-center text-xs text-gray-500 bg-gray-50 py-2 rounded">
-                            <ShieldCheck size={12} className="mr-1" /> Česká záruka
+                            <ShieldCheck size={12} className="mr-1" /> Záruka 2 roky
                         </div>
                     </div>
                 </form>

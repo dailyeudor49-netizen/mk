@@ -1012,6 +1012,16 @@ const Bundle = () => {
                              <span className="text-yellow-400 font-bold text-sm">GRATIS</span>
                         </div>
                      </div>
+
+                     <div className="flex items-center justify-between bg-green-900/30 p-3 rounded-lg border border-green-700/50">
+                        <div className="flex items-center">
+                            <ShieldCheck className="text-green-400 mr-3 shrink-0" size={16} />
+                            <span className="text-sm md:text-base font-bold text-green-300">Garanzia 2 anni</span>
+                        </div>
+                        <div className="flex flex-col text-right">
+                             <span className="text-green-400 font-bold text-sm">GRATIS</span>
+                        </div>
+                     </div>
                 </div>
 
                 {/* Total */}
@@ -1317,7 +1327,7 @@ const OrderForm = () => {
                             <Lock size={12} className="mr-1" /> Nessun dato bancario
                         </div>
                         <div className="flex items-center justify-center text-xs text-gray-500 bg-gray-50 py-2 rounded">
-                            <ShieldCheck size={12} className="mr-1" /> Garanzia Italia
+                            <ShieldCheck size={12} className="mr-1" /> Garanzia 2 anni
                         </div>
                     </div>
                 </form>

@@ -344,11 +344,6 @@ const Hero = ({ onScrollToOrder }: { onScrollToOrder: () => void }) => {
              <div className="absolute top-0 right-0 bg-[#dc2626] text-white font-black px-4 py-2 md:rounded-bl-xl shadow-md z-10 text-xl">
                 {DISCOUNT_PERCENTAGE}
              </div>
-             <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
-                <span className="bg-black/50 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
-                    A17 Mini spredu
-                </span>
-             </div>
           </div>
 
           {/* Thumbnails - Below carousel */}
@@ -390,8 +385,8 @@ const Hero = ({ onScrollToOrder }: { onScrollToOrder: () => void }) => {
                         <Check size={16} strokeWidth={4} />
                     </div>
                     <div>
-                        <strong className="text-gray-900 block text-sm md:text-base mb-1">{benefit.title}</strong>
-                        <span className="text-gray-600 text-xs md:text-sm leading-snug block">{benefit.desc}</span>
+                        <strong className="text-gray-900 block text-base md:text-lg mb-1">{benefit.title}</strong>
+                        <span className="text-gray-600 text-sm md:text-base leading-snug block">{benefit.desc}</span>
                     </div>
                 </div>
             ))}
@@ -497,31 +492,31 @@ const Demonstration = ({ onScrollToOrder }: { onScrollToOrder?: () => void }) =>
             Mnohí si myslia, že je to hračka. Omyl. Tu je dôkaz, že je to kompletný smartfón.
         </p>
 
-        {/* 4 PERFECT SQUARE BLOCKS (1:1) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-8">
+        {/* 4 BLOCKS - GIF visible, text below */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
             {features.map((feat) => (
-                <div key={feat.id} className="relative group rounded-2xl overflow-hidden shadow-md cursor-default aspect-square">
-                    {/* Background Video (Square) */}
-                    <video
-                        src={feat.video}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                    />
+                <div key={feat.id} className="group">
+                    {/* Video Container */}
+                    <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-square mb-3">
+                        <video
+                            src={feat.video}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
 
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-3 md:p-4">
-
-                        {/* Icon Badge */}
-                        <div className={`${feat.color} w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center mb-2 shadow-lg transform group-hover:-translate-y-1 transition-transform`}>
+                    {/* Text Below */}
+                    <div className="flex items-start gap-3 px-1">
+                        <div className={`${feat.color} w-10 h-10 rounded-full flex items-center justify-center shadow-md shrink-0`}>
                             {feat.icon}
                         </div>
-
-                        {/* Text Content - Optimized for Mobile Square */}
-                        <h3 className="text-white font-bold text-sm md:text-lg leading-tight mb-1">{feat.title}</h3>
-                        <p className="text-gray-300 text-[10px] md:text-sm leading-tight opacity-90 line-clamp-2 md:line-clamp-none">{feat.desc}</p>
+                        <div>
+                            <h3 className="text-gray-900 font-bold text-base md:text-lg leading-tight">{feat.title}</h3>
+                            <p className="text-gray-600 text-sm md:text-base leading-snug mt-1">{feat.desc}</p>
+                        </div>
                     </div>
                 </div>
             ))}
@@ -565,7 +560,7 @@ const ProblemSolution = () => {
             <h3 className="font-bold text-xl mb-2 text-gray-900">
                 Preplnené vrecká
             </h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 text-base">
                 Nevojdú sa do džínsov, ničia sako a zaberajú celú kabelku. Neustály stres.
             </p>
           </div>
@@ -577,7 +572,7 @@ const ProblemSolution = () => {
             <h3 className="font-bold text-xl mb-2 text-gray-900">
                 Strach z poškodenia
             </h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 text-base">
                 Chvíľka nepozornosti a... prask. Stovky eur škody za obrovské sklo.
             </p>
           </div>
@@ -589,7 +584,7 @@ const ProblemSolution = () => {
             <h3 className="font-bold text-xl mb-2 text-gray-900">
                 Nemožné jednou rukou
             </h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 text-base">
                 Musíte vždy používať obe ruky na písanie alebo prehliadanie. Veľmi nepraktické na cestách.
             </p>
           </div>
@@ -634,17 +629,17 @@ const ProblemSolution = () => {
                 <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/10">
                     <div className="text-4xl font-black text-[#16a34a] mb-2">01</div>
                     <h4 className="font-bold text-lg mb-2">Vložte SIM</h4>
-                    <p className="text-sm text-gray-300">Funguje so všetkými SIM kartami. Môžete vložiť aj dve naraz.</p>
+                    <p className="text-base text-gray-300">Funguje so všetkými SIM kartami. Môžete vložiť aj dve naraz.</p>
                 </div>
                 <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/10">
                     <div className="text-4xl font-black text-[#16a34a] mb-2">02</div>
                     <h4 className="font-bold text-lg mb-2">Zapnite a používajte</h4>
-                    <p className="text-sm text-gray-300">Android 8.1 je už nainštalovaný a nastavený v slovenčine. Pripravený za 30 sekúnd.</p>
+                    <p className="text-base text-gray-300">Android 8.1 je už nainštalovaný a nastavený v slovenčine. Pripravený za 30 sekúnd.</p>
                 </div>
                 <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/10">
                     <div className="text-4xl font-black text-[#16a34a] mb-2">03</div>
                     <h4 className="font-bold text-lg mb-2">Stiahnite aplikácie</h4>
-                    <p className="text-sm text-gray-300">Otvorte Play Store a stiahnite WhatsApp, YouTube alebo čo potrebujete. Hotovo!</p>
+                    <p className="text-base text-gray-300">Otvorte Play Store a stiahnite WhatsApp, YouTube alebo čo potrebujete. Hotovo!</p>
                 </div>
             </div>
         </div>
@@ -781,7 +776,7 @@ const KidsSection = () => {
                         </div>
                         <div>
                             <h4 className="font-bold text-gray-900 text-lg">GPS a lokalizácia</h4>
-                            <p className="text-sm text-gray-600">Vďaka Google Maps a integrovanému GPS môžete vždy vedieť, kde sa nachádza v prípade potreby.</p>
+                            <p className="text-base text-gray-600">Vďaka Google Maps a integrovanému GPS môžete vždy vedieť, kde sa nachádza v prípade potreby.</p>
                         </div>
                     </div>
 
@@ -791,7 +786,7 @@ const KidsSection = () => {
                         </div>
                         <div>
                             <h4 className="font-bold text-gray-900 text-lg">WhatsApp a hovory</h4>
-                            <p className="text-sm text-gray-600">Zostaňte vždy v kontakte. Môže vám posielať hlasové správy, fotky a volať, keď odchádza zo školy.</p>
+                            <p className="text-base text-gray-600">Zostaňte vždy v kontakte. Môže vám posielať hlasové správy, fotky a volať, keď odchádza zo školy.</p>
                         </div>
                     </div>
 
@@ -801,7 +796,7 @@ const KidsSection = () => {
                         </div>
                         <div>
                             <h4 className="font-bold text-gray-900 text-lg">"Kontrolovaná" zábava</h4>
-                            <p className="text-sm text-gray-600">Podporuje YouTube a ľahké hry na chvíle oddychu, ale kompaktná obrazovka zabraňuje tomu, aby zostal "zhypnotizovaný" celé hodiny.</p>
+                            <p className="text-base text-gray-600">Podporuje YouTube a ľahké hry na chvíle oddychu, ale kompaktná obrazovka zabraňuje tomu, aby zostal "zhypnotizovaný" celé hodiny.</p>
                         </div>
                     </div>
 
@@ -811,7 +806,7 @@ const KidsSection = () => {
                         </div>
                         <div>
                             <h4 className="font-bold text-gray-900 text-lg">Žiadne riziko (aj keď spadne)</h4>
-                            <p className="text-sm text-gray-600">Je malý, kompaktný a odolný. A ak by sa stalo nemožné... nestratili ste výplatu.</p>
+                            <p className="text-base text-gray-600">Je malý, kompaktný a odolný. A ak by sa stalo nemožné... nestratili ste výplatu.</p>
                         </div>
                     </div>
                 </div>

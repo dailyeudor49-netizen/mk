@@ -62,6 +62,7 @@ interface TargetAudience {
   title: string;
   description: string;
   imageText: string;
+  image: string;
 }
 
 // --- CONSTANTS ---
@@ -216,12 +217,12 @@ const FEATURES_LIST: Feature[] = [
 ];
 
 const TARGET_AUDIENCE: TargetAudience[] = [
-  { title: "Per i Genitori Smart", description: "Dai a tuo figlio un telefono sicuro, con GPS e WhatsApp, ma senza spendere una fortuna.", imageText: "Bambini/Sicurezza" },
-  { title: "Per gli Sportivi", description: "Monitora Kcal e battito con le app salute, ascolta musica con il bluetooth. Leggero come una piuma, zero ingombro mentre corri.", imageText: "Sport/Running" },
-  { title: "Per i Lavoratori", description: "Artigiani, muratori, professionisti: serve un secondo numero, un telefono robusto che entri nel taschino.", imageText: "Lavoro/Cantiere" },
-  { title: "Per gli Anziani", description: "Cercano semplicità. Un telefono che fa 'il telefono', leggero e facile da impugnare.", imageText: "Anziani/Semplicità" },
-  { title: "Per i Viaggiatori", description: "Un telefono di backup (muletto) in caso di furto o rottura del principale. Indispensabile.", imageText: "Viaggi/Backup" },
-  { title: "Zero Ansia & Ingombro", description: "Hai WhatsApp e Mappe, ma senza il peso di un mattone. Ideale per uscire leggeri la sera.", imageText: "Relax/Leggerezza" },
+  { title: "Per i Genitori Smart", description: "Dai a tuo figlio un telefono sicuro, con GPS e WhatsApp, ma senza spendere una fortuna.", imageText: "Bambini/Sicurezza", image: "/images/miniphonea17%20img/Per%20i%20Genitori%20Smart.png" },
+  { title: "Per gli Sportivi", description: "Monitora Kcal e battito con le app salute, ascolta musica con il bluetooth. Leggero come una piuma, zero ingombro mentre corri.", imageText: "Sport/Running", image: "/images/miniphonea17%20img/Per%20gli%20Sportivi.png" },
+  { title: "Per i Lavoratori", description: "Artigiani, muratori, professionisti: serve un secondo numero, un telefono robusto che entri nel taschino.", imageText: "Lavoro/Cantiere", image: "/images/miniphonea17%20img/Per%20i%20Lavoratori.png" },
+  { title: "Per gli Anziani", description: "Cercano semplicità. Un telefono che fa 'il telefono', leggero e facile da impugnare.", imageText: "Anziani/Semplicità", image: "/images/miniphonea17%20img/Per%20gli%20Anziani.png" },
+  { title: "Per i Viaggiatori", description: "Un telefono di backup (muletto) in caso di furto o rottura del principale. Indispensabile.", imageText: "Viaggi/Backup", image: "/images/miniphonea17%20img/Per%20i%20Viaggiatori.png" },
+  { title: "Zero Ansia & Ingombro", description: "Hai WhatsApp e Mappe, ma senza il peso di un mattone. Ideale per uscire leggeri la sera.", imageText: "Relax/Leggerezza", image: "/images/miniphonea17%20img/Zero%20Ansia%20%26%20Ingombro.png" },
 ];
 
 const FAQS: FAQItem[] = [
@@ -281,10 +282,10 @@ const Hero = ({ onScrollToOrder }: { onScrollToOrder: () => void }) => {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
 
   const images = [
-    "https://placehold.co/600x600/111827/FFF?text=1:1+A17+Mini",
-    "https://placehold.co/600x600/dc2626/FFF?text=1:1+Dimensioni",
-    "https://placehold.co/600x600/16a34a/FFF?text=1:1+App+WhatsApp",
-    "https://placehold.co/600x600/2563eb/FFF?text=1:1+Retro+Vetro"
+    "/images/miniphonea17%20img/1.png",
+    "/images/miniphonea17%20img/2.png",
+    "/images/miniphonea17%20img/3.png",
+    "/images/miniphonea17%20img/4.png"
   ];
 
   const benefits = [
@@ -440,7 +441,7 @@ const Demonstration = ({ onScrollToOrder }: { onScrollToOrder?: () => void }) =>
       desc: "WhatsApp, Instagram e TikTok in una mano.",
       icon: <MessageCircle className="w-4 h-4 md:w-5 md:h-5 text-white" />,
       color: "bg-green-500",
-      image: "https://placehold.co/600x600/111827/FFF?text=1:1+WhatsApp"
+      image: "/images/miniphonea17%20img/MESSAGGI%20E%20SOCIAL%20GIF.gif"
     },
     {
       id: 'camera',
@@ -448,7 +449,7 @@ const Demonstration = ({ onScrollToOrder }: { onScrollToOrder?: () => void }) =>
       desc: "Scatta foto e selfie nitidi al volo.",
       icon: <Camera className="w-4 h-4 md:w-5 md:h-5 text-white" />,
       color: "bg-blue-500",
-      image: "https://placehold.co/600x600/2563eb/FFF?text=1:1+Fotocamera"
+      image: "/images/miniphonea17%20img/Foto%20%26%20VideoM%20GIF.gif"
     },
     {
       id: 'media',
@@ -456,7 +457,7 @@ const Demonstration = ({ onScrollToOrder }: { onScrollToOrder?: () => void }) =>
       desc: "Guarda video ovunque senza ingombro.",
       icon: <Play className="w-4 h-4 md:w-5 md:h-5 text-white" />,
       color: "bg-red-500",
-      image: "https://placehold.co/600x600/dc2626/FFF?text=1:1+YouTube"
+      image: "/images/miniphonea17%20img/_Video%20%26%20YouTube%20GIF.gif"
     },
     {
       id: 'games',
@@ -464,7 +465,7 @@ const Demonstration = ({ onScrollToOrder }: { onScrollToOrder?: () => void }) =>
       desc: "Passatempo perfetto per le pause.",
       icon: <Gamepad2 className="w-4 h-4 md:w-5 md:h-5 text-white" />,
       color: "bg-orange-500",
-      image: "https://placehold.co/600x600/f97316/FFF?text=1:1+Giochi"
+      image: "/images/miniphonea17%20img/Giochi%20%26%20Svago%20GIF.gif"
     }
   ];
 
@@ -708,9 +709,9 @@ const TargetAudienceComponent = () => {
             <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col h-full border-b-4 border-[#16a34a]">
               {/* Image Container - NOW SQUARE 1:1 */}
               <div className="aspect-square w-full bg-gray-300 relative">
-                  <img 
-                    src={`https://placehold.co/600x600/e5e7eb/6b7280?text=1:1+${target.imageText}`} 
-                    alt={target.title} 
+                  <img
+                    src={target.image}
+                    alt={target.title}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
@@ -1030,10 +1031,15 @@ const Reviews = ({ onScrollToOrder }: { onScrollToOrder?: () => void }) => {
             <span className="font-bold text-gray-600">4.8/5 basato su oltre 12.000 ordini</span>
         </div>
 
-        {/* Photo Grid Placeholder */}
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-12 opacity-80">
-            {[1,2,3,4,5,6].map(n => (
-                <img key={n} src={`https://placehold.co/300x300/gray/white?text=Foto+Cliente+${n}`} alt="Cliente Felice" className="rounded-lg shadow-sm hover:opacity-100 transition-opacity" />
+        {/* Photo Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-12 opacity-80">
+            {[
+              "/images/miniphonea17%20img/RECENSIONI/ezz1aefevt6f1.jpeg",
+              "/images/miniphonea17%20img/RECENSIONI/images.jpeg",
+              "/images/miniphonea17%20img/RECENSIONI/oardefault.jpg",
+              "/images/miniphonea17%20img/RECENSIONI/s-l1600.webp"
+            ].map((src, n) => (
+                <img key={n} src={src} alt="Cliente Felice" className="rounded-lg shadow-sm hover:opacity-100 transition-opacity aspect-square object-cover" />
             ))}
         </div>
 

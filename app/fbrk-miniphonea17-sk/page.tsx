@@ -333,9 +333,9 @@ const Hero = ({ onScrollToOrder }: { onScrollToOrder: () => void }) => {
     <section className="bg-white pb-8">
       <div className="max-w-md mx-auto bg-white md:max-w-4xl lg:flex lg:flex-row-reverse lg:items-start overflow-hidden">
 
-        {/* Image Slider - 1:1 Aspect Ratio */}
-        <div className="relative w-full aspect-square lg:w-1/2 bg-[#f3f4f6] p-0 md:p-4 lg:sticky lg:top-4">
-          <div className="relative w-full h-full md:rounded-2xl overflow-hidden shadow-none md:shadow-lg border-b md:border border-gray-200">
+        {/* Image Slider */}
+        <div className="relative w-full lg:w-1/2 bg-[#f3f4f6] p-0 md:p-4 lg:sticky lg:top-4">
+          <div className="relative w-full aspect-square md:rounded-2xl overflow-hidden shadow-none md:shadow-lg border-b md:border border-gray-200">
              <img
                src={images[currentImage]}
                alt="A17 Mini Smartphone - Pohľad na produkt"
@@ -351,12 +351,13 @@ const Hero = ({ onScrollToOrder }: { onScrollToOrder: () => void }) => {
              </div>
           </div>
 
-          <div className="flex justify-start md:justify-center gap-2 mt-4 px-2 pb-2 overflow-x-auto md:overflow-visible">
+          {/* Thumbnails - Below carousel */}
+          <div className="flex justify-start md:justify-center gap-2 py-3 px-2 overflow-x-auto bg-[#f3f4f6]">
             {images.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentImage(idx)}
-                className={`w-10 h-10 md:w-14 md:h-14 rounded-lg border-2 overflow-hidden transition-all bg-white shadow-sm shrink-0 ${idx === currentImage ? 'border-[#dc2626] ring-2 ring-red-100' : 'border-gray-300 opacity-70'}`}
+                className={`w-12 h-12 md:w-14 md:h-14 rounded-lg border-2 overflow-hidden transition-all bg-white shadow-sm shrink-0 ${idx === currentImage ? 'border-[#dc2626] ring-2 ring-red-100' : 'border-gray-300 opacity-70'}`}
               >
                   <img src={images[idx]} alt={`Náhľad ${idx}`} className="w-full h-full object-cover" />
               </button>

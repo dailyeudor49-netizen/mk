@@ -431,6 +431,9 @@ const Hero = ({ onScrollToOrder }: { onScrollToOrder: () => void }) => {
               <span className="bg-green-100 text-green-800 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full flex items-center border border-green-200">
                   <ShieldCheck size={12} className="mr-1"/> PLATBA PŘI DORUČENÍ
               </span>
+              <span className="bg-green-100 text-green-800 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full flex items-center border border-green-200">
+                  <ShieldCheck size={12} className="mr-1"/> ZÁRUKA 2 ROKY
+              </span>
           </div>
 
           <button

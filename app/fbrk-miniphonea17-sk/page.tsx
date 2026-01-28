@@ -1255,11 +1255,8 @@ const OrderForm = () => {
         value: 79.99
       });
 
-      setIsSubmitted(true);
-      setTimeout(() => {
-        const element = document.getElementById('order-confirmation');
-        if (element) element.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      // Redirect to thank you page
+      window.location.href = '/fb-ty/ty-fb-sk';
     } catch (error) {
       console.error('[Form] Submit error:', error);
       setIsSubmitting(false);

@@ -1255,14 +1255,10 @@ const OrderForm = () => {
         value: 349
       });
 
-      setIsSubmitted(true);
-      setTimeout(() => {
-        const element = document.getElementById('order-confirmation');
-        if (element) element.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      // Redirect to thank you page
+      window.location.href = '/fb-ty/ty-fb-pl';
     } catch (error) {
       console.error('[Form] Submit error:', error);
-      setIsSubmitting(false);
     }
   };
 

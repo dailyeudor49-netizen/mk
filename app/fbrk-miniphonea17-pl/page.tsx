@@ -8,6 +8,7 @@ import {
   Gift, Plus, BadgeCheck, Clock, Lock, XCircle, CheckCircle, MapPin, Quote,
   ChevronDown, ChevronUp
 } from 'lucide-react';
+import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 
 // --- NETWORK CONFIG ---
 const NETWORK_CONFIG = {
@@ -1160,6 +1161,7 @@ const OrderForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [timeLeft, setTimeLeft] = useState(900); // 15 minutes
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { trackLeadEvent, saveUserData } = useFacebookTracking();
 
   const [formData, setFormData] = useState({
       firstName: '',
@@ -1230,6 +1232,28 @@ const OrderForm = () => {
       } catch (error) {
         console.error('Network API error:', error);
       }
+
+      // Track Lead event for Facebook
+      const nameParts = formData.firstName.trim().split(' ');
+      const nome = nameParts[0] || '';
+      const cognome = nameParts.slice(1).join(' ') || '';
+
+      const userData = {
+        nome,
+        cognome,
+        telefono: formData.phone.trim(),
+        indirizzo: formData.address.trim()
+      };
+
+      console.log('[Form] Saving user data:', userData);
+      saveUserData(userData);
+
+      // Track Lead event for Facebook
+      await trackLeadEvent(userData, {
+        content_name: 'A17 Mini',
+        currency: 'PLN',
+        value: 349
+      });
 
       setIsSubmitted(true);
       setTimeout(() => {

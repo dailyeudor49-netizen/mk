@@ -15,8 +15,8 @@ const NETWORK_CONFIG = {
   apiUrl: 'https://offers.supertrendaffiliateprogram.com/forms/api/',
   uid: '019855d0-397a-72ee-8df5-c5026966105a',
   key: '8ea99f0506e1df27f625d0',
-  offer: '119',
-  lp: '119',
+  offer: '121',
+  lp: '121',
 };
 
 // --- TYPES ---

@@ -50,7 +50,18 @@
       "Bash(git checkout:*)",
       "Bash(xargs sed:*)",
       "Bash(ssh:*)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "WebFetch(domain:ecomotiq.com)",
+      "WebFetch(domain:www.amazon.it)",
+      "WebFetch(domain:axenovalab.com)",
+      "WebFetch(domain:kizbuy.com)",
+      "WebFetch(domain:www.ionizi.com)",
+      "Bash(npx next lint:*)",
+      "Bash(npx tsc:*)",
+      "Bash(git reset:*)",
+      "Bash(xxd:*)",
+      "Bash(perl -i -0pe:*)",
+      "Bash(perl:*)"
     ],
     "deny": [],
     "ask": []

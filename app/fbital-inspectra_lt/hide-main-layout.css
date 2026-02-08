@@ -1,0 +1,6 @@
+header,
+footer,
+.main-header,
+.main-footer {
+  display: none !important;
+}

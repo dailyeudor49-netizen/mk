@@ -31,8 +31,8 @@ import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 
 // --- NETWORK TRACKING CONFIG ---
 const NETWORK_CONFIG = {
-  uid: '019bfb2f-317f-7e20-a4a8-44c22cb7bd03',
-  key: '05fddd0847c3627b81e1d6',
+  uid: '019bfb2e-6cc2-7780-b7d5-e6ab2c6a6b58',
+  key: 'a32454578a4cb8f9f41bd4',
   offer: '2885',
   lp: '2924',
 };

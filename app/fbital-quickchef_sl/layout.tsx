@@ -3,21 +3,21 @@ import Script from "next/script";
 import "./hide-main-layout.css";
 
 export const metadata: Metadata = {
-  title: "QuickChef™ Pro - Multifunkcni kuchynsky robot 45v1",
-  description: "Multifunkcni kuchynsky robot QuickChef Pro s 45 funkcemi v jednom.",
+  title: "QuickChef™ Pro - Vecnamenski kuhinjski robot 45v1",
+  description: "Vecnamenski kuhinjski robot QuickChef Pro s 45 funkcijami v enem.",
   robots: {
     index: false,
     follow: false
   }
 };
 
-export default function FbitalQuickchefCzLayout({
+export default function FbitalQuickchefSlLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="fbital-quickchef-cz-page">
+    <div className="fbital-quickchef-sl-page">
       {/* Network Fingerprint Script */}
       <Script
         src="https://offers.italiadrop.com/forms/tmfp/"

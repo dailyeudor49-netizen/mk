@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import {
   Truck,
   ShieldCheck,
@@ -29,13 +29,12 @@ import {
 } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
 
-// --- NETWORK CONFIG ---
+// --- NETWORK TRACKING CONFIG ---
 const NETWORK_CONFIG = {
-  apiUrl: 'https://offers.italiadrop.com/forms/api/',
-  uid: '019bfb2e-6cc2-7780-b7d5-e6ab2c6a6b58',
-  key: 'a32454578a4cb8f9f41bd4',
-  offer: '2224',
-  lp: '2263',
+  uid: '019bfb2f-317f-7e20-a4a8-44c22cb7bd03',
+  key: '05fddd0847c3627b81e1d6',
+  offer: '2885',
+  lp: '2924',
 };
 
 // --- TYPES ---
@@ -61,13 +60,6 @@ interface FaqItem {
   question: string;
   answer: string;
 }
-
-// --- CONSTANTS ---
-const PRICE = 2099;
-const PRICE_OLD = 4198;
-const CURRENCY = 'Kč';
-const PRODUCT_NAME = 'QuickChef';
-const THANK_YOU_PAGE = '/fb-ty/ty-fb-cz';
 
 // --- COMPONENTS ---
 
@@ -172,11 +164,11 @@ const StickyHeader: React.FC = () => {
     <div className="sticky top-0 z-50 w-full bg-red-700 text-white text-xs sm:text-sm font-bold shadow-md">
       <div className="max-w-6xl mx-auto px-2 py-2 flex flex-wrap justify-center items-center gap-x-4 gap-y-1 text-center">
         <div className="flex items-center gap-1">
-          <Truck size={14} /> DOPRAVA 24/48H
+          <Truck size={14} /> DORUCENI 24/48H
         </div>
         <div className="hidden sm:inline">|</div>
         <div className="flex items-center gap-1 text-yellow-300">
-          <Banknote size={14} /> PLATBA NA DOBIRKU
+          <Banknote size={14} /> PLATBA PRI PREVZETI
         </div>
         <div className="hidden sm:inline">|</div>
         <div className="flex items-center gap-1">
@@ -184,7 +176,7 @@ const StickyHeader: React.FC = () => {
         </div>
         <div className="hidden md:inline">|</div>
         <div className="hidden md:flex items-center gap-1">
-          <Phone size={14} /> CESKA ZAKAZNICKA PODPORA
+          <Phone size={14} /> CESKA PODPORA
         </div>
       </div>
     </div>
@@ -203,13 +195,13 @@ const carouselImages = [
 const benefits = [
   <span key="1"><strong className="text-red-700">EXKLUZIVNI NOVINKA:</strong> Automaticke davkovani ingredienci (dela vse sam)</span>,
   <span key="2"><strong className="text-gray-900">45 Funkci v 1:</strong> nejkompletnejsi robot na trhu</span>,
-  <span key="3">Dotykov obrazovka <strong className="text-gray-900">7" SoftScreen</strong> velka a prehledna - vede vas krok za krokem</span>,
-  <span key="4">Aplikace s <strong className="text-gray-900">1000+ recepty</strong> - vybirate a postupujete jako v tutorialu</span>,
-  <span key="5">Funkce <strong className="text-gray-900">"Co mam v lednici?"</strong> - usetrite na nakupech</span>,
-  <span key="6"><strong className="text-gray-900">Integrovana vaha</strong> presna na gram - konec odhadovani davek</span>,
-  <span key="7">Nadoba <strong className="text-gray-900">keramicka neprilehliva</strong> - nic se nepripali, cisti se snadno</span>,
-  <span key="8">Vareni az do <strong className="text-gray-900">180 C</strong> + skutecne restovani</span>,
-  <span key="9">System <strong className="text-gray-900">OneClick</strong> - menite prislusenstvi bez demontaze</span>,
+  <span key="3">Dotyková obrazovka <strong className="text-gray-900">7&quot; SoftScreen</strong> velka a prehledna - vede vas krok za krokem</span>,
+  <span key="4">Aplikace s <strong className="text-gray-900">1000+ recepty</strong> - vyberte a postupujte jako v tutorialu</span>,
+  <span key="5">Funkce <strong className="text-gray-900">&quot;Co mam v lednici?&quot;</strong> - setrite na nakupech</span>,
+  <span key="6"><strong className="text-gray-900">Vestavena vaha</strong> presna na gram - konec s davkovanim &quot;od oka&quot;</span>,
+  <span key="7">Nadoba <strong className="text-gray-900">keramicka nepripaliva</strong> - nic nepripali, snadne cisteni</span>,
+  <span key="8">Vareni do <strong className="text-gray-900">180°C</strong> + skutecne opekani</span>,
+  <span key="9">System <strong className="text-gray-900">OneClick</strong> - vymena prislusenstvi bez demontaze</span>,
 ];
 
 const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
@@ -229,21 +221,21 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
     <section className="bg-white pt-6 pb-12 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-          <span className="text-red-600 block mb-2 text-xl md:text-2xl uppercase tracking-wide">Mate dost ztraceni casu v kuchyni?</span>
+          <span className="text-red-600 block mb-2 text-xl md:text-2xl uppercase tracking-wide">Mate dost ztraceneho casu v kuchyni?</span>
           Objevte Prvni Robot ktery <span className="bg-yellow-200 px-2">Sam Pridava Ingredience.</span>
         </h1>
 
         <p className="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl mx-auto leading-relaxed">
-          Zapomete na hrnce a stres. Dejte vse do davkovace, vyberte recept na obrazovce a <strong className="text-gray-900">on vari za vas, zatimco vy odpogivate.</strong>
+          Zapomente na hrnce a stres. Vlozte vse do davkovace, vyberte recept na obrazovce a <strong className="text-gray-900">on vari za vas zatimco vy odpocivate.</strong>
           <br className="my-2"/>
-          <strong className="text-green-700 bg-green-50 px-3 py-1 rounded inline-block mt-2 border border-green-200 shadow-sm">Dokonaly vysledek (i kdyz neumite varit)</strong>
+          <strong className="text-green-700 bg-green-50 px-3 py-1 rounded inline-block mt-2 border border-green-200 shadow-sm">✅ Dokonaly vysledek (i kdyz neumite varit)</strong>
         </p>
 
         <div className="relative mb-8 rounded-xl overflow-hidden shadow-2xl border-4 border-gray-100 max-w-xl mx-auto group bg-gray-100">
            <div className="relative aspect-square w-full">
              <img
                src={carouselImages[currentSlide]}
-               alt={`Kuchynsky robot slide ${currentSlide + 1}`}
+               alt={`Kuchynsky robot snimek ${currentSlide + 1}`}
                className="w-full h-full object-cover transition-all duration-300"
              />
 
@@ -256,22 +248,29 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
                 </button>
              </div>
 
-             <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-               {carouselImages.map((_, idx) => (
-                 <button
-                   key={idx}
-                   onClick={() => setCurrentSlide(idx)}
-                   className={`w-2.5 h-2.5 rounded-full transition-colors shadow-sm ${idx === currentSlide ? 'bg-red-600' : 'bg-white/70 hover:bg-white'}`}
-                   aria-label={`Prejit na slide ${idx + 1}`}
-                 />
-               ))}
-             </div>
            </div>
+        </div>
+
+        {/* Miniatury pod karuselem */}
+        <div className="flex justify-center gap-2 md:gap-3 max-w-xl mx-auto mb-8">
+          {carouselImages.map((img, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`relative w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden transition-all duration-200 ${idx === currentSlide ? 'ring-3 ring-red-600 scale-105 shadow-lg' : 'ring-2 ring-gray-200 opacity-70 hover:opacity-100 hover:ring-gray-400'}`}
+            >
+              <img
+                src={img}
+                alt={`Miniatura ${idx + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </button>
+          ))}
         </div>
 
         <div className="bg-yellow-50/60 rounded-xl p-6 md:p-8 mb-8 text-left max-w-2xl mx-auto border-2 border-yellow-200 shadow-sm">
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center leading-tight">
-              Robot ktery vas necha varit jako sefkuchar <br className="hidden sm:block"/>bez uklizeni
+              🟡 Robot ktery vam umozni varit jako Sefkuchar <br className="hidden sm:block"/>bez spinavych hrncu
             </h3>
             <ul className="space-y-4">
               {benefits.map((benefit, index) => (
@@ -287,18 +286,18 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
 
         <div className="bg-white border-4 border-red-600 p-6 rounded-xl max-w-2xl mx-auto mb-8 relative shadow-xl transform transition-transform hover:scale-[1.01]">
           <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-2 rounded-full text-sm md:text-base font-bold uppercase tracking-wider shadow-md whitespace-nowrap animate-pulse border-2 border-white">
-            Omezena nabidka - Pouze dnes
+            Omezena Nabidka
           </div>
 
           <div className="flex flex-col items-center justify-center mb-6 mt-6">
              <div className="bg-yellow-400 text-gray-900 font-black text-3xl md:text-4xl px-8 py-3 rounded-lg mb-4 shadow-md">
                -50%
              </div>
-             <div className="text-gray-400 font-medium uppercase text-sm tracking-widest mb-1">Promo cena</div>
              <div className="flex items-center gap-3">
-               <span className="text-gray-400 line-through text-2xl decoration-2">{PRICE_OLD} {CURRENCY}</span>
-               <span className="text-5xl md:text-6xl font-black text-red-600 tracking-tighter">{PRICE}<span className="text-3xl"> {CURRENCY}</span></span>
+               <span className="text-gray-400 line-through text-2xl decoration-2">4 888 Kč</span>
+               <span className="text-5xl md:text-6xl font-black text-red-600 tracking-tighter">2 444<span className="text-3xl"> Kč</span></span>
              </div>
+             <p className="text-green-700 font-bold mt-2">Ušetříte 2 444 Kč!</p>
           </div>
 
           <div className="bg-gray-50 rounded-lg p-4 mb-6 border border-gray-100 text-left space-y-4">
@@ -307,8 +306,8 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
                  <Truck size={24} strokeWidth={2} />
                </div>
                <div>
-                 <p className="font-bold text-gray-900 leading-none text-lg">Rychla doprava</p>
-                 <p className="text-sm text-gray-500 mt-1">Doruceni zajisteno do 24/48 hodin</p>
+                 <p className="font-bold text-gray-900 leading-none text-lg">Rychle Doruceni</p>
+                 <p className="text-sm text-gray-500 mt-1">Garantovane doruceni do 24/48 hodin</p>
                </div>
              </div>
 
@@ -317,8 +316,8 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
                  <Banknote size={24} strokeWidth={2} />
                </div>
                <div>
-                 <p className="font-bold text-gray-900 leading-none text-lg">Platite az pri doruceni</p>
-                 <p className="text-sm text-gray-500 mt-1">Zadna zaloha, platba v hotovosti kuryrovi</p>
+                 <p className="font-bold text-gray-900 leading-none text-lg">Platba Pri Prevzeti</p>
+                 <p className="text-sm text-gray-500 mt-1">Zadna zaloha, hotovost kuryrovi</p>
                </div>
              </div>
 
@@ -327,13 +326,13 @@ const Hero: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
                  <ShieldCheck size={24} strokeWidth={2} />
                </div>
                <div>
-                 <p className="font-bold text-gray-900 leading-none text-lg">Zaruka 2 roky</p>
+                 <p className="font-bold text-gray-900 leading-none text-lg">Zaruka 2 Roky</p>
                  <p className="text-sm text-gray-500 mt-1">Technicka podpora v cene</p>
                </div>
              </div>
           </div>
 
-          <Button onClick={scrollToForm} fullWidth pulse size="xl" subtext="Zadna kreditni karta neni potreba">
+          <Button onClick={scrollToForm} fullWidth pulse size="xl" subtext="🔒 Kreditni karta neni potreba">
             OBJEDNAT NYNI SE SLEVOU
           </Button>
         </div>
@@ -357,28 +356,28 @@ const SocialProof: React.FC = () => {
           ))}
         </div>
         <h3 className="text-xl font-bold text-gray-800 mb-2">
-          4,8/5 na zaklade vice nez 3 000 recenzi
+          4,8/5 na zaklade vice nez 3000 hodnoceni
         </h3>
         <p className="text-lg text-gray-600 italic mb-6">
-          "Konecne varim dobre a bez stresu."
+          &quot;Konecne varim dobre bez silenstvi.&quot;
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
           <div className="flex flex-col items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
             <ThumbsUp className="text-blue-600" />
-            <span className="font-bold text-gray-700">Snadne</span>
+            <span className="font-bold text-gray-700">Jednoduchy</span>
           </div>
           <div className="flex flex-col items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
             <Clock className="text-green-600" />
-            <span className="font-bold text-gray-700">Rychle</span>
+            <span className="font-bold text-gray-700">Rychly</span>
           </div>
           <div className="flex flex-col items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
             <Zap className="text-yellow-500" />
-            <span className="font-bold text-gray-700">Neprilehlive</span>
+            <span className="font-bold text-gray-700">Nepripalivy</span>
           </div>
           <div className="flex flex-col items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
             <ChefHat className="text-red-500" />
-            <span className="font-bold text-gray-700">Navadene recepty</span>
+            <span className="font-bold text-gray-700">Navodene Recepty</span>
           </div>
         </div>
       </div>
@@ -393,7 +392,7 @@ const ProblemAgitation: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm
       <div className="max-w-3xl mx-auto">
         <div className="bg-red-50 border border-red-100 rounded-xl p-6 md:p-8 shadow-sm">
           <h2 className="text-2xl md:text-3xl font-bold text-red-700 mb-6 text-center">
-            Pokud se poznavate v techto situacich... <br/>tento robot vam zmeni zivot.
+            🔴 Pokud se v techto situacich poznavate... <br/>tento robot vam zmeni zivot.
           </h2>
 
           <ul className="space-y-5 mb-8">
@@ -401,34 +400,34 @@ const ProblemAgitation: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm
               <div className="bg-red-100 p-1 rounded-full shrink-0 mt-1">
                 <X className="text-red-600" size={22} strokeWidth={3} />
               </div>
-              <span className="text-lg text-gray-800">Otevrete lednici a <strong className="text-red-700">nevite, co uvarit.</strong></span>
+              <span className="text-lg text-gray-800">Otevrete lednici a <strong className="text-red-700">nevite co uvarit.</strong></span>
             </li>
             <li className="flex items-start gap-3">
               <div className="bg-red-100 p-1 rounded-full shrink-0 mt-1">
                 <X className="text-red-600" size={22} strokeWidth={3} />
               </div>
-              <span className="text-lg text-gray-800">Recepty vam vychazi <strong className="text-red-700">"tak napul"</strong> a ztraci se vam chut.</span>
+              <span className="text-lg text-gray-800">Recepty vam vychazi <strong className="text-red-700">&quot;tak-tak&quot;</strong> a ztracite chut.</span>
             </li>
             <li className="flex items-start gap-3">
               <div className="bg-red-100 p-1 rounded-full shrink-0 mt-1">
                 <X className="text-red-600" size={22} strokeWidth={3} />
               </div>
-              <span className="text-lg text-gray-800"><strong>Spinavite tisic hrncu</strong> a travite hodiny uklizenim.</span>
+              <span className="text-lg text-gray-800"><strong>Usinite tisic hrncu</strong> a stravite hodiny mytim.</span>
             </li>
             <li className="flex items-start gap-3">
               <div className="bg-red-100 p-1 rounded-full shrink-0 mt-1">
                 <X className="text-red-600" size={22} strokeWidth={3} />
               </div>
-              <span className="text-lg text-gray-800">Nakonec <strong>objednavate rychle obcerstveni</strong> a utracite prilis.</span>
+              <span className="text-lg text-gray-800">Skoncite tak ze si <strong>objednate fast food</strong> a utratite moc.</span>
             </li>
           </ul>
 
           <div className="text-center bg-white p-6 rounded-lg border border-gray-100 shadow-md">
             <p className="text-xl font-bold text-green-700 mb-6 leading-tight">
-              Od dneska varite automaticky zdrava jidla,<br/> i <span className="underline decoration-green-500 decoration-4">bez zkusenosti.</span>
+              ✅ Odted varite automaticky zdrava jidla,<br/> i <span className="underline decoration-green-500 decoration-4">bez zkusenosti.</span>
             </p>
             <Button onClick={scrollToForm} variant="primary" size="lg" className="mx-auto">
-              ANO, CHCI HO - PLATIM NA DOBIRKU
+              ANO, CHCI HO - PLATIM PRI PREVZETI
             </Button>
           </div>
         </div>
@@ -445,34 +444,34 @@ const HowItWorks: React.FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
           Jak to funguje?
         </h2>
-        <p className="text-lg text-gray-600 mb-8">Je to jednodussi nez mikrovlnka. <strong className="text-gray-900">Dela vse sam:</strong></p>
+        <p className="text-lg text-gray-600 mb-8">✅ Jednodussi nez mikrovlnka. <strong className="text-gray-900">Dela vse sam:</strong></p>
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-xl shadow-md border-b-4 border-green-500 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-green-500"></div>
             <div className="w-12 h-12 bg-green-100 text-green-700 font-bold text-2xl rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-green-200">1</div>
-            <h3 className="font-bold text-xl mb-2">Naplnte davkovac</h3>
-            <p className="text-gray-600">Vlozte ingredience do <strong className="text-gray-900">6 prihrádek</strong>. Nemusite je predem vazit, postara se o to vaha.</p>
+            <h3 className="font-bold text-xl mb-2">Naplnte Davkovac</h3>
+            <p className="text-gray-600">Vlozte ingredience do <strong className="text-gray-900">6 prihrádek</strong>. Nemusite je vazit, vaha to udela za vas.</p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-md border-b-4 border-green-500 relative overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-2 bg-green-500"></div>
             <div className="w-12 h-12 bg-green-100 text-green-700 font-bold text-2xl rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-green-200">2</div>
-            <h3 className="font-bold text-xl mb-2">Vyberte recept</h3>
-            <p className="text-gray-600">Vybirejte na <strong className="text-gray-900">dotykove obrazovce 7"</strong> nebo v aplikaci mezi 1000+ recepty s navodem.</p>
+            <h3 className="font-bold text-xl mb-2">Vyberte Recept</h3>
+            <p className="text-gray-600">Vyberte z <strong className="text-gray-900">7&quot; obrazovky</strong> nebo z aplikace mezi 1000+ navedenymi jidly.</p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-md border-b-4 border-green-500 relative overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-2 bg-green-500"></div>
             <div className="w-12 h-12 bg-green-100 text-green-700 font-bold text-2xl rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-green-200">3</div>
-            <h3 className="font-bold text-xl mb-2">Stisknete START a odejdete</h3>
-            <p className="text-gray-600">Sam davkuje ingredience <strong className="text-gray-900">ve spravny okamzik</strong>, vari a micha. Upozorni vas, kdyz je hotovo!</p>
+            <h3 className="font-bold text-xl mb-2">Stisknete START a Odejdete</h3>
+            <p className="text-gray-600">On davkuje ingredience <strong className="text-gray-900">ve spravny moment</strong>, vari a micha. Upozorni vas kdyz je hotovo!</p>
           </div>
         </div>
 
         <div className="mt-8 bg-blue-50 border border-blue-200 text-blue-900 p-5 rounded-lg inline-block text-base md:text-lg shadow-sm">
-          TECHNOLOGIE QUICKSENSE: Jediny robot, ktery pridava ingredience sam behem vareni. <br/>
-          <span className="text-sm text-blue-700">Nemusite u nej zustat stat!</span>
+          💡 <span className="font-bold">TECHNOLOGIE QUICKSENSE™:</span> Jediny robot ktery sam pridava ingredience behem vareni. <br/>
+          <span className="text-sm text-blue-700">Nemusite u neho stat!</span>
         </div>
       </div>
     </section>
@@ -484,37 +483,37 @@ const features: FeatureBox[] = [
   {
     id: 1,
     title: "Nikdy se nespletete",
-    description: "Postupujte podle obrazovky a robot vse nadavkuje. Vysledek zaruceny na 100%.",
+    description: "Nasledujte obrazovku a robot vse odmeri. 100% garantovany vysledek.",
     imageUrl: "/images/quickchef img/Non sbagli mai.png"
   },
   {
     id: 2,
     title: "Dela vse sam",
-    description: "Diky AUTOMATICKEMU DAVKOVACI nemusite pridavat ingredience behem vareni.",
+    description: "Diky automatickemu DAVKOVACI nemusite pridavat ingredience behem vareni.",
     imageUrl: "/images/quickchef img/DISPENSER AUTOMATICO.png"
   },
   {
     id: 3,
-    title: "Funkce Vyprazdni-lednici",
-    description: "Napiste v aplikaci, co mate v lednici, a on vam vytvori dokonaly recept. Zero odpadu.",
+    title: "Funkce Vyprazdnit-Lednici",
+    description: "Napisete do aplikace co mate v lednici a on vytvori dokonaly recept. Zadne plytvani.",
     imageUrl: "/images/quickchef img/Funzione Svota-Frigo.png"
   },
   {
     id: 4,
-    title: "Keramicky neprilehliv",
-    description: "Nadoba Unique s keramickym povlakem: nikdy se neprilepi a cisti se jednim otistenim.",
+    title: "Nepripalivy Keramika",
+    description: "Nadoba Unique s keramickym povrchem: nic nepripali a cisti se jednim pohybem.",
     imageUrl: "/images/quickchef img/Ceramica Antiaderente.png"
   },
   {
     id: 5,
     title: "45 Funkci v 1",
-    description: "Seka, hneteni, parna varicka, fermentace, pomale vareni, jogurt... nahradi 10 spotrebicu.",
+    description: "Sekani, hneteni, vareni v pare, kvaseni, slow cooking, jogurt... nahrazuje 10 spotrebicu.",
     imageUrl: "/images/quickchef img/45 Funzioni in 1.png"
   },
   {
     id: 6,
-    title: "Vysledky jako od sefa",
-    description: "Sametove kremy, dokonale testo na pizzu, huste omacky. Vse automaticky.",
+    title: "Vysledky jako od Sefkuchare",
+    description: "Sametove kremy, dokonala testa na pizzu, huste omacky. Vse automaticky.",
     imageUrl: "/images/quickchef img/Risultati da Chef.png"
   }
 ];
@@ -524,7 +523,7 @@ const FeaturesGrid: React.FC = () => {
     <section className="py-12 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">
-          Proc si ho vsichni vybiraji:
+          ✅ Proc ho vsichni vybiraji:
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -539,11 +538,7 @@ const FeaturesGrid: React.FC = () => {
               </div>
               <div className="p-5 flex-grow">
                 <h3 className="font-extrabold text-xl mb-2 text-gray-900">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-base">
-                  {feature.description.split(/([A-Z\s]{4,})/).map((part, i) =>
-                    part.match(/[A-Z\s]{4,}/) ? <strong key={i} className="text-gray-800">{part}</strong> : part
-                  )}
-                </p>
+                <p className="text-gray-600 leading-relaxed text-base">{feature.description}</p>
               </div>
             </div>
           ))}
@@ -559,38 +554,38 @@ const ComparisonTable: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
     <section className="py-12 px-4 bg-gray-50">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">
-          Rychle srovnani (bez obchazek)
+          🔥 Rychle srovnani (bez okolku)
         </h2>
 
-        <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-100 overflow-x-auto">
-          <table className="w-full text-left border-collapse min-w-[320px]">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-100">
+          <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-gray-100 border-b-2 border-gray-300">
-                <th className="p-2 md:p-4 text-gray-600 font-bold text-xs md:text-base w-1/3 uppercase tracking-wider">Vlastnost</th>
-                <th className="p-2 md:p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-xs md:text-xl shadow-inner">
-                  QuickChef
+                <th className="p-4 text-gray-600 font-bold text-sm md:text-base w-1/3 uppercase tracking-wider">Vlastnost</th>
+                <th className="p-4 bg-green-50 text-green-800 font-extrabold text-center border-l border-r border-green-200 w-1/3 text-sm md:text-xl shadow-inner">
+                  ✅ QuickChef
                 </th>
-                <th className="p-2 md:p-4 text-gray-400 font-medium text-center text-xs md:text-base w-1/3">
-                  Ostatni roboty
+                <th className="p-4 text-gray-400 font-medium text-center text-sm md:text-base w-1/3">
+                  ❌ Jine Roboty
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {[
-                [<span key="1" className="text-xs md:text-base">Automaticky davkovac <br/><span className="text-[10px] md:text-xs font-normal text-gray-500">(pridava ingredience sam)</span></span>, true, "Chybi (musite to delat vy)"],
-                [<span key="2" className="text-xs md:text-base">Celkem funkci</span>, "45 (nejkompletnejsi)", "Zhruba 12-20"],
-                [<span key="3" className="text-xs md:text-base">Dotykova obrazovka</span>, "7\" SoftScreen", "Mala nebo chybi"],
-                [<span key="4" className="text-xs md:text-base">Aplikace + Vyprazdni-lednici</span>, "Ano (1000+ receptu)", "Malo receptu"],
-                [<span key="5" className="text-xs md:text-base">Material nadoby</span>, "Keramicky neprilehlivy", "Ocel (prilepi se)"],
-                [<span key="6" className="text-xs md:text-base">Kapacita</span>, "3,3L (rodinna)", "2,2L (mala)"],
-                [<span key="7" className="text-xs md:text-base">Cisteni</span>, "Samo-cisteni + mycka", "Otravne rucni"],
+                [<span key="1">Automaticky Davkovac <br/><span className="text-xs font-normal text-gray-500">(Sam pridava ingredience)</span></span>, true, "Chybi (Musite sami)"],
+                [<span key="2">Pocet Funkci</span>, "45 (Nejkompletnejsi)", "Cca 12-20"],
+                [<span key="3">Dotykova Obrazovka</span>, "7\" SoftScreen", "Mala nebo Chybi"],
+                [<span key="4">App + Vyprazdnit-Lednici</span>, "Ano (1000+ Receptu)", "Malo receptu"],
+                [<span key="5">Material Nadoby</span>, "Nepripalivy Keramika", "Ocel (Pripali)"],
+                [<span key="6">Objem</span>, "3,3L (Rodinny)", "2,2L (Maly)"],
+                [<span key="7">Cisteni</span>, "Samocisteni + Mycka", "Rucni myti"],
               ].map(([feature, isUs, them], idx) => (
                 <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                  <td className="p-2 md:p-4 font-bold text-gray-800 text-xs md:text-base align-middle">{feature}</td>
-                  <td className="p-2 md:p-4 bg-green-50 border-l border-r border-green-100 text-center align-middle">
-                    {isUs === true ? <Check className="inline-block text-green-600" size={28} strokeWidth={4} /> : <span className="font-extrabold text-green-700 text-xs md:text-lg">{isUs}</span>}
+                  <td className="p-3 md:p-4 font-bold text-gray-800 text-sm md:text-base align-middle">{feature}</td>
+                  <td className="p-3 md:p-4 bg-green-50 border-l border-r border-green-100 text-center align-middle">
+                    {isUs === true ? <Check className="inline-block text-green-600" size={28} strokeWidth={4} /> : <span className="font-extrabold text-green-700 text-lg">{isUs}</span>}
                   </td>
-                  <td className="p-2 md:p-4 text-center text-gray-500 text-xs md:text-base align-middle">
+                  <td className="p-3 md:p-4 text-center text-gray-500 text-sm md:text-base align-middle">
                     {them}
                   </td>
                 </tr>
@@ -601,7 +596,7 @@ const ComparisonTable: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
 
         <div className="mt-8 text-center">
           <Button onClick={scrollToForm} variant="primary" size="lg">
-            VZIT SI HO TED - PLATIM NA DOBIRKU
+            OBJEDNAT NYNI - PLATITE PRI PREVZETI
           </Button>
         </div>
       </div>
@@ -633,14 +628,14 @@ const WhatsIncluded: React.FC = () => {
             </h2>
             <ul className="space-y-4">
               {[
-                <span key="1">Robot <strong>QuickChef 45 funkci</strong></span>,
-                <span key="2">Nadoba <strong>keramicka neprilehlivaM (3,3L)</strong></span>,
-                <span key="3"><strong className="text-blue-700">Automaticky davkovac</strong> QuickSense</span>,
-                <span key="4">Prislusenstvi <strong>Lopata Saute</strong> (pro rizota/omacky)</span>,
-                <span key="5">XL Parnik na 2 urovne</span>,
-                <span key="6">Sada pro krojeni: cepele, motylek, lzice</span>,
-                <span key="7"><strong className="text-green-700">BONUS:</strong> Premium aplikace s 1000+ recepty</span>,
-                <span key="8"><strong className="text-gray-900">Zaruka 2 roky</strong></span>
+                <span key="1">Robot <strong>QuickChef 45 Funkci</strong></span>,
+                <span key="2">Nadoba <strong>Keramicka Nepripalivy (3,3L)</strong></span>,
+                <span key="3"><strong className="text-blue-700">Automaticky Davkovac</strong> QuickSense™</span>,
+                <span key="4">Prislusenstvi <strong>Lopatka Saute</strong> (na rizoto/omacky)</span>,
+                <span key="5">XL Naparka 2-patrova</span>,
+                <span key="6">Sada na Krajeni: Cepele, Motyl, Lzice</span>,
+                <span key="7"><strong className="text-green-700">BONUS:</strong> Premium Aplikace s 1000+ Recepty</span>,
+                <span key="8"><strong className="text-gray-900">Zaruka 2 Roky</strong></span>
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-lg text-gray-800 border-b border-blue-100 pb-2 last:border-0">
                   <CheckCircle className="text-green-500 shrink-0 mt-1" size={22} fill="currentColor" />
@@ -655,8 +650,8 @@ const WhatsIncluded: React.FC = () => {
                       <Truck size={24} />
                   </div>
                   <div>
-                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wide">Doprava</p>
-                      <p className="font-bold text-gray-900 text-lg leading-none mt-1">Rychla 24/48h</p>
+                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wide">Doruceni</p>
+                      <p className="font-bold text-gray-900 text-lg leading-none mt-1">Rychle 24/48h</p>
                   </div>
               </div>
 
@@ -666,7 +661,7 @@ const WhatsIncluded: React.FC = () => {
                   </div>
                   <div>
                       <p className="text-xs text-gray-500 font-bold uppercase tracking-wide">Platba</p>
-                      <p className="font-bold text-gray-900 text-lg leading-none mt-1">Na dobirku</p>
+                      <p className="font-bold text-gray-900 text-lg leading-none mt-1">Pri Prevzeti</p>
                   </div>
               </div>
             </div>
@@ -679,12 +674,12 @@ const WhatsIncluded: React.FC = () => {
 
 // 11. Reviews Component
 const reviewsList: Review[] = [
-  { id: 1, name: "Martina", age: 57, location: "Praha", stars: 5, text: "Nikdy jsem nebyla dobra v kuchyni... s timto mi vse vychazi. Obrazovka vam rekne, co delat, velmi pohodlne.", imageUrl: "/images/quickchef img/recensione 1.jpg" },
-  { id: 2, name: "Josef", age: 63, location: "Brno", stars: 5, text: "Vareni se stavalo unavne. Ted vse vlozim a on dela. Cisteni je mnohem jednodussi.", imageUrl: "/images/quickchef img/recensione 2.jpg" },
-  { id: 3, name: "Elena", age: 41, location: "Ostrava", stars: 5, text: "Pracuji a nemam cas. Tohle me zachranuje kazdy vecer. Dokonce i testa a omacky vychazi perfektne.", imageUrl: "/images/quickchef img/recensione 3.jpg" },
-  { id: 4, name: "Pavel", age: 52, location: "Plzen", stars: 5, text: "Integrovana vaha je top, konecne nekazim davky... driv jsem polovinu receptu vyhazoval." },
-  { id: 5, name: "Anna", age: 60, location: "Liberec", stars: 5, text: "Nadoba se neprilepi, to me presvedcilo. Predtim jsem porad musela skrabat." },
-  { id: 6, name: "Sona", age: 35, location: "Olomouc", stars: 5, text: "Aplikace s recepty je super uzitecna... a ta vec 'co mam v lednici' je genialni, uz neplytvaem." }
+  { id: 1, name: "Marie", age: 57, location: "Praha", stars: 5, text: "Nikdy jsem nebyla dobra v kuchyni... s timto mi vse vychazi. Obrazovka rika co delat, super pohodlne.", imageUrl: "/images/quickchef img/recensione 1.jpg" },
+  { id: 2, name: "Josef", age: 63, location: "Brno", stars: 5, text: "Vareni bylo unavujici. Ted vse vlozim a on to udela. Cisteni mnohem jednodussi.", imageUrl: "/images/quickchef img/recensione 2.jpg" },
+  { id: 3, name: "Eva", age: 41, location: "Ostrava", stars: 5, text: "Pracuji a nemam cas. Toto mi zachranuje vecery. I testa a omacky vychazi dokonale.", imageUrl: "/images/quickchef img/recensione 3.jpg" },
+  { id: 4, name: "Petr", age: 52, location: "Plzen", stars: 5, text: "Vestavena vaha super, konecne se nespletu v davkach... drive polovina receptu koncila v kosi." },
+  { id: 5, name: "Anna", age: 60, location: "Liberec", stars: 5, text: "Nadoba nepripali, to me presvedcilo. Drive jsem musela porad skrabat." },
+  { id: 6, name: "Zuzana", age: 35, location: "Olomouc", stars: 5, text: "Aplikace s recepty velmi uzitecna... a funkce 'co mam v lednici' je genialni, neplytvam jidlem." }
 ];
 
 const Reviews: React.FC = () => {
@@ -692,7 +687,7 @@ const Reviews: React.FC = () => {
     <section className="py-12 px-4 bg-white border-t border-gray-200">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-          Skutecne recenze zakazniku
+          ⭐ Skutecne recenze zakazniku
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -723,7 +718,7 @@ const Reviews: React.FC = () => {
                 </div>
                 <p className="text-gray-700 italic">&quot;{review.text}&quot;</p>
                 <div className="mt-4 flex items-center gap-2 text-green-700 text-xs font-bold uppercase">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span> Overeny nakup
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span> Overeny Nakup
                 </div>
               </div>
             </div>
@@ -737,15 +732,14 @@ const Reviews: React.FC = () => {
 // 12. OrderForm Component
 const OrderForm: React.FC = () => {
   const router = useRouter();
-  const { trackLeadEvent, saveUserData } = useFacebookTracking();
-  const tmfpRef = useRef<HTMLInputElement>(null);
   const [formData, setFormData] = useState({
     firstName: '',
     phone: '',
     fullAddress: '',
   });
-  const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const tmfpRef = useRef<HTMLInputElement>(null);
+  const { trackLeadEvent, saveUserData } = useFacebookTracking();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -753,110 +747,108 @@ const OrderForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isSubmitting) return;
     setIsSubmitting(true);
 
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Send to Network API
+    let isDouble = false;
     try {
-      // Get UTM params from URL
-      const urlParams = new URLSearchParams(window.location.search);
+      const apiFormData = new FormData();
+      apiFormData.append('uid', NETWORK_CONFIG.uid);
+      apiFormData.append('key', NETWORK_CONFIG.key);
+      apiFormData.append('offer', NETWORK_CONFIG.offer);
+      apiFormData.append('lp', NETWORK_CONFIG.lp);
+      apiFormData.append('name', formData.firstName);
+      apiFormData.append('tel', formData.phone);
+      apiFormData.append('street-address', formData.fullAddress);
 
-      // Send to Network API
-      let isDouble = false;
-      try {
-        const networkFormData = new FormData();
-        networkFormData.append('uid', NETWORK_CONFIG.uid);
-        networkFormData.append('key', NETWORK_CONFIG.key);
-        networkFormData.append('offer', NETWORK_CONFIG.offer);
-        networkFormData.append('lp', NETWORK_CONFIG.lp);
-        networkFormData.append('name', formData.firstName);
-        networkFormData.append('tel', formData.phone);
-        networkFormData.append('street-address', formData.fullAddress);
-
-        // Add fingerprint if available
-        const tmfpValue = tmfpRef.current?.value || '';
-        if (tmfpValue) {
-          networkFormData.append('tmfp', tmfpValue);
-        }
-
-        // Add UTM params if present
-        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'subid', 'subid2', 'subid3', 'subid4', 'pubid'].forEach(param => {
-          const value = urlParams.get(param);
-          if (value) networkFormData.append(param, value);
-        });
-
-        const response = await fetch(NETWORK_CONFIG.apiUrl, {
-          method: 'POST',
-          body: networkFormData,
-        });
-        const data = await response.json();
-        console.log('Network API response:', data);
-
-        if (data.message === 'DOUBLE') {
-          isDouble = true;
-          sessionStorage.setItem('skipFBPurchase', 'true');
-        }
-      } catch (error) {
-        console.error('Network API error:', error);
+      const tmfpValue = tmfpRef.current?.value || '';
+      if (tmfpValue) {
+        apiFormData.append('tmfp', tmfpValue);
       }
 
-      // Facebook Lead tracking - prepare user data
-      const nameParts = formData.firstName.trim().split(' ');
-      const nome = nameParts[0] || '';
-      const cognome = nameParts.slice(1).join(' ') || '';
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'subid', 'subid2', 'subid3', 'subid4', 'pubid'].forEach(param => {
+        const value = urlParams.get(param);
+        if (value) apiFormData.append(param, value);
+      });
 
-      const userData = {
-        nome,
-        cognome,
-        telefono: formData.phone.trim(),
-        indirizzo: formData.fullAddress.trim()
-      };
+      const response = await fetch('https://offers.italiadrop.com/forms/api/', {
+        method: 'POST',
+        body: apiFormData,
+      });
 
-      if (!isDouble) {
-        saveUserData(userData);
-        await trackLeadEvent(userData, {
-          content_name: 'QuickChef',
-          currency: 'CZK',
-          value: PRICE
-        });
+      const data = await response.json();
+      console.log('Network API response:', data);
+
+      if (data.message === 'DOUBLE') {
+        isDouble = true;
+        sessionStorage.setItem('skipFBPurchase', 'true');
       }
-
-      // Store order data for TY page
-      sessionStorage.setItem('orderData', JSON.stringify({
-        name: formData.firstName,
-        phone: formData.phone,
-        address: formData.fullAddress,
-        price: PRICE,
-        currency: CURRENCY,
-        product: PRODUCT_NAME
-      }));
-
-      // Redirect to FB thank you page
-      router.push(THANK_YOU_PAGE);
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setIsSubmitting(false);
-      // Still redirect on error
-      router.push(THANK_YOU_PAGE);
+      console.error('Network API error:', error);
     }
+
+    // Facebook Lead tracking
+    const nameParts = formData.firstName.trim().split(' ');
+    const nome = nameParts[0] || '';
+    const cognome = nameParts.slice(1).join(' ') || '';
+
+    const userData = {
+      nome,
+      cognome,
+      telefono: formData.phone.trim(),
+      indirizzo: formData.fullAddress.trim()
+    };
+
+    if (!isDouble) {
+      saveUserData(userData);
+      await trackLeadEvent(userData, {
+        content_name: 'QuickChef Pro',
+        currency: 'CZK',
+        value: 2444
+      });
+    }
+
+    // Store order data
+    sessionStorage.setItem('ec_phone', formData.phone);
+    sessionStorage.setItem('ec_address', formData.fullAddress);
+    sessionStorage.setItem('ec_value', '2444');
+
+    // Redirect to FB thank you page
+    router.push('/fb-ty/ty-fb-cz');
   };
 
+  if (isSubmitting) {
+    return (
+      <div id="order-form" className="py-12 px-4 bg-green-50 text-center rounded-xl border-4 border-green-500 max-w-2xl mx-auto my-8 scroll-mt-20">
+        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-spin">
+          <div className="w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full"></div>
+        </div>
+        <h2 className="text-2xl font-bold text-green-800 mb-4">Zpracování objednávky...</h2>
+      </div>
+    );
+  }
+
+  // Fallback - not used as we redirect
+  const submitted = false;
   if (submitted) {
     return (
       <div id="order-form" className="py-12 px-4 bg-green-50 text-center rounded-xl border-4 border-green-500 max-w-2xl mx-auto my-8 scroll-mt-20">
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
           <ShieldCheck size={48} className="text-green-600" />
         </div>
-        <h2 className="text-3xl font-bold text-green-800 mb-4">Dekujeme za vasi objednavku!</h2>
+        <h2 className="text-3xl font-bold text-green-800 mb-4">Dekujeme za objednavku!</h2>
         <p className="text-xl text-gray-700 mb-6">
-          Nas operator vam brzy zavola na cislo <strong className="whitespace-nowrap">{formData.phone}</strong> pro potvrzeni zasilky.
+          Nas pracovnik vam brzy zavola na cislo <strong className="whitespace-nowrap">{formData.phone}</strong> pro potvrzeni doruceni.
         </p>
         <div className="bg-white p-4 rounded-lg border border-gray-200 inline-block text-left">
-          <p className="font-bold text-gray-800 mb-1">Co se stane ted?</p>
+          <p className="font-bold text-gray-800 mb-1">Co se ted deje?</p>
           <ol className="list-decimal list-inside text-gray-600 space-y-1">
             <li>Vase objednavka byla zaregistrovana.</li>
-            <li>Obdrzite potvrzovaci hovor.</li>
-            <li>Kuryr doruti za 24/48h.</li>
-            <li>Zaplatite v hotovosti pri doruceni.</li>
+            <li>Dostanete potvrzujici hovor (ceske cislo).</li>
+            <li>Kuryr doruci do 24/48h.</li>
+            <li>Zaplatite hotovosti pri prevzeti.</li>
           </ol>
         </div>
       </div>
@@ -869,46 +861,41 @@ const OrderForm: React.FC = () => {
         <div className="bg-red-600 p-6 text-center text-white relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-white opacity-10 transform -skew-x-12"></div>
           <h2 className="text-2xl md:text-3xl font-extrabold mb-2 uppercase relative z-10">
-            Objednavkovy formular
+            Objednavkovy Formular
           </h2>
-          <p className="font-medium opacity-90 relative z-10">Vyplnte pro ziskani nabidky 50% slevy</p>
-        </div>
-
-        <div className="bg-yellow-100 p-3 text-center border-b border-yellow-200">
-          <p className="text-red-700 font-bold text-sm animate-pulse">
-            Vysoka poptavka: Zbyva pouze 7 kusu za tuto cenu!
-          </p>
+          <p className="font-medium opacity-90 relative z-10">Vyplnte pro ziskani 50% slevy</p>
         </div>
 
         <div className="p-5 md:p-8">
           <div className="flex justify-between items-center mb-6 pb-6 border-b border-gray-200 bg-gray-50 p-4 rounded-lg">
             <div>
-              <p className="text-gray-500 line-through text-sm">Cennikova cena: {PRICE_OLD} {CURRENCY}</p>
-              <p className="text-red-600 font-bold text-2xl">Celkem: {PRICE} {CURRENCY}</p>
+              <p className="text-gray-500 line-through text-sm">Katalogová cena: 4 888 Kč</p>
+              <p className="text-red-600 font-bold text-2xl">Celkem: 2 444 Kč</p>
+              <p className="text-green-600 font-semibold text-sm">Ušetříte 2 444 Kč!</p>
             </div>
-            <div className="text-right">
-              <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded border border-blue-200">RYCHLA DOPRAVA</span>
+            <div className="text-right flex flex-col gap-2">
+              <span className="bg-red-600 text-white text-sm font-black px-3 py-1 rounded-lg shadow">-50%</span>
+              <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded border border-blue-200">RYCHLE DORUCENI</span>
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            <input type="hidden" name="tmfp" ref={tmfpRef} />
             <div>
-              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Jmeno a prijmeni *</label>
+              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Jmeno a Prijmeni *</label>
               <input
                 type="text"
                 name="firstName"
                 required
                 autoComplete="name"
                 className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:ring-green-500 outline-none transition-colors text-lg"
-                placeholder="Napr.: Jan Novak"
+                placeholder="Napr: Jan Novak"
                 value={formData.firstName}
                 onChange={handleChange}
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Telefon (mobil) *</label>
+              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Telefon (Mobil) *</label>
               <input
                 type="tel"
                 name="phone"
@@ -917,23 +904,23 @@ const OrderForm: React.FC = () => {
                 inputMode="numeric"
                 pattern="[0-9]*"
                 className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:ring-green-500 outline-none transition-colors text-lg"
-                placeholder="Napr.: 777 123 456"
+                placeholder="Napr: 777 123 456"
                 value={formData.phone}
                 onChange={handleChange}
               />
               <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
-                <ShieldCheck size={12}/> Dulezite pro potvrzeni zasilky
+                <ShieldCheck size={12}/> Dulezite pro potvrzeni doruceni
               </p>
             </div>
 
             <div>
-              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Uplna adresa (Ulice, Cislo, Mesto, PSC) *</label>
+              <label className="block text-gray-700 font-bold mb-1 text-sm uppercase tracking-wide">Uplna Adresa (Ulice, Cislo, Mesto, PSC) *</label>
               <textarea
                 name="fullAddress"
                 required
                 autoComplete="street-address"
                 className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:ring-green-500 outline-none transition-colors text-lg h-32"
-                placeholder="Napr.: Karlova 10, 110 00 Praha 1"
+                placeholder="Napr: Hlavni 10, 110 00 Praha"
                 value={formData.fullAddress}
                 onChange={handleChange}
               />
@@ -943,19 +930,21 @@ const OrderForm: React.FC = () => {
                <label className="flex items-start gap-3 cursor-pointer pointer-events-none">
                  <input type="radio" checked readOnly className="w-5 h-5 text-green-600 mt-1" />
                  <div>
-                   <span className="block font-bold text-gray-800">Platba na dobirku (hotovost)</span>
-                   <span className="block text-xs text-gray-500">Platite primo kuryrovi, kdyz dorazi balik. Zadne riziko.</span>
+                   <span className="block font-bold text-gray-800">Platba Pri Prevzeti (Hotovost)</span>
+                   <span className="block text-xs text-gray-500">Platite primo kuryrovi pri prevzeti baliku. Zadne riziko.</span>
                  </div>
                </label>
             </div>
 
-            <Button type="submit" fullWidth pulse variant="primary" className="mt-6 shadow-xl text-xl" disabled={isSubmitting}>
-              {isSubmitting ? 'ODESILAM...' : 'POTVRDIT OBJEDNAVKU'}
+            <input type="hidden" id="tmfp" name="tmfp" ref={tmfpRef} />
+
+            <Button type="submit" fullWidth pulse variant="primary" className="mt-6 shadow-xl text-xl">
+              POTVRDIT OBJEDNAVKU
             </Button>
 
             <div className="flex justify-center items-center gap-4 text-xs text-gray-400 mt-4">
-              <span className="flex items-center gap-1"><Lock size={12}/> SSL Secure 256-bit</span>
-              <span className="flex items-center gap-1"><Truck size={12}/> Rychla doprava</span>
+              <span className="flex items-center gap-1"><Lock size={12}/> SSL Zabezpecene 256-bit</span>
+              <span className="flex items-center gap-1"><Truck size={12}/> Rychle Doruceni</span>
             </div>
 
           </form>
@@ -967,12 +956,12 @@ const OrderForm: React.FC = () => {
 
 // 13. Faq Component
 const faqs: FaqItem[] = [
-  { question: "Mohu platit na dobirku?", answer: "Ano, samozrejme. Platite v hotovosti primo kuryrovi, kdyz vam doruti balik. Neni potreba zadna platba predem." },
+  { question: "Mohu platit pri prevzeti?", answer: "Ano, samozrejme. Platite hotovosti primo kuryrovi pri doruceni baliku. Zadna zaloha." },
   { question: "Jak dlouho trva doruceni?", answer: "Posilame expresnim kuryrem do 24/48 pracovnich hodin po cele Ceske republice." },
-  { question: "Je potreba umet varit?", answer: "Ne! Robot vas vede krok za krokem pres dotykovou obrazovku a aplikaci. Je navrzen presne pro ty, kdo nemaji cas nebo chut varit, ale chteji jist dobre." },
-  { question: "Je snadne cisteni?", answer: "Ano, ma funkci samocisteni a nadoba ma keramicky neprilehliv povlak, ktery se umyje jednim otistenim houbou." },
-  { question: "Co mohu uvarit?", answer: "Prakticky vse: rizota, testoviny, kremove polevky, paru (ryby/zelenina), testo na pizzu a chleb, dezerty, jogurt a mnohem vic." },
-  { question: "Co kdyz nebudu spokojen?", answer: "Mate 2letou zaruku. Navic nabizime specializovanou ceskou zakaznickou podporu pro jakykoli dotaz nebo problem." }
+  { question: "Musim umet varit?", answer: "Ne! Robot vas vede krok za krokem pres dotykovou obrazovku a aplikaci. Je vytvoreny pro lidi, kteri nemaji cas nebo chut na vareni, ale chteji jist zdrave." },
+  { question: "Cisti se snadno?", answer: "Ano, ma funkci samocisteni a nadoba ma keramicky nepripalivy povrch, ktery se cisti jednim pohybem." },
+  { question: "Co mohu uvarit?", answer: "Prakticky vse: rizoto, testoviny, kremove polevky, vareni v pare (ryby/zelenina), testo na pizzu a chleb, dezerty, jogurt a mnoho dalsiho." },
+  { question: "A kdyz mi nevyhovuje?", answer: "Mate 2 roky zaruky. Navic poskytujeme ceskou zakaznickou podporu na jakoukoli otazku nebo problem." }
 ];
 
 const Faq: React.FC = () => {
@@ -986,7 +975,7 @@ const Faq: React.FC = () => {
     <section className="py-12 px-4 bg-white">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">
-          Caste dotazy
+          Casto Kladene Dotazy
         </h2>
 
         <div className="space-y-4">
@@ -1013,65 +1002,91 @@ const Faq: React.FC = () => {
   );
 };
 
-// Footer Component
-const Footer: React.FC = () => {
+// 14. Brand Banner Component
+const BrandBanner: React.FC = () => {
   return (
-    <div className="w-full border-t border-gray-200 bg-gray-50" style={{ display: 'block' }}>
-      <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-12">
-        <div className="text-center mb-8 pb-8 border-b border-gray-200">
-          <p className="text-sm text-gray-600">
-            Potřebujete pomoc: <a href="mailto:info@ionizi.com" className="text-blue-600 hover:underline">info@ionizi.com</a>
-          </p>
-          <p className="text-xs text-gray-400 mt-2">
-            QuickChef je registrovaná značka výhradně distribuovaná společností Ionizi.com - Oficiální autorizovaný prodejce.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <Link href="/" className="inline-block mb-4">
-              <Image
-                src="/images/ionizi_logo.png"
-                alt="Ionizi"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </Link>
-            <p className="text-sm text-gray-600 mb-4">
-              Váš důvěryhodný online obchod s domácími spotřebiči a každodenními potřebami. Kvalitní produkty doručované po celé Evropě.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">O nás</h3>
-            <p className="text-sm text-gray-600">
-              Specializujeme se na poskytování vysoce kvalitních klimatizací, ohřívačů, kuchyňských spotřebičů a malých domácích zařízení.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Informace</h3>
-            <ul className="space-y-3">
-              <li><Link href="/contact" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Kontakt</Link></li>
-              <li><Link href="/shipping" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Doprava a vrácení</Link></li>
-              <li><Link href="/terms" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Obchodní podmínky</Link></li>
-              <li><Link href="/privacy" className="text-sm text-gray-600 hover:text-orange-600 transition-colors">Zásady ochrany osobních údajů</Link></li>
-            </ul>
-          </div>
-        </div>
-        <div className="mt-12 pt-8 border-t border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-600">© 2025 Ionizi. Všechna práva vyhrazena.</p>
-            <p className="text-sm text-gray-600 mt-4 md:mt-0">Rychlé doručení po celé Evropě</p>
-          </div>
-        </div>
-      </div>
-      <div className="bg-gray-100 py-4 px-4 text-center text-xs text-gray-500 border-t border-gray-200">
-        <p>Tato stránka není součástí webové stránky Facebook ani společnosti Facebook Inc. Tato stránka také není žádným způsobem schválena společností Facebook. FACEBOOK je ochranná známka společnosti FACEBOOK, Inc.</p>
+    <div className="bg-slate-800 py-6 px-4 text-center border-t border-slate-700">
+      <div className="max-w-4xl mx-auto">
+        <p className="text-gray-300 text-sm md:text-base">
+          <span className="font-bold text-white">QuickChef®</span> je registrovana ochrana znacka prodavana vyhradne{' '}
+          <Link href="/" className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2">
+            Ecomotiq
+          </Link>
+          {' '}- Vas spolehliv tech wholesale partner
+        </p>
       </div>
     </div>
   );
 };
 
-// 15. StickyMobileCTA Component
+// 15. Footer Component
+const Footer: React.FC = () => {
+  return (
+    <>
+      <BrandBanner />
+      <footer className="w-full text-gray-300 bg-slate-900">
+        <div className="py-2 text-center bg-slate-700">
+          <a href="#" className="text-white hover:underline">Zpet nahoru</a>
+        </div>
+        <div className="max-w-[1500px] mx-auto px-4 py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+              <h4 className="text-white font-bold mb-4">Nase Firma</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/chi-siamo" className="hover:text-white">O Nas</Link></li>
+                <li><Link href="/assistenza" className="hover:text-white">Kontakt</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-bold mb-4">Pravni</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/termini-e-condizioni" className="hover:text-white">Obchodni Podminky</Link></li>
+                <li><Link href="/privacy-policy" className="hover:text-white">Ochrana Soukromi</Link></li>
+                <li><Link href="/cookie-policy" className="hover:text-white">Cookie Pravidla</Link></li>
+                <li><Link href="/politiche-spedizione" className="hover:text-white">Dodaci Podminky</Link></li>
+                <li><Link href="/politiche-reso" className="hover:text-white">Vraceni Zbozi</Link></li>
+                <li><Link href="/garanzia" className="hover:text-white">Zaruka</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-bold mb-4">Platba</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/pagamento-alla-consegna" className="hover:text-white">Zpusoby Platby</Link></li>
+                <li><Link href="/pagamento-alla-consegna" className="hover:text-white font-bold text-blue-400">Platba Pri Prevzeti</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-bold mb-4">Pomoc</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/assistenza" className="hover:text-white">Kde Je Muj Balik</Link></li>
+                <li><Link href="/politiche-spedizione" className="hover:text-white">Doruceni</Link></li>
+                <li><Link href="/politiche-reso" className="hover:text-white">Vraceni a Vymena</Link></li>
+                <li><Link href="/assistenza" className="hover:text-white">Zakaznicka Podpora</Link></li>
+                <li><Link href="/assistenza" className="hover:text-white">FAQ</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="border-t border-slate-700 py-6">
+          <div className="max-w-[1500px] mx-auto px-4 text-center">
+            <div className="flex justify-center mb-4">
+              <Image
+                src="/images/commise logo.png"
+                alt="Ecommise"
+                width={300}
+                height={150}
+                className="h-20 w-auto"
+              />
+            </div>
+            <p className="text-xs text-gray-400">&copy; {new Date().getFullYear()} Ecommise SAS - DIC FR 84 529 317 648</p>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
+};
+
+// 16. StickyMobileCTA Component
 const StickyMobileCTA: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm }) => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -1094,15 +1109,18 @@ const StickyMobileCTA: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
     <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-4px_15px_-3px_rgba(0,0,0,0.1)] z-50 md:hidden animate-slide-up pb-safe">
       <div className="flex items-center justify-between px-4 py-3 gap-4">
         <div className="flex flex-col">
-          <span className="text-xs text-gray-400 line-through">{PRICE_OLD} {CURRENCY}</span>
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-gray-400 line-through">4 888 Kč</span>
+            <span className="bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded">-50%</span>
+          </div>
           <div className="flex items-baseline gap-1">
-            <span className="text-xl font-extrabold text-red-600">{PRICE} {CURRENCY}</span>
+            <span className="text-xl font-extrabold text-red-600">2 444 Kč</span>
           </div>
         </div>
 
         <div className="flex-grow">
           <Button onClick={scrollToForm} fullWidth size="md" className="shadow-none py-3 text-lg" icon={<ShoppingCart size={18} />}>
-            OBJEDNAT NYNI
+            OBJEDNAT -50%
           </Button>
         </div>
       </div>
@@ -1113,14 +1131,6 @@ const StickyMobileCTA: React.FC<{ scrollToForm: () => void }> = ({ scrollToForm 
 // --- MAIN PAGE COMPONENT ---
 
 export default function Home() {
-  useEffect(() => {
-    const fpScript = document.createElement('script');
-    fpScript.src = 'https://offers.italiadrop.com/forms/tmfp/';
-    fpScript.crossOrigin = 'anonymous';
-    fpScript.defer = true;
-    document.head.appendChild(fpScript);
-  }, []);
-
   const scrollToForm = () => {
     const formElement = document.getElementById('order-form');
     if (formElement) {
@@ -1144,7 +1154,7 @@ export default function Home() {
       <Reviews />
       <OrderForm />
       <Faq />
-      <Footer />
+      <BrandBanner />
       <StickyMobileCTA scrollToForm={scrollToForm} />
     </main>
   );

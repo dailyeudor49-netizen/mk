@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Truck, Banknote } from 'lucide-react';
 import { CountdownTimer } from './CountdownTimer';
 import { PRICE_PROMO, PRODUCT_NAME, CURRENCY, SHIPPING_COST } from '../constants';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { validateForm } from '@/app/utils/formValidation';
 
 // Network config for LithiumPro PL
 const NETWORK_CONFIG = {
@@ -16,6 +17,7 @@ const NETWORK_CONFIG = {
 
 export const OrderForm: React.FC = () => {
   const { trackLeadEvent, saveUserData } = useFacebookTracking();
+  const pageLoadTime = useRef(Date.now());
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -50,8 +52,16 @@ export const OrderForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.phone || !formData.address) {
-      alert("Proszę wypełnić wszystkie wymagane pola");
+    const validation = validateForm({
+      name: formData.name,
+      phone: formData.phone,
+      address: formData.address,
+      countryCode: 'PL',
+      productKey: 'lithiumpro_pl',
+      pageLoadTime: pageLoadTime.current,
+    });
+    if (!validation.isValid) {
+      alert(validation.error);
       return;
     }
 

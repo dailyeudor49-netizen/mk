@@ -9,6 +9,7 @@ import {
   ArrowRight, Package, Quote, Star, HelpCircle, ChevronDown, Lock
 } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { validateForm } from '@/app/utils/formValidation';
 
 // --- TYPES ---
 type BedSize = 'Egyszemélyes' | 'Másfél' | 'Dupla' | 'King';
@@ -640,6 +641,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ selectedSize, onSelectSize }) => 
   const [formData, setFormData] = useState({ name: '', fullAddress: '', phone: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const tmfpRef = useRef<HTMLInputElement>(null);
+  const pageLoadTime = useRef(Date.now());
 
   const sizesMap: Record<BedSize, string> = {
     'Egyszemélyes': '80x190',
@@ -668,10 +670,20 @@ const OrderForm: React.FC<OrderFormProps> = ({ selectedSize, onSelectSize }) => 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.fullAddress) {
-      alert('Kérjük, töltse ki az összes kötelező mezőt');
+
+    const validation = validateForm({
+      name: formData.name,
+      phone: formData.phone,
+      address: formData.fullAddress,
+      countryCode: 'HU',
+      productKey: 'ortopper_hu',
+      pageLoadTime: pageLoadTime.current,
+    });
+    if (!validation.isValid) {
+      alert(validation.error);
       return;
     }
+
     setIsSubmitting(true);
 
     // Get UTM params from URL

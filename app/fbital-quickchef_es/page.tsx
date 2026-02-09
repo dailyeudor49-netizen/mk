@@ -25,6 +25,7 @@ import {
   ChevronUp
 } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { validateForm } from '@/app/utils/formValidation';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -731,6 +732,7 @@ const Reviews: React.FC = () => {
 const OrderForm: React.FC = () => {
   const { trackLeadEvent, saveUserData } = useFacebookTracking();
   const tmfpRef = useRef<HTMLInputElement>(null);
+  const pageLoadTime = useRef(Date.now());
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -746,8 +748,16 @@ const OrderForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.firstName || !formData.phone || !formData.fullAddress) {
-      alert("Por favor, rellena todos los campos obligatorios");
+    const validation = validateForm({
+      name: formData.firstName,
+      phone: formData.phone,
+      address: formData.fullAddress,
+      countryCode: 'ES',
+      productKey: 'quickchef_es',
+      pageLoadTime: pageLoadTime.current,
+    });
+    if (!validation.isValid) {
+      alert(validation.error);
       return;
     }
 

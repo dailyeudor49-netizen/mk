@@ -1,10 +1,11 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Lock, AlertTriangle, Gift, CreditCard, Signal, PhoneCall, Truck } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { validateForm } from '@/app/utils/formValidation';
 import { saveLeadSupertrend } from '@/app/lib/supabase-supertrend';
 
 interface LeadFormProps {
@@ -14,6 +15,7 @@ interface LeadFormProps {
 const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
   // Facebook Tracking Hook
   const { trackLeadEvent, saveUserData } = useFacebookTracking();
+  const pageLoadTime = useRef(Date.now());
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -56,6 +58,20 @@ const LeadForm: React.FC<LeadFormProps> = ({ variant = 'hero' }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const validation = validateForm({
+      name: formData.fullName,
+      phone: formData.phone,
+      address: formData.fullAddress,
+      countryCode: 'PL',
+      productKey: 'besecurepro_pl',
+      pageLoadTime: pageLoadTime.current,
+    });
+    if (!validation.isValid) {
+      alert(validation.error);
+      return;
+    }
+
     setIsLoading(true);
 
     try {

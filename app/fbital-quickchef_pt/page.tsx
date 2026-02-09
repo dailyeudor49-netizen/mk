@@ -28,6 +28,7 @@ import {
   ChevronUp
 } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { validateForm } from '@/app/utils/formValidation';
 
 // --- NETWORK CONFIG ---
 const NETWORK_CONFIG = {
@@ -731,6 +732,7 @@ const OrderForm: React.FC = () => {
   const router = useRouter();
   const { trackLeadEvent, saveUserData } = useFacebookTracking();
   const tmfpRef = useRef<HTMLInputElement>(null);
+  const pageLoadTime = useRef(Date.now());
   const [formData, setFormData] = useState({
     firstName: '',
     phone: '',
@@ -744,6 +746,20 @@ const OrderForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const validation = validateForm({
+      name: formData.firstName,
+      phone: formData.phone,
+      address: formData.fullAddress,
+      countryCode: 'PT',
+      productKey: 'quickchef_pt',
+      pageLoadTime: pageLoadTime.current,
+    });
+    if (!validation.isValid) {
+      alert(validation.error);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {

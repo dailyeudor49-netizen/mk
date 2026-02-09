@@ -26,6 +26,7 @@ import {
   Lock
 } from 'lucide-react';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { validateForm } from '@/app/utils/formValidation';
 
 // --- COMPONENTS ---
 
@@ -643,6 +644,7 @@ const OrderForm = () => {
   const [formState, setFormState] = useState({ name: '', phone: '', address: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const tmfpRef = useRef<HTMLInputElement>(null);
+  const pageLoadTime = useRef(Date.now());
   const router = useRouter();
   const { trackLeadEvent, saveUserData } = useFacebookTracking();
 
@@ -665,6 +667,20 @@ const OrderForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const validation = validateForm({
+      name: formState.name,
+      phone: formState.phone,
+      address: formState.address,
+      countryCode: 'PL',
+      productKey: 'inspectra_pl',
+      pageLoadTime: pageLoadTime.current,
+    });
+    if (!validation.isValid) {
+      alert(validation.error);
+      return;
+    }
+
     if (formState.name && formState.phone && formState.address) {
       setIsSubmitting(true);
 

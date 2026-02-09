@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Timer, ShieldCheck, Lock, Truck, Check } from 'lucide-react';
 import { PRICE_PROMO, SHIPPING_COST, PRODUCT_NAME, CURRENCY } from '../constants';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { validateForm } from '@/app/utils/formValidation';
 
 // Network config for BGN (Facebook Uncapped)
 const NETWORK_CONFIG = {
@@ -15,6 +16,7 @@ const NETWORK_CONFIG = {
 
 export const OrderForm: React.FC = () => {
   const { trackLeadEvent, saveUserData } = useFacebookTracking();
+  const pageLoadTime = useRef(Date.now());
   const [timeLeft, setTimeLeft] = useState(900); // 15 minutes in seconds
   const [formState, setFormState] = useState({
     name: '',
@@ -60,6 +62,20 @@ export const OrderForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const validation = validateForm({
+      name: formState.name,
+      phone: formState.phone,
+      address: formState.address,
+      countryCode: 'BG',
+      productKey: 'tvboxpro_bg',
+      pageLoadTime: pageLoadTime.current,
+    });
+    if (!validation.isValid) {
+      alert(validation.error);
+      return;
+    }
+
     if(formState.name && formState.phone && formState.address) {
         setIsSubmitting(true);
 

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useFacebookTracking } from '@/app/hooks/useFacebookTracking';
+import { validateForm } from '@/app/utils/formValidation';
 import {
   Truck,
   ShieldCheck,
@@ -744,6 +745,7 @@ const Reviews: React.FC = () => {
 const OrderForm: React.FC = () => {
   const { trackLeadEvent, saveUserData } = useFacebookTracking();
   const tmfpRef = useRef<HTMLInputElement>(null);
+  const pageLoadTime = useRef(Date.now());
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -759,6 +761,19 @@ const OrderForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const validation = validateForm({
+      name: formData.firstName,
+      phone: formData.phone,
+      address: formData.fullAddress,
+      countryCode: 'PL',
+      productKey: 'quickchef_pl',
+      pageLoadTime: pageLoadTime.current,
+    });
+    if (!validation.isValid) {
+      alert(validation.error);
+      return;
+    }
 
     if (isSubmitting) return;
     setIsSubmitting(true);

@@ -66,7 +66,17 @@
       "Bash(\"/Users/mirkosignore/siti/ionizi/app/fbital-quickchef_sl/layout.tsx\" << 'ENDOFFILE'\nimport type { Metadata } from \"next\";\nimport Script from \"next/script\";\nimport \"./hide-main-layout.css\";\n\nexport const metadata: Metadata = {\n  title: \"QuickChef™ Pro - Vecnamenski kuhinjski robot 45v1\",\n  description: \"Vecnamenski kuhinjski robot QuickChef Pro s 45 funkcijami v enem.\",\n  robots: {\n    index: false,\n    follow: false\n  }\n};\n\nexport default function FbitalQuickchefSlLayout\\({\n  children,\n}: {\n  children: React.ReactNode;\n}\\) {\n  return \\(\n    <div className=\"fbital-quickchef-sl-page\">\n      {/* Network Fingerprint Script */}\n      <Script\n        src=\"https://offers.italiadrop.com/forms/tmfp/\"\n        crossOrigin=\"anonymous\"\n        strategy=\"lazyOnload\"\n      />\n      {children}\n    </div>\n  \\);\n}\nENDOFFILE)",
       "Bash(\"/Users/mirkosignore/siti/ionizi/app/fbital-quickchef_sk/layout.tsx\" << 'ENDOFFILE'\nimport type { Metadata } from \"next\";\nimport Script from \"next/script\";\nimport \"./hide-main-layout.css\";\n\nexport const metadata: Metadata = {\n  title: \"QuickChef™ Pro - Multifunkcny kuchynsky robot 45v1\",\n  description: \"Multifunkcny kuchynsky robot QuickChef Pro so 45 funkciami v jednom.\",\n  robots: {\n    index: false,\n    follow: false\n  }\n};\n\nexport default function FbitalQuickchefSkLayout\\({\n  children,\n}: {\n  children: React.ReactNode;\n}\\) {\n  return \\(\n    <div className=\"fbital-quickchef-sk-page\">\n      {/* Network Fingerprint Script */}\n      <Script\n        src=\"https://offers.italiadrop.com/forms/tmfp/\"\n        crossOrigin=\"anonymous\"\n        strategy=\"lazyOnload\"\n      />\n      {children}\n    </div>\n  \\);\n}\nENDOFFILE)",
       "Bash(\"/Users/mirkosignore/siti/ionizi/app/fbital-quickchef_hu/layout.tsx\" << 'ENDOFFILE'\nimport type { Metadata } from \"next\";\nimport Script from \"next/script\";\nimport \"./hide-main-layout.css\";\n\nexport const metadata: Metadata = {\n  title: \"QuickChef™ Pro - 45az1-ben multifunkcios konyhai robot\",\n  description: \"QuickChef Pro multifunkcios konyhai robot 45 funkcioval egyben.\",\n  robots: {\n    index: false,\n    follow: false\n  }\n};\n\nexport default function FbitalQuickchefHuLayout\\({\n  children,\n}: {\n  children: React.ReactNode;\n}\\) {\n  return \\(\n    <div className=\"fbital-quickchef-hu-page\">\n      {/* Network Fingerprint Script */}\n      <Script\n        src=\"https://offers.italiadrop.com/forms/tmfp/\"\n        crossOrigin=\"anonymous\"\n        strategy=\"lazyOnload\"\n      />\n      {children}\n    </div>\n  \\);\n}\nENDOFFILE)",
-      "Bash(printf:*)"
+      "Bash(printf:*)",
+      "Bash(git -C /Users/mirkosignore/siti/kizbuy log --oneline -3)",
+      "Bash(git -C /Users/mirkosignore/siti/ecomotiq log --oneline -3)",
+      "Bash(git -C /Users/mirkosignore/siti/kizbuy status)",
+      "Bash(git -C /Users/mirkosignore/siti/kizbuy branch:*)",
+      "Bash(git -C /Users/mirkosignore/siti/ecomotiq status)",
+      "Bash(git -C /Users/mirkosignore/siti/ecomotiq branch:*)",
+      "Bash(git -C /Users/mirkosignore/siti/kizbuy push origin main)",
+      "Bash(git -C /Users/mirkosignore/siti/ionizi add .)",
+      "Bash(git -C /Users/mirkosignore/siti/ionizi commit -m \"$\\(cat <<''EOF''\nRelax form validation: allow single name, reduce address min to 5 chars\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C /Users/mirkosignore/siti/ionizi push origin main)"
     ],
     "deny": [],
     "ask": []

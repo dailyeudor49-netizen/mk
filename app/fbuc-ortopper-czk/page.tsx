@@ -38,8 +38,8 @@ interface OrderFormProps {
 }
 
 // --- CONSTANTS ---
-const PRICE = 1699;
-const PRICE_OLD = 3398; // -50%
+const PRICE = 2099;
+const PRICE_OLD = 4198; // -50%
 const CURRENCY = 'Kc';
 const PRODUCT_NAME = 'Ortopedicky Topper';
 const THANK_YOU_PAGE = '/fb-ty/ty-fb-cz';
@@ -602,7 +602,7 @@ const Reviews: React.FC = () => {
     { id: 3, name: "Tomas B.", city: "Ostrava", text: "Pracuji ve skladu a vecer mam zada v trosakch. Tento topper me doslova omladil. Citite, jak se pater protahuje, kdyz si lehnete. Velmi rychla doprava.", rating: 5, image: "/images/ortopper-img/recensione-1.jpg" },
     { id: 4, name: "Katerina M.", city: "Plzen", text: "Byla jsem skepticka k 'masaznimu' efektu, ale je to pravda. Mam problemy s obehem v nohou a probouzim se mnohem mene otekla. Vlnity povrch propousti vzduch.", rating: 5 },
     { id: 5, name: "Dr. Stefan N.", city: "Liberec", text: "Koupil jsem ho pro mou starsi mamu, ktera travi hodne casu v posteli. Skvely pro prevenci prolezenin a tlakovych bolesti. Tkanina je svezi a hygienicka. Doporucuji.", rating: 5 },
-    { id: 6, name: "Barbora S.", city: "Hradec Kralove", text: "Moje matrace se stala jednou velkou dirou. Probouzela jsem se s bolesti ledvin. Za 1699 Kc jsem se vyhnula vydaji 15000 Kc. Ted je pater rovna a spim 8 hodin bez preruseni.", rating: 4 },
+    { id: 6, name: "Barbora S.", city: "Hradec Kralove", text: "Moje matrace se stala jednou velkou dirou. Probouzela jsem se s bolesti ledvin. Za 2099 Kc jsem se vyhnula vydaji 15000 Kc. Ted je pater rovna a spim 8 hodin bez preruseni.", rating: 4 },
   ];
 
   return (
